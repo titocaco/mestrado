@@ -1,0 +1,77 @@
+\chapter{Redes Neurais Artificiais}
+\label{cha:ann}
+
+
+A história de \textbf{Redes Neurais Artificiais} começou em 1943 com a fundação do modelo matemático proposto em \citep{mcculloch1943logical}, que em 1951 permitiu abordagens inspiradas na biologia cerebral e por aplicações em inteligência artificial \citep{kleene1951representation}, como no caso da criação de \textbf{Perceptron}\footnote{A menor unidade de processamento de uma RNA, que pode fazer pequenos trabalhos de processamento por si só, mas pode cooperar com outros para alcançar uma convergência, mesmo para um trabalho enorme distribuído por um grande número de neurônios trabalhando em uma rede.} \citep{rosenblatt1958perceptron}, um algoritmo de classificação binária baseado no aprendizado supervisionado, um dos desenvolvimentos mais importantes no campo, publicado em 1958. Outro grande passo foi dado em 1967, quando foi publicado um trabalho sobre redes envolvendo múltiplas camadas \citep{ivakhnenko1967cybernetics}. A Seção \ref{sec:ann_perceptron} esclarecerá o funcionamento do Perceptron, então a Seção \ref{sec:ann_arch_and_prop} trará explicações sobre arquitetura e propriedades das redes neurais.
+
+Alguns anos mais tarde, mais precisamente em 1972, dois grandes problemas foram identificados nos modelos de redes neurais então conhecidos: a incapacidade dos perceptrons básicos para processar operações de ``ou exclusivo'' (XOR) e a escassez de poder computacional exigido para se trabalhar com redes neurais de muitas camadas \citep{minsky1972perceptrons}. Estes problemas dificultaram muito para que houvesse qualquer avanço relevante nesta área durante vários anos, mas em 1975 foi proposto o \textbf{Backpropagation} \citep{werbos1975beyond}, um novo algoritmo que faria esta área de pesquisa continuar a ser interessante, uma vez que resolveria o problema de operação XOR e aceleraria o processamento em redes multi-camadas ajustando os pesos das camadas por meio de uma distribuição de erro. Uma explicação detalhada sobre Backpropagation será oferecida na Seção \ref{sec:ann_backpropagation}.
+
+Considerando a alta demanda de poder computacional que tais modelos trouxeram consigo, pode-se dizer que muitos avanços na área foram conquistados nos anos seguintes, também por conta de trabalhos envolvendo paralelismo, por exemplo. \citep{rumelhart1986psychological}, de 1986. Em 1993 algumas melhorias foram alcançadas em redes neurais \citep{180705}; e, em 2010, o uso de Unidades de Processamento Gráfico na paralelização desta tarefa \citep{scherer2010evaluation} foi extremamente importante.
+
+Também em 2006, um modelo de representações de alto nível foi proposto usando camadas sucessivas de variáveis latentes com máquinas Boltzmann \citep{hinton2006fast}. E, ainda mais recentemente, em 2013, foi introduzida uma rede suficientemente avançada para reconhecer conceitos avançados, como gatos em vídeos do YouTube \citep{le2013building} de maneira não supervisionada. Essas implementações de um grande número de camadas passaram a incluir em sua nomenclatura o termo ``Deep'' e, portanto, o termo \textbf{Deep Learning} tornou-se popular quando se refere a redes neurais artificiais profundas, também chamadas \textbf{Deep Neural Networks}.
+
+Atualmente, existem inúmeras aplicações de Deep Learning para as mais diversas áreas de atividade, como neurociências \citep{Varatharajan2018}, IoT (Internet das Coisas) \citep{8396317}, segurança redes de computadores \citep{8291134}, reconhecimento facial \citep{8253595}, instrumentação \citep{8319916}, telecomunicações \citep{8359094}, imageamento médico \citep{8359121}, detecção de objetos \citep{8253582} tratamento de distúrbios da voz \citep{8337897}, mobilidade \citep{8344803} e tantos outros.
+
+
+
+%   ----------------------
+%   ----- Perceptron -----
+%   ----------------------
+\section{Perceptron}
+\label{sec:ann_perceptron}
+
+O perceptron é compreendido como a menor unidade neural capaz de realizar a tarefa de classificar dados linearmente separáveis, separando-os através de uma região fronteiriça denominada hiperplano\footnote{Hiperplano nada mais é do que a generalização de um plano para dimensões superiores; trata-se de uma forma geométrica com uma dimensão a menos que o hiperespaço, que é o caso que utiliza-se de todas as dimensões disponíveis}.
+
+
+
+%   ---------------------------------------
+%   ----- Arquiteturas e Propriedades -----
+%   ---------------------------------------
+\section{Arquiteturas e Propriedades}
+\label{sec:ann_arch_and_prop}
+
+Uma RNA é uma estrutura composta por perceptrons interconectados distribuídos entre múltiplas camadas. Sua origem vem da ideia de imitar a função cerebral. Uma das características mais importantes das RNAs é a capacidade de aprender com ou sem supervisores (professores), ou seja, as RNAs podem adotar uma abordagem de aprendizado supervisionado ou uma abordagem de aprendizado não supervisionada \citep{haykin1999neural}, dependendo da implementação do algoritmo de acordo com os objetivos do projeto.
+
+Independentemente do tipo de rede neural artificial, os princípios básicos permanecem os mesmos; existem camadas de entrada, camadas ocultas e camadas de saída. Cada uma delas será explicada em mais detalhes posteriormente. Camadas ocultas são as principais responsáveis pelo aumento da demanda por poder de processamento, pois é onde residem os neurônios que realizam todo o processamento principal da rede.
+
+
+%   ---------------------------
+%   ----- Backpropagation -----
+%   ---------------------------
+\section{Backpropagation}
+\label{sec:ann_backpropagation}
+
+
+
+%   -----------------------------------------------
+%   ----- Aplicação aos Problemas Mencionados -----
+%   -----------------------------------------------
+\section{Aplicação aos Problemas Mencionados}
+\label{sec:ann_application_mentioned_problem}
+
+
+
+%   ---------------------------
+%   ----- Redes Profundas -----
+%   ---------------------------
+\section{Redes Profundas}
+\label{sec:ann_deep_networks}
+
+
+
+%   ----- Neurônios -----
+\subsection{Neurônios}
+\label{subsec:ann_neurons}
+
+
+
+%   ----- Treinamento -----
+\subsection{Treinamento}
+\label{subsec:ann_training}
+
+
+
+%   ----- Inicialização -----
+\subsection{Inicialização}
+\label{subsec:ann_inicialization}
+
