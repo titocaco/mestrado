@@ -80,13 +80,13 @@ A Figura \ref{fig:bss} ilustra um exemplo de problema geral de separação cega 
 %     \thead{Cenário}    &   \thead{$S$}   &   \thead{$X$}   &   \thead{$y$} \\
 %     \midrule
 %     \makecell[l]{Sinais cerebrais \\ coletados por um \\ arranjo de sensores}  & \makecell[l]{Diferentes partes \\ do cérebro}  & \makecell[l]{Mistura resultante \\ de sinais \\ cerebrais distintos}   & \makecell[l]{Sinais separados \\ de diferentes \\ partes do cérebro} \\
-    
+
 %     \makecell[l]{Sinais de \\ instrumentos \\ musicais coletados \\ por microfones}  & \makecell[l]{Instrumentos \\ musicais}  & \makecell[l]{Mistura de \\ sinais de \\ microfones}   & \makecell[l]{Sinais separados \\ de cada \\ instrumento} \\
-    
+
 %     \makecell[l]{Pessoas \\ conversando e \\ sendo gravadas \\ por microfones}  & \makecell[l]{Pessoas \\ conversando}  & \makecell[l]{Mistura de \\ sinais de \\ múltiplos \\ microfones}   & \makecell[l]{Sinais separados \\ de cada pessoa \\ falando} \\
-    
+
 %     \makecell[l]{Sistema de \\ comunicação \\ sem fio}  & \makecell[l]{Transmissor}  & \makecell[l]{Mistura de \\ sinais lida \\ pelo receptor}   & \makecell[l]{Sinais de interesse \\ apropriadamente \\ filtrados} \\
-    
+
 %     \bottomrule
 %     \end{tabular}}
 %     \label{tab:bss_examples}
@@ -142,7 +142,7 @@ O Algoritmo \ref{alg:intro_fobi} foi proposto para realizar a tarefa chamava-se 
     \caption{FOBI (Fourth-Order Blind Identification) \citep{herault1985detection}.}
     \label{alg:intro_fobi}
     \begin{algorithmic}[1]
-    
+
     \State Calcular a covariância:
     \begin{equation}
         R_{X} \leftarrow E\left(XX^{T}\right) \hspace{0.1cm},
@@ -154,39 +154,39 @@ O Algoritmo \ref{alg:intro_fobi} foi proposto para realizar a tarefa chamava-se 
         R_{X} = CC^{T} \hspace{0.1cm},
         \label{eq:fobi_fact_cov}
     \end{equation}
-    
+
     \State Ortonormalizar os dados:
     \begin{equation}
         Y \leftarrow C^{-1}X \hspace{0.1cm},
         \label{eq:fobi_orto}
     \end{equation}
-    
+
     \State Formar a covariância ponderada:
     \begin{equation}
         \widetilde{R}_{Y} \leftarrow E\left(\abs{Y}^{2}YY^{T}\right) \hspace{0.1cm},
         \label{eq:fobi_pond_cov}
     \end{equation}
-    
+
     \State Extrair os autovetores da matriz de covariância:
     \begin{equation}
         \widetilde{R}_{Y} = \sum_{i=1}^{N} \left(\mu_{i} + N - 1\right) Y_{i} Y_{i}^{T} \hspace{0.1cm},
         \label{eq:fobi_eigen}
     \end{equation}
-    
+
     \State Extrair as mensagens\footnote{Uma sequência de valores (dados) que pode carregar em si alguma informação, em um contexto de comunicação, geralmente é chamada de ``mensagem''.}:
     \begin{equation}
         \alpha_{i} \leftarrow Y_{i}^{T} Y \hspace{0.1cm},
         \label{eq:fobi_msg}
     \end{equation}
-    
+
     \State Identificar as assinaturas\footnote{Assinatura pode ser entendida como o sinal original de informação advinda de uma dada fonte de comunicação.}:
     \begin{equation}
         X_{i} \leftarrow C Y_{i} \hspace{0.1cm}.
         \label{eq:fobi_sign}
     \end{equation}
-        
+
     \end{algorithmic}
-    
+
 \end{algorithm}
 \end{minipage}
 
@@ -244,7 +244,7 @@ Apenas para fins de exemplificação, poderia-se imaginar uma performance musica
 \subsection{Convolutivo}
 \label{subsec:intro_convolutive}
 
-Apesar de existir todo um conjunto de cenários mais simples com misturas de características lineares, modelos projetados para cenários com tais características tendem a ser menos flexíveis, mostrando-se aceitáveis quase que exclusivamente quando há um rigor menos intenso na demanda por qualidade 
+Apesar de existir todo um conjunto de cenários mais simples com misturas de características lineares, modelos projetados para cenários com tais características tendem a ser menos flexíveis, mostrando-se aceitáveis quase que exclusivamente quando há um rigor menos intenso na demanda por qualidade
 
 
 
@@ -256,10 +256,10 @@ Apesar de existir todo um conjunto de cenários mais simples com misturas de car
 
 
 
-%   -------------------------------------------------
-%   ----- Nova Abordagem -- Deep Learning e GAN -----
-%   -------------------------------------------------
-\section{Nova Abordagem -- Deep Learning e GAN}
+%   ---------------------------------------
+%   ----- Nova Abordagem -- DNN e GAN -----
+%   ---------------------------------------
+\section{Nova Abordagem -- DNN e GAN}
 \label{sec:intro_new_approach}
 
 
