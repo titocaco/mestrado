@@ -126,39 +126,39 @@ Antes de processar as observações dos sinais misturados, então, deve-se reali
     \caption{Branqueamento de dados por PCA \citep{zafeiriou2015notes}.}
     \label{alg:bss_whitening}
     \begin{algorithmic}[1]
-    
+
         \State Calcular o produto escalar matricial:
         \begin{equation}
             \mathbf{X}^{T}\mathbf{X} = \sum_{i=1}^{N} \left(\mathbf{x}_{i}-\boldsymbol\mu\right)^{T}\left(\mathbf{x}_{i}-\boldsymbol\mu\right)
         \end{equation}
-        
+
         \State Efetuar a auto-análise:
         \begin{equation}
             \mathbf{X}^{T}\mathbf{X} = \mathbf{V} \boldsymbol\Lambda \mathbf{V}^{T}
         \end{equation}
-        
+
         \State Calcular os autovetores:
         \begin{equation}
             \mathbf{U} \leftarrow \mathbf{X} \mathbf{V} \boldsymbol\Lambda^{-\frac{1}{2}}
         \end{equation}
-        
+
         \State Calcular as $d$ características:
         \begin{equation}
             \mathbf{Y} \leftarrow \mathbf{U_{d}}^{T} \mathbf{X}
         \end{equation}
-        
+
         \State Rearranjar a matriz de covariância de $\mathbf{Y}$:
         \begin{equation}
             \mathbf{Y} \mathbf{Y}^{T} = \mathbf{U}^{T} \mathbf{X} \mathbf{X}^{T} \mathbf{U} = \boldsymbol\Lambda\\
         \end{equation}
-        
+
         \State Obter a matriz de projeção normalizadora:
         \begin{equation}
             \mathbf{W} \leftarrow \mathbf{U} \boldsymbol\Lambda^{-\frac{1}{2}}.
         \end{equation}
-        
+
     \end{algorithmic}
-    
+
 \end{algorithm}
 
 Vale ressaltar o fato de que o procedimento adotado pelo Algoritmo \ref{alg:bss_whitening} carece de um único passo intermediário, que é o de manter os $n$ primeiros componentes de $\mathbf{U_{d}}$, com $n\leq d$, para ser interpretado no sentido mais amplo como, basicamente, o próprio algoritmo de Análise de Componentes Principais (\textbf{PCA}, do inglês \textit{Principal Component Analysis}) \citep{doi:10.1080/14786440109462720}.
@@ -204,7 +204,7 @@ De acordo com o Princípio da Superposição, sistemas lineares compostos pela s
 
 \begin{definition}[Princípio da Superposição]
     Sejam $\bm{F}(\cdot)$ uma função linear, $\bm{x}$ uma variável de entrada e $\alpha$ um escalar. Assim, a partir das propriedades de Aditividade e Homogeneidade
-    
+
     \begin{equation*}
         \begin{aligned}
             & \bm{F}(\bm{x}_{1} + \bm{x}_{2}) = \bm{F}(\bm{x}_{1}) + \bm{F}(\bm{x}_{2}) \hspace{0.5cm}& \text{\textbf{Aditividade}} \\
@@ -212,9 +212,9 @@ De acordo com o Princípio da Superposição, sistemas lineares compostos pela s
         \end{aligned}
         \vspace{0.2cm}
     \end{equation*}
-    
+
     \noindent pode-se chegar ao \textbf{Princípio da Superposição}:
-    
+
     \begin{equation}
         \begin{aligned}
             \bm{F}(\alpha_{1} \bm{x}_{1} + \alpha_{2} \bm{x}_{2}) & = \bm{F}(\alpha_{1} \bm{x}_{1}) + \bm{F}(\alpha_{2} \bm{x}_{2})\\
@@ -223,7 +223,7 @@ De acordo com o Princípio da Superposição, sistemas lineares compostos pela s
         \hspace{0.1cm}
         \vspace{0.2cm}
     \end{equation}
-    
+
 \end{definition}
 
 Assim sendo, a partir da definição do princípio da superposição, é possível considerar uma analogia para sinais misturados por um processo de mistura como um sistema linear, representado aqui por $\bm{F}(\cdot)$. Considerando, então, os sinais $\bm{s}_{1}[n]$ e $\bm{s}_{2}[n]$ e os escalares $\alpha_{1}$ e $\alpha_{2}$, o modelo linear pode ser representado por
@@ -247,7 +247,7 @@ Uma forma bastante usual de se analisar a questão da memória é separando-a em
 
 \begin{definition}[Convolução]
     Sejam $s_{1}[n]$ e $s_{2}[n]$ dois sinais de tempo discreto; a convolução entre eles é definida por:
-    
+
     \begin{equation}
     \begin{aligned}
         y[n]    & = s_{1}[n] \ast s_{2}[n] \\
@@ -255,9 +255,9 @@ Uma forma bastante usual de se analisar a questão da memória é separando-a em
     \end{aligned}
     \vspace{0.2cm}.
     \end{equation}
-    
+
     \noindent Sendo que a convolução possui as propriedades de Associatividade, Comutatividade e Distributividade, apresentadas a seguir:
-    
+
     \begin{equation*}
     \begin{aligned}
         (s_{1}[n] \ast s_{2}[n]) \ast s_{3}[n] & =  s_{1}[n] \ast (s_{2}[n] \ast s_{3}[n]) & \hspace{0.5cm}\text{\textbf{Associatividade}} \\
@@ -266,8 +266,10 @@ Uma forma bastante usual de se analisar a questão da memória é separando-a em
     \end{aligned}
     \vspace{0.2cm}
     \end{equation*}
-    
+
 \end{definition}
+
+
 
 
 
@@ -277,11 +279,15 @@ Uma forma bastante usual de se analisar a questão da memória é separando-a em
 \section{Problemas Relacionados}
 \label{sec:bss_correlated_problems}
 
+Além dos pontos até então mencionados ao longo desta seção, existem problemas relacionados, tais como o de Extração Cega de Fontes (\textbf{BSE}, do inglês \textit{Blind Source Extraction}), o de Desconvolução e o de \textit{Denoising}; todos eles serão explicadaos a seguir, fazendo-se, contudo, a ressalva a respeito do fato de que um aprofundamento minucioso e um rigoroso detalhamento matemático não fazem parte dos objetivos deste trabalho; assim, caso haja interesse em compreender a fundo as questões mencionadas, sugere-se uma visita aos materiais citados e referenciados.
+
 
 
 %   ----- BSE -----
 \subsection{Extração Cega de Fontes}
 \label{subsec:bss_bse}
+
+
 
 
 
@@ -366,7 +372,7 @@ Dado que o ICA estima a transformação ortogonal que resta após ter sido feita
 
 \begin{definition}[Covariância]
     Sejam $X$ e $Y$ duas variáveis aleatórias. A covariância entre $X$ e $Y$ é definida por
-    
+
     \begin{equation}
     \begin{aligned}
         cov\left(X, Y\right) & = E\left[\left(X-E\left[X\right]\right)\left(Y-E\left[Y\right]\right)\right] \\
@@ -376,7 +382,7 @@ Dado que o ICA estima a transformação ortogonal que resta após ter sido feita
     \end{aligned}
     \vspace{0.2cm}
     \end{equation}
-    
+
     \noindent sendo $cov(X, Y)$ a covariância entre as variáveis aleatórias $X$ e $Y$; e $E[\cdot]$ a esperança\footnote{Também conhecido como \textit{valor esperado} ou \textit{média} (estatística).} de uma dada variável aleatória qualquer.
 \end{definition}
 
@@ -416,20 +422,20 @@ Outro princípio da estimação do ICA trata-se da obtenção da máxima não-ga
 
 \begin{definition}[Curtose]
     Sejam o n-ésimo momento central de um sinal pode ser calculado por
-    
+
     \begin{equation}
         \mu_{n} = E\left[\left(X - E\left[X\right]\right)^{n}\right]
         \vspace{0.2cm}
     \end{equation}
-    
+
     \noindent e a normalização padrão dada pela divisão do momento calculado pelo desvio padrão da mesma ordem $n$ do momento em questão, ou seja,
-    
+
     \begin{equation}
         \sigma^{n} = \left(\sqrt{E\left[\left(X - E\left[X\right]\right)^{2}\right]}\right)^{n}
         \hspace{0.1cm}.
         \vspace{0.2cm}
     \end{equation}
-    
+
     O quarto momento central normalizado, também conhecido como Curtose, é definido por
 
     \begin{equation}
@@ -437,7 +443,7 @@ Outro princípio da estimação do ICA trata-se da obtenção da máxima não-ga
         \vspace{0.2cm}
     \label{eq:bss_curtose}
     \end{equation}
-    
+
 \end{definition}
 
 
@@ -447,16 +453,16 @@ Um dos conceitos mais importantes advindos da área de Teoria da Informação ch
 
 \begin{definition}[Entropia]
     Seja $X$ uma variável aleatória. Então, a entropia de $X$, também entendida como a informação média de $X$, é dada por
-    
+
     \begin{equation}
         H\left(X\right) = - \sum_{i=1}^{n}P\left(X=x_{i}\right) \log_{b} \left(P\left(X=x_{i}\right)\right)
         \hspace{0.1cm},
         \vspace{0.2cm}
         \label{eq:bss_entropy}
     \end{equation}
-    
+
     \noindent sendo $P(X=x_{i})$ a probabilidade de a variável aleatória $X$ assumir o valor $x_{i}$; e, para os fins deste trabalho, $b=2$.
-    
+
 \end{definition}
 
 A partir da entropia, pode-se chegar ao conceito de Negentropia\footnote{Também conhecida como \textit{sintropia} ou \textit{entropia negativa}.} (do inglês \textit{Negentropy}) \citep{schrodinger1944life, brillouin1953negentropy, mahulikar2009exact}, que trata-se de uma alternativa à curtose, contudo, consideravelmente mais robusta.\\
@@ -471,9 +477,9 @@ A partir da entropia, pode-se chegar ao conceito de Negentropia\footnote{Também
         \vspace{0.2cm}
         \label{eq:bss_negentropy}
     \end{equation}
-    
+
     \noindent sendo que $X_{\text{\ gauss}}$ trata-se de uma variável aleatória de distribuição gaussiana e cujas média e variância são as mesmas de $X$.
-    
+
 \end{definition}
 
 Tal como havia sido explicitado nesta mesma seção, a entropia pode ser utilizada como uma métrica da desordem de uma certa informação, o que permite dizer que o valor máximo de entropia caracteriza desordem máxima, ou seja, maior incerteza e, portanto, maior dificuldade de se obter uma dada informação; isso ocorre apenas no único e exclusivo caso em que a distribuição em questão se trata de uma Gaussiana. Por outro lado, entropia mínima implica maior certeza e maior facilidade para se obter a informação em questão. Efetuando-se uma análise, ainda que superficial, a respeito da Equação (\ref{eq:bss_entropy}), é possível concluir que a entropia de Shannon jamais pode ser negativa. Assim, pode-se perceber que a negentropia também sempre será não negativa. Tais características mencionadas permitem compreender a negentropia como uma espécie de distância dada pela diferença entre as distribuições envolvidas, sendo ao menos uma delas sempre uma distribuição Gaussiana \citep{suyama2007proposta}.
@@ -492,10 +498,10 @@ Além da técnica ICA, existem outras técnicas que também efetuam uma análise
 \nomenclature{SCA}{\textit{Sparse Component Analysis}}
 
 \begin{definition}[Grau de Esparsidade]
-    Seja uma matriz $\bm{M}$ definida por 
-    
+    Seja uma matriz $\bm{M}$ definida por
+
     \begin{equation}
-        M = 
+        M =
         \left[\begin{array}{cccc}
         m_{11} & m_{12} & \cdots & m_{1n} \\
         m_{21} & m_{22} & \cdots & m_{2n} \\
@@ -503,15 +509,15 @@ Além da técnica ICA, existem outras técnicas que também efetuam uma análise
         m_{n1} & m_{n2} & \cdots & m_{nn}
         \end{array}\right].
     \end{equation}
-    
+
     Considerando-se $N$ como o número de elementos nulos da matriz e $T$ como o número total de elementos da matriz, o Grau de Esparsidade, $E$, pode ser obtido a partir de
-    
+
     \begin{equation}
         E = \dfrac{N}{T}
         \hspace{0.2cm}\cdot
         \label{eq:bss_sparsity}
     \end{equation}
-    
+
     \label{def:sparsity}
 \end{definition}
 
@@ -525,17 +531,17 @@ O Algoritmo \ref{alg:bss_sca} é uma versão bastante simplificada que explica s
     \caption{Versão simplificada da Análise de Componentes Esparsos (SCA) \citep{gribonval2006survey}.}
     \label{alg:bss_sca}
     \begin{algorithmic}[1]
-    
+
         \State Aplicar transformação linear esparsificante à mistura.
-        
+
         \State Estimar $\bm{A}$ a partir da dispersão de $C_{\bm{x}}$.
-        
+
         \State Estimar as representações da fonte.
-        
+
         \State Reconstruir as fontes a partir da inversa de uma transformação esparsificante.
-        
+
     \end{algorithmic}
-    
+
 \end{algorithm}
 
 Dando continuidade às explicações um pouco mais minuciosas sobre o SCA, tomando como base ainda o Algoritmo \ref{alg:bss_sca}, pode ser interessante começar pelo fato de que a análise será feita individualmente, uma a uma, para cada mistura observada; ou seja, caso haja três sinais observados resultantes de misturas, serão necessárias três execuções completas do algoritmo para que seja possível realizar a tarefa almejada de separação de sinais. Observe que a primeira etapa do algoritmo se refere à aplicação de uma transformação linear esparsificante à mistura observada, que é a entrada do algoritmo. É muito comum que a escolha dessa transformação esparsificante seja feita entre Transformada Discreta Wavelet (\textbf{DWT}, do inglês \textit{Discrete Wavelet Transform}) e a Transformada de Fourier de Tempo Curto (\textbf{STFT}, do inglês \textit{Short-Time Fourier Transform}).
