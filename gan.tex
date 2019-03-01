@@ -111,29 +111,31 @@ O treinamento de Redes Adversariais Generativas usa um método baseado em Gradie
 
 
 \begin{algorithm}
-\caption{Treinamento de Redes Adversárias Geradoras com Gradiente Descendente Estocástico por mini-lotes. O número de etapas a serem aplicadas ao Discriminador, $k$, é um hiper-parâmetro \citep{NIPS2014_5423}.}
+\caption{Treinamento de GAN com SGD por mini-lotes \citep{NIPS2014_5423}.}
 \label{alg:gan_train}
 \begin{algorithmic}[1]
 
 \For {número de iterações de treinamento}
     \For {$k$ passos}
         \parState {$\sbullet[1.5]$ Amostrar lote de $m$ amostras ruidosas $\set[\big]{\pmb{z}^{\left(1\right)}, \dots, \pmb{z}^{\left(m\right)}}$ de ruído \textit{a priori} $p_{g}\left(\pmb{z}\right)$.}
-        
+
         \parState {$\sbullet[1.5]$ Amostrar lote de $m$ exemplos $\set[\big]{\pmb{x}^{\left(1\right)}, \dots, \pmb{x}^{\left(m\right)}}$ da distribuição geradora de dados $p_{\text{data}}\left(\pmb{x}\right)$.}
-        
+
         \parState {$\sbullet[1.5]$ Atualiza o discriminante aumentando seu gradiente estocástico:
         \begin{equation*}
             \nabla_{\theta_{d}} \dfrac{1}{m} \sum_{\mathclap{i=1}}^{m} \left[\log D\left(\pmb{x}^{\left(i\right)}\right) + \log \left(1-D\left(G\left(\pmb{z}^{\left(i\right)}\right)\right)\right)\right].
         \end{equation*}}
     \EndFor
-    
+
     \parState {$\sbullet[1.5]$ Amostra lote de $m$ amostras ruidosas $\set[\big]{\pmb{z}^{\left(1\right)}, \dots, \pmb{z}^{\left(m\right)}}$ de ruído \textit{a priori} $p_{g}\left(\pmb{z}\right)$.}
-    
+
     \parState {$\sbullet[1.5]$ Atualiza o gerador diminuindo seu gradiente estocástico:
     \begin{equation*}
         \nabla_{\theta_{d}} \dfrac{1}{m} \sum_{\mathclap{i=1}}^{m} \log \left(1-D\left(G\left(\pmb{z}^{\left(i\right)}\right)\right)\right).
     \end{equation*}}
 \EndFor
+
+\noindent O número de etapas a serem aplicadas ao Discriminador, $k$, é um hiper-parâmetro.
 
 \noindent As atualizações baseadas em gradiente podem utilizar qualquer regra de aprendizagem padrão baseada em gradiente.
 
@@ -150,4 +152,3 @@ O treinamento de Redes Adversariais Generativas usa um método baseado em Gradie
 %   --------------------------------
 \section{Aplicação em Imagens}
 \label{sec:gan_applications_to_images}
-
