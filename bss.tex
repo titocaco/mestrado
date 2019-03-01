@@ -279,7 +279,7 @@ Uma forma bastante usual de se analisar a questão da memória é separando-a em
 \section{Problemas Relacionados}
 \label{sec:bss_correlated_problems}
 
-Além dos pontos até então mencionados ao longo desta seção, existem problemas relacionados ao de BSS e que, por vezes, podem inclusive ser vistos como uma espécie de extensão ou versão decomposta deste primeiro problema central, tais como o de Extração Cega de Fontes (\textbf{BSE}, do inglês \textit{Blind Source Extraction}), o de Desconvolução e o de \textit{Denoising}; todos eles serão explicadaos a seguir, fazendo-se, contudo, a ressalva a respeito do fato de que um aprofundamento minucioso e um rigoroso detalhamento matemático não fazem parte dos objetivos deste trabalho; assim, caso haja interesse em compreender a fundo as questões mencionadas, sugere-se uma visita aos materiais citados e referenciados.
+Além dos pontos até então mencionados ao longo desta seção, existem problemas relacionados ao de BSS e que, por vezes, podem inclusive ser vistos como uma espécie de extensão ou versão decomposta deste primeiro problema central, tais como o de Extração Cega de Fontes, o de Desconvolução e o de \textit{Denoising}; todos eles serão explicadaos a seguir, fazendo-se, contudo, a ressalva a respeito do fato de que um aprofundamento minucioso e um rigoroso detalhamento matemático não fazem parte dos objetivos deste trabalho; assim, caso haja interesse em compreender a fundo as questões mencionadas, sugere-se uma visita aos materiais citados e referenciados.
 
 
 
@@ -287,7 +287,22 @@ Além dos pontos até então mencionados ao longo desta seção, existem problem
 \subsection{Extração Cega de Fontes}
 \label{subsec:bss_bse}
 
+Um dos vários problemas relacionados ao de BSS é conhecido como Extração Cega de Fontes (\textbf{BSE}, do inglês \textit{Blind Source Extraction}), sendo justamente um dos mais próximos ao que efetivamente é o próprio problema de BSS, afinal, enquanto o BSS deseja obter a versão separada de todos os sinais de interesse, o BSE almeja fazer algo similar, mas apenas para um sinal, tal como representa o modelo a seguir: \\
 
+\begin{definition}[Extração Cega de Fontes]
+
+  Sejam $\bm{X}$ uma matriz de misturas observadas e $\bm{w}$ o vetor de extração. O processo de obtenção do sinal $\bm{y}_{i}$ por meio de BSE é definido por
+
+  \begin{equation}
+    \bm{y}_{i} = \bm{w}^{T} \bm{X}
+    \label{eq:bss_bse}
+    \hspace{0.1cm},
+    \vspace{0.2cm}
+  \end{equation}
+
+  \noindent em que $\bm{y}_{i}$ corresponde ao sinal original da $i$-ésima fonte.
+
+\end{definition}
 
 
 
