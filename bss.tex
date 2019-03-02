@@ -289,6 +289,8 @@ Além dos pontos até então mencionados ao longo desta seção, existem problem
 
 Um dos vários problemas relacionados ao de BSS é conhecido como Extração Cega de Fontes (\textbf{BSE}, do inglês \textit{Blind Source Extraction}) \citep{5967775}, sendo justamente um dos mais próximos ao que efetivamente é o próprio problema de BSS, afinal, enquanto o BSS deseja obter a versão separada de todos os sinais de interesse, o BSE almeja fazer algo similar, mas apenas para um sinal, tal como representa o modelo a seguir: \\
 
+\nomenclature{BSE}{\textit{Blind Source Extraction}}
+
 \begin{definition}[Extração Cega de Fontes]
 
     Sejam $\bm{X}$ uma matriz de misturas observadas e $\bm{w}$ o vetor de extração. O processo de obtenção do sinal $\bm{y}_{i}$ por meio de BSE é definido por
@@ -311,6 +313,10 @@ Um dos vários problemas relacionados ao de BSS é conhecido como Extração Ceg
 %   ----- Desconvolução -----
 \subsection{Desconvolução}
 \label{subsec:bss_deconvolution}
+
+O problema de desconvolução pode ser compreendido como o de separar sinais convoluídos entre si, ou seja, que passaram pelo processo de convolução\footnote{Vale lembrar que, devido a propriedades da convolução, a ordem com que as convoluções ocorrem é irrelevante para os resultados finais de todo o processo convolutivo.}. E os 
+
+
 
 
 %   ----- Denoising -----
