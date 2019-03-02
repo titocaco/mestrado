@@ -85,12 +85,12 @@
       leftrule=0pt,
       rightrule=0pt,
       fontupper=\color{white}\sffamily\bfseries\huge,
-      enlarge left by=-1in-\hoffset-\oddsidemargin, 
+      enlarge left by=-1in-\hoffset-\oddsidemargin,
       enlarge right by=-\paperwidth+1in+\hoffset+\oddsidemargin+\textwidth,
-      width=\paperwidth, 
-      left=1in+\hoffset+\oddsidemargin, 
+      width=\paperwidth,
+      left=1in+\hoffset+\oddsidemargin,
       right=\paperwidth-1in-\hoffset-\oddsidemargin-\textwidth,
-      top=0.6cm, 
+      top=0.6cm,
       bottom=0.6cm,
       overlay={
         \node[
@@ -102,13 +102,13 @@
           minimum height=1.7cm,
           align=center,
           font=\color{white}\sffamily\bfseries\fontsize{30}{36}\selectfont
-        ] 
+        ]
         (chapname)
         at ([xshift=-4cm]frame.north east)
         {\thechapter};
         \node[font=\small,anchor=south,inner sep=2pt] at (chapname.north)
-        {\MakeUppercase\chaptertitlename};  
-      } 
+        {\MakeUppercase\chaptertitlename};
+      }
     ]
     #1
     \end{tcolorbox}%
@@ -129,13 +129,13 @@
       leftrule=0pt,
       rightrule=0pt,
       fontupper=\color{white}\sffamily\bfseries\huge,
-      enlarge left by=-1in-\hoffset-\oddsidemargin, 
+      enlarge left by=-1in-\hoffset-\oddsidemargin,
       enlarge right by=-\paperwidth+1in+\hoffset+\oddsidemargin+\textwidth,
-      width=\paperwidth, 
-      left=1in+\hoffset+\oddsidemargin, 
+      width=\paperwidth,
+      left=1in+\hoffset+\oddsidemargin,
       right=\paperwidth-1in-\hoffset-\oddsidemargin-\textwidth,
-      top=0.6cm, 
-      bottom=0.6cm, 
+      top=0.6cm,
+      bottom=0.6cm,
     ]
     #1
     \end{tcolorbox}%
@@ -206,8 +206,8 @@
 
 
 
-  
-  
+
+
 %   ---------------------------------------
 %   ----- Definitions and Assumptions -----
 %   ---------------------------------------
@@ -246,7 +246,7 @@
         \p1=(title.north east),
         \p2=(frame.north east)
         in
-        node[anchor=west,font=\sffamily,color=mygray2,text width=\x2-\x1] 
+        node[anchor=west,font=\sffamily,color=mygray2,text width=\x2-\x1]
         at (title.east) {#1};
   }
 }
@@ -262,7 +262,7 @@
         \p1=(title.north east),
         \p2=(frame.north east)
         in
-        node[anchor=west,font=\sffamily,color=mygray2,text width=\x2-\x1] 
+        node[anchor=west,font=\sffamily,color=mygray2,text width=\x2-\x1]
         at (title.east) {#1};
   }
 }
@@ -300,7 +300,7 @@
 \usepackage{subcaption}
 
 
-\usepackage{caption} 
+\usepackage{caption}
 \captionsetup[table]{skip=10pt}
 
 \usepackage[bottom]{footmisc}
@@ -492,10 +492,10 @@
 
 
 
-\renewcommand{\baselinestretch}{1.075}
+% \renewcommand{\baselinestretch}{1.075}
 % \renewcommand{\baselinestretch}{1.0}
 \setlength{\parindent}{2em}
-\setlength{\parskip}{0.5em}
+% \setlength{\parskip}{0.5em}
 
 
 
@@ -506,7 +506,7 @@
 \def\pagedeclaration#1{\dotfill\nobreakspace#1}
 % \def\nomentryend{.}
 \def\nomlabel#1{\textbf{#1}\hfil}
- 
+
 \renewcommand{\nomname}{Lista de Abreviações}
 
 
