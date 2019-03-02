@@ -314,7 +314,9 @@ Um dos vários problemas relacionados ao de BSS é conhecido como Extração Ceg
 \subsection{Desconvolução}
 \label{subsec:bss_deconvolution}
 
-O problema de desconvolução pode ser compreendido como o de separar sinais convoluídos entre si, ou seja, que passaram pelo processo de convolução\footnote{Vale lembrar que, devido a propriedades da convolução, a ordem com que as convoluções ocorrem é irrelevante para os resultados finais de todo o processo convolutivo.}. E os 
+O problema de desconvolução pode ser compreendido como o de separar sinais convoluídos entre si, ou seja, que passaram pelo processo de convolução. Aqui vale lembrar que, devido a propriedades da convolução, a ordem com que as convoluções ocorrem é irrelevante para os resultados finais de todo o processo convolutivo. Em casos de trabalhos relacionados a áudio, uma aplicação bastante interessante que é almejada pela desconvolução é o cancelamento de ecos desconhecidos, assim como reverberações indesejadas em sinais de fala; para trabalhos com imagens, um exemplo típico é o de imagens borradas \citep{Bell:1995:IAB:211676.211677}.
+
+Existem duas interpretações comumente adotadas para o termo Desconvolução Cega: a de um cenário em que se conhece apenas um dos sinais envolvidos; e a de um cenário em que absolutamente nenhum dos sinais envolvidos é conhecido, o que faz, portanto, com que a única informação exposta seja a da própria convolução em si. Apesar de ter notoriamente focado em aplicações de processamento de imagens, o trabalho \citep{levin2009understanding} é bastante importante e útil a todos aqueles que desejarem compreender algoritmos de BSE mais de forma mais aprofundada.
 
 
 
