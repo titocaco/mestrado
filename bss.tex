@@ -316,7 +316,21 @@ Um dos vários problemas relacionados ao de BSS é conhecido como Extração Ceg
 
 O problema de desconvolução pode ser compreendido como o de separar sinais convoluídos entre si, ou seja, que passaram pelo processo de convolução. Aqui vale lembrar que, devido a propriedades da convolução, a ordem com que as convoluções ocorrem é irrelevante para os resultados finais de todo o processo convolutivo. Em casos de trabalhos relacionados a áudio, uma aplicação bastante interessante que é almejada pela desconvolução é o cancelamento de ecos desconhecidos, assim como reverberações indesejadas em sinais de fala; para trabalhos com imagens, um exemplo típico é o de imagens borradas \citep{Bell:1995:IAB:211676.211677}.
 
-Existem duas interpretações comumente adotadas para o termo Desconvolução Cega: a de um cenário em que se conhece apenas um dos sinais envolvidos; e a de um cenário em que absolutamente nenhum dos sinais envolvidos é conhecido, o que faz, portanto, com que a única informação exposta seja a da própria convolução em si. Apesar de ter notoriamente focado em aplicações de processamento de imagens, o trabalho \citep{levin2009understanding} é bastante importante e útil a todos aqueles que desejarem compreender algoritmos de BSE mais de forma mais aprofundada.
+Existem duas interpretações comumente adotadas para o termo Desconvolução Cega: a de um cenário em que se conhece apenas um dos sinais envolvidos; e a de um cenário em que absolutamente nenhum dos sinais envolvidos é conhecido, o que faz, portanto, com que a única informação exposta seja a da própria convolução em si. Assim sendo, dada uma mistura observada $y[n]$, presume-se que ela é o resultado de um processo de convolução entre dois sinais $s_{1}[n]$ e $s_{2}[n]$, ou seja, é possível representar o problema da seguinte forma:
+
+\begin{equation}
+    y[n] = s_{1}[n] \ast s_{2}[n]
+    \label{eq:bss_deconvolution}
+    \hspace{0.1cm}.
+    \vspace{0.2cm}
+\end{equation}
+
+O que se almeja aqui é efetuar essa decomposição, ou seja, obter os sinais $s_{1}[n]$ e $s_{2}[n]$ que, ao serem convoluídos, resultam no sinal $y[n]$. Através das técnicas clássicas de deconvolução não é possível atingir tal objetivo sem que sejam feitas suposições iniciais, mas não basta assumir qualquer realidade para que o algoritmo obtenha êxito em sua aplicação. O trabalho \citep{661479} ilustra bem um exemplo de aplicação em uma área de multimídia; mais especificamente, em áudio.
+
+
+Apesar de ter notoriamente focado em aplicações de processamento de imagens, o trabalho \citep{levin2009understanding} é bastante importante e útil a todos aqueles que desejarem compreender algoritmos de BSE de forma mais aprofundada; ao longo do artigo podem ser vistas análises teóricas e experimentais, incluindo um estudo a respeito do motivo da falha por parte da abordagem que tenta utilizar a estimação de Máximo a Posteriori (\textbf{MAP}, do inglês \textit{Maximum a Posteriori}).
+
+
 
 
 
