@@ -165,23 +165,34 @@ Vale ressaltar o fato de que o procedimento adotado pelo Algoritmo \ref{alg:bss_
 
 \nomenclature{PCA}{\textit{Principal Component Analysis}}
 
-Para fins meramente ilustrativos, uma simulação foi elaborada para mostrar em um gráfico os efeitos do processo de branqueamento por PCA. Para esta simulação foram utilizados dados artificialmente gerados por meio de duas variáveis aleatórias de mesma distribuição uniforme. Os dados, compostos por 1000 amostras para cada uma das variáveis envolvidas, representados no gráfico da Figura \ref{fig:bss_pca_whitening_data} foram posicionados com base nos valores das variáveis aleatórias $X_{1}$ e $X_{2}$, que podiam variar entre -1.75 e 1.75, que foram arbitrariamente escolhidos.
+\pagebreak
+
+Para fins meramente ilustrativos, uma simulação foi elaborada para mostrar os efeitos do processo de branqueamento por PCA. Para esta simulação foram utilizados dados artificialmente gerados por meio de duas variáveis aleatórias. Os dados, compostos por 2000 amostras para cada uma das variáveis envolvidas, representados no gráfico da Figura \ref{fig:bss_whitening_data_uniform} foram posicionados com base nos valores das variáveis aleatórias $X_{1}$ e $X_{2}$, que podiam variar entre -1.75 e 1.75, que foram arbitrariamente escolhidos.
+
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.70\linewidth]{figs/whitening/data.pdf}
-    \caption{Distribuição de fonte conjunta para duas variáveis aleatórias de distribuição uniforme.}
-    \label{fig:bss_pca_whitening_data}
+    \begin{tabular}{ccc}
+        \includegraphics[width=0.30\textwidth]{figs/whitening/bss_whitening_uniform.pdf}&
+        \includegraphics[width=0.30\textwidth]{figs/whitening/bss_whitening_uniform_mixture.pdf}&
+        \includegraphics[width=0.30\textwidth]{figs/whitening/bss_whitening_uniform_mixture_whitened.pdf}\\
+    \end{tabular}
+    \caption{Distribuição uniforme de duas variáveis, misturas observadas e branqueamento.}
+    \label{fig:bss_whitening_data_uniform}
 \end{figure}
 
-A Figura \ref{fig:bss_pca_whitening_data_white} mostra a distribuição conjunta dos mesmos dados exibidos pela Figura \ref{fig:bss_pca_whitening_data}, mas agora em uma versão que passou pelo processo de branqueamento antes de ter sido plotada.
+Em outra simulação, que é exibida pela Figura \ref{fig:bss_whitening_data_gaussian}, foram geradas 2000 amostras respeitando uma distribuição gaussiana de média zero e desvio padrão unitário. Observando-se as imagens da Figura \ref{fig:bss_whitening_data_gaussian} é possível compreender intuitivamente o motivo de o processo de branqueamento para o caso da distribuição gaussiana ser também conhecido como esferização (do inglês, \textit{Sphereing}).
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.70\linewidth]{figs/whitening/data_white.pdf}
-    \caption{Distribuição conjunta de dados branqueados para duas variáveis aleatórias de distribuição uniforme.}
-    \label{fig:bss_pca_whitening_data_white}
+    \begin{tabular}{ccc}
+        \includegraphics[width=0.30\textwidth]{figs/whitening/bss_whitening_gaussian.pdf}&
+        \includegraphics[width=0.30\textwidth]{figs/whitening/bss_whitening_gaussian_mixture.pdf}&
+        \includegraphics[width=0.30\textwidth]{figs/whitening/bss_whitening_gaussian_mixture_whitened.pdf}\\
+    \end{tabular}
+    \caption{Distribuição gaussiana de duas variáveis, misturas observadas e branqueamento.}
+    \label{fig:bss_whitening_data_gaussian}
 \end{figure}
+
+
 
 
 
@@ -339,7 +350,7 @@ Apesar de ter notoriamente focado em aplicações de processamento de imagens, o
 \subsection{Denoising}
 \label{subsec:bss_denoising}
 
-O termo \textit{Denoising} designa, essencialmente, a remoção de ruídos, independentemente de quais sejam, de como afetam o objeto de interesse do projeto e de quais devem ser, especificamente, as técnicas a serem utilizadas para realizar tal tarefa.
+O termo \textit{Denoising} designa a remoção de ruídos, independentemente de quais sejam, de como afetam o objeto de interesse do projeto e de quais devem ser, especificamente, as técnicas a serem utilizadas para realizar tal tarefa.
 
 
 
