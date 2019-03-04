@@ -30,3 +30,5 @@
 *.toc
 
 main\.pdf
+
+*checkpoint.ipynb
