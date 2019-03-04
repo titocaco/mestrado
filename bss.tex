@@ -170,30 +170,32 @@ Vale ressaltar o fato de que o procedimento adotado pelo Algoritmo \ref{alg:bss_
 Para fins meramente ilustrativos, uma simulação foi elaborada para mostrar os efeitos do processo de branqueamento por PCA. Para esta simulação foram utilizados dados artificialmente gerados por meio de duas variáveis aleatórias. Os dados, compostos por 2000 amostras para cada uma das variáveis envolvidas, representados no gráfico da Figura \ref{fig:bss_whitening_data_uniform} foram posicionados com base nos valores das variáveis aleatórias $X_{1}$ e $X_{2}$, que podiam variar entre -1.75 e 1.75, que foram arbitrariamente escolhidos.
 
 
-\begin{figure}[H]
-    \begin{tabular}{ccc}
-        \includegraphics[width=0.30\textwidth]{figs/whitening/bss_whitening_uniform.pdf}&
-        \includegraphics[width=0.30\textwidth]{figs/whitening/bss_whitening_uniform_mixture.pdf}&
-        \includegraphics[width=0.30\textwidth]{figs/whitening/bss_whitening_uniform_mixture_whitened.pdf}\\
-    \end{tabular}
-    \caption{Distribuição uniforme de duas variáveis, misturas observadas e branqueamento.}
+
+
+
+
+\begin{figure}
+    \centering
+    \subfigure[]{\label{fig:bss_whitening_data_uniform_a}\includegraphics[width=60mm]{figs/whitening/bss_whitening_uniform.pdf}}
+    \subfigure[]{\label{fig:bss_whitening_data_uniform_b}\includegraphics[width=60mm]{figs/whitening/bss_whitening_uniform_mixture.pdf}}\\
+    \subfigure[]{\label{fig:bss_whitening_data_uniform_c}\includegraphics[width=60mm]{figs/whitening/bss_whitening_uniform_mixture_whitened.pdf}}
+    \caption{(a) Distribuição uniforme de duas variáveis, (b) distribuição de misturas observadas e (c) distribuição branqueada.}
     \label{fig:bss_whitening_data_uniform}
 \end{figure}
 
+
+
 Em outra simulação, que é exibida pela Figura \ref{fig:bss_whitening_data_gaussian}, foram geradas 2000 amostras respeitando uma distribuição gaussiana de média zero e desvio padrão unitário. Observando-se as imagens da Figura \ref{fig:bss_whitening_data_gaussian} é possível compreender intuitivamente o motivo de o processo de branqueamento para o caso da distribuição gaussiana ser também conhecido como esferização (do inglês, \textit{Sphereing}).
 
-\begin{figure}[H]
-    \begin{tabular}{ccc}
-        \includegraphics[width=0.30\textwidth]{figs/whitening/bss_whitening_gaussian.pdf}&
-        \includegraphics[width=0.30\textwidth]{figs/whitening/bss_whitening_gaussian_mixture.pdf}&
-        \includegraphics[width=0.30\textwidth]{figs/whitening/bss_whitening_gaussian_mixture_whitened.pdf}\\
-    \end{tabular}
-    \caption{Distribuição gaussiana de duas variáveis, misturas observadas e branqueamento.}
+
+\begin{figure}
+    \centering
+    \subfigure[]{\label{fig:bss_whitening_data_gaussian_a}\includegraphics[width=60mm]{figs/whitening/bss_whitening_gaussian.pdf}}
+    \subfigure[]{\label{fig:bss_whitening_data_gaussian_b}\includegraphics[width=60mm]{figs/whitening/bss_whitening_gaussian_mixture.pdf}}\\
+    \subfigure[]{\label{fig:bss_whitening_data_gaussian_c}\includegraphics[width=60mm]{figs/whitening/bss_whitening_gaussian_mixture_whitened.pdf}}
+    \caption{(a) Distribuição uniforme de duas variáveis, (b) distribuição de misturas observadas e (c) distribuição branqueada.}
     \label{fig:bss_whitening_data_gaussian}
 \end{figure}
-
-
-
 
 
 
