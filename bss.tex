@@ -1,3 +1,4 @@
+% !TEX root = main.tex
 \chapter{Separação Cega de Fontes}
 \label{cha:bss}
 
@@ -352,7 +353,11 @@ Apesar de ter notoriamente focado em aplicações de processamento de imagens, o
 \subsection{Denoising}
 \label{subsec:bss_denoising}
 
-O termo \textit{Denoising} designa a remoção de ruídos, independentemente de quais sejam, de como afetam o objeto de interesse do projeto e de quais devem ser, especificamente, as técnicas a serem utilizadas para realizar tal tarefa.
+O termo \textit{Denoising} remete a tratamento de ruídos, independentemente de quais sejam, de como afetam o objeto de interesse do projeto e de quais devem ser, especificamente, as técnicas a serem utilizadas para realizar tal tarefa, embora saiba-se que uma tratativa estatística será necessária devido à natureza dos ruídos \citep{watkinson2001art}. Supressão de ruídos, tratamento de ruídos, redução de ruídos, atenuação de ruídos, cancelamento de ruídos e remoção de ruídos são apenas alguns dos nomes atribuídos a todo um grande conjunto de técnicas cujos objetivos finais acabam sendo, de alguma maneira, o de diminuir os efeitos nocivos provocados por essas perturbações chamadas neste contexto de \textit{ruídos}.
+
+O trabalho \citep{1163209} traz um algoritmo que efetua um tratamento de ruídos em sinais de voz; mais especificamente, o método suprime os efeitos de ruídos estacionários da fala humana tomando como base os trechos do sinal em que não há fala para se obter o \textit{bias} do ruído espectral envolvido. Mas nem sempre o cenário será o mesmo; diversas características sobre o ambiente e sobre o sistema podem sofrer alterações ao longo do tempo. Assim, pode não ser vantajoso apoiar-se exclusivamente em um modelo pré-definido, fixo e inalterável de solução. Uma proposta mais flexível, que permita adaptações conforme a necessidade, pode ser bem mais convidativa e conveniente; trabalhos comumente compreendidos como adaptativos \citep{1451965, 382009}.
+
+
 
 
 
