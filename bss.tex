@@ -359,10 +359,14 @@ O trabalho \citep{1163209} traz um algoritmo que efetua um tratamento de ruídos
 
 Tal como observado em \citep{7805139, 6334422, 1643650, SPRIET20042367}, uma das técnicas clássicas mais exploradas para se tratar ruídos em sinais de áudio é o Filtro de Wiener\footnote{O trabalho havia sido desenvolvido no \textit{Radiation Laboratory}, MIT, alguns anos antes, aproximadamente entre 1940 e 1942, mas foi classificado como secreto na época e, portanto, mantido sob o mais absoluto sigilo, dadas as circunstâncias da época, dado que os propósitos era de estimar a posição dos bombardeiros alemães a partir de reflexos de radares.} \citep{6284754}, que tipicamente explora o Erro Quadrático Médio (\textbf{MSE}, do inglês \textit{Mean Square Error}) como a função custo do problema, almejando-se, portanto, minizá-la para que se possa atingir o mais baixo nível de ruído possível.
 
+\nomenclature{MSE}{\textit{Mean Square Error}}
+
 Mas, apesar de sua enorme contribuição para a área, o filtro de Wiener não podia ser utilizado em qualquer cenário; possuía algumas limitações, como a de depender de processos que fossem estacionários em sentido amplo. Então, vários anos depois, partindo de uma generalização do filtro de Wiener, foi desenvolvido o Filtro de Kalman \citep{kalman1960new}, que pode ser aplicado a processos não estacionários. Tal forma de filtragem obteve ampla adesão nesta área e vários trabalhos foram feitos explorando suas características bastante convenientes, como \citep{701367, 1169756, 91144}.
 
+Além das técnicas mencionadas, há todo um enorme conjunto de outras abordagens, tais como o uso da Transformada Wavelet Discreta (\textbf{DWT}, do inglês \textit{Discrete Wavelet Transform}), geralmente mais explorada em aplicações de imagem e vídeo \citep{119727, doi:10.1175/1520-0477, 336245}; e o da Transformada de Fourier de Tempo Curto (\textbf{STFT}, do inglês \textit{Short-Time Fourier Transform}), bastante utilizadas para áudio \citep{622558, 1164910, 4156182, 1164162, 466662}.
 
-
+\nomenclature{DWT}{\textit{Discrete Wavelet Transform}}
+\nomenclature{STFT}{\textit{Short-Time Fourier Transform}}
 
 
 %   ---------------
