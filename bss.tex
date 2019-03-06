@@ -369,6 +369,8 @@ Além das técnicas mencionadas, há todo um enorme conjunto de outras abordagen
 \nomenclature{STFT}{\textit{Short-Time Fourier Transform}}
 
 
+
+
 %   ---------------
 %   ----- ICA -----
 %   ---------------
@@ -627,8 +629,10 @@ Dando continuidade às explicações um pouco mais minuciosas sobre o SCA, toman
 \section{Fatoração de Matrizes Não-Negativas}
 \label{sec:bss_nmf}
 
-Diferentemente de como ocorre com outros casos mencionados neste trabalho, a Fatoração de Matrizes Não Negativas (\textbf{NMF}, do inglês \textit{Non-Negative Matrix Factorization}) não se trata de um algoritmo em si; em vez disso, trata-se de uma técnica que pode ser compreendida de maneira quase autoexplicativa a partir de seu nome, ou seja, independentemente de qual seja o algoritmo para se atingir tal objetivo, a ideia é a de se obter duas matrizes de valores não negativos que, multiplicando-se uma pela outra, obtém-se a matriz resultante que se deseja representar ao fim.
+Assim como ocorre com outros casos mencionados neste trabalho, a Fatoração de Matrizes Não Negativas (\textbf{NMF}, do inglês \textit{Non-Negative Matrix Factorization}), introduzida em \citep{1781640}, não se trata de um algoritmo em si; em vez disso, trata-se de uma técnica que pode ser compreendida de maneira quase autoexplicativa a partir de seu nome, ou seja, independentemente de qual seja o algoritmo para se atingir tal objetivo, a ideia é a de se obter duas matrizes de valores não negativos que, multiplicando-se uma pela outra, obtém-se a matriz resultante que se deseja representar ao fim.
 
 \nomenclature{NMF}{\textit{Non-Negative Matrix Factorization}}
 
 O objetivo de se efetuar tal processo de decomposição matricial é, principalmente, o de facilitar a análise dos resultados obtidos, mas cabe aqui ressaltar o fato de que nem todos os casos são plenamente solucionáveis. Pode ser preciso trabalhar com aproximações, mas isto não significa que os resultados sejam necessariamente imprecisos e inacurados.
+
+Os artigos \citep{lee1999learning} e \citep{Lee:2000:ANM:3008751.3008829} foram alguns dos principais responsáveis pelas amplas divulgação, adesão e desenvolvimento dos algoritmos de NMF pelo mundo. Esse desenvolvimento passou a ser bastante conveniente para aplicações de áudio por motivos como o fato de o ICA ser mais eficaz para aplicações envolvendo um número de sensores tão grande quanto o número de fontes, o que nem sempre é possível; o NMF, por outro lado, não sofre com tal dependência de forma tão intensa, o que permite que esta abordagem seja explorada com maiores chances de sucesso para casos com limitação de canais, muito comuns quando se trabalha com música, dado que tipicamente são encontrados casos com \textit{Mono} (1 canal) ou \textit{Stereo} (2 canais).
