@@ -32,3 +32,5 @@
 main\.pdf
 
 *checkpoint.ipynb
+
+*.synctex*
