@@ -21,7 +21,28 @@ Atualmente, existem inúmeras aplicações de Deep Learning para as mais diversa
 \section{Perceptron}
 \label{sec:ann_perceptron}
 
-O perceptron é compreendido como a menor unidade neural capaz de realizar a tarefa de classificar dados linearmente separáveis, separando-os através de uma região fronteiriça denominada hiperplano\footnote{Hiperplano nada mais é do que a generalização de um plano para dimensões superiores; trata-se de uma forma geométrica com uma dimensão a menos que o hiperespaço, que é o caso que utiliza-se de todas as dimensões disponíveis}.
+O \textit{Perceptron} é compreendido como a menor unidade neural capaz de realizar a tarefa de classificar dados linearmente separáveis, separando-os através de uma região fronteiriça denominada hiperplano\footnote{Hiperplano nada mais é do que a generalização de um plano para dimensões superiores; trata-se de uma forma geométrica com uma dimensão a menos que o hiperespaço, que é o caso que utiliza-se de todas as dimensões disponíveis}. O perceptron foi desenvolvido por Frank Rosenblatt \citep{rosenblatt1958perceptron}, enquanto trabalhava no \textit{Cornell Aeronautical Laboratory}, em um projeto financiado pelo \textit{Office of Naval Research}; e, diferentemente do que hoje se esperaria, teria sido originalmente planejado para ser uma máquina, não um programa de computador.
+
+Um equipamento considerado bastante grande para os padrões contemporâneos foi projetado pioneiramente para implementar o que se concebeu como sendo o algoritmo do \textit{perceptron}, tal como pode ser visto pela Figura \ref{fig:ann_perceptron_mark}.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.70\textwidth]{figs/ann_perceptron_mark.pdf}
+    \caption{Primeira implementação em \textit{Hardware} de um \textit{Perceptron}.}
+    \label{fig:ann_perceptron_mark}
+\end{figure}
+
+
+Em seu próprio trabalho original, Rosenblatt exibiu um esboço de como ele compreendia ser a organização do \textit{Perceptron}, bem como suas intraconexões, que envolviam componentes que ele chamou de Retina, Área de Projeção, Área de Associação e Respostas, como exibido na Figura \ref{fig:ann_perceptron_organization}.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figs/ann_perceptron_original_organization.pdf}
+    \caption{organização de um \textit{Perceptron}, segundo \citep{rosenblatt1958perceptron}.}
+    \label{fig:ann_perceptron_organization}
+\end{figure}
 
 
 
