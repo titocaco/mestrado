@@ -23,6 +23,21 @@ Atualmente, existem inúmeras aplicações de Deep Learning para as mais diversa
 
 O \textit{Perceptron} é compreendido como a menor unidade neural capaz de realizar a tarefa de classificar dados linearmente separáveis, separando-os através de uma região fronteiriça denominada hiperplano\footnote{Hiperplano nada mais é do que a generalização de um plano para dimensões superiores; trata-se de uma forma geométrica com uma dimensão a menos que o hiperespaço, que é o caso que utiliza-se de todas as dimensões disponíveis}. O perceptron foi desenvolvido por Frank Rosenblatt \citep{rosenblatt1958perceptron}, enquanto trabalhava no \textit{Cornell Aeronautical Laboratory}, em um projeto financiado pelo \textit{Office of Naval Research}; e, diferentemente do que hoje se esperaria, teria sido originalmente planejado para ser uma máquina, não um programa de computador.
 
+Em seu próprio trabalho original, Rosenblatt exibiu um esboço de como ele compreendia ser a organização do \textit{Perceptron}, bem como suas intraconexões, que envolviam componentes que ele chamou de Retina, Área de Projeção, Área de Associação e Respostas, como exibido na Figura \ref{fig:ann_perceptron_organization}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figs/ann_perceptron_original_organization.pdf}
+    \caption{Organização de um \textit{Perceptron}, segundo \citep{rosenblatt1958perceptron}.}
+    \label{fig:ann_perceptron_organization}
+\end{figure}
+
+A Retina trata-se do primeiro componente dessa arquitetura; e é composta por unidades sensoriais com um comportamento que Rosenblatt assumiu como sendo \textit{tudo ou nada}, que pode ser mapeado binariamente. Os impulsos coletados pelos sensores da retina são enviados às chamadas \textit{células de associação}, que se localizam na \textit{área de projeção} (representada na Figura \ref{fig:ann_perceptron_organization} pela região circular $A_{I}$), mas essa região não está presente em todos os modelos de organização; no caso de não estar presente, a conexão é feita de forma direta entre os sensores da retina e a \textit{área de associação} ($A_{II}$).
+
+As unidades da \textit{área de projeção} podem receber estímulos oriundos dos sensores da retina que resultem em excitação ou em inibição. O próprio conceito por detrás do que é comumente chamado de \textit{função de ativação} foi trazido neste mesmo trabalho, dado que, segundo Rosenblatt, as unidades $A$ emitem uma saída\footnote{Para os propósitos de seu modelo, Rosenblatt considerou a saída como sendo unitária, embora reconheça a possibilidade de ser utilizada outra abordagem.} sempre que a soma de todas as entradas da unidade em questão resultar em um valor igual ou superior ao limiar $\theta$ definido. As conexões feitas entre as unidades da área de projeção ($A_{I}$) e as da área de associação ($A_{II}$) foram tratadas como aleatórias, assim sendo, apesar de haver conexões entre unidades das diferentes áreas, tais conexões não necessariamente respeitarão uma específica distribuição; além disso, vale ressaltar que as características e os comportamentos das unidades em si, independentemente de a qual região pertençam, são os mesmos.
+
+
+
 Um equipamento considerado bastante grande para os padrões contemporâneos foi projetado pioneiramente para implementar o que se concebeu como sendo o algoritmo do \textit{perceptron}, tal como pode ser visto pela Figura \ref{fig:ann_perceptron_mark}.
 
 
@@ -33,16 +48,6 @@ Um equipamento considerado bastante grande para os padrões contemporâneos foi 
     \label{fig:ann_perceptron_mark}
 \end{figure}
 
-
-Em seu próprio trabalho original, Rosenblatt exibiu um esboço de como ele compreendia ser a organização do \textit{Perceptron}, bem como suas intraconexões, que envolviam componentes que ele chamou de Retina, Área de Projeção, Área de Associação e Respostas, como exibido na Figura \ref{fig:ann_perceptron_organization}.
-
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.85\textwidth]{figs/ann_perceptron_original_organization.pdf}
-    \caption{organização de um \textit{Perceptron}, segundo \citep{rosenblatt1958perceptron}.}
-    \label{fig:ann_perceptron_organization}
-\end{figure}
 
 
 
