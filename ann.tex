@@ -3,7 +3,7 @@
 \label{cha:ann}
 
 
-A história de \textbf{Redes Neurais Artificiais} começou em 1943 com a fundação do modelo matemático proposto em \citep{mcculloch1943logical}, que em 1951 permitiu abordagens inspiradas na biologia cerebral e por aplicações em inteligência artificial \citep{kleene1951representation}, como no caso da criação de \textbf{Perceptron}\footnote{A menor unidade de processamento de uma RNA, que pode fazer pequenos trabalhos de processamento por si só, mas pode cooperar com outros para alcançar uma convergência, mesmo para um trabalho enorme distribuído por um grande número de neurônios trabalhando em uma rede.} \citep{rosenblatt1958perceptron}, um algoritmo de classificação binária baseado no aprendizado supervisionado, um dos desenvolvimentos mais importantes no campo, publicado em 1958. Outro grande passo foi dado em 1967, quando foi publicado um trabalho sobre redes envolvendo múltiplas camadas \citep{ivakhnenko1967cybernetics}. A Seção \ref{sec:ann_perceptron} esclarecerá o funcionamento do Perceptron, então a Seção \ref{sec:ann_arch_and_prop} trará explicações sobre arquitetura e propriedades das redes neurais.
+A história de \textbf{Redes Neurais Artificiais} começou em 1943 com a fundação do modelo matemático proposto em \citep{mcculloch1943logical}, que em 1951 permitiu abordagens inspiradas na biologia cerebral e por aplicações em inteligência artificial \citep{kleene1951representation}, como no caso da criação de \textbf{Perceptron}\footnote{A menor unidade de processamento de uma rede neural, que pode fazer pequenos trabalhos de processamento por si só, mas pode cooperar com outros para alcançar uma convergência, mesmo para um trabalho enorme distribuído por um grande número de neurônios trabalhando em uma rede.} \citep{rosenblatt1958perceptron}, um algoritmo de classificação binária baseado no aprendizado supervisionado, um dos desenvolvimentos mais importantes no campo, publicado em 1958. Outro grande passo foi dado em 1967, quando foi publicado um trabalho sobre redes envolvendo múltiplas camadas \citep{ivakhnenko1967cybernetics}. A Seção \ref{sec:ann_perceptron} esclarecerá o funcionamento do Perceptron, então a Seção \ref{sec:ann_arch_and_prop} trará explicações sobre arquitetura e propriedades das redes neurais.
 
 Alguns anos mais tarde, mais precisamente em 1972, dois grandes problemas foram identificados nos modelos de redes neurais então conhecidos: a incapacidade dos perceptrons básicos para processar operações de ``ou exclusivo'' (XOR) e a escassez de poder computacional exigido para se trabalhar com redes neurais de muitas camadas \citep{minsky1972perceptrons}. Estes problemas dificultaram muito para que houvesse qualquer avanço relevante nesta área durante vários anos, mas em 1975 foi proposto o \textbf{Backpropagation} \citep{werbos1975beyond}, um novo algoritmo que faria esta área de pesquisa continuar a ser interessante, uma vez que resolveria o problema de operação XOR e aceleraria o processamento em redes multi-camadas ajustando os pesos das camadas por meio de uma distribuição de erro. Uma explicação detalhada sobre Backpropagation será oferecida na Seção \ref{sec:ann_backpropagation}.
 
@@ -38,16 +38,6 @@ As unidades da \textit{área de projeção} podem receber estímulos oriundos do
 
 A respeito das \textit{respostas} ($R_{1}, \dots, R_{n}$), que são descritas como células ou grupos de células, seu comportamento é similar ao das unidades $A$; suas conexões, contudo, são um tanto diferentes, dado que, apesar de também serem feitas aleatoriamente, são altamente numerosas e são bidirecionais, permitindo uma comunicação diferenciadas com as unidades da área de associação ($A_{II}$), havendo para cada resposta $R$ um \textit{conjunto de origem}\footnote{Em uma tradução livre do que originalmente fora chamado de \textit{source-set}.}, ou seja, um conjunto de unidades $A_{II}$ que façam conexão com o a resposta em questão. A comunicação bidirecional permite a existência de \textit{feedback} da resposta para as unidades $A_{II}$ com as quais se comunica; e podem ser (a) excitatórias para todas as células de seu conjunto de origem ou (b) inibitórias para todas as células que não transmitam para a resposta em questão.
 
-Um equipamento considerado bastante grande para os padrões contemporâneos foi projetado pioneiramente para implementar o que se concebeu como sendo o algoritmo do \textit{perceptron}, tal como pode ser visto pela Figura \ref{fig:ann_perceptron_mark}.
-
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.70\textwidth]{figs/ann_perceptron_mark.pdf}
-    \caption{Primeira implementação em \textit{Hardware} de um \textit{Perceptron}.}
-    \label{fig:ann_perceptron_mark}
-\end{figure}
-
 
 
 
@@ -57,7 +47,9 @@ Um equipamento considerado bastante grande para os padrões contemporâneos foi 
 \section{Arquiteturas e Propriedades}
 \label{sec:ann_arch_and_prop}
 
-Uma RNA é uma estrutura composta por perceptrons interconectados distribuídos entre múltiplas camadas. Sua origem vem da ideia de imitar a função cerebral. Uma das características mais importantes das RNAs é a capacidade de aprender com ou sem supervisores (professores), ou seja, as RNAs podem adotar uma abordagem de aprendizado supervisionado ou uma abordagem de aprendizado não supervisionada \citep{haykin1999neural}, dependendo da implementação do algoritmo de acordo com os objetivos do projeto.
+Uma Rede Neural Artificial (\textbf{ANN}, do inglês \textit{Artificial Neural Network}) é uma estrutura composta por perceptrons interconectados distribuídos entre múltiplas camadas. Sua origem vem da ideia de imitar a função cerebral. Uma das características mais importantes das ANNs é a capacidade de aprender com ou sem supervisores (professores), ou seja, as ANNs podem adotar uma abordagem de aprendizado supervisionado ou uma abordagem de aprendizado não supervisionada \citep{haykin1999neural}, dependendo da implementação do algoritmo de acordo com os objetivos do projeto.
+
+\nomenclature{ANN}{\textit{Artificial Neural Network}}
 
 Independentemente do tipo de rede neural artificial, os princípios básicos permanecem os mesmos; existem camadas de entrada, camadas ocultas e camadas de saída. Cada uma delas será explicada em mais detalhes posteriormente. Camadas ocultas são as principais responsáveis pelo aumento da demanda por poder de processamento, pois é onde residem os neurônios que realizam todo o processamento principal da rede.
 
