@@ -67,7 +67,7 @@ A partir da Figura \ref{fig:ann_perceptron_new_organization}, pode-se compreende
         \vspace{0.2cm}
     \end{equation}
 
-    A Figura \ref{fig:ann_identity_function} exibe o comportamento da função de degrau unitário (ou binário).
+    A Figura \ref{fig:ann_identity_function} exibe o comportamento da função identidade.
 
     \begin{figure}[H]
         \centering
@@ -84,7 +84,7 @@ A partir da Figura \ref{fig:ann_perceptron_new_organization}, pode-se compreende
     Dada uma entrada $x$ qualquer, a função Degrau Unitário, também chamada de função Degrau Binário, pode ser definida como:
 
     \begin{equation}
-        f[x]=
+        f[x] = u[x] = 
         \begin{cases}
             1, & \text{se $x \geq 0$}\\
             0, & \text{se $x < 0$}
@@ -99,6 +99,27 @@ A partir da Figura \ref{fig:ann_perceptron_new_organization}, pode-se compreende
         \includegraphics[width=0.5\textwidth]{figs/ann_unit_step_function.pdf}
         \caption{Plot da função de degrau unitário.}
         \label{fig:ann_step_function}
+    \end{figure}
+    
+\end{definition}
+
+
+
+\begin{definition}[Função Logística]
+    Dada uma entrada $x$ qualquer, a função Logística pode ser definida como:
+
+    \begin{equation}
+        f[x] = \sigma [x] = \dfrac{1}{1 + e^{-x}}
+        \vspace{0.2cm}
+    \end{equation}
+
+    A Figura \ref{fig:ann_logistic_function} exibe o comportamento da função logística.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\textwidth]{figs/ann_logistic_function.pdf}
+        \caption{Plot da função identidade.}
+        \label{fig:ann_logistic_function}
     \end{figure}
     
 \end{definition}
