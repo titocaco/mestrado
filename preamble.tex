@@ -210,9 +210,9 @@
 
 
 
-%   ---------------------------------------
-%   ----- Definitions and Assumptions -----
-%   ---------------------------------------
+%   -------------------------------------------------
+%   ----- Definitions, Assumptions and Examples -----
+%   -------------------------------------------------
 \usepackage[many]{tcolorbox}
 \usetikzlibrary{calc}
 
@@ -227,6 +227,14 @@
   arc=0pt,
   colframe=mygray!80,
   colback=mygray!10,
+  valign=center,
+  every float=\centering,
+  add to natural height=1cm,
+  width=\linewidth-2mm,
+  before=,
+  after=\hfill,
+  before skip=1.0cm,
+  after skip=1.0cm,
   attach boxed title to top left,
   boxed title style={
     colback=mygray!80,
@@ -267,6 +275,32 @@
         node[anchor=west,font=\sffamily,color=mygray2,text width=\x2-\x1]
         at (title.east) {#1};
   }
+}
+
+
+\tcbuselibrary{skins,breakable}
+\newcounter{example}
+
+
+\colorlet{colexam}{black!20!RoyalBlue}
+\newtcolorbox[use counter=example]{example}{%
+empty,title={Exemplo \thetcbcounter},attach boxed title to top left,
+boxed title style={empty,size=minimal,toprule=2pt,top=4pt,
+overlay={\draw[colexam,line width=2pt]
+([yshift=-1pt]frame.north west)--([yshift=-1pt]frame.north east);}},
+coltitle=colexam,fonttitle=\Large\bfseries,
+before=\par\medskip\noindent,parbox=false,boxsep=0pt,left=0pt,right=3mm,top=4pt,
+breakable,pad at break*=0mm,vfill before first,
+overlay unbroken={\draw[colexam,line width=1pt]
+([yshift=-1pt]title.north east)--([xshift=-0.5pt,yshift=-1pt]title.north-|frame.east)
+--([xshift=-0.5pt]frame.south east)--(frame.south west); },
+overlay first={\draw[colexam,line width=1pt]
+([yshift=-1pt]title.north east)--([xshift=-0.5pt,yshift=-1pt]title.north-|frame.east)
+--([xshift=-0.5pt]frame.south east); },
+overlay middle={\draw[colexam,line width=1pt] ([xshift=-0.5pt]frame.north east)
+--([xshift=-0.5pt]frame.south east); },
+overlay last={\draw[colexam,line width=1pt] ([xshift=-0.5pt]frame.north east)
+--([xshift=-0.5pt]frame.south east)--(frame.south west);},%
 }
 
 
