@@ -38,14 +38,48 @@ As unidades da \textit{área de projeção} podem receber estímulos oriundos do
 
 A respeito das \textit{respostas} ($R_{1}, \dots, R_{n}$), que são descritas como células ou grupos de células, seu comportamento é similar ao das unidades $A$; suas conexões, contudo, são um tanto diferentes, dado que, apesar de também serem feitas aleatoriamente, são altamente numerosas e são bidirecionais, permitindo uma comunicação diferenciadas com as unidades da área de associação ($A_{II}$), havendo para cada resposta $R$ um \textit{conjunto de origem}\footnote{Em uma tradução livre do que originalmente fora chamado de \textit{source-set}.}, ou seja, um conjunto de unidades $A_{II}$ que façam conexão com o a resposta em questão. A comunicação bidirecional permite a existência de \textit{feedback} da resposta para as unidades $A_{II}$ com as quais se comunica; e podem ser (a) excitatórias para todas as células de seu conjunto de origem ou (b) inibitórias para todas as células que não transmitam para a resposta em questão.
 
-A partir de uma perspectiva mais contemporânea, o Perceptron passou a ser retratado de uma forma menos abstrata, utilizando funções algébricas explícitas e bem definidas, o que justifica, inclusive, a utilização de uma ilustração mais objetiva, assim como a representada pela Figura \ref{fig:ann_perceptron_new_organization}.
+A partir de uma perspectiva mais contemporânea, o Perceptron passou a ser retratado de uma forma menos abstrata, utilizando funções algébricas explícitas e bem definidas, o que justifica, inclusive, a utilização de uma ilustração mais objetiva, assim como a representada pela Figura \ref{fig:ann_perceptron_new_organization}. Mas vale lembrar que esta nova versão é apenas uma forma diferente de representar artisticamente a mesma estrutura organizacional concebita por Rosenblatt. Não se trata, portanto, de uma real mudança da arquitetura original; apenas é feita uma ilustração que acompanhe uma interpretação sutilmente mais convidativa a partir de um olhar da perspectiva computacional.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.00\textwidth]{figs/ann_perceptron_new_organization.pdf}
-    \caption{Arquitetura contemporânea de um \textit{Perceptron}.}
+    \caption{Representação contemporânea da arquitetura de um \textit{Perceptron}.}
     \label{fig:ann_perceptron_new_organization}
 \end{figure}
+
+
+A partir da Figura \ref{fig:ann_perceptron_new_organization}, pode-se compreender que há um conjunto de entradas, $\bm{x}$, respectivamente ponderadas por um conjunto de pesos, $\bm{w}$, que, junto a um \textit{bias}, são somadas, então o resultado dessa soma é utilizado como entrada de uma \textit{função de ativação}, responsável por emitir o valor da saída, $\bm{y}$. Na próxima seção será melhor explicado sobre o que são as funções de ativação, assim como serão expostas e discutidas algumas das mais utilizadas.
+
+
+
+
+%   ----- Funções de Ativação -----
+\section{Funções de Ativação}
+\label{sec:ann_activation_functions}
+
+
+\begin{definition}[Função Degrau Unitário]
+    Dada uma entrada $x$ qualquer, a função Degrau Unitário $u[x]$, também chamada de função Degrau Binário, pode ser definida como:
+
+    \begin{equation}
+        u[x]=
+        \begin{cases}
+            1, & \text{se $x \geq 0$}.\\
+            0, & \text{se $x < 0$}.
+        \end{cases}
+        \vspace{0.2cm}
+    \end{equation}
+
+    A Figura \ref{fig:ann_step_function} exibe o comportamento da função de degrau unitário (ou binário).
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\textwidth]{figs/ann_unit_step_function.pdf}
+        \caption{Plot da função de degrau unitário.}
+        \label{fig:ann_step_function}
+    \end{figure}
+    
+\end{definition}
 
 
 
