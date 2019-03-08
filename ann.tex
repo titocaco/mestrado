@@ -58,19 +58,41 @@ A partir da Figura \ref{fig:ann_perceptron_new_organization}, pode-se compreende
 \label{sec:ann_activation_functions}
 
 
-\begin{definition}[Função Degrau Unitário]
-    Dada uma entrada $x$ qualquer, a função Degrau Unitário $u[x]$, também chamada de função Degrau Binário, pode ser definida como:
+
+\begin{definition}[Função Identidade]
+    Dada uma entrada $x$ qualquer, a função Identidade pode ser definida como:
 
     \begin{equation}
-        u[x]=
+        f[x] = x
+        \vspace{0.2cm}
+    \end{equation}
+
+    A Figura \ref{fig:ann_identity_function} exibe o comportamento da função de degrau unitário (ou binário).
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\textwidth]{figs/ann_identity_function.pdf}
+        \caption{Plot da função identidade.}
+        \label{fig:ann_identity_function}
+    \end{figure}
+    
+\end{definition}
+
+
+
+\begin{definition}[Função Degrau Unitário]
+    Dada uma entrada $x$ qualquer, a função Degrau Unitário, também chamada de função Degrau Binário, pode ser definida como:
+
+    \begin{equation}
+        f[x]=
         \begin{cases}
-            1, & \text{se $x \geq 0$}.\\
-            0, & \text{se $x < 0$}.
+            1, & \text{se $x \geq 0$}\\
+            0, & \text{se $x < 0$}
         \end{cases}
         \vspace{0.2cm}
     \end{equation}
 
-    A Figura \ref{fig:ann_step_function} exibe o comportamento da função de degrau unitário (ou binário).
+    A Figura \ref{fig:ann_step_function} exibe o comportamento da função degrau unitário (ou binário).
 
     \begin{figure}[H]
         \centering
