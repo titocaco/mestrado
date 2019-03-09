@@ -48,8 +48,16 @@ A partir de uma perspectiva mais contemporânea, o Perceptron passou a ser retra
 \end{figure}
 
 
-A partir da Figura \ref{fig:ann_perceptron_new_organization}, pode-se compreender que há um conjunto de entradas, $\bm{x}$, respectivamente ponderadas por um conjunto de pesos, $\bm{w}$, que, junto a um \textit{bias}, são somadas, então o resultado dessa soma é utilizado como entrada de uma \textit{função de ativação}, responsável por emitir o valor da saída, $\bm{y}$. Na próxima seção será melhor explicado sobre o que são as funções de ativação, assim como serão expostas e discutidas algumas das mais utilizadas.
+A partir da Figura \ref{fig:ann_perceptron_new_organization}, pode-se compreender que há um conjunto de entradas, $\bm{x}$, respectivamente ponderadas por um conjunto de pesos, $\bm{w}$, que, junto a um \textit{bias}, são somadas, então o resultado dessa soma é utilizado como entrada de uma \textit{função de ativação}, responsável por emitir o valor da saída, $\bm{y}$. O somatório utiliza-se de uma combinação linear causada pela soma ponderada das entradas, além do \textit{bias}, o que resulta na separação de duas regiões por um \textit{hiperplano} \citep{haykin1999neural}, cuja definição matemática é dada por
 
+\begin{equation}
+    \sum_{i=1}^{N} w_{i} x_{i} + b = 0
+    \label{eq:ann_perceptron_hyperplane}
+    \hspace{0.1cm},
+    \vspace{0.2cm}
+\end{equation}
+
+\noindent onde $N$ representa o número total de entradas e, portanto, também de seus respectivos pesos para que seja possível efetuar as ponderações; e $b$ representa o \textit{bias}. A partir do resultado do somatório, chega-se à \textit{função de ativação}, a respeito da qual será melhor discutido na seção seguinte.
 
 
 
