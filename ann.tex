@@ -71,28 +71,29 @@ Uma das funções mais simples é a \textit{função identidade}, que permite qu
 
 
 \begin{definition}[Função Identidade]
-    Dada uma entrada $x$ qualquer, a função Identidade pode ser definida como:
+    Dada uma entrada $x$, a função Identidade pode ser definida como:
 
     \begin{equation}
         f[x] = x
         \vspace{0.2cm}
+        \label{eq:ann_identity_function}
     \end{equation}
     
 \end{definition}
 
 A Figura \ref{fig:ann_identity_function} exibe o comportamento da função identidade.
 
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.7\textwidth]{figs/ann_identity_function.pdf}
-        \caption{Plot da função identidade.}
-        \label{fig:ann_identity_function}
-    \end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figs/ann_identity_function.pdf}
+    \caption{Plot da função identidade.}
+    \label{fig:ann_identity_function}
+\end{figure}
 
 
 
 \begin{definition}[Função Degrau Unitário]
-    Dada uma entrada $x$ qualquer, a função Degrau Unitário, também chamada de função Degrau Binário, pode ser definida como:
+    Dada uma entrada $x$, a função Degrau Unitário, também chamada de função Degrau Binário, pode ser definida como:
 
     \begin{equation}
         f[x] = u[x] = 
@@ -101,44 +102,63 @@ A Figura \ref{fig:ann_identity_function} exibe o comportamento da função ident
             0, & \text{se $x < 0$}
         \end{cases}
         \vspace{0.2cm}
+        \label{eq:ann_step_function}
     \end{equation}
     
 \end{definition}
 
 A Figura \ref{fig:ann_step_function} exibe o comportamento da função degrau unitário (ou binário).
 
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.9\textwidth]{figs/ann_unit_step_function.pdf}
-        \caption{Plot da função degrau unitário.}
-        \label{fig:ann_step_function}
-    \end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figs/ann_unit_step_function.pdf}
+    \caption{Plot da função degrau unitário.}
+    \label{fig:ann_step_function}
+\end{figure}
 
 
 
 \begin{definition}[Função Logística]
-    Dada uma entrada $x$ qualquer, a função Logística pode ser definida como:
+    Dada uma entrada $x$, a função Logística pode ser definida como:
 
     \begin{equation}
         f[x] = \sigma [x] = \dfrac{1}{1 + e^{-x}}
         \vspace{0.2cm}
+        \label{eq:ann_logistic_function}
     \end{equation}
     
 \end{definition}
 
 A Figura \ref{fig:ann_logistic_function} exibe o comportamento da função logística.
 
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.7\textwidth]{figs/ann_logistic_function.pdf}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figs/ann_logistic_function.pdf}
 
-        \caption{Plot da função logística.}
-        \label{fig:ann_logistic_function}
-    \end{figure}
-
-
+    \caption{Plot da função logística.}
+    \label{fig:ann_logistic_function}
+\end{figure}
 
 
+\begin{definition}[Função Tangente Hiperbólica]
+    Dada uma entrada $x$, a função Tangente Hiperbólica pode ser definida como:
+
+    \begin{equation}
+        f[x] = \text{tanh}(x) = \dfrac{e^{x} - e^{-x}}{e^{x} + e^{-x}}
+        \vspace{0.2cm}
+        \label{eq:ann_tanh_function}
+    \end{equation}
+\end{definition}
+
+A Figura \ref{fig:ann_tanh_function} exibe o comportamento da função logística.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figs/ann_tanh_function.pdf}
+
+    \caption{Plot da função tangente hiperbólica.}
+    \label{fig:ann_tanh_function}
+\end{figure}
 
 
 %   ---------------------------------------
