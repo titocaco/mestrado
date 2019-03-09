@@ -57,6 +57,9 @@ A partir da Figura \ref{fig:ann_perceptron_new_organization}, pode-se compreende
 \section{Funções de Ativação}
 \label{sec:ann_activation_functions}
 
+Um dos elementos mais importantes que compõem um \textit{Perceptron} é a \textit{função de ativação}, que funciona como um filtro que auxilia na tomada de decisões sobre o que fazer com o sinal resultante dos estímulos individuais que a ele chegam, sendo um dos responsáveis finais pela saída a ser obtida. Existem muitos tipos distintos de funções de ativação, não havendo uma função sequer que necessariamente seja melhor que todas as demais em todos os cenários possíveis, o que significa que sempre deverá ser analisado o cenário em questão, quais são os valores possíveis de entrada, quais as saídas desejadas e, também, qual o comportamento da função em toda a região intermediária, afinal, não são apenas os extremos que interferem no desempenho da rede; todos os elementos interferem, embora haja os que possam interferir em maior intensidade.
+
+Uma das funções mais simples é a \textit{função identidade}, que permite quaisquer valores de entrada e saída.
 
 
 \begin{definition}[Função Identidade]
@@ -66,17 +69,17 @@ A partir da Figura \ref{fig:ann_perceptron_new_organization}, pode-se compreende
         f[x] = x
         \vspace{0.2cm}
     \end{equation}
+    
+\end{definition}
 
-    A Figura \ref{fig:ann_identity_function} exibe o comportamento da função identidade.
+A Figura \ref{fig:ann_identity_function} exibe o comportamento da função identidade.
 
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.5\textwidth]{figs/ann_identity_function.pdf}
+        \includegraphics[width=0.7\textwidth]{figs/ann_identity_function.pdf}
         \caption{Plot da função identidade.}
         \label{fig:ann_identity_function}
     \end{figure}
-    
-\end{definition}
 
 
 
@@ -91,17 +94,17 @@ A partir da Figura \ref{fig:ann_perceptron_new_organization}, pode-se compreende
         \end{cases}
         \vspace{0.2cm}
     \end{equation}
+    
+\end{definition}
 
-    A Figura \ref{fig:ann_step_function} exibe o comportamento da função degrau unitário (ou binário).
+A Figura \ref{fig:ann_step_function} exibe o comportamento da função degrau unitário (ou binário).
 
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.5\textwidth]{figs/ann_unit_step_function.pdf}
-        \caption{Plot da função de degrau unitário.}
+        \includegraphics[width=0.9\textwidth]{figs/ann_unit_step_function.pdf}
+        \caption{Plot da função degrau unitário.}
         \label{fig:ann_step_function}
     \end{figure}
-    
-\end{definition}
 
 
 
@@ -112,17 +115,19 @@ A partir da Figura \ref{fig:ann_perceptron_new_organization}, pode-se compreende
         f[x] = \sigma [x] = \dfrac{1}{1 + e^{-x}}
         \vspace{0.2cm}
     \end{equation}
+    
+\end{definition}
 
-    A Figura \ref{fig:ann_logistic_function} exibe o comportamento da função logística.
+A Figura \ref{fig:ann_logistic_function} exibe o comportamento da função logística.
 
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.5\textwidth]{figs/ann_logistic_function.pdf}
+        \includegraphics[width=0.7\textwidth]{figs/ann_logistic_function.pdf}
+
         \caption{Plot da função logística.}
         \label{fig:ann_logistic_function}
     \end{figure}
-    
-\end{definition}
+
 
 
 
