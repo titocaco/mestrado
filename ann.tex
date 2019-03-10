@@ -67,7 +67,7 @@ A partir da Figura \ref{fig:ann_perceptron_new_organization}, pode-se compreende
 
 Um dos elementos mais importantes que compõem um \textit{Perceptron} é a \textit{função de ativação}, que funciona como um filtro que auxilia na tomada de decisões sobre o que fazer com o sinal resultante dos estímulos individuais que a ele chegam, sendo um dos responsáveis finais pela saída a ser obtida. Existem muitos tipos distintos de funções de ativação, não havendo uma função sequer que necessariamente seja melhor que todas as demais em todos os cenários possíveis, o que significa que sempre deverá ser analisado o cenário em questão, quais são os valores possíveis de entrada, quais as saídas desejadas e, também, qual o comportamento da função em toda a região intermediária, afinal, não são apenas os extremos que interferem no desempenho da rede; todos os elementos interferem, embora haja os que possam interferir em maior intensidade.
 
-Uma das funções mais simples é a \textit{função identidade}, que permite quaisquer valores de entrada e saída.
+Uma das funções mais simples é a \textit{função identidade}, que permite quaisquer valores de entrada e saída, mas não se trata de uma das funções mais exploradas contemporaneamente; em vez disso, a função que assume tal posição de prestígio é a \textit{função ReLU}, que será trazida ainda neste mesmo capítulo. Como o foco deste projeto não são as funções de ativação \textit{per se}, não será feita uma discussão aprofundada quanto a qualquer uma das funções, contudo, a fim de fornecer um material que possa ser utilizado pelo leitor para visualizar mais facilmente os efeitos de algumas funções de ativação, foram selecionadas algumas das mais comumente exploradas para que sejam aqui matematicamente definidas e tenham seu comportamento exibido graficamente para diferentes valores de \textit{bias}.
 
 
 \begin{definition}[Função Identidade]
@@ -85,12 +85,13 @@ A Figura \ref{fig:ann_identity_function} exibe o comportamento da função ident
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{figs/ann_identity_function.pdf}
+    \includegraphics[width=1.0\textwidth]{figs/ann_identity_function.pdf}
     \caption{Plot da função identidade.}
     \label{fig:ann_identity_function}
 \end{figure}
 
-
+\linebreak
+\newpage
 
 \begin{definition}[Função Degrau Unitário]
     Dada uma entrada $x$, a função Degrau Unitário, também chamada de função Degrau Binário, pode ser definida como:
@@ -111,12 +112,13 @@ A Figura \ref{fig:ann_step_function} exibe o comportamento da função degrau un
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{figs/ann_unit_step_function.pdf}
+    \includegraphics[width=1.0\textwidth]{figs/ann_unit_step_function.pdf}
     \caption{Plot da função degrau unitário.}
     \label{fig:ann_step_function}
 \end{figure}
 
-
+\linebreak
+\newpage
 
 \begin{definition}[Função Logística]
     Dada uma entrada $x$, a função Logística pode ser definida como:
@@ -133,12 +135,14 @@ A Figura \ref{fig:ann_logistic_function} exibe o comportamento da função logí
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{figs/ann_logistic_function.pdf}
+    \includegraphics[width=1.0\textwidth]{figs/ann_logistic_function.pdf}
 
     \caption{Plot da função logística.}
     \label{fig:ann_logistic_function}
 \end{figure}
 
+\linebreak
+\newpage
 
 \begin{definition}[Função Tangente Hiperbólica]
     Dada uma entrada $x$, a função Tangente Hiperbólica pode ser definida como:
@@ -154,12 +158,14 @@ A Figura \ref{fig:ann_tanh_function} exibe o comportamento da função tangente 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{figs/ann_tanh_function.pdf}
+    \includegraphics[width=1.0\textwidth]{figs/ann_tanh_function.pdf}
 
     \caption{Plot da função tangente hiperbólica.}
     \label{fig:ann_tanh_function}
 \end{figure}
 
+\linebreak
+\newpage
 
 \begin{definition}[Função Arco Tangente]
     Dada uma entrada $x$, a função Arco Tangente pode ser definida como:
@@ -175,12 +181,43 @@ A Figura \ref{fig:ann_arctan_function} exibe o comportamento da função arco ta
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{figs/ann_arctan_function.pdf}
+    \includegraphics[width=1.0\textwidth]{figs/ann_arctan_function.pdf}
 
-    \caption{Plot da função tangente hiperbólica.}
+    \caption{Plot da função arco tangente.}
     \label{fig:ann_arctan_function}
 \end{figure}
 
+
+\linebreak
+\newpage
+
+\begin{definition}[Função \textit{Rectified Linear Unit} (ReLU)]
+    Dada uma entrada $x$, a função ReLU pode ser definida como:
+
+    \begin{equation}
+        f[x] = u[x] = 
+        \begin{cases}
+            0, & \text{se $x \leq 0$}\\
+            x, & \text{se $x > 0$}
+        \end{cases}
+        \vspace{0.2cm}
+        \label{eq:ann_relu_function}
+    \end{equation}
+\end{definition}
+
+A Figura \ref{fig:ann_relu_function} exibe o comportamento da função ReLU.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{figs/ann_relu_function.pdf}
+
+    \caption{Plot da função ReLU.}
+    \label{fig:ann_relu_function}
+\end{figure}
+
+
+\linebreak
+\newpage
 
 %   ---------------------------------------
 %   ----- Arquiteturas e Propriedades -----
