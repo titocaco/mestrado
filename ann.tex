@@ -78,20 +78,29 @@ Uma das funções mais simples é a \textit{função identidade}, que permite qu
         \vspace{0.2cm}
         \label{eq:ann_identity_function}
     \end{equation}
+
+    A derivada da função identidade é:
+
+    \begin{equation}
+        f'[x] = 1
+        \label{eq:ann_identity_function_dy}
+    \end{equation}
     
 \end{definition}
 
-A Figura \ref{fig:ann_identity_function} exibe o comportamento da função identidade.
+A Figura \ref{fig:ann_identity_function} exibe o comportamento da função identidade, bem com o de sua primeira derivada.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{figs/ann_identity_function.pdf}
-    \caption{Plot da função identidade.}
+    \caption{Comportamento da função identidade.}
     \label{fig:ann_identity_function}
 \end{figure}
 
+
 \linebreak
 \newpage
+
 
 \begin{definition}[Função Degrau Unitário]
     Dada uma entrada $x$, a função Degrau Unitário, também chamada de função Degrau Binário, pode ser definida como:
@@ -99,11 +108,23 @@ A Figura \ref{fig:ann_identity_function} exibe o comportamento da função ident
     \begin{equation}
         f[x] = u[x] = 
         \begin{cases}
-            1, & \text{se $x \geq 0$}\\
-            0, & \text{se $x < 0$}
+            0, & \text{se $x < 0$}\\
+            1, & \text{se $x \geq 0$}
         \end{cases}
         \vspace{0.2cm}
         \label{eq:ann_step_function}
+    \end{equation}
+
+    A derivada da função degrau unitário é:
+
+    \begin{equation}
+        f'[x] = u[x] = 
+        \begin{cases}
+            0, & \text{se $x \neq 0$}\\
+            \text{?}, & \text{se $x = 0$}
+        \end{cases}
+        \vspace{0.2cm}
+        \label{eq:ann_step_function_dy}
     \end{equation}
     
 \end{definition}
@@ -113,12 +134,14 @@ A Figura \ref{fig:ann_step_function} exibe o comportamento da função degrau un
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{figs/ann_unit_step_function.pdf}
-    \caption{Plot da função degrau unitário.}
+    \caption{Comportamento da função degrau unitário.}
     \label{fig:ann_step_function}
 \end{figure}
 
+
 \linebreak
 \newpage
+
 
 \begin{definition}[Função Logística]
     Dada uma entrada $x$, a função Logística pode ser definida como:
@@ -127,6 +150,13 @@ A Figura \ref{fig:ann_step_function} exibe o comportamento da função degrau un
         f[x] = \sigma [x] = \dfrac{1}{1 + e^{-x}}
         \vspace{0.2cm}
         \label{eq:ann_logistic_function}
+    \end{equation}
+
+    A derivada da função logística é:
+
+    \begin{equation}
+        f'[x] = f[x]\ (1 - f[x])
+        \label{eq:ann_logistic_function_dy}
     \end{equation}
     
 \end{definition}
@@ -137,12 +167,14 @@ A Figura \ref{fig:ann_logistic_function} exibe o comportamento da função logí
     \centering
     \includegraphics[width=0.7\textwidth]{figs/ann_logistic_function.pdf}
 
-    \caption{Plot da função logística.}
+    \caption{Comportamento da função logística.}
     \label{fig:ann_logistic_function}
 \end{figure}
 
+
 \linebreak
 \newpage
+
 
 \begin{definition}[Função Tangente Hiperbólica]
     Dada uma entrada $x$, a função Tangente Hiperbólica pode ser definida como:
@@ -152,6 +184,14 @@ A Figura \ref{fig:ann_logistic_function} exibe o comportamento da função logí
         \vspace{0.2cm}
         \label{eq:ann_tanh_function}
     \end{equation}
+
+    A derivada da função tangente hiperbólica é:
+
+    \begin{equation}
+        f'[x] = 1 - (f[x])^{2}
+        \label{eq:ann_tanh_function_dy}
+    \end{equation}
+
 \end{definition}
 
 A Figura \ref{fig:ann_tanh_function} exibe o comportamento da função tangente hiperbólica.
@@ -164,8 +204,10 @@ A Figura \ref{fig:ann_tanh_function} exibe o comportamento da função tangente 
     \label{fig:ann_tanh_function}
 \end{figure}
 
+
 \linebreak
 \newpage
+
 
 \begin{definition}[Função Arco Tangente]
     Dada uma entrada $x$, a função Arco Tangente pode ser definida como:
@@ -175,6 +217,14 @@ A Figura \ref{fig:ann_tanh_function} exibe o comportamento da função tangente 
         \vspace{0.2cm}
         \label{eq:ann_arctan_function}
     \end{equation}
+
+    A derivada da função arco tangente é:
+
+    \begin{equation}
+        f'[x] = \dfrac{1}{x^{2} + 1}
+        \label{eq:ann_arctan_function_dy}
+    \end{equation}
+
 \end{definition}
 
 A Figura \ref{fig:ann_arctan_function} exibe o comportamento da função arco tangente.
@@ -183,7 +233,7 @@ A Figura \ref{fig:ann_arctan_function} exibe o comportamento da função arco ta
     \centering
     \includegraphics[width=0.7\textwidth]{figs/ann_arctan_function.pdf}
 
-    \caption{Plot da função arco tangente.}
+    \caption{Comportamento da função arco tangente.}
     \label{fig:ann_arctan_function}
 \end{figure}
 
@@ -191,18 +241,32 @@ A Figura \ref{fig:ann_arctan_function} exibe o comportamento da função arco ta
 \linebreak
 \newpage
 
+
 \begin{definition}[Função \textit{Rectified Linear Unit} (ReLU)]
     Dada uma entrada $x$, a função ReLU pode ser definida como:
 
     \begin{equation}
         f[x] =  
         \begin{cases}
-            0, & \text{se $x \leq 0$}\\
-            x, & \text{se $x > 0$}
+            0, & \text{se $x < 0$}\\
+            x, & \text{se $x \geq 0$}
         \end{cases}
         \vspace{0.2cm}
         \label{eq:ann_relu_function}
     \end{equation}
+
+    A derivada da função ReLU é:
+
+    \begin{equation}
+        f'[x] = u[x] = 
+        \begin{cases}
+            0, & \text{se $x < 0$}\\
+            1, & \text{se $x \geq 0$}
+        \end{cases}
+        \vspace{0.2cm}
+        \label{eq:ann_relu_function_dy}
+    \end{equation}
+
 \end{definition}
 
 A Figura \ref{fig:ann_relu_function} exibe o comportamento da função ReLU.
@@ -211,7 +275,7 @@ A Figura \ref{fig:ann_relu_function} exibe o comportamento da função ReLU.
     \centering
     \includegraphics[width=0.7\textwidth]{figs/ann_relu_function.pdf}
 
-    \caption{Plot da função ReLU.}
+    \caption{Comportamento da função ReLU.}
     \label{fig:ann_relu_function}
 \end{figure}
 
@@ -219,18 +283,32 @@ A Figura \ref{fig:ann_relu_function} exibe o comportamento da função ReLU.
 \linebreak
 \newpage
 
+
 \begin{definition}[Função \textit{Leaky Rectified Linear Unit} (LReLU)]
     Dada uma entrada $x$, a função LReLU pode ser definida como:
 
     \begin{equation}
         f[x] = 
         \begin{cases}
-            0.01 x, & \text{se $x \leq 0$}\\
-            x, & \text{se $x > 0$}
+            0.01 x, & \text{se $x < 0$}\\
+            x, & \text{se $x \geq 0$}
         \end{cases}
         \vspace{0.2cm}
         \label{eq:ann_lrelu_function}
     \end{equation}
+
+    A derivada da função LReLU é:
+
+    \begin{equation}
+        f'[x] = 
+        \begin{cases}
+            0.01, & \text{se $x < 0$}\\
+            1, & \text{se $x \geq 0$}
+        \end{cases}
+        \vspace{0.2cm}
+        \label{eq:ann_lrelu_function_dy}
+    \end{equation}
+
 \end{definition}
 
 A Figura \ref{fig:ann_lrelu_function} exibe o comportamento da função LReLU.
@@ -239,13 +317,14 @@ A Figura \ref{fig:ann_lrelu_function} exibe o comportamento da função LReLU.
     \centering
     \includegraphics[width=0.7\textwidth]{figs/ann_lrelu_function.pdf}
 
-    \caption{Plot da função LReLU.}
+    \caption{Comportamento da função LReLU.}
     \label{fig:ann_lrelu_function}
 \end{figure}
 
 
 \linebreak
 \newpage
+
 
 \begin{definition}[Função \textit{Inverse Square Root Rectified Linear Unit} (ISRLU)]
     Dada uma entrada $x$, a função ISRLU pode ser definida como:
@@ -259,6 +338,19 @@ A Figura \ref{fig:ann_lrelu_function} exibe o comportamento da função LReLU.
         \vspace{0.2cm}
         \label{eq:ann_isrlu_function}
     \end{equation}
+
+    A derivada da função ISRLU é:
+
+    \begin{equation}
+        f[x] = 
+        \begin{cases}
+            \left(\dfrac{1}{\sqrt{1 + \alpha x^{2}}}\right)^{3}, & \text{se $x < 0$}\\
+            1, & \text{se $x \geq 0$}
+        \end{cases}
+        \vspace{0.2cm}
+        \label{eq:ann_isrlu_function_dy}
+    \end{equation}
+
 \end{definition}
 
 A Figura \ref{fig:ann_isrlu_function} exibe o comportamento da função ISRLU.
@@ -267,13 +359,14 @@ A Figura \ref{fig:ann_isrlu_function} exibe o comportamento da função ISRLU.
     \centering
     \includegraphics[width=0.7\textwidth]{figs/ann_isrlu_function.pdf}
 
-    \caption{Plot da função ISRLU para valores de $\alpha$ igual a 1, 2 e 3, respectivamente, de cima para baixo.}
+    \caption{Comportamento da função ISRLU para $\alpha=1$ (em cima) e $\alpha=3$ (embaixo).}
     \label{fig:ann_isrlu_function}
 \end{figure}
 
 
 \linebreak
 \newpage
+
 
 %   ---------------------------------------
 %   ----- Arquiteturas e Propriedades -----
