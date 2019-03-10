@@ -85,7 +85,7 @@ A Figura \ref{fig:ann_identity_function} exibe o comportamento da função ident
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\textwidth]{figs/ann_identity_function.pdf}
+    \includegraphics[width=0.7\textwidth]{figs/ann_identity_function.pdf}
     \caption{Plot da função identidade.}
     \label{fig:ann_identity_function}
 \end{figure}
@@ -112,7 +112,7 @@ A Figura \ref{fig:ann_step_function} exibe o comportamento da função degrau un
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\textwidth]{figs/ann_unit_step_function.pdf}
+    \includegraphics[width=0.7\textwidth]{figs/ann_unit_step_function.pdf}
     \caption{Plot da função degrau unitário.}
     \label{fig:ann_step_function}
 \end{figure}
@@ -135,7 +135,7 @@ A Figura \ref{fig:ann_logistic_function} exibe o comportamento da função logí
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\textwidth]{figs/ann_logistic_function.pdf}
+    \includegraphics[width=0.7\textwidth]{figs/ann_logistic_function.pdf}
 
     \caption{Plot da função logística.}
     \label{fig:ann_logistic_function}
@@ -158,7 +158,7 @@ A Figura \ref{fig:ann_tanh_function} exibe o comportamento da função tangente 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\textwidth]{figs/ann_tanh_function.pdf}
+    \includegraphics[width=0.7\textwidth]{figs/ann_tanh_function.pdf}
 
     \caption{Plot da função tangente hiperbólica.}
     \label{fig:ann_tanh_function}
@@ -181,7 +181,7 @@ A Figura \ref{fig:ann_arctan_function} exibe o comportamento da função arco ta
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\textwidth]{figs/ann_arctan_function.pdf}
+    \includegraphics[width=0.7\textwidth]{figs/ann_arctan_function.pdf}
 
     \caption{Plot da função arco tangente.}
     \label{fig:ann_arctan_function}
@@ -195,7 +195,7 @@ A Figura \ref{fig:ann_arctan_function} exibe o comportamento da função arco ta
     Dada uma entrada $x$, a função ReLU pode ser definida como:
 
     \begin{equation}
-        f[x] = u[x] = 
+        f[x] =  
         \begin{cases}
             0, & \text{se $x \leq 0$}\\
             x, & \text{se $x > 0$}
@@ -209,10 +209,66 @@ A Figura \ref{fig:ann_relu_function} exibe o comportamento da função ReLU.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\textwidth]{figs/ann_relu_function.pdf}
+    \includegraphics[width=0.7\textwidth]{figs/ann_relu_function.pdf}
 
     \caption{Plot da função ReLU.}
     \label{fig:ann_relu_function}
+\end{figure}
+
+
+\linebreak
+\newpage
+
+\begin{definition}[Função \textit{Leaky Rectified Linear Unit} (LReLU)]
+    Dada uma entrada $x$, a função LReLU pode ser definida como:
+
+    \begin{equation}
+        f[x] = 
+        \begin{cases}
+            0.01 x, & \text{se $x \leq 0$}\\
+            x, & \text{se $x > 0$}
+        \end{cases}
+        \vspace{0.2cm}
+        \label{eq:ann_lrelu_function}
+    \end{equation}
+\end{definition}
+
+A Figura \ref{fig:ann_lrelu_function} exibe o comportamento da função LReLU.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figs/ann_lrelu_function.pdf}
+
+    \caption{Plot da função LReLU.}
+    \label{fig:ann_lrelu_function}
+\end{figure}
+
+
+\linebreak
+\newpage
+
+\begin{definition}[Função \textit{Inverse Square Root Rectified Linear Unit} (ISRLU)]
+    Dada uma entrada $x$, a função ISRLU pode ser definida como:
+
+    \begin{equation}
+        f[x] = 
+        \begin{cases}
+            \dfrac{x}{\sqrt{1 + \alpha x^{2}}}, & \text{se $x < 0$}\\
+            x, & \text{se $x \geq 0$}
+        \end{cases}
+        \vspace{0.2cm}
+        \label{eq:ann_isrlu_function}
+    \end{equation}
+\end{definition}
+
+A Figura \ref{fig:ann_isrlu_function} exibe o comportamento da função ISRLU.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figs/ann_isrlu_function.pdf}
+
+    \caption{Plot da função ISRLU para valores de $\alpha$ igual a 1, 2 e 3, respectivamente, de cima para baixo.}
+    \label{fig:ann_isrlu_function}
 \end{figure}
 
 
