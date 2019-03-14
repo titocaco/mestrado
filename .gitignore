@@ -34,3 +34,4 @@ main\.pdf
 *checkpoint.ipynb
 
 *.synctex*
+notebooks/tests/data/*
