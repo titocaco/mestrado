@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="280mm"
+   height="320mm"
+   viewBox="0 0 280 320"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="gan_prisoners_dilemma.svg">
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient948">
+      <stop
+         style="stop-color:#000000;stop-opacity:1"
+         offset="0"
+         id="stop944" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0"
+         offset="1"
+         id="stop946" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient1641"
+       inkscape:collect="always">
+      <stop
+         id="stop1637"
+         offset="0"
+         style="stop-color:#ff0076;stop-opacity:1" />
+      <stop
+         id="stop1639"
+         offset="1"
+         style="stop-color:#8e004c;stop-opacity:0" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1621">
+      <stop
+         style="stop-color:#06eaff;stop-opacity:1"
+         offset="0"
+         id="stop1617" />
+      <stop
+         style="stop-color:#0600ff;stop-opacity:0"
+         offset="1"
+         id="stop1619" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1621"
+       id="radialGradient1615"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.87868444,0,0,2.7036446,-106.91167,-328.09823)"
+       cx="86.556549"
+       cy="174.9137"
+       fx="86.556549"
+       fy="174.9137"
+       r="36.663689" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1621"
+       id="radialGradient1645"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.87868444,0,0,2.7036446,32.40427,-406.6467)"
+       cx="86.556549"
+       cy="174.9137"
+       fx="86.556549"
+       fy="174.9137"
+       r="36.663689" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1641"
+       id="radialGradient1653"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.87868444,0,0,2.7036446,-265.70471,-541.9944)"
+       cx="86.556549"
+       cy="174.9137"
+       fx="86.556549"
+       fy="174.9137"
+       r="36.663689" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1641"
+       id="radialGradient1655"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.87868444,0,0,2.7036446,28.436028,-626.20722)"
+       cx="86.556549"
+       cy="174.9137"
+       fx="86.556549"
+       fy="174.9137"
+       r="36.663689" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1621"
+       id="radialGradient893"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.16428787,0,0,0.50550117,-208.64492,23.90363)"
+       cx="86.556549"
+       cy="174.9137"
+       fx="86.556549"
+       fy="174.9137"
+       r="36.663689" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1641"
+       id="radialGradient901"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.16428787,0,0,0.50550117,-229.8116,23.90363)"
+       cx="86.556549"
+       cy="174.9137"
+       fx="86.556549"
+       fy="174.9137"
+       r="36.663689" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient948"
+       id="radialGradient962"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.6441504,0,0,1.3672762,-61.403847,-21.562067)"
+       cx="101.13418"
+       cy="119.83542"
+       fx="101.13418"
+       fy="119.83542"
+       r="122.59444" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="226.66814"
+     inkscape:cy="510.99413"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(24.4825,75.34971)" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Camada 2"
+     transform="translate(0,70)">
+    <ellipse
+       style="opacity:1;fill:url(#radialGradient1615);fill-opacity:1;stroke:none;stroke-width:1.08987403;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;paint-order:normal"
+       id="ellipse1613"
+       cx="-30.855787"
+       cy="144.80621"
+       rx="32.215813"
+       ry="99.12558"
+       transform="rotate(-90)" />
+    <ellipse
+       ry="99.12558"
+       rx="32.215813"
+       cy="66.257782"
+       cx="108.46017"
+       id="ellipse1643"
+       style="opacity:1;fill:url(#radialGradient1645);fill-opacity:1;stroke:none;stroke-width:1.08987403;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;paint-order:normal" />
+    <ellipse
+       ry="99.12558"
+       rx="32.215813"
+       cy="-153.30273"
+       cx="104.49192"
+       id="ellipse1647"
+       style="opacity:1;fill:url(#radialGradient1655);fill-opacity:1;stroke:none;stroke-width:1.08987403;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;paint-order:normal"
+       transform="rotate(90)" />
+    <ellipse
+       style="opacity:1;fill:url(#radialGradient1653);fill-opacity:1;stroke:none;stroke-width:1.08987403;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;paint-order:normal"
+       id="ellipse1649"
+       cx="-189.64877"
+       cy="-69.089951"
+       rx="32.215813"
+       ry="99.12558"
+       transform="scale(-1)" />
+    <path
+       style="opacity:0.25;fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:4, 2;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 87.023568,-30.668119 13.926452,-8.040442 h 92.44682 l 13.30377,7.680934"
+       id="path1663"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="101.72339"
+       y="-42.962517"
+       id="text1667"><tspan
+         sodipodi:role="line"
+         id="tspan1665"
+         x="101.72339"
+         y="-42.962517"
+         style="font-size:16.93333244px;stroke-width:0.26458332">Prisoner B</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path1675"
+       d="m 44.832029,124.51872 -8.04045,-13.92645 V 18.145454 l 7.68094,-13.3037695"
+       style="opacity:0.25;fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:4, 2;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       id="text1681"
+       y="32.537617"
+       x="-109.81891"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"
+       transform="rotate(-90)"><tspan
+         style="font-size:16.93333244px;stroke-width:0.26458332"
+         y="32.537617"
+         x="-109.81891"
+         id="tspan1679"
+         sodipodi:role="line">Prisoner A</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="84.234215"
+       y="24.395588"
+       id="text1685"><tspan
+         sodipodi:role="line"
+         id="tspan1683"
+         x="84.234215"
+         y="24.395588"
+         style="stroke-width:0.26458332">A: 1 year</tspan><tspan
+         sodipodi:role="line"
+         x="84.234215"
+         y="37.624756"
+         style="stroke-width:0.26458332"
+         id="tspan1689">B: 1 year</tspan></text>
+    <text
+       id="text1697"
+       y="24.395588"
+       x="163.60918"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="stroke-width:0.26458332"
+         y="24.395588"
+         x="163.60918"
+         id="tspan1693"
+         sodipodi:role="line">A: 4 years</tspan><tspan
+         id="tspan1695"
+         style="stroke-width:0.26458332"
+         y="37.624756"
+         x="163.60918"
+         sodipodi:role="line">B: free</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="84.234222"
+       y="103.77065"
+       id="text1703"><tspan
+         sodipodi:role="line"
+         id="tspan1699"
+         x="84.234222"
+         y="103.77065"
+         style="stroke-width:0.26458332">A: free</tspan><tspan
+         sodipodi:role="line"
+         x="84.234222"
+         y="116.99981"
+         style="stroke-width:0.26458332"
+         id="tspan1701">B: 4 years</tspan></text>
+    <text
+       id="text1709"
+       y="103.77065"
+       x="163.60919"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="stroke-width:0.26458332"
+         y="103.77065"
+         x="163.60919"
+         id="tspan1705"
+         sodipodi:role="line">A: 3 years</tspan><tspan
+         id="tspan1707"
+         style="stroke-width:0.26458332"
+         y="116.99981"
+         x="163.60919"
+         sodipodi:role="line">B: 3 years</tspan></text>
+    <ellipse
+       transform="rotate(-90)"
+       ry="18.533537"
+       rx="6.0233998"
+       cy="112.32271"
+       cx="-194.42471"
+       id="ellipse891"
+       style="opacity:1;fill:url(#radialGradient893);fill-opacity:1;stroke:none;stroke-width:0.20377405;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;paint-order:normal" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="134.16928"
+       y="197.61514"
+       id="text897"><tspan
+         sodipodi:role="line"
+         id="tspan895"
+         x="134.16928"
+         y="197.61514"
+         style="stroke-width:0.26458332">Cooperates</tspan></text>
+    <ellipse
+       style="opacity:1;fill:url(#radialGradient901);fill-opacity:1;stroke:none;stroke-width:0.20377405;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;paint-order:normal"
+       id="ellipse899"
+       cx="-215.59137"
+       cy="112.32271"
+       rx="6.0233998"
+       ry="18.533537"
+       transform="rotate(-90)" />
+    <text
+       id="text905"
+       y="218.7818"
+       x="134.16928"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="stroke-width:0.26458332"
+         y="218.7818"
+         x="134.16928"
+         id="tspan903"
+         sodipodi:role="line">Defects</tspan></text>
+  </g>
+</svg>
