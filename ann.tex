@@ -406,6 +406,16 @@ Em 2017 foi provado que o Teorema da Aproximação Universal se aplica a redes p
 \section{Backpropagation}
 \label{sec:ann_backpropagation}
 
+O funcionamento iterativo do MLP depende da ocorrência de um treinamento que se dá majoritariamente por conta de um processo de otimização de custo, que se trata da redução do erro resultante da rede, composto pelos erros de cada um dos neurônios que compõem a rede. Para que os ajustes possam ser feitos de forma adequada em todos os neurônios, inclusive os que se localizam nas camadas mais distantes do fim da rede, é essencial que haja alguma maneira de levar a eles essa informação sobre o erro, assim cada neurônio poderá ter seu peso ajustado de forma independente dos demais, sempre com a missão de reduzir o erro final da rede, não especificamente seu próprio erro. Um dos algoritmos mais utilizados para realizar tal tarefa é conhecido como \textit{Backpropagation} \citep{rumelhart1988learning}.
+
+O algoritmo calcula o gradiente descendente e propaga o erro no sentido oposto ao da transmissão da informação processada pela rede, passando por todas as camadas. Trata-se de um algoritmo supervisionado, dado que, para cada neurônio (de saída) $j$, existe a dependência de um valor desejado $d_{j}[n]$ para que o erro seja calculado. Assim, dada uma saída $y_{j}[n]$, o erro na iteração $n$ pode ser calculado por
+
+\begin{equation}
+    e_{j}\left[n\right] = d_{j}\left[n\right] - y_{j}\left[n\right]
+    \label{eq:ann_backpropagation}
+    \hspace{0.1cm}.
+    \vspace{0.2cm}
+\end{equation}
 
 
 %   -----------------------------------------------
