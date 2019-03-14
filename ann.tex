@@ -382,11 +382,20 @@ Independentemente do tipo de rede neural artificial, os princípios básicos per
 
 Após uma primeira visão ingênua, talvez se imagine que, dado que os principais responsáveis pelo processamento são os neurônios localizados nas camadas intermediárias, o mais adequado seria aumentar sumariamente o número de neurônios para que isso produzisse um agressivo ganho de desempenho na atividade realizada pela rede; contudo, tal decisão seria, muito provavelmente, bastante equivocada e, sem dúvidas, nem um pouco parcimoniosa. Para se obter melhores resultados, portanto, é preciso estudar melhor sobre o funcionamento dos elementos que compõem toda a rede, além de explorar e analisar diferentes arquiteturas que podem ser mais propícias a responder melhor em certos ambientes específicos.
 
-O impacto causado pelas redes neurais artificiais se intensificou drasticamente a partir da criação do Perceptron Multicamada (\textbf{MLP}, \textit{Multi-Layer Perceptron}); já de longa data, os resultados obtidos levavam pesquisadores e desenvolvedores a acreditar que sua estrutura possuía características intrínsecas de alta capacidade de aproximação de modelos e, embora ainda não tivessem sido matematicamente provadas tais características, sua exploração por parte de diversos pesquisadores resultou em muitos importantes avanços na área.
+O impacto causado pelas redes neurais artificiais se intensificou drasticamente a partir da criação do Perceptron Multicamadas (\textbf{MLP}, \textit{Multilayer Perceptron}), que consiste em uma classe de redes de em que a informação é propagada apenas em uma direção, sendo enviada para a frente da rede. A estrutura de um MLP é composta por ao menos duas camadas intermediárias de neurônios, tal como pode ser visto pela Figura \ref{fig:ann_mlp}, o que permite que, em vez de ser projetado um único hiperplano para separar o hiperespaço de amostras a serem classificadas, passe a ser possível obter modelos bem mais flexíveis quanto a essas regiões de fronteira de separação.
 
-Ao fim da década de 1980 foi publicado o primeiro trabalho que efetuava tal prova matemática em relação a tal capacidade de aproximação \citep{hornik1989multilayer}, embora tenha sido feita com base em funções sigmoidais. Poucos anos depois, em 1991, foi publicado um trabalho que provava que, na verdade, essa capacidade de aproximação não era oriunda da função de ativação, mas, em vez disso, era advinda da própria estrutura 
+\nomenclature{MLP}{\textit{Multilayer Perceptron}}
 
-\nomenclature{MLP}{\textit{Multi-Layer Perceptron}}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figs/ann_mlp.pdf}
+    \caption{Representação esquemática e genérica de um MLP.}
+    \label{fig:ann_mlp}
+\end{figure}
+
+Já de longa data, os resultados obtidos levavam pesquisadores e desenvolvedores a acreditar que sua estrutura possuía características intrínsecas de alta capacidade de aproximação de modelos e, embora ainda não tivessem sido matematicamente provadas tais características, sua exploração por parte de diversos pesquisadores resultou em muitos importantes avanços na área. Ao fim da década de 1980 foram publicados trabalhos que efetuavam tal prova matemática em relação à sua capacidade de aproximação \citep{cybenko1989approximation, hornik1989multilayer}, embora tenha sido feita com base em funções sigmoidais. Pouco tempo depois foi publicado um trabalho que provava que, na verdade, essa capacidade de aproximação não era oriunda da função de ativação, mas, em vez disso, era advinda da própria estrutura do MLP, cujo fluxo de informação é direcionado para frente \citep{HORNIK1991251}.
+
+Em 2017 foi provado que o Teorema da Aproximação Universal se aplica a redes profundas que utilizem funções de ativação do tipo ReLU quando respeitada a condição de que haja uma largura\footnote{Neste contexto, a largura da rede se refere apenas ao número de camadas intermediárias que a rede em questão possui, independentemente da quantidade de neurônios que cada uma possua ou da forma como os neurônios efetuem a comunicação entre camadas distintas.} mínima de $n+4$ camadas com o objetivo de se aproximar quaisquer funções que sejam Lebesgue integráveis \citep{royden1988real}. Finalmente, ainda no mesmo ano, foi provada essa capacidade de aproximação universal para qualquer função convexa contínua e, desta vez, necessitando apenas de $n+1$ camadas \citep{hanin2017universal}.
 
 
 
