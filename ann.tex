@@ -48,7 +48,7 @@ A partir de uma perspectiva mais contemporânea, o Perceptron passou a ser retra
 \end{figure}
 
 
-A partir da Figura \ref{fig:ann_perceptron_new_organization}, pode-se compreender que há um conjunto de entradas, $\bm{x}$, respectivamente ponderadas por um conjunto de pesos, $\bm{w}$, que, junto a um \textit{bias}, são somadas, então o resultado dessa soma é utilizado como entrada de uma \textit{função de ativação}, responsável por emitir o valor da saída, $\bm{y}$. O somatório utiliza-se de uma combinação linear causada pela soma ponderada das entradas, além do \textit{bias}, o que resulta na separação de duas regiões por um \textit{hiperplano} \citep{haykin1999neural}, cuja definição matemática é dada por
+A partir da Figura \ref{fig:ann_perceptron_new_organization}, pode-se compreender que há um conjunto de entradas, $\bm{x}$, respectivamente ponderadas por um conjunto de pesos, $\bm{w}$, que, junto a um \textit{bias}, são somadas, então o resultado dessa soma é utilizado como entrada de uma \textit{função de ativação}, responsável por emitir o valor da saída, $\bm{y}$. O somatório (também chamado de \textit{campo local induzido} neste contexto) utiliza-se de uma combinação linear causada pela soma ponderada das entradas, além do \textit{bias}, o que resulta na separação de duas regiões por um \textit{hiperplano} \citep{haykin1999neural}, cuja definição matemática é dada por
 
 \begin{equation}
     \sum_{i=1}^{N} w_{i} x_{i} + b = 0
@@ -57,7 +57,7 @@ A partir da Figura \ref{fig:ann_perceptron_new_organization}, pode-se compreende
     \vspace{0.2cm}
 \end{equation}
 
-\noindent onde $N$ representa o número total de entradas\footnote{O trabalho original de Rosenblatt considerava um arranjo matricial em formato 20x20 em que cada unidade consistia em um sensor fotovoltaico que lia um sinal luminoso e emitia uma resposta de 0 ou 1 quando lia um cartão.} e, portanto, também de seus respectivos pesos para que seja possível efetuar as ponderações; e $b$ representa o \textit{bias}. A partir do resultado do somatório, chega-se à \textit{função de ativação}, a respeito da qual será melhor discutido na seção seguinte.
+\noindent onde $N$ representa o número total de entradas\footnote{O trabalho original de Rosenblatt considerava um arranjo matricial em formato 20x20 em que cada unidade consistia em um sensor fotovoltaico que lia um sinal luminoso e emitia uma resposta de 0 ou 1 quando lia um cartão.} e, portanto, também de seus respectivos pesos para que seja possível efetuar as ponderações; e $b$ representa o \textit{bias}. A partir do resultado do campo local induzido, chega-se à \textit{função de ativação}, a respeito da qual será melhor discutido na seção seguinte.
 
 
 
@@ -200,7 +200,7 @@ A Figura \ref{fig:ann_tanh_function} exibe o comportamento da função tangente 
     \centering
     \includegraphics[width=0.65\textwidth]{figs/ann_tanh_function.pdf}
 
-    \caption{Plot da função tangente hiperbólica.}
+    \caption{Comportamento da função tangente hiperbólica.}
     \label{fig:ann_tanh_function}
 \end{figure}
 
@@ -406,9 +406,16 @@ Em 2017 foi provado que o Teorema da Aproximação Universal se aplica a redes p
 \section{Backpropagation}
 \label{sec:ann_backpropagation}
 
-O funcionamento iterativo do MLP depende da ocorrência de um treinamento que se dá majoritariamente por conta de um processo de otimização de custo, que se trata da redução do erro resultante da rede, composto pelos erros de cada um dos neurônios que compõem a rede. Para que os ajustes possam ser feitos de forma adequada em todos os neurônios, inclusive os que se localizam nas camadas mais distantes do fim da rede, é essencial que haja alguma maneira de levar a eles essa informação sobre o erro, assim cada neurônio poderá ter seu peso ajustado de forma independente dos demais, sempre com a missão de reduzir o erro final da rede, não especificamente seu próprio erro. Um dos algoritmos mais utilizados para realizar tal tarefa é conhecido como \textit{Backpropagation} \citep{rumelhart1988learning}.
+O funcionamento iterativo do MLP depende da ocorrência de um treinamento que se dá majoritariamente por conta de um processo de otimização de custo, que se trata da redução do erro resultante da rede, composto pelos erros de cada um dos neurônios que compõem a rede. Para que os ajustes possam ser feitos de forma adequada em todos os neurônios, inclusive os que se localizam nas camadas mais distantes do fim da rede, é essencial que haja alguma maneira de levar a eles essa informação sobre o erro, assim cada neurônio poderá ter seu peso ajustado de forma independente dos demais, sempre com a missão de reduzir o erro final da rede, não especificamente seu próprio erro. Um dos algoritmos mais utilizados para realizar tal tarefa é conhecido como \textit{Backpropagation} \citep{Rumelhart1986, rumelhart1988parallel}.
 
-O algoritmo calcula o gradiente descendente e propaga o erro no sentido oposto ao da transmissão da informação processada pela rede, passando por todas as camadas. Trata-se de um algoritmo supervisionado, dado que, para cada neurônio (de saída) $j$, existe a dependência de um valor desejado $d_{j}[n]$ para que o erro seja calculado. Assim, dada uma saída $y_{j}[n]$, o erro na iteração $n$ pode ser calculado por
+Em seu livro \textit{Neural Networks: A Comprehensive Foundation} \citep{haykin1999neural}, Simon Haykin demonstra todo o funcionamento, passo a passo, da etapa de treinamento com o uso do algoritmo de \textit{Backpropagation}, com ilustrações e deduções matemáticas detalhadas, explicadas e comentadas. Haykin separa os casos em dois:
+
+\begin{itemize}
+    \item \textbf{Caso 1}: Neurônio de camada de saída
+    \item \textbf{Caso 2}: Neurônio de camada oculta (intermediária)
+\end{itemize}
+
+Para o Caso 1, isoladamente, o cálculo do erro trata-se de um algoritmo supervisionado, dado que, para cada neurônio (de saída) $j$, existe a dependência de um valor desejado $d_{j}[n]$ para que o erro seja calculado. Assim, para os casos de neurônios da camada de saída, dada uma saída $y_{j}[n]$, o erro instantâneo $e_{j}\left[n\right]$ na iteração $n$ pode ser calculado por
 
 \begin{equation}
     e_{j}\left[n\right] = d_{j}\left[n\right] - y_{j}\left[n\right]
@@ -416,6 +423,22 @@ O algoritmo calcula o gradiente descendente e propaga o erro no sentido oposto a
     \hspace{0.1cm}.
     \vspace{0.2cm}
 \end{equation}
+
+Note que a Equação (\ref{eq:ann_backpropagation}) independe de qualquer tratamento matemático rebuscado, dado que utiliza-se apenas do valor desejado (de referência) e do valor efetivamente obtido na saída para que o erro seja calculado. Contudo, para o Caso 2, o algoritmo calcula o gradiente descendente e propaga o erro no sentido oposto ao da transmissão da informação processada pela rede, passando por todas as camadas. O algoritmo considera inicialmente que a energia do erro de cada neurônio é igual a $\dfrac{1}{2}e_{j}^{2}[n]$ e interpreta que a soma de todos esses erros instantâneos resulta na energia total de erro $\mathcalboondox{E}[n]$, calculada como
+
+\begin{equation}
+    \mathcalboondox{E}[n] = \dfrac{1}{2}\sum_{j\ \in\ C}e_{j}^{2}[n]
+    \label{eq:ann_total_error_energy}
+\end{equation}
+
+\noindent onde $C$ é o conjunto de todos os neurônios da camada de saída. Caso seja feita a soma dos erros instantâneos de todos os neurônios da camada de saída e seja considerada a normalização de $n$ em relação a $N$, que é a o tamanho do conjunto de treinamento, a \textit{energia média do erro quadrático}, também interpretável como \textit{erro quadrático médio} (\textbf{LMS}, \textit{Least Mean Square}), é definida como
+
+\begin{equation}
+    \mathcalboondox{E}_{\text{avg}}[n] = \dfrac{1}{N} \sum_{n=1}^{N} \mathcalboondox{E}[n]
+    \label{eq:ann_avg_squared_error_energy}
+\end{equation}
+
+\noindent A função $\mathcalboondox{E}_{\text{avg}}[n]$ é comumente utilizada como \textit{função custo} para se mensurar o desempenho do processo de aprendizagem correspondente a um determinado conjunto de treinamento; é essa a função a ser minimizada ao longo do processo de treinamento, e a cada iteração do treinamento são feitos ajustes sobre os parâmetros livres, como os pesos sinápticos e \textit{bias} da rede como consequência da otimização. O
 
 
 
