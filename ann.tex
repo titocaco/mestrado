@@ -469,6 +469,7 @@ Segundo \citep{haykin1999neural}, o \textit{fator de sensibilidade} $\partial \m
 \noindent então, para que seja possível chegar ao valor, é necessário calcular cada uma das derivadas parciais envolvidas na Equação \ref{eq:ann_gradient_chain_rule}. A partir de derivadas parciais das Equações (\ref{eq:ann_total_error_energy}), (\ref{eq:ann_instant_neuron_error}), (\ref{eq:ann_neuron_output}) e (\ref{eq:ann_induced_local_field}), pode-se chegar aos valores de cada um dos termos da Equação (\ref{eq:ann_gradient_chain_rule}), o que leva a
 
 \begin{equation}
+    \setlength{\jot}{10pt}
     \begin{align}
     \dfrac{\partial \mathcalboondox{E}(n)}{\partial w_{ji}(n)} & = \left(e_{j}(n)\right)\ \left(-1\right)\ \left(\varphi_{j}'\left(\upsilon_{j}(n)\right)\right)\ \left(y_{i}(n)\right)\\
      & = -e_{j}(n)\ \varphi_{j}'\left(\upsilon_{j}(n)\right) y_{i}(n)
@@ -486,7 +487,37 @@ Assim, utilizando-se a \textit{regra delta}, os ajustes de treinamento da rede p
     \vspace{0.2cm}
 \end{equation}
 
-\noindent sendo $\eta$ a taxa de aprendizado do algoritmo, que pode ser interpretada como um parâmetro de entrada do algoritmo a ser escolhido pelo projetista da rede, mas que não deve ser vista como se significasse necessariamente que a utilização de uma taxa maior implicaria uma velocidade de aprendizado maior no sentido de reduzir o tempo demandado para se realizar toda a etapa de treinamento da rede, pois essa seria uma concepção equivocada.
+\noindent sendo $\eta$ a \textit{taxa de aprendizado} do algoritmo, um parâmetro de entrada do algoritmo a ser escolhido pelo projetista da rede, mas que deve ser cautelosamente escolhida. Taxas mais baixas provocarão alterações mais suaves e, consequentemente, mais lentas ao longo do processo de treinamento; ou outro lado, taxas mais elevadas, apesar de acelerarem o treinamento, resultam em perturbações mais abruptas ao longo do processo. Continuando, então, substituindo-se a Equação (\ref{eq:ann_backpropagation_partial}) em (\ref{eq:ann_delta_rule}), obtém-se
+
+\begin{equation}
+    \Delta w_{ji}(n) = -e_{j}(n)\ \varphi_{j}'\left(\upsilon_{j}(n)\right) y_{i}(n)
+    \label{eq:ann_gradient_adjust_unfinished}
+    \vspace{0.2cm}
+\end{equation}
+
+\noindent mas pode-se explorar o \textit{gradiente local} $\delta_{j}(n)$ para simplificar a equação, sendo que tal gradiente é dado por
+
+\begin{equation}
+    \setlength{\jot}{10pt}
+    \begin{align}
+    \delta_{j}(n)   & = - \dfrac{\partial \mathcalboondox{E}(n)}{\partial \upsilon_{j}(n)}\\
+                    & = - \dfrac{\partial \mathcalboondox{E}(n)}{\partial e_{j}(n)}\ \dfrac{\partial e_{j}(n)}{\partial y_{j}(n)}\ \dfrac{\partial y_{j}(n)}{\partial \upsilon_{j}(n)}\\
+                    & = e_{j}(n)\ \varphi_{j}'\left(\upsilon_{j}(n)\right)
+    \end{align}
+    \label{eq:ann_backpropagation_gradient}
+    \vspace{0.2cm}
+\end{equation}
+
+Desta forma, pode-se reescrever a Equação (\ref{eq:ann_gradient_adjust_unfinished}) com o uso de (\ref{eq:ann_backpropagation_gradient}):
+
+\begin{equation}
+    \Delta w_{ji}(n) = \eta\ \delta_{j}(n)\ y_{i}(n)
+    \label{eq:ann_gradient_adjust}
+    \hspace{0.1cm},
+    \vspace{0.2cm}
+\end{equation}
+
+\noindent ou seja, a \textit{correção dos pesos} $\Delta w_{ji}(n)$ é diretamente influenciada pela \textit{taxa de aprendizado} $\eta$, pelo \textit{gradiente local} $\delta_{j}(n)$ e pelo sinal de entrada do neurônio $j$, $y_{i}(n)$. 
 
 
 %   -----------------------------------------------
