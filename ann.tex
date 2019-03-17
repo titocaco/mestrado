@@ -415,37 +415,78 @@ Em seu livro \textit{Neural Networks: A Comprehensive Foundation} \citep{haykin1
     \item \textbf{Caso 2}: Neurônio de camada oculta (intermediária)
 \end{itemize}
 
-Para o Caso 1, isoladamente, o cálculo do erro trata-se de um algoritmo supervisionado, dado que, para cada neurônio (de saída) $j$, existe a dependência de um valor desejado $d_{j}[n]$ para que o erro seja calculado. Assim, para os casos de neurônios da camada de saída, dada uma saída $y_{j}[n]$, o erro instantâneo $e_{j}\left[n\right]$ na iteração $n$ pode ser calculado por
+Para o Caso 1, isoladamente, o cálculo do erro trata-se de um algoritmo supervisionado, dado que, para cada neurônio (de saída) $j$, existe a dependência de um valor desejado $d_{j}(n)$ para que o erro seja calculado. Assim, para os casos de neurônios da camada de saída, dada uma saída $y_{j}(n)$, o erro instantâneo $e_{j}(n)$ na iteração $n$ pode ser calculado por
 
 \begin{equation}
-    e_{j}\left[n\right] = d_{j}\left[n\right] - y_{j}\left[n\right]
-    \label{eq:ann_backpropagation}
+    e_{j}(n) = d_{j}(n) - y_{j}(n)
+    \label{eq:ann_instant_neuron_error}
     \hspace{0.1cm}.
     \vspace{0.2cm}
 \end{equation}
 
-Note que a Equação (\ref{eq:ann_backpropagation}) independe de qualquer tratamento matemático rebuscado, dado que utiliza-se apenas do valor desejado (de referência) e do valor efetivamente obtido na saída para que o erro seja calculado. Contudo, para o Caso 2, o algoritmo calcula o gradiente descendente e propaga o erro no sentido oposto ao da transmissão da informação processada pela rede, passando por todas as camadas. O algoritmo considera inicialmente que a energia do erro de cada neurônio é igual a $\dfrac{1}{2}e_{j}^{2}[n]$ e interpreta que a soma de todos esses erros instantâneos resulta na energia total de erro $\mathcalboondox{E}[n]$, calculada como
+Note que a Equação (\ref{eq:ann_instant_neuron_error}) independe de qualquer tratamento matemático rebuscado, dado que utiliza-se apenas do valor desejado (de referência) e do valor efetivamente obtido na saída para que o erro seja calculado. Contudo, para o Caso 2, o algoritmo calcula o gradiente descendente e propaga o erro no sentido oposto ao da transmissão da informação processada pela rede, passando por todas as camadas. O algoritmo considera inicialmente que a energia do erro de cada neurônio é igual a $\frac{1}{2}e_{j}^{2}(n)$ e interpreta que a soma de todos esses erros instantâneos resulta na energia total de erro $\mathcalboondox{E}(n)$, calculada como
 
 \begin{equation}
-    \mathcalboondox{E}[n] = \dfrac{1}{2}\sum_{j\ \in\ C}e_{j}^{2}[n]
+    \mathcalboondox{E}(n) = \dfrac{1}{2}\sum_{j\ \in\ C}e_{j}^{2}(n)
     \label{eq:ann_total_error_energy}
+    \vspace{0.2cm}
 \end{equation}
 
-\noindent onde $C$ é o conjunto de todos os neurônios da camada de saída. Caso seja feita a soma dos erros instantâneos de todos os neurônios da camada de saída e seja considerada a normalização de $n$ em relação a $N$, que é a o tamanho do conjunto de treinamento, a \textit{energia média do erro quadrático}, também interpretável como \textit{erro quadrático médio} (\textbf{LMS}, \textit{Least Mean Square}), é definida como
+\noindent onde $C$ é o conjunto de todos os neurônios da camada de saída. Caso seja feita a soma dos erros instantâneos de todos os neurônios da camada de saída e seja considerada a normalização de $n$ em relação a $N$, que é a o tamanho do conjunto de treinamento, a \textit{energia média do erro quadrático}, também interpretável neste contexto como \textit{erro quadrático médio} (\textbf{LMS}, \textit{Least Mean Square}), é definida como
+
+\nomenclature{LMS}{\textit{Least Mean Square}}
 
 \begin{equation}
-    \mathcalboondox{E}_{\text{avg}}[n] = \dfrac{1}{N} \sum_{n=1}^{N} \mathcalboondox{E}[n]
+    \mathcalboondox{E}_{\text{avg}}(n) = \dfrac{1}{N} \sum_{n=1}^{N} \mathcalboondox{E}(n)
     \label{eq:ann_avg_squared_error_energy}
+    \vspace{0.2cm}
 \end{equation}
 
-\noindent A função $\mathcalboondox{E}_{\text{avg}}[n]$ é comumente utilizada como \textit{função custo} para se mensurar o desempenho do processo de aprendizagem correspondente a um determinado conjunto de treinamento; é essa a função a ser minimizada ao longo do processo de treinamento, e a cada iteração do treinamento são feitos ajustes sobre os parâmetros livres, como os pesos sinápticos e \textit{bias} da rede como consequência da otimização. O campo local induzido $\upsilon_{j}[n]$, que se trata do somatório observado na Figura \ref{fig:ann_perceptron_new_organization}, é definido como
+A função $\mathcalboondox{E}_{\text{avg}}(n)$ é comumente utilizada como \textit{função custo} para se mensurar o desempenho do processo de aprendizagem correspondente a um determinado conjunto de treinamento; é essa a função a ser minimizada ao longo do processo de treinamento, e a cada iteração do treinamento são feitos ajustes sobre os parâmetros livres, como os pesos sinápticos e \textit{bias} da rede como consequência da otimização. O campo local induzido $\upsilon_{j}(n)$, que se trata do somatório observado na Figura \ref{fig:ann_perceptron_new_organization}, é definido como
 
 \begin{equation}
-    \upsilon_{j}[n] = \sum_{i=0}^{m} w_{ij}[n] y_{i}[n]
+    \upsilon_{j}(n) = \sum_{i=0}^{m} w_{ji}(n) y_{i}(n)
     \label{eq:ann_induced_local_field}
+    \vspace{0.2cm}
 \end{equation}
 
-\noindent onde $w_{ij}[n]$ corresponde ao peso sináptico e $y_{i}[n]$ corresponde à saída do neurônio $i$, que nesta etapa é a entrada do campo local induzido $\upsilon_{j}[n]$ referente ao neurônio $j$, que se encontra na camada seguinte àquela em que se encontra o neurônio $i$.
+\noindent onde $w_{ij}(n)$ corresponde ao peso sináptico e $y_{i}(n)$ corresponde à saída do neurônio $i$, que nesta etapa é a entrada do campo local induzido $\upsilon_{j}(n)$ referente ao neurônio $j$, que se encontra na camada seguinte\footnote{É muito importante lembrar-se de que, em um contexto geral de MLP, as entradas de cada neurônio devem ser interpretadas como as saídas dos neurônios localizados na camada anterior.} àquela em que se encontra o neurônio $i$, e $m$ é o número de entradas advindas de neurônios da camada anterior, ou seja, excluindo-se o \textit{bias} na contagem. Após ser calculado o campo local induzido $\upsilon_{j}(n)$ do neurônio $j$, a \textit{função de ativação} $\phi_{j}(n)$ o recebe como entrada, o que produzirá a saída deste neurônio, $y_{j}(n)$, que pode ser matematicamente definida como
+
+\begin{equation}
+    y_{j}(n) = \varphi_{j}\left(\upsilon_{j}(n)\right)
+    \label{eq:ann_neuron_output}
+    \vspace{0.2cm}
+\end{equation}
+
+Segundo \citep{haykin1999neural}, o \textit{fator de sensibilidade} $\partial \mathcalboondox{E}(n) / \partial w_{ji}(n)$ pode ser representado como uma forma expandida da \textit{regra da cadeia} (do Cálculo)
+
+\begin{equation}
+    \dfrac{\partial \mathcalboondox{E}(n)}{\partial w_{ji}(n)} = \dfrac{\partial \mathcalboondox{E}(n)}{\partial e_{j}(n)}\ \dfrac{\partial e_{j}(n)}{\partial y_{j}(n)}\ \dfrac{\partial y_{j}(n)}{\partial \varphi_{j}(n)}\ \dfrac{\partial \varphi_{j}(n)}{\partial w_{ji}(n)}
+    \label{eq:ann_gradient_chain_rule}
+    \vspace{0.2cm}
+\end{equation}
+
+\noindent então, para que seja possível chegar ao valor, é necessário calcular cada uma das derivadas parciais envolvidas na Equação \ref{eq:ann_gradient_chain_rule}. A partir de derivadas parciais das Equações (\ref{eq:ann_total_error_energy}), (\ref{eq:ann_instant_neuron_error}), (\ref{eq:ann_neuron_output}) e (\ref{eq:ann_induced_local_field}), pode-se chegar aos valores de cada um dos termos da Equação (\ref{eq:ann_gradient_chain_rule}), o que leva a
+
+\begin{equation}
+    \begin{align}
+    \dfrac{\partial \mathcalboondox{E}(n)}{\partial w_{ji}(n)} & = \left(e_{j}(n)\right)\ \left(-1\right)\ \left(\varphi_{j}'\left(\upsilon_{j}(n)\right)\right)\ \left(y_{i}(n)\right)\\
+     & = -e_{j}(n)\ \varphi_{j}'\left(\upsilon_{j}(n)\right) y_{i}(n)
+    \end{align}
+    \label{eq:ann_backpropagation_partial}
+    \hspace{0.1cm}.
+    \vspace{0.2cm}
+\end{equation}
+
+Assim, utilizando-se a \textit{regra delta}, os ajustes de treinamento da rede podem, então, ser representados matematicamente por
+
+\begin{equation}
+    \Delta w_{ji}(n) = - \eta\ \dfrac{\partial \mathcalboondox{E}(n)}{\partial w_{ji}(n)}
+    \label{eq:ann_delta_rule}
+    \vspace{0.2cm}
+\end{equation}
+
+\noindent sendo $\eta$ a taxa de aprendizado do algoritmo, que pode ser interpretada como um parâmetro de entrada do algoritmo a ser escolhido pelo projetista da rede, mas que não deve ser vista como se significasse necessariamente que a utilização de uma taxa maior implicaria uma velocidade de aprendizado maior no sentido de reduzir o tempo demandado para se realizar toda a etapa de treinamento da rede, pois essa seria uma concepção equivocada.
 
 
 %   -----------------------------------------------
