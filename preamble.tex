@@ -313,6 +313,20 @@ overlay last={\draw[colexam,line width=1pt] ([xshift=-0.5pt]frame.north east)
 \usepackage{mathrsfs}
 
 
+
+% ----- Font Effect of MathAlfa with Boondox to Cal -----
+\DeclareFontFamily{U}{BOONDOX-calo}{\skewchar\font=45 }
+\DeclareFontShape{U}{BOONDOX-calo}{m}{n}{
+  <-> s*[1.05] BOONDOX-r-calo}{}
+\DeclareFontShape{U}{BOONDOX-calo}{b}{n}{
+  <-> s*[1.05] BOONDOX-b-calo}{}
+\DeclareMathAlphabet{\mathcalboondox}{U}{BOONDOX-calo}{m}{n}
+\SetMathAlphabet{\mathcalboondox}{bold}{U}{BOONDOX-calo}{b}{n}
+\DeclareMathAlphabet{\mathbcalboondox}{U}{BOONDOX-calo}{b}{n}
+% -------------------------------------------------------
+
+
+
 %\usepackage[top=3cm, left=3cm, bottom=2cm, right=2cm]{geometry}
 \usepackage{fancyhdr}
 \usepackage{enumitem}
