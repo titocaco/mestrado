@@ -438,9 +438,14 @@ Note que a Equação (\ref{eq:ann_backpropagation}) independe de qualquer tratam
     \label{eq:ann_avg_squared_error_energy}
 \end{equation}
 
-\noindent A função $\mathcalboondox{E}_{\text{avg}}[n]$ é comumente utilizada como \textit{função custo} para se mensurar o desempenho do processo de aprendizagem correspondente a um determinado conjunto de treinamento; é essa a função a ser minimizada ao longo do processo de treinamento, e a cada iteração do treinamento são feitos ajustes sobre os parâmetros livres, como os pesos sinápticos e \textit{bias} da rede como consequência da otimização. O
+\noindent A função $\mathcalboondox{E}_{\text{avg}}[n]$ é comumente utilizada como \textit{função custo} para se mensurar o desempenho do processo de aprendizagem correspondente a um determinado conjunto de treinamento; é essa a função a ser minimizada ao longo do processo de treinamento, e a cada iteração do treinamento são feitos ajustes sobre os parâmetros livres, como os pesos sinápticos e \textit{bias} da rede como consequência da otimização. O campo local induzido $\upsilon_{j}[n]$, que se trata do somatório observado na Figura \ref{fig:ann_perceptron_new_organization}, é definido como
 
+\begin{equation}
+    \upsilon_{j}[n] = \sum_{i=0}^{m} w_{ij}[n] y_{i}[n]
+    \label{eq:ann_induced_local_field}
+\end{equation}
 
+\noindent onde $w_{ij}[n]$ corresponde ao peso sináptico e $y_{i}[n]$ corresponde à saída do neurônio $i$, que nesta etapa é a entrada do campo local induzido $\upsilon_{j}[n]$ referente ao neurônio $j$, que se encontra na camada seguinte àquela em que se encontra o neurônio $i$.
 
 
 %   -----------------------------------------------
