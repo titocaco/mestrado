@@ -424,7 +424,7 @@ Para o Caso 1, isoladamente, o cálculo do erro trata-se de um algoritmo supervi
     \vspace{0.2cm}
 \end{equation}
 
-Note que a Equação (\ref{eq:ann_instant_neuron_error}) independe de qualquer tratamento matemático rebuscado, dado que utiliza-se apenas do valor desejado (de referência) e do valor efetivamente obtido na saída para que o erro seja calculado. Contudo, para o Caso 2, o algoritmo calcula o gradiente descendente e propaga o erro no sentido oposto ao da transmissão da informação processada pela rede, passando por todas as camadas. O algoritmo considera inicialmente que a energia do erro de cada neurônio é igual a $\frac{1}{2}e_{j}^{2}(n)$ e interpreta que a soma de todos esses erros instantâneos resulta na energia total de erro $\mathcalboondox{E}(n)$, calculada como
+Note que a Equação (\ref{eq:ann_instant_neuron_error}) independe de qualquer tratamento matemático rebuscado, dado que utiliza-se apenas do valor desejado (de referência) e do valor efetivamente obtido na saída para que o erro seja calculado. Contudo, para o Caso 2, o algoritmo calcula o \textit{gradiente descendente} \citep{cauchy1847methode} e propaga o erro no sentido oposto ao da transmissão da informação processada pela rede, passando por todas as camadas. O algoritmo considera inicialmente que a energia do erro de cada neurônio é igual a $\frac{1}{2}e_{j}^{2}(n)$ e interpreta que a soma de todos esses erros instantâneos resulta na energia total de erro $\mathcalboondox{E}(n)$, calculada como
 
 \begin{equation}
     \mathcalboondox{E}(n) = \dfrac{1}{2}\sum_{j\ \in\ C}e_{j}^{2}(n)
@@ -505,10 +505,11 @@ Assim, utilizando-se a \textit{regra delta}, os ajustes de treinamento da rede p
                     & = e_{j}(n)\ \varphi_{j}'\left(\upsilon_{j}(n)\right)
     \end{align}
     \label{eq:ann_backpropagation_gradient}
+    \hspace{0.1cm},
     \vspace{0.2cm}
 \end{equation}
 
-Desta forma, pode-se reescrever a Equação (\ref{eq:ann_gradient_adjust_unfinished}) com o uso de (\ref{eq:ann_backpropagation_gradient}):
+\noindent desta forma, pode-se reescrever a Equação (\ref{eq:ann_gradient_adjust_unfinished}) com o uso de (\ref{eq:ann_backpropagation_gradient}):
 
 \begin{equation}
     \Delta w_{ji}(n) = \eta\ \delta_{j}(n)\ y_{i}(n)
@@ -533,6 +534,7 @@ Desta forma, pode-se reescrever a Equação (\ref{eq:ann_gradient_adjust_unfinis
 %   ---------------------------
 \section{Redes Profundas}
 \label{sec:ann_deep_networks}
+
 
 
 
