@@ -74,7 +74,7 @@ Uma das funções mais simples é a função \textit{identidade}, que permite qu
     Dada uma entrada $x$, a função Identidade pode ser definida como:
 
     \begin{equation}
-        f[x] = x
+        f(x) = x
         \vspace{0.2cm}
         \label{eq:ann_identity_function}
     \end{equation}
@@ -82,7 +82,7 @@ Uma das funções mais simples é a função \textit{identidade}, que permite qu
     A derivada da função identidade é:
 
     \begin{equation}
-        f'[x] = 1
+        f'(x) = 1
         \label{eq:ann_identity_function_dy}
     \end{equation}
     
@@ -106,7 +106,7 @@ A Figura \ref{fig:ann_identity_function} exibe o comportamento da função ident
     Dada uma entrada $x$, a função Degrau Unitário, também chamada de função Degrau Binário, pode ser definida como:
 
     \begin{equation}
-        f[x] = u[x] = 
+        f(x) = u(x) = 
         \begin{cases}
             0, & \text{se $x < 0$}\\
             1, & \text{se $x \geq 0$}
@@ -118,7 +118,7 @@ A Figura \ref{fig:ann_identity_function} exibe o comportamento da função ident
     A derivada da função degrau unitário é:
 
     \begin{equation}
-        f'[x] = u[x] = 
+        f'(x) = u(x) = 
         \begin{cases}
             0, & \text{se $x \neq 0$}\\
             \text{?}, & \text{se $x = 0$}
@@ -147,7 +147,7 @@ A Figura \ref{fig:ann_step_function} exibe o comportamento da função degrau un
     Dada uma entrada $x$, a função Logística pode ser definida como:
 
     \begin{equation}
-        f[x] = \sigma [x] = \dfrac{1}{1 + e^{-x}}
+        f(x) = \sigma (x) = \dfrac{1}{1 + e^{-x}}
         \vspace{0.2cm}
         \label{eq:ann_logistic_function}
     \end{equation}
@@ -155,7 +155,7 @@ A Figura \ref{fig:ann_step_function} exibe o comportamento da função degrau un
     A derivada da função logística é:
 
     \begin{equation}
-        f'[x] = f[x]\ (1 - f[x])
+        f'(x) = f(x)\ (1 - f(x))
         \label{eq:ann_logistic_function_dy}
     \end{equation}
     
@@ -180,7 +180,7 @@ A Figura \ref{fig:ann_logistic_function} exibe o comportamento da função logí
     Dada uma entrada $x$, a função Tangente Hiperbólica pode ser definida como:
 
     \begin{equation}
-        f[x] = \text{tanh}(x) = \dfrac{e^{x} - e^{-x}}{e^{x} + e^{-x}}
+        f(x) = \text{tanh}(x) = \dfrac{e^{x} - e^{-x}}{e^{x} + e^{-x}}
         \vspace{0.2cm}
         \label{eq:ann_tanh_function}
     \end{equation}
@@ -188,7 +188,7 @@ A Figura \ref{fig:ann_logistic_function} exibe o comportamento da função logí
     A derivada da função tangente hiperbólica é:
 
     \begin{equation}
-        f'[x] = 1 - (f[x])^{2}
+        f'(x) = 1 - (f(x))^{2}
         \label{eq:ann_tanh_function_dy}
     \end{equation}
 
@@ -213,7 +213,7 @@ A Figura \ref{fig:ann_tanh_function} exibe o comportamento da função tangente 
     Dada uma entrada $x$, a função Arco Tangente pode ser definida como:
 
     \begin{equation}
-        f[x] = \text{tan}^{-1}(x)
+        f(x) = \text{tan}^{-1}(x)
         \vspace{0.2cm}
         \label{eq:ann_arctan_function}
     \end{equation}
@@ -221,7 +221,7 @@ A Figura \ref{fig:ann_tanh_function} exibe o comportamento da função tangente 
     A derivada da função arco tangente é:
 
     \begin{equation}
-        f'[x] = \dfrac{1}{x^{2} + 1}
+        f'(x) = \dfrac{1}{x^{2} + 1}
         \label{eq:ann_arctan_function_dy}
     \end{equation}
 
@@ -246,7 +246,7 @@ A Figura \ref{fig:ann_arctan_function} exibe o comportamento da função arco ta
     Dada uma entrada $x$, a função ReLU pode ser definida como:
 
     \begin{equation}
-        f[x] =  
+        f(x) =  
         \begin{cases}
             0, & \text{se $x < 0$}\\
             x, & \text{se $x \geq 0$}
@@ -258,7 +258,7 @@ A Figura \ref{fig:ann_arctan_function} exibe o comportamento da função arco ta
     A derivada da função ReLU é:
 
     \begin{equation}
-        f'[x] = u[x] = 
+        f'(x) = u(x) = 
         \begin{cases}
             0, & \text{se $x < 0$}\\
             1, & \text{se $x \geq 0$}
@@ -288,7 +288,7 @@ A Figura \ref{fig:ann_relu_function} exibe o comportamento da função ReLU \cit
     Dada uma entrada $x$, a função LReLU pode ser definida como:
 
     \begin{equation}
-        f[x] = 
+        f(x) = 
         \begin{cases}
             0.01 x, & \text{se $x < 0$}\\
             x, & \text{se $x \geq 0$}
@@ -300,7 +300,7 @@ A Figura \ref{fig:ann_relu_function} exibe o comportamento da função ReLU \cit
     A derivada da função LReLU é:
 
     \begin{equation}
-        f'[x] = 
+        f'(x) = 
         \begin{cases}
             0.01, & \text{se $x < 0$}\\
             1, & \text{se $x \geq 0$}
@@ -330,7 +330,7 @@ A Figura \ref{fig:ann_lrelu_function} exibe o comportamento da função LReLU \c
     Dada uma entrada $x$, a função ISRLU pode ser definida como:
 
     \begin{equation}
-        f[x] = 
+        f(x) = 
         \begin{cases}
             \dfrac{x}{\sqrt{1 + \alpha x^{2}}}, & \text{se $x < 0$}\\
             x, & \text{se $x \geq 0$}
@@ -342,7 +342,7 @@ A Figura \ref{fig:ann_lrelu_function} exibe o comportamento da função LReLU \c
     A derivada da função ISRLU é:
 
     \begin{equation}
-        f[x] = 
+        f'(x) = 
         \begin{cases}
             \left(\dfrac{1}{\sqrt{1 + \alpha x^{2}}}\right)^{3}, & \text{se $x < 0$}\\
             1, & \text{se $x \geq 0$}
@@ -560,6 +560,14 @@ Um processo padrão realizado pela etapa de treinamento é composto por cinco ta
     \item Repetição das tarefas 2, 3 e 4 até que a função custo tenha sido suficientemente otimizada, porém, com o cuidado para que não ocorram problemas de \textit{Overfitting} ou \textit{Underfitting}.
 \end{enumerate}
 
+Além dessas tarefas, que são mais gerais e comuns, há diversas técnicas que almejam melhorar o algoritmo, seja reduzindo o custo computacional, seja atingindo valores melhores em suas métricas de qualidade. Uma técnica bastante eficaz quanto à redução do custo computacional é a de \textit{decaimento de taxa de aprendizado} (\textbf{LRD}, \textit{Learning Rate Decay}), que faz com que a \textit{taxa de aprendizado} seja alterada ao longo das iterações do algoritmo de treinamento, fazendo com que haja uma significativa redução no tempo demandado para que o processo de treinamento seja concluído; \textit{Adam}\footnote{Apenas como curiosidade, segundo os próprios autores declararam em sua publicação original \citep{kingma2014adam}, \textit{Adam} trata-se apenas de uma derivação de \textit{adaptive moment estimation}.} \citep{kingma2014adam} é um dos métodos mais utilizados e realiza uma otimização estocástica, sendo uma alternativa ao \textit{gradiente descendente estocástico} (\textbf{SGD}, \textit{Stochastic Gradient Descent}) \citep{robbins1951stochastic, kiefer1952stochastic}.
+
+\nomenclature{LDR}{\textit{Learning Rate Decay}}
+\nomenclature{SGD}{\textit{Stochastic Gradient Descent}}
+
+Para se evitar \textit{Overfitting}, um método bastante explorado é o \textit{Dropout} \citep{srivastava2014dropout}, que aleatoriamente desabilita algumas das conexões interneurais da rede. Apesar de este algoritmo ser mais comumente utilizado com o objetivo de se diminuir os riscos de \textit{Overfitting}, pode-se interpretá-lo também como um otimizador, dado que ele reduz o custo computacional por conta da diminuição dos cálculos na etapa de treinamento em decorrência da desabilitação de algumas conexões da rede.
+
+
 
 
 
@@ -567,11 +575,14 @@ Um processo padrão realizado pela etapa de treinamento é composto por cinco ta
 
 %   ----- Inicialização -----
 \subsection{Inicialização}
-\label{subsec:ann_inicialization}
+\label{subsec:ann_initialization}
 
 Apesar de ser possível iniciar a partir de diferentes configurações e, ainda assim, obter resultados altamente similares, ou até mesmo idênticos, isso não faz com que o processo de inicialização deva ser interpretado como de menor importância, pois erros podem, sim, ser cometidos nesta etapa; más escolhas podem não ser incócuas ao que se almeja quanto ao desempenho da rede e, principalmente, quanto aos seus objetivos finais.
 
 A inicialização deste processo se dá pela escolha dos valores inicialmente assumidos para os \textit{pesos sinápticos} da rede, $w_{ji}(n)$, e para o \textit{limiar} $\theta_{j}$, que é utilizado para delimitar qual o mínimo valor necessário para que cada neurônio seja ativado, ou seja, para que o valor produzido por si seja levado em consideração pelo neurônio seguinte. Se forem utilizados valores iniciais demasiado elevados, há o risco de saturação, o que, devido a baixos valores de gradientes locais, pode resultar em uma considerável desaceleração do processo de treinamento. Por outro lado, a utilização de valores iniciais muito baixos, dependendo da função de ativação escolhida, pode fazer com que o algoritmo acabe trabalhando em uma região muito plana ao redor da superfície de erro.
 
-Uma das possibilidades seria a de inicializar todos os pesos como sendo iguais a zero, porém essa pode não ser uma boa escolha, dado que isso faria com que a derivada em relação à função custo fosse igual para todos os pesos, além do fato de que todas as camadas ocultas passariam a se comportar com base nos mesmos pesos, simetricamente, sendo esta uma realidade que seria preservada ao longo de todas as demais iterações, o que não tornaria o desempenho darede melhor do que seria se fosse simplesmente linear; ou seja, todo o sentido de se aceitar um enorme aumento do custo computacional para que fosse possível explorar aproximações mais complexas seria perdido.
+Uma das possibilidades seria a de inicializar todos os pesos como sendo iguais a zero, porém essa pode não ser uma boa escolha, dado que isso faria com que a derivada em relação à \textit{função custo} fosse igual para todos os pesos, além do fato de que todas as camadas ocultas passariam a se comportar com base nos mesmos pesos, simetricamente, sendo esta uma realidade que seria preservada ao longo de todas as demais iterações, o que não tornaria o desempenho darede melhor do que seria se fosse simplesmente linear; ou seja, todo o sentido de se aceitar um enorme aumento do custo computacional para que fosse possível explorar aproximações mais complexas seria perdido.
 
+Outra abordagem seria a de inicializar os valores por meio de sorteios aleatórios; possivelmente, respeitando uma dada \textit{função densidade de probabilidade} (\textbf{PDF}, \textit{Probability Density Function}), como uma distribuição Gaussiana ou uma distribuição uniforme. Aliás, uma das sugestões de inicialização feitas em \citep{haykin1999neural} é justamente a de se utilizar valores aleatórios de média zero e com uma variância apropriadamente selecionada para que os valores sorteados permitam que os resultados caiam em ambas as regiões da \textit{função de ativação} $\varphi_{j}(n)$, mas, preferencialmente, não em seus extremos.
+
+Ainda assim, essas abordagens não são as mais convenientes para a maioria dos casos; e, dada a importância que fora constatada para a escolha apropriada de tais parâmetros, diversas técnicas bem mais rebuscadas foram desenvolvidas ao longo do tempo, tais como a \textit{He Initialization} \citep{he2015delving}, que utiliza-se de uma distribuição normal com média zero e desvio padrão dado por $\sigma=\sqrt{2/\text{N}}$, em que $N$ é o número de entradas da rede; e \textit{Xavier} (ou \textit{Glorot}) \textit{Initialization} \citep{glorot2010understanding}, 
