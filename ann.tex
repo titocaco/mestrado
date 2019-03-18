@@ -548,14 +548,30 @@ Assim, utilizando-se a \textit{regra delta}, os ajustes de treinamento da rede p
 \subsection{Treinamento}
 \label{subsec:ann_training}
 
+Assim que é criada a rede, ela ainda não está pronta para resolver qualquer problema que seja, pois ainda não se adequou a nada até então. O que faz com que a rede se comporte de um determinado modo é o seu treinamento, que realiza todos os ajustes necessários através de suas otimizações associadas ao longo do processo. Um dos exemplos mais típicos é o do algoritmo \textit{Backpropagation}, abordado na Seção \ref{sec:ann_backpropagation}. Em poucas palavras, o que o \textit{Backpropagation} faz é ajustar os parâmetros da rede de modo a torná-la capaz de aproximar regiões com geometrias mais convenientes.
+
+Um processo padrão realizado pela etapa de treinamento é composto por cinco tarefas bem definidas, que são:
+
+\begin{enumerate}
+    \item Inicialização dos \textit{pesos sinápticos} $w_{ji}(n)$, dos \textit{biases} $b_j(n)$ e, dependendo de como estiver estruturado o algoritmo, dos \textit{limiares} (\textit{Threshlolds}) $\theta_{j}(n)$; \\
+    \item Propagação para frente da rede, passando-se por todas as camadas intermediárias, até chegar ao valor obtido na saída da rede; \\
+    \item Cálculo da \textit{função custo}, que auxilia na quantificação do quão bom foi o resultado obtido se comparado ao resultado almejado, ou seja, trata-se de uma forma de se constatar o erro da rede na iteração em questão; \\
+    \item Propagação para trás da rede, atualizando os parâmetros $w_{ji}(n)$, $b_j(n)$ e $\theta_{j}(n)$ com o uso dos gradientes envolvidos no processo; \\
+    \item Repetição das tarefas 2, 3 e 4 até que a função custo tenha sido suficientemente otimizada, porém, com o cuidado para que não ocorram problemas de \textit{Overfitting} ou \textit{Underfitting}.
+\end{enumerate}
+
+
+
+
 
 
 %   ----- Inicialização -----
 \subsection{Inicialização}
 \label{subsec:ann_inicialization}
 
-Apesar de ser possível iniciar a partir de diferentes configurações e, ainda assim, obter resultados altamente similares, ou até mesmo idênticos, isso não faz com que o processo de inicialização deva ser interpretado como de menor importância, pois erros podem, sim, ser cometidos nesta etapa e más escolhas podem não ser incócuas ao que se almeja quanto ao desempenho da rede e, principalmente, quanto aos seus objetivos finais.
+Apesar de ser possível iniciar a partir de diferentes configurações e, ainda assim, obter resultados altamente similares, ou até mesmo idênticos, isso não faz com que o processo de inicialização deva ser interpretado como de menor importância, pois erros podem, sim, ser cometidos nesta etapa; más escolhas podem não ser incócuas ao que se almeja quanto ao desempenho da rede e, principalmente, quanto aos seus objetivos finais.
 
 A inicialização deste processo se dá pela escolha dos valores inicialmente assumidos para os \textit{pesos sinápticos} da rede, $w_{ji}(n)$, e para o \textit{limiar} $\theta_{j}$, que é utilizado para delimitar qual o mínimo valor necessário para que cada neurônio seja ativado, ou seja, para que o valor produzido por si seja levado em consideração pelo neurônio seguinte. Se forem utilizados valores iniciais demasiado elevados, há o risco de saturação, o que, devido a baixos valores de gradientes locais, pode resultar em uma considerável desaceleração do processo de treinamento. Por outro lado, a utilização de valores iniciais muito baixos, dependendo da função de ativação escolhida, pode fazer com que o algoritmo acabe trabalhando em uma região muito plana ao redor da superfície de erro.
 
 Uma das possibilidades seria a de inicializar todos os pesos como sendo iguais a zero, porém essa pode não ser uma boa escolha, dado que isso faria com que a derivada em relação à função custo fosse igual para todos os pesos, além do fato de que todas as camadas ocultas passariam a se comportar com base nos mesmos pesos, simetricamente, sendo esta uma realidade que seria preservada ao longo de todas as demais iterações, o que não tornaria o desempenho darede melhor do que seria se fosse simplesmente linear; ou seja, todo o sentido de se aceitar um enorme aumento do custo computacional para que fosse possível explorar aproximações mais complexas seria perdido.
+
