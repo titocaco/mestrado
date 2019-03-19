@@ -535,12 +535,9 @@ Assim, utilizando-se a \textit{regra delta}, os ajustes de treinamento da rede p
 \section{Redes Profundas}
 \label{sec:ann_deep_networks}
 
+Apesar de praticamente todos os tópicos abordados até aqui serem relevantes tanto para \textit{redes neurais rasas}\footnote{Tradução livre do termo \textit{Shallow Neural Networks}, encontrado em alguns dos materiais de consulta para designar as redes não profundas, ou seja, as que possuem apenas uma única camada oculta.} quanto para \textit{redes neurais profundas}, este capítulo abordará mais especificamente as redes profundas, dado que serão elas a serem exploradas neste trabalho.
 
-
-
-%   ----- Neurônios -----
-\subsection{Neurônios}
-\label{subsec:ann_neurons}
+Os termos \textit{rasas} e \textit{profundas}, utilizados para caracterizar a ``profundidade'' da rede, ou seja, a quantidade de camadas ocultas (ou intermediárias) que as ANNs podem possuir em sua arquitetura, são apenas o que se conhece por \textit{Buzz-words}, termos não técnicos amplamente utilizados, neste caso, para designar redes neurais com, respectivamente, uma única camada oculta (\textit{rasas}) e duas ou mais camadas ocultas (\textit{profundas}). Não há um número exato que defina a quantidade de camadas ocultas necessárias para se chamar uma rede neural de \textit{profunda}, por outro lado, uma rede com apenas uma camada oculta é sempre interpretada como \textit{rasa}.
 
 
 
@@ -548,12 +545,10 @@ Assim, utilizando-se a \textit{regra delta}, os ajustes de treinamento da rede p
 \subsection{Treinamento}
 \label{subsec:ann_training}
 
-Assim que é criada a rede, ela ainda não está pronta para resolver qualquer problema que seja, pois ainda não se adequou a nada até então. O que faz com que a rede se comporte de um determinado modo é o seu treinamento, que realiza todos os ajustes necessários através de suas otimizações associadas ao longo do processo. Um dos exemplos mais típicos é o do algoritmo \textit{Backpropagation}, abordado na Seção \ref{sec:ann_backpropagation}. Em poucas palavras, o que o \textit{Backpropagation} faz é ajustar os parâmetros da rede de modo a torná-la capaz de aproximar regiões com geometrias mais convenientes.
-
-Um processo padrão realizado pela etapa de treinamento é composto por cinco tarefas bem definidas, que são:
+Assim que é criada a rede, ela ainda não está pronta para resolver qualquer problema que seja, pois ainda não se adequou a nada até então. O que faz com que a rede se comporte de um determinado modo é o seu treinamento, que realiza todos os ajustes necessários através de suas otimizações associadas ao longo do processo. Um dos exemplos mais típicos é o do algoritmo \textit{Backpropagation}, abordado na Seção \ref{sec:ann_backpropagation}. Em poucas palavras, o que o \textit{Backpropagation} faz é ajustar os parâmetros da rede de modo a torná-la capaz de aproximar regiões com geometrias mais convenientes. Um processo padrão realizado pela etapa de treinamento é composto por cinco tarefas bem definidas, que são:
 
 \begin{enumerate}
-    \item Inicialização dos \textit{pesos sinápticos} $w_{ji}(n)$, dos \textit{biases} $b_j(n)$ e, dependendo de como estiver estruturado o algoritmo, dos \textit{limiares} (\textit{Threshlolds}) $\theta_{j}(n)$; \\
+    \item Inicialização dos \textit{pesos sinápticos} $w_{ji}(n)$, dos \textit{biases} $b_j(n)$ e, dependendo de como estiver estruturado o algoritmo, dos \textit{limiares} (\textit{Thresholds}) $\theta_{j}(n)$; \\
     \item Propagação para frente da rede, passando-se por todas as camadas intermediárias, até chegar ao valor obtido na saída da rede; \\
     \item Cálculo da \textit{função custo}, que auxilia na quantificação do quão bom foi o resultado obtido se comparado ao resultado almejado, ou seja, trata-se de uma forma de se constatar o erro da rede na iteração em questão; \\
     \item Propagação para trás da rede, atualizando os parâmetros $w_{ji}(n)$, $b_j(n)$ e $\theta_{j}(n)$ com o uso dos gradientes envolvidos no processo; \\
@@ -565,7 +560,7 @@ Além dessas tarefas, que são mais gerais e comuns, há diversas técnicas que 
 \nomenclature{LDR}{\textit{Learning Rate Decay}}
 \nomenclature{SGD}{\textit{Stochastic Gradient Descent}}
 
-Para se evitar \textit{Overfitting}, um método bastante explorado é o \textit{Dropout} \citep{srivastava2014dropout}, que aleatoriamente desabilita algumas das conexões interneurais da rede. Apesar de este algoritmo ser mais comumente utilizado com o objetivo de se diminuir os riscos de \textit{Overfitting}, pode-se interpretá-lo também como um otimizador, dado que ele reduz o custo computacional por conta da diminuição dos cálculos na etapa de treinamento em decorrência da desabilitação de algumas conexões da rede.
+Para se evitar \textit{Overfitting}, um método bastante explorado é o \textit{Dropout} \citep{srivastava2014dropout}, que aleatoriamente desabilita algumas das conexões interneurais da rede, mas apenas as dos neurônios das camada de entrada ou das camadas ocultas, afinal, se não houvesse alguma conexão com os neurônios da camada de saída, o cálculo do erro ficaria comprometido. Apesar de este algoritmo ser mais comumente utilizado com o objetivo de se diminuir os riscos de \textit{Overfitting}, pode-se interpretá-lo também como um otimizador, dado que ele reduz o custo computacional por conta da diminuição dos cálculos na etapa de treinamento em decorrência da desabilitação de algumas conexões da rede.
 
 
 
