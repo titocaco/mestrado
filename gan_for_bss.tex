@@ -35,6 +35,7 @@ Em 2018, uma publicação intitulada \textit{Generative Adversarial Source Separ
 \begin{equation}
     h\sim p_{\text{latent}}\left(h\right), \hspace{0.25cm} s = f_{\theta}\left(h\right) \hspace{0.10cm}.
     \label{eq:08461671_gen_process}
+    \vspace{0.2cm}
 \end{equation}
 
 No melhor cenário possível, o discriminante não será capaz de distinguir entre os dados de treinamento e a amostra gerada. Seu jogo minimax pode ser descrito por (\ref{eq:08461671_minimax}),
@@ -42,6 +43,7 @@ No melhor cenário possível, o discriminante não será capaz de distinguir ent
 \begin{equation}
     \min_{\theta}\max_{\xi}\mathcalboondox{E_{s}}\log D_{\xi}\left(s\right) + \mathcalboondox{E_{h}}\log \left(1-D_{\xi}\left(f_{\theta}\left(h\right)\right)\right),
     \label{eq:08461671_minimax}
+    \vspace{0.2cm}
 \end{equation}
 
 \noindent a soma das probabilidades do logaritmo natural das funções de verossimilhança de Bernoulli com $D_ {\xi}\left(\cdot\right)$ tentando maximizar, produzindo 0 para as amostras geradas $f_{\theta}\left(h\right)$ e 1 para os dados de treinamento $s$. Uma abordagem mais estável vem da Wasserstein-GAN, minimizando a distância Wasserstein-1 \citep{OLKIN1982257} entre a distribuição de dados e a distribuição aprendida, resultando em gradientes suaves \citep{arjovsky2017wasserstein}, que, segundo seus autores, podem ser alcançados com o minimax descrito por (\ref{eq:08461671_minimax_optimized}),
@@ -49,6 +51,7 @@ No melhor cenário possível, o discriminante não será capaz de distinguir ent
 \begin{equation}
     \min_{\theta}\max_{\xi\in\mathcalboondox{W}}\mathcalboondox{E}_{s}D_{\xi}\left(s\right) - \mathcalboondox{E}_{h}D_{\xi}\left(f_{\theta}\left(h\right)\right),
     \label{eq:08461671_minimax_optimized}
+    \vspace{0.2cm}
 \end{equation}
 
 
@@ -58,6 +61,7 @@ No melhor cenário possível, o discriminante não será capaz de distinguir ent
 \begin{equation}
     \widehat{h}_{1}, \widehat{h}_{2} = \arg \max_{h_{1}, h_{2}} \log p_{\text{mixture}}\left(x; f_{\widehat{\theta}_{1}}\left(h_{1}\right)+f_{\widehat{\theta}_{2}}\left(h_{2}\right)\right),
     \label{eq:08461671_estimators_part1}
+    \vspace{0.2cm}
 \end{equation}
 
 \noindent onde $\widehat{\theta}_{1}$ e $\widehat{\theta}_{2}$ são os parâmetros de rede. Assim, as estimativas de fontes são adquiridas pela Equação (\ref{eq:08461671_estimators_part2}),
@@ -84,9 +88,7 @@ A otimização para separar as fontes considerando uma coluna espectral $x^{1:\m
 \end{equation}
 
 
-\noindent com $f_{\widehat{\theta}_{k}}\left(\cdot\right)$ sendo as redes geradoras; $D_{\widehat{\xi}_{k}}\left(\cdot\right)$, os discriminantes; $\alpha$, um escalar de trade-off entre qualidade de reconstrução e pontuação de discriminante, fixado como $\alpha = 0.1$ neste experimento; e $\beta$, o termo de suavização, com $\beta = 0.1$. O uso da distribuição \textit{Poisson} para $ p_{\text{mixture}}\left(\cdot\right)$ é muito comum para espectrogramas de magnitude.
-
-Os testes empíricos foram iniciados pela formação de misturas de falantes masculinos e femininos e dados de treinamento do \textit{TIMIT Speech Corpus} \citep{timit}. E, para todos os modelos GAN obtidos desses testes, a arquitetura é definida pela Equação (\ref{eq:08461671_gan_arch},
+\noindent com $f_{\widehat{\theta}_{k}}\left(\cdot\right)$ sendo as redes geradoras; $D_{\widehat{\xi}_{k}}\left(\cdot\right)$, os discriminantes; $\alpha$, um escalar de trade-off entre qualidade de reconstrução e pontuação de discriminante, fixado como $\alpha = 0.1$ neste experimento; e $\beta$, o termo de suavização, com $\beta = 0.1$. O uso da distribuição \textit{Poisson} para $ p_{\text{mixture}}\left(\cdot\right)$ é muito comum para espectrogramas de magnitude. Os testes empíricos foram iniciados pela formação de misturas de falantes masculinos e femininos e dados de treinamento do \textit{TIMIT Speech Corpus} \citep{timit}. E, para todos os modelos GAN obtidos desses testes, a arquitetura é definida pela Equação (\ref{eq:08461671_gan_arch},
 
 \begin{equation}
     f_{\theta}\left(h\right) = \text{SP}\left(W_{2}\text{SP}\left(W_{1}h\right)\right),
