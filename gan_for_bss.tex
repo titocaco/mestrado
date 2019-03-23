@@ -2,6 +2,10 @@
 \chapter{GAN para BSS}
 \label{cha:gan_for_bss}
 
+
+
+
+
 %   -------------------------
 %   ----- Como Utilizar -----
 %   -------------------------
@@ -24,6 +28,73 @@
 \section{Revisão Bibliográfica}
 \label{sec:gan_for_bss_bib_review}
 
+Embora ainda seja uma área incipiente, as características potencialmente disruptivas das Redes Adversariais Generativas têm sido bastante atraentes e convidativas aos olhos de inúmeros pesquisadores, e com isso, várias pesquisas relacionadas a essa nova abordagem têm sido realizadas, inclusive para aplicações como separação de fontes de áudio cego.
+
+Em 2018, uma publicação intitulada \textit{Generative Adversarial Source Separation} \citep{8461671} conduziu um experimento de separação de fontes de fala usando um perceptron multicamada com uma variação das GANs originais chamadas \textit{Wasserstein-GAN} \citep{arjovsky2017wasserstein}. Os resultados obtidos em termos de taxa de fonte para distorção indicam melhor desempenho por MLP treinado com Wasserstein-GAN em vez do uso de Fatoração de Matrizes Não-Negativas (NMF) \citep{lee1999learning}, auto-encoders treinados com máxima verossimilhança e auto-encoders variáveis. Neste trabalho, os autores propuseram o uso de uma função discriminante, $D_{\xi}\left(\cdot\right)$, que visa distinguir entre as amostras geradas a partir do modelo e as amostras advindas das instâncias de treinamento. Após o treinamento, é possível gerar amostras usando o processo descrito em (\ref{eq:08461671_gen_process}),
+
+\begin{equation}
+    h\sim p_{\text{latent}}\left(h\right), \hspace{0.25cm} s = f_{\theta}\left(h\right) \hspace{0.10cm}.
+    \label{eq:08461671_gen_process}
+\end{equation}
+
+No melhor cenário possível, o discriminante não será capaz de distinguir entre os dados de treinamento e a amostra gerada. Seu jogo minimax pode ser descrito por (\ref{eq:08461671_minimax}),
+
+\begin{equation}
+    \min_{\theta}\max_{\xi}\mathcalboondox{E_{s}}\log D_{\xi}\left(s\right) + \mathcalboondox{E_{h}}\log \left(1-D_{\xi}\left(f_{\theta}\left(h\right)\right)\right),
+    \label{eq:08461671_minimax}
+\end{equation}
+
+\noindent a soma das probabilidades do logaritmo natural das funções de verossimilhança de Bernoulli com $D_ {\xi}\left(\cdot\right)$ tentando maximizar, produzindo 0 para as amostras geradas $f_{\theta}\left(h\right)$ e 1 para os dados de treinamento $s$. Uma abordagem mais estável vem da Wasserstein-GAN, minimizando a distância Wasserstein-1 \citep{OLKIN1982257} entre a distribuição de dados e a distribuição aprendida, resultando em gradientes suaves \citep{arjovsky2017wasserstein}, que, segundo seus autores, podem ser alcançados com o minimax descrito por (\ref{eq:08461671_minimax_optimized}),
+
+\begin{equation}
+    \min_{\theta}\max_{\xi\in\mathcalboondox{W}}\mathcalboondox{E}_{s}D_{\xi}\left(s\right) - \mathcalboondox{E}_{h}D_{\xi}\left(f_{\theta}\left(h\right)\right),
+    \label{eq:08461671_minimax_optimized}
+\end{equation}
+
+
+\noindent considerando $\mathcalboondox{W}$ como o conjunto de parâmetros $\xi$ para o qual $D_{\xi}\left(\cdot\right)$ deve ser $\gamma$-Lipschitz contínuo, pelo menos para alguns valores de $\gamma$. Obtendo as variáveis latentes ótimas como entradas dos mapeamentos
+ descritos na Equação (\ref{eq:08461671_estimators_part1}), é possível obter as estimativas de fontes $\widehat{s}_{1}$ e $\widehat{s}_{2}$.
+
+\begin{equation}
+    \widehat{h}_{1}, \widehat{h}_{2} = \arg \max_{h_{1}, h_{2}} \log p_{\text{mixture}}\left(x; f_{\widehat{\theta}_{1}}\left(h_{1}\right)+f_{\widehat{\theta}_{2}}\left(h_{2}\right)\right),
+    \label{eq:08461671_estimators_part1}
+\end{equation}
+
+\noindent onde $\widehat{\theta}_{1}$ e $\widehat{\theta}_{2}$ são os parâmetros de rede. Assim, as estimativas de fontes são adquiridas pela Equação (\ref{eq:08461671_estimators_part2}),
+
+\begin{equation}
+    \widehat{s}_{1}, \widehat{s}_{2} = f_{\widehat{\theta}_{1}}\left(\widehat{h}_{1}\right),\hspace{0.15cm} f_{\widehat{\theta}_{2}}\left(\widehat{h}_{2}\right).
+    \label{eq:08461671_estimators_part2}
+    \vspace{0.2cm}
+\end{equation}
+
+A otimização para separar as fontes considerando uma coluna espectral $x^{1:\mathcalboondox{M}}$ pode ser entendida como a Equação (\ref{eq:08461671_optimization}),
+
+\begin{equation}
+    \setlength{\jot}{10pt}
+    \begin{align}
+    % \begin{split}
+        \max_{h_{1}^{1:\mathcalboondox{M}},\ h_{2}^{1:\mathcalboondox{M}}} & \hspace{0.4cm}   \dfrac{1}{\mathcalboondox{M}} \sum_{\mathclap{m=1}}^{\mathcalboondox{M}} \log p_{\text{mixture}}\left(x^{m};\ f_{\widehat{\theta}_{1}}\left(h_{1}^{m}\right)+f_{\widehat{\theta}_{2}}\left(h_{2}^{m}\right)\right)\\
+         &  + \dfrac{\alpha}{\mathcalboondox{M}} \sum_{\mathclap{m=1}}^{\mathcalboondox{M}} \left(D_{\widehat{\xi}_{1}}\left(f_{\widehat{\theta}_{1}}\left(h_{1}^{m}\right)\right) + D_{\widehat{\xi}_{1}}\left(f_{\widehat{\theta}_{1}}\left(h_{1}^{m}\right)\right)\right)\\
+         &  + \dfrac{\beta}{\mathcalboondox{M}-1} \sum_{\mathclap{m=1}}^{\mathcalboondox{M}-1} \left( \sum_{\mathclap{k=1}}^{2} \hspace{0.1cm} \norm{\hspace{0.1cm}f_{\widehat{\theta}_{k}}\left(h_{k}^{m+1}\right) - f_{\widehat{\theta}_{k}}\left(h_{k}^{m}\right)\hspace{0.1cm}}\right)
+    % \end{split}
+    \end{align}
+    \label{eq:08461671_optimization}
+    \vspace{0.2cm}
+\end{equation}
+
+
+\noindent com $f_{\widehat{\theta}_{k}}\left(\cdot\right)$ sendo as redes geradoras; $D_{\widehat{\xi}_{k}}\left(\cdot\right)$, os discriminantes; $\alpha$, um escalar de trade-off entre qualidade de reconstrução e pontuação de discriminante, fixado como $\alpha = 0.1$ neste experimento; e $\beta$, o termo de suavização, com $\beta = 0.1$. O uso da distribuição \textit{Poisson} para $ p_{\text{mixture}}\left(\cdot\right)$ é muito comum para espectrogramas de magnitude.
+
+Os testes empíricos foram iniciados pela formação de misturas de falantes masculinos e femininos e dados de treinamento do TIMIT Speech Corpus \citep{timit}. E, para todos os modelos GAN obtidos desses testes, a arquitetura é definida pela Equação (\ref{eq:08461671_gan_arch},
+
+\begin{equation}
+    f_{\theta}\left(h\right) = \text{SP}\left(W_{2}\text{SP}\left(W_{1}h\right)\right),
+    \label{eq:08461671_gan_arch}
+    \vspace{0.2cm}
+\end{equation}
+
+\noindent com $\text{SP}\left(\cdot\right)$ sendo a não-linearidade mais suave, de modo que $\text{SP}\left(x\right) = \log\left(\exp\left(x\right) +1 \right)$.
 
 
 
