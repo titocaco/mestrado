@@ -28,7 +28,7 @@
 \section{Revisão Bibliográfica}
 \label{sec:gan_for_bss_bib_review}
 
-Embora ainda seja uma área incipiente, as características potencialmente disruptivas das Redes Adversariais Generativas têm sido bastante atraentes e convidativas aos olhos de inúmeros pesquisadores, e com isso, várias pesquisas relacionadas a essa nova abordagem têm sido realizadas, inclusive para aplicações como separação de fontes de áudio cego.
+Embora ainda seja uma área incipiente, as características potencialmente disruptivas das Redes Adversariais Generativas têm sido bastante atraentes e convidativas aos olhos de inúmeros pesquisadores, e com isso, várias pesquisas relacionadas a essa nova abordagem têm sido realizadas, inclusive para aplicações como separação cega de fontes de áudio.
 
 Em 2018, uma publicação intitulada \textit{Generative Adversarial Source Separation} \citep{8461671} conduziu um experimento de separação de fontes de fala usando um perceptron multicamada com uma variação das GANs originais chamadas \textit{Wasserstein-GAN} \citep{arjovsky2017wasserstein}. Os resultados obtidos em termos de taxa de fonte para distorção indicam melhor desempenho por MLP treinado com Wasserstein-GAN em vez do uso de Fatoração de Matrizes Não-Negativas (NMF) \citep{lee1999learning}, auto-encoders treinados com máxima verossimilhança e auto-encoders variáveis. Neste trabalho, os autores propuseram o uso de uma função discriminante, $D_{\xi}\left(\cdot\right)$, que visa distinguir entre as amostras geradas a partir do modelo e as amostras advindas das instâncias de treinamento. Após o treinamento, é possível gerar amostras usando o processo descrito em (\ref{eq:08461671_gen_process}),
 
@@ -86,7 +86,7 @@ A otimização para separar as fontes considerando uma coluna espectral $x^{1:\m
 
 \noindent com $f_{\widehat{\theta}_{k}}\left(\cdot\right)$ sendo as redes geradoras; $D_{\widehat{\xi}_{k}}\left(\cdot\right)$, os discriminantes; $\alpha$, um escalar de trade-off entre qualidade de reconstrução e pontuação de discriminante, fixado como $\alpha = 0.1$ neste experimento; e $\beta$, o termo de suavização, com $\beta = 0.1$. O uso da distribuição \textit{Poisson} para $ p_{\text{mixture}}\left(\cdot\right)$ é muito comum para espectrogramas de magnitude.
 
-Os testes empíricos foram iniciados pela formação de misturas de falantes masculinos e femininos e dados de treinamento do TIMIT Speech Corpus \citep{timit}. E, para todos os modelos GAN obtidos desses testes, a arquitetura é definida pela Equação (\ref{eq:08461671_gan_arch},
+Os testes empíricos foram iniciados pela formação de misturas de falantes masculinos e femininos e dados de treinamento do \textit{TIMIT Speech Corpus} \citep{timit}. E, para todos os modelos GAN obtidos desses testes, a arquitetura é definida pela Equação (\ref{eq:08461671_gan_arch},
 
 \begin{equation}
     f_{\theta}\left(h\right) = \text{SP}\left(W_{2}\text{SP}\left(W_{1}h\right)\right),
