@@ -28,7 +28,9 @@ A fim de melhorar as condições de reprodutibilidade das simulações realizada
     \label{tab:results_pc_specs}
 \end{table}
 
+A respeito do processador, apesar de a frequência de operação de 4.3 GHz ser atingida apenas por meio da função Turbo, essa função pode ficar ativada sempre que o processador detectar uma demanda por alto poder de processamento, o que pode ocorrer durante todo o período de processamento da simulação. A refrigeração da CPU foi feita por meio de uma solução relativamente poderosa, assim como a fonte utilizada possui capacidades consideravelmente superiores às demandadas, além de ser altamente estável e suficientemente eficiente; isso garantiu que nenhum dos resultados tenha sofrido interferências negativas por conta de qualquer questão inesperada e atípica relacionada ao \textit{Hardware}. Apesar de o computador possuir um SSHD, que é uma solução híbrida, o sistema operacional, os programas utilizados e todos os arquivos dos \textit{datasets} localizavam-se no SSD; o SSHD foi apenas utilizado para fins de \textit{Backup}.
 
+Embora o PyTorch ofereça suporte a processamento por GPUs, várias etapas que envolvem processamento somente podem ser efetuadas por CPU, o que, inevitavelmente, faz com que haja um aumento no tempo demandado para concluir toda a simulação. Essa constatação pode ser efetuada por meio de monitores de recursos do sistema operacional e da placa de vídeo; no caso do Ubuntu, eles podem ser acessados por meio dos comandos \textbf{\$ htop} e \textbf{\$ nvidia-smi}, sendo que, caso se deseje visualizar o monitor de recursos da gpu com um intervalo de atualização de 1 segundo, pode-se utilizar o comando \textbf{\$ watch -n 1 nvidia-smi}.
 
 
 
