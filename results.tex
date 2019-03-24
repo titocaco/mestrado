@@ -2,6 +2,36 @@
 \chapter{Simulações e Resultados}
 \label{cha:results}
 
+A fim de melhorar as condições de reprodutibilidade das simulações realizadas neste trabalho, é importante observar a Tabela \ref{tab:results_pc_specs}, que traz as configurações do ambiente em que todas as simulações foram realizadas.
+
+\begin{table}[H]
+    \centering
+    \caption{Ambiente de simulação.}
+    \begin{tabular}{ll}
+        \toprule
+        \textbf{Componente} &   \textbf{Descrição}\\
+        \midrule
+        Processador         &   Intel Core i5-8600K 3.6 GHz (4.3 GHz Turbo) 6-Core 9 MB Cache\\
+        Cooler              &   Corsair H80i v2 Water Cooler\\
+        Placa Mãe           &   Gigabyte Z370XP SLI\\
+        Memória RAM         &   Corsair Vengeance DDR4 3000 MHz 16 GB (2 x 8 GB) C15\\
+        SSD                 &   Kingston UV400 240 GB SATA III\\
+        SSHD                &   Seagate Híbrido Firecuda 2 TB 64 MB Cache SATA III\\
+        Placa de Vídeo      &   EVGA GTX 1080 Ti SC2 11 GB\\
+        Fonte               &   Corsair CS750M\\
+        Sistema Operacional &   Ubuntu Desktop 18.04 LTS 64-bit\\
+        CUDA                &   v10.0\\
+        CUDNN               &   v7.5\\
+        PyTorch             &   v1.0.1\\
+        \bottomrule
+    \end{tabular}
+    \label{tab:results_pc_specs}
+\end{table}
+
+
+
+
+
 
 \begin{figure}[H]
     \centering
@@ -42,14 +72,14 @@
 
 \begin{figure}[H]
     \centering
-    \subfigure[Erros.]
+    \subfigure[Erros]
     {
         \includegraphics[width=0.75\textwidth]{figs/results/pytorch_vanilla_mnist_loss_0-299.pdf}
         \label{fig:results_pytorch_vanilla_mnist_loss}
     }
     \\
     \vspace{0.5cm}
-    \subfigure[Incertezas.]
+    \subfigure[Incertezas]
     {
         \includegraphics[width=0.75\textwidth]{figs/results/pytorch_vanilla_mnist_uncertainty_0-299.pdf}
         \label{fig:results_pytorch_vanilla_mnist_uncertainty}
