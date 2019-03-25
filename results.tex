@@ -2,6 +2,70 @@
 \chapter{Simulações e Resultados}
 \label{cha:results}
 
+Compreendendo e seguindo as etapas da publicação de Ian Goodfellow sobre GANs \citep{NIPS2014_5423}, uma versão primária do código foi escrita em linguagem Python sobre o Jupyter Notebook a partir do algoritmo publicado no artigo, e que também foi devidamente apresentada ao final do Capítulo \ref{cha:gan}.
+
+Nenhum dos conjuntos de dados mencionados vem pronto para ser usado em um formato conveniente, por isso foi necessário prepará-los para serem utilizados. Com os conjuntos de dados já preparados, foi necessário definir as funções responsáveis pela escolha das amostras que deveriam ser utilizadas nos treinamentos e testes. Todas as implementações de aprendizado profundo que usaram tensores foram feitas usando \textbf{PyTorch} \citep{paszke2017pytorch} e \textbf{TensorFlow} \citep{abadi2016tensorflow}; ambas são bibliotecas, escritas em Python, preparadas para trabalhar com tensores e permitem que o processamento seja executado por Unidades de Processamento Central (CPUs) e Unidades de Processamento Gráfico (GPUs). É possível escolher se o processo deve priorizar que o processamento seja realizado por CPU ou GPU; este trabalho prioriza a execução por GPU.
+
+As redes foram implementadas separadamente; uma classe para o Discriminador, $D$ e outra para o Gerador, $G$. Neste caso, ambas as classes usaram uma rede neural artificial de três camadas ocultas para suas operações. O método de otimização adotado é \textbf{Adam} \citep{kingma2014adam}, que é baseado em estimativas adaptativas de momentos de menor ordem. A etapa de treinamento foi estabelecida com 200 épocas e o conjunto de dados de treinamento foi dividido em 600 lotes de 100 amostras cada.
+
+%   ----- DATASETS -----
+\section{Datasets}
+\label{sec:results_datasets}
+
+Dois \textit{datasets} foram explorados para testar as implementações: \textbf{MNIST}\footnote{\textit{\textbf{M}odified \textbf{N}ational \textbf{I}nstitute of \textbf{S}tandards and \textbf{T}echnology} (\textbf{MNIST}).} \citep{lecun-mnisthandwrittendigit-2010} e \textbf{CIFAR}\footnote{\textit{\textbf{C}anadian \textbf{I}nstitute \textbf{F}or \textbf{A}dvanced \textbf{R}esearch} (\textbf{CIFAR}).} \citep{cifar-dataset}; ambos os \textit{datasets} serão melhor detalhados e explicados a seguir.
+
+O MNIST é um conjunto de dados amplamente utilizado de números manuscritos com 70.000 exemplos (60.000 para o conjunto de treinamento e 10.000 para o conjunto de teste); é uma versão modificada de um subconjunto do conjunto de dados NIST original. Os números foram escritos por 250 escritores diferentes, e os escritores responsáveis pelo conjunto de treinamento não são os mesmos escritores que são responsáveis pelo conjunto de testes. Todas as imagens no MNIST foram normalizadas de uma caixa de 28x28 pixels (resolução) para uma caixa de 20x20 pixels, preservando sua proporção e, como resultado da técnica de anti-aliasing (do algoritmo de normalização), elas não são mais preto e branco , mas tons de cinza; o resultado teve seu centro de massa centrado novamente em uma caixa de 28x28 pixels.
+
+Existem versões modificadas do MNIST que usam uma paleta de cores invertidas, tornando o número preto e o plano de fundo branco, mas a essência do conjunto de dados MNIST ainda seria preservada para os fins pretendidos. A figura \ref{fig:datasets_mnist} tem algumas amostras do dataset MNIST.
+
+% MNIST
+\begin{figure}[H]
+    \centering
+    % Waveform
+    \begin{subfigure}[b]{2cm}
+    \includegraphics[width =\textwidth]{figs/MNIST/mnist_0.pdf}
+    \vspace{-1.07\baselineskip}\\[1ex]
+    \includegraphics[width =\textwidth]{figs/MNIST/mnist_5.pdf}
+    \vspace{0.15cm}
+    \end{subfigure}%
+    \hspace{0.0075\textwidth}
+    \begin{subfigure}[b]{2cm}
+    \includegraphics[width =\textwidth]{figs/MNIST/mnist_1.pdf}
+    \vspace{-1.07\baselineskip}\\[1ex]
+    \includegraphics[width =\textwidth]{figs/MNIST/mnist_6.pdf}
+    \vspace{0.15cm}
+    \end{subfigure}%
+    \hspace{0.0075\textwidth}
+    \begin{subfigure}[b]{2cm}
+    \includegraphics[width =\textwidth]{figs/MNIST/mnist_2.pdf}
+    \vspace{-1.07\baselineskip}\\[1ex]
+    \includegraphics[width =\textwidth]{figs/MNIST/mnist_7.pdf}
+    \vspace{0.15cm}
+    \end{subfigure}%
+    \hspace{0.0075\textwidth}
+    \begin{subfigure}[b]{2cm}
+    \includegraphics[width =\textwidth]{figs/MNIST/mnist_3.pdf}
+    \vspace{-1.07\baselineskip}\\[1ex]
+    \includegraphics[width =\textwidth]{figs/MNIST/mnist_8.pdf}
+    \vspace{0.15cm}
+    \end{subfigure}%
+    \hspace{0.0075\textwidth}
+    \begin{subfigure}[b]{2cm}
+    \includegraphics[width =\textwidth]{figs/MNIST/mnist_4.pdf}
+    \vspace{-1.07\baselineskip}\\[1ex]
+    \includegraphics[width =\textwidth]{figs/MNIST/mnist_9.pdf}
+    \vspace{0.15cm}
+    \end{subfigure}%
+    \caption{Samples from the MNIST dataset.}
+    \label{fig:datasets_mnist}
+\end{figure}
+
+
+
+%   ----- AMBIENTE DE SIMULAÇÃO -----
+\section{Ambiente de Simulação}
+\label{sec:results_simulation_environment}
+
 A fim de melhorar as condições de reprodutibilidade das simulações realizadas neste trabalho, é importante observar a Tabela \ref{tab:results_pc_specs}, que traz as configurações do ambiente em que todas as simulações foram realizadas.
 
 \begin{table}[H]
@@ -69,6 +133,10 @@ A utilização de ferramentas de monitoramento de recursos se faz necessária pa
 
 
 
+%   ----- SIMULAÇÕES -----
+\section{Simulações}
+\label{sec:results_simulations}
+
 
 \begin{figure}[H]
     \centering
@@ -99,6 +167,9 @@ A utilização de ferramentas de monitoramento de recursos se faz necessária pa
     \caption{Gerações da GAN \textit{Vanilla} para o \textit{dataset} MNIST em diferentes épocas.}
     \label{fig:results_mnist}
 \end{figure}
+
+
+
 
 
 
