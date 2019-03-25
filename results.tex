@@ -140,7 +140,7 @@ As redes foram implementadas separadamente; uma classe para o Discriminador, $D$
 
 Dado que o próprio conceito de GAN \textit{per se}, ainda é bastante incipiente, pode ser conveniente trazer algumas simulações que auxiliem na demonstração de sua capacidade. Assim sendo, reproduzindo um dos experimentos realizados por Goodfellow em seu trabalho original sobre as GANs \citep{NIPS2014_5423}, foram treinadas duas redes MLPs, sendo uma rede geradora $\mathcalboondox{G}$ e uma rede discriminadora $\mathcalboondox{D}$, com o objetivo de capturar e reproduzir artificialmente as características intrínsecas do \textit{dataset} MNIST. Esta GAN foi chamada de \textit{Vanilla}, dado que se trata de uma implementação aos moldes seguidos pelo trabalho original de Goodfellow. Trata-se de uma GAN construída com apenas três camadas ocultas de caráter linear, que utilizam-se da \textit{LeakyReLU} como função de ativação; Adam é o método de otimização utilizado, e a rede utiliza-se do algoritmo de \textit{Dropout}; a função de ativação da camada de saída da rede discriminadora é uma simples sigmoidal, enquanto a da rede geradora é uma tangente hiperbólica.
 
-A partir da Figura \ref{fig:results_mnist}, pode-se observar o progresso que a GAN obteve ao longo das épocas da simulação. O ponto de partida, observado específicamente na Figura \ref{fig:results_mnist_epoch-0}, trata-se de um ruído Gaussiano branco em todas as figuras. Logo na terceira época, vista na Figura \ref{fig:results_mnist_epoch-3}, já é possível observar o início de algumas formações que se assemelham ao que seriam números 0, 1, 7, 8 e 9, possivelmente, pelo fato de serem estruturas menos complexas do que seriam os demais números, sobretudo os números 0 e 1, visto que podem ser aproximadamente representados como sendo apenas um conjunto de \textit{pixels} espalhados majoritariamente ao longo da vertical, ou em um formato de elíptico.
+A partir da Figura \ref{fig:results_mnist}, pode-se observar o progresso que a GAN obteve ao longo das épocas da simulação. O ponto de partida, observado específicamente na Figura \ref{fig:results_mnist_epoch-0}, trata-se de um ruído Gaussiano branco em todas as figuras. Logo na terceira época, vista na Figura \ref{fig:results_mnist_epoch-3}, já é possível observar o início de algumas formações que se assemelham ao que seriam números 0, 1, 7, 8 e 9, possivelmente, pelo fato de serem estruturas menos complexas do que seriam os demais números, sobretudo os números 0 e 1, visto que podem ser aproximadamente representados como sendo apenas um conjunto de \textit{pixels} espalhados majoritariamente ao longo da vertical, ou em um formato elíptico.
 
 
 \begin{figure}[H]
@@ -173,14 +173,7 @@ A partir da Figura \ref{fig:results_mnist}, pode-se observar o progresso que a G
     \label{fig:results_mnist}
 \end{figure}
 
-
-
-
-
-
-\pagebreak
-\newpage
-
+Como pode ser observado pela Figura \ref{fig:results_mnist_epoch-32}, na época 32, algumas figuras começam a esboçar com maior nível de simularidade o que seriam, de fato, estruturas que poderiam ser interpretadas como a de números manuscritos, embora ainda haja elevados níveis de imprecisão e ruídos. Algumas das estruturas observadas chegam a sequer lembrar remotamente qualquer representação numérica que seja. Já ao final do experimento, chegando à época 299, da Figura \ref{fig:results_mnist_epoch-299}, a maior parte das figuras começou a apresentar números manuscritos gerados pela rede com características suficientemente boas para causarem dúvidas quanto à sua autenticidade, ou seja, alguns dos dígitos gerados poderiam ser erroneamente interpretados como sendo oriundos do \textit{dataset} MNIST, embora tenham sido gerados artificialmente.
 
 
 \begin{figure}[H]
