@@ -21,42 +21,18 @@ Existem versões modificadas do MNIST que usam uma paleta de cores invertidas, t
 % MNIST
 \begin{figure}[H]
     \centering
-    % Waveform
-    \begin{subfigure}[b]{2cm}
-    \includegraphics[width =\textwidth]{figs/MNIST/mnist_0.pdf}
-    \vspace{-1.07\baselineskip}\\[1ex]
-    \includegraphics[width =\textwidth]{figs/MNIST/mnist_5.pdf}
-    \vspace{0.15cm}
-    \end{subfigure}%
-    \hspace{0.0075\textwidth}
-    \begin{subfigure}[b]{2cm}
-    \includegraphics[width =\textwidth]{figs/MNIST/mnist_1.pdf}
-    \vspace{-1.07\baselineskip}\\[1ex]
-    \includegraphics[width =\textwidth]{figs/MNIST/mnist_6.pdf}
-    \vspace{0.15cm}
-    \end{subfigure}%
-    \hspace{0.0075\textwidth}
-    \begin{subfigure}[b]{2cm}
-    \includegraphics[width =\textwidth]{figs/MNIST/mnist_2.pdf}
-    \vspace{-1.07\baselineskip}\\[1ex]
-    \includegraphics[width =\textwidth]{figs/MNIST/mnist_7.pdf}
-    \vspace{0.15cm}
-    \end{subfigure}%
-    \hspace{0.0075\textwidth}
-    \begin{subfigure}[b]{2cm}
-    \includegraphics[width =\textwidth]{figs/MNIST/mnist_3.pdf}
-    \vspace{-1.07\baselineskip}\\[1ex]
-    \includegraphics[width =\textwidth]{figs/MNIST/mnist_8.pdf}
-    \vspace{0.15cm}
-    \end{subfigure}%
-    \hspace{0.0075\textwidth}
-    \begin{subfigure}[b]{2cm}
-    \includegraphics[width =\textwidth]{figs/MNIST/mnist_4.pdf}
-    \vspace{-1.07\baselineskip}\\[1ex]
-    \includegraphics[width =\textwidth]{figs/MNIST/mnist_9.pdf}
-    \vspace{0.15cm}
-    \end{subfigure}%
-    \caption{Samples from the MNIST dataset.}
+    \subfloat{\includegraphics[width=0.175\textwidth]{figs/MNIST/mnist_0.pdf}}\hspace{0.1cm}
+    \subfloat{\includegraphics[width=0.175\textwidth]{figs/MNIST/mnist_1.pdf}}\hspace{0.1cm}
+    \subfloat{\includegraphics[width=0.175\textwidth]{figs/MNIST/mnist_2.pdf}}\hspace{0.1cm}
+    \subfloat{\includegraphics[width=0.175\textwidth]{figs/MNIST/mnist_3.pdf}}\hspace{0.1cm}
+    \subfloat{\includegraphics[width=0.175\textwidth]{figs/MNIST/mnist_4.pdf}}
+    \\
+    \subfloat{\includegraphics[width=0.175\textwidth]{figs/MNIST/mnist_5.pdf}}\hspace{0.1cm}
+    \subfloat{\includegraphics[width=0.175\textwidth]{figs/MNIST/mnist_6.pdf}}\hspace{0.1cm}
+    \subfloat{\includegraphics[width=0.175\textwidth]{figs/MNIST/mnist_7.pdf}}\hspace{0.1cm}
+    \subfloat{\includegraphics[width=0.175\textwidth]{figs/MNIST/mnist_8.pdf}}\hspace{0.1cm}
+    \subfloat{\includegraphics[width=0.175\textwidth]{figs/MNIST/mnist_9.pdf}}    
+    \caption{Amostras do \textit{dataset} MNIST.}
     \label{fig:datasets_mnist}
 \end{figure}
 
@@ -113,14 +89,14 @@ Embora o PyTorch ofereça suporte a processamento por GPUs, várias etapas que e
 
 \begin{figure}[H]
     \centering
-    \subfigure[htop]
+    \subfloat[htop]
     {
         \includegraphics[width=0.75\textwidth]{figs/htop.png}
         \label{fig:results_htop}
     }
     \\
     \vspace{0.5cm}
-    \subfigure[nvidia-smi]
+    \subfloat[nvidia-smi]
     {
         \includegraphics[width=0.75\textwidth]{figs/nvidia-smi.png}
         \label{fig:results_nvidia-smi}
@@ -140,26 +116,26 @@ A utilização de ferramentas de monitoramento de recursos se faz necessária pa
 
 \begin{figure}[H]
     \centering
-    \subfigure[Época 0]
+    \subfloat[Época 0]
     {
         \includegraphics[width=0.30\textwidth]{figs/MNIST/new_tests/_epoch_0_batch_0.png}
         \label{fig:results_mnist_epoch-0}
     }
     \hspace{0.5cm}
-    \subfigure[Época 3]
+    \subfloat[Época 3]
     {
         \includegraphics[width=0.30\textwidth]{figs/MNIST/new_tests/_epoch_3_batch_500.png}
         \label{fig:results_mnist_epoch-3}
     }
     \\
     \vspace{0.5cm}
-    \subfigure[Época 32]
+    \subfloat[Época 32]
     {
         \includegraphics[width=0.30\textwidth]{figs/MNIST/new_tests/_epoch_32_batch_400.png}
         \label{fig:results_mnist_epoch-32}
     }
     \hspace{0.5cm}
-    \subfigure[Época 299]
+    \subfloat[Época 299]
     {
         \includegraphics[width=0.30\textwidth]{figs/MNIST/new_tests/_epoch_299_batch_500.png}
         \label{fig:results_mnist_epoch-299}
@@ -180,14 +156,14 @@ A utilização de ferramentas de monitoramento de recursos se faz necessária pa
 
 \begin{figure}[H]
     \centering
-    \subfigure[Erros]
+    \subfloat[Erros]
     {
         \includegraphics[width=0.75\textwidth]{figs/results/pytorch_vanilla_mnist_loss_0-299.pdf}
         \label{fig:results_pytorch_vanilla_mnist_loss}
     }
     \\
     \vspace{0.5cm}
-    \subfigure[Incertezas]
+    \subfloat[Incertezas]
     {
         \includegraphics[width=0.75\textwidth]{figs/results/pytorch_vanilla_mnist_uncertainty_0-299.pdf}
         \label{fig:results_pytorch_vanilla_mnist_uncertainty}
