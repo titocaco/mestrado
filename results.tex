@@ -2,11 +2,9 @@
 \chapter{Simulações e Resultados}
 \label{cha:results}
 
-Compreendendo e seguindo as etapas da publicação de Ian Goodfellow sobre GANs \citep{NIPS2014_5423}, uma versão primária do código foi escrita em linguagem Python sobre o Jupyter Notebook a partir do algoritmo publicado no artigo, e que também foi devidamente apresentada ao final do Capítulo \ref{cha:gan}.
+Neste capítulo serão explicados os \textit{datasets}, bem como o ambiente de simulação, que consiste em um conjunto de componentes de \textit{Hardware} e \textit{Software} que compõem o computador onde foram realizadas as simulações, além de cada um dos experimentos, incluindo detalhes sobre suas implementações e resultados extraídos de cada uma das simulações realizadas.
 
-Nenhum dos conjuntos de dados mencionados vem pronto para ser usado em um formato conveniente, por isso foi necessário prepará-los para serem utilizados. Com os conjuntos de dados já preparados, foi necessário definir as funções responsáveis pela escolha das amostras que deveriam ser utilizadas nos treinamentos e testes. Todas as implementações de aprendizado profundo que usaram tensores foram feitas usando \textbf{PyTorch} \citep{paszke2017pytorch} e \textbf{TensorFlow} \citep{abadi2016tensorflow}; ambas são bibliotecas, escritas em Python, preparadas para trabalhar com tensores e permitem que o processamento seja executado por Unidades de Processamento Central (CPUs) e Unidades de Processamento Gráfico (GPUs). É possível escolher se o processo deve priorizar que o processamento seja realizado por CPU ou GPU; este trabalho prioriza a execução por GPU.
 
-As redes foram implementadas separadamente; uma classe para o Discriminador, $D$ e outra para o Gerador, $G$. Neste caso, ambas as classes usaram uma rede neural artificial de três camadas ocultas para suas operações. O método de otimização adotado é \textbf{Adam} \citep{kingma2014adam}, que é baseado em estimativas adaptativas de momentos de menor ordem. A etapa de treinamento foi estabelecida com 200 épocas e o conjunto de dados de treinamento foi dividido em 600 lotes de 100 amostras cada.
 
 %   ----- DATASETS -----
 \section{Datasets}
@@ -14,9 +12,9 @@ As redes foram implementadas separadamente; uma classe para o Discriminador, $D$
 
 Dois \textit{datasets} foram explorados para testar as implementações: \textbf{MNIST}\footnote{\textit{\textbf{M}odified \textbf{N}ational \textbf{I}nstitute of \textbf{S}tandards and \textbf{T}echnology} (\textbf{MNIST}).} \citep{lecun-mnisthandwrittendigit-2010} e \textbf{CIFAR}\footnote{\textit{\textbf{C}anadian \textbf{I}nstitute \textbf{F}or \textbf{A}dvanced \textbf{R}esearch} (\textbf{CIFAR}).} \citep{cifar-dataset}; ambos os \textit{datasets} serão melhor detalhados e explicados a seguir.
 
-O MNIST é um conjunto de dados amplamente utilizado de números manuscritos com 70.000 exemplos (60.000 para o conjunto de treinamento e 10.000 para o conjunto de teste); é uma versão modificada de um subconjunto do conjunto de dados NIST original. Os números foram escritos por 250 escritores diferentes, e os escritores responsáveis pelo conjunto de treinamento não são os mesmos escritores que são responsáveis pelo conjunto de testes. Todas as imagens no MNIST foram normalizadas de uma caixa de 28x28 pixels (resolução) para uma caixa de 20x20 pixels, preservando sua proporção e, como resultado da técnica de anti-aliasing (do algoritmo de normalização), elas não são mais preto e branco , mas tons de cinza; o resultado teve seu centro de massa centrado novamente em uma caixa de 28x28 pixels.
+O MNIST é um conjunto de dados amplamente utilizado de números manuscritos com 70.000 exemplos (60.000 para o conjunto de treinamento e 10.000 para o conjunto de teste); é uma versão modificada de um subconjunto do conjunto de dados NIST original. Os números foram escritos por 250 escritores diferentes, e os escritores responsáveis pelo conjunto de treinamento não são os mesmos escritores que são responsáveis pelo conjunto de testes. Todas as imagens no MNIST foram normalizadas de uma caixa de 28x28 pixels (resolução) para uma caixa de 20x20 pixels, preservando sua proporção e, como resultado da técnica de \textit{anti-aliasing} (do algoritmo de normalização), elas não são mais preto e branco , mas tons de cinza; o resultado teve seu centro de massa centrado novamente em uma caixa de 28x28 pixels.
 
-Existem versões modificadas do MNIST que usam uma paleta de cores invertidas, tornando o número preto e o plano de fundo branco, mas a essência do conjunto de dados MNIST ainda seria preservada para os fins pretendidos. A figura \ref{fig:datasets_mnist} tem algumas amostras do dataset MNIST.
+Existem versões modificadas do MNIST que usam uma paleta de cores invertidas, tornando o número preto e o plano de fundo branco, mas a essência do conjunto de dados MNIST ainda seria preservada para os fins pretendidos. A figura \ref{fig:datasets_mnist} mostras algumas amostras do dataset MNIST.
 
 % MNIST
 \begin{figure}[H]
@@ -31,11 +29,31 @@ Existem versões modificadas do MNIST que usam uma paleta de cores invertidas, t
     \subfloat{\includegraphics[width=0.175\textwidth]{figs/MNIST/mnist_6.pdf}}\hspace{0.1cm}
     \subfloat{\includegraphics[width=0.175\textwidth]{figs/MNIST/mnist_7.pdf}}\hspace{0.1cm}
     \subfloat{\includegraphics[width=0.175\textwidth]{figs/MNIST/mnist_8.pdf}}\hspace{0.1cm}
-    \subfloat{\includegraphics[width=0.175\textwidth]{figs/MNIST/mnist_9.pdf}}    
+    \subfloat{\includegraphics[width=0.175\textwidth]{figs/MNIST/mnist_9.pdf}}
     \caption{Amostras do \textit{dataset} MNIST.}
     \label{fig:datasets_mnist}
 \end{figure}
 
+
+O \textit{dataset} CIFAR-10 é uma variação do CIFAR composto por imagens de veículos e animais que compõem um subconjunto do original \textit{80 Million Tiny Images} \citep{4531741}. Existem 60.000 imagens coloridas de 32x32 distribuídas uniformemente entre 10 classes (50.000 para treinamento e 10.000 para teste). A Figura \ref{fig:datasets_cifar} traz algumas amostras do conjunto de dados CIFAR-10.
+
+%   CIFAR-10
+\begin{figure}[H]
+    \centering
+    \subfloat{\includegraphics[width=0.175\textwidth]{figs/CIFAR/cifar_0.pdf}}\hspace{0.1cm}
+    \subfloat{\includegraphics[width=0.175\textwidth]{figs/CIFAR/cifar_1.pdf}}\hspace{0.1cm}
+    \subfloat{\includegraphics[width=0.175\textwidth]{figs/CIFAR/cifar_2.pdf}}\hspace{0.1cm}
+    \subfloat{\includegraphics[width=0.175\textwidth]{figs/CIFAR/cifar_3.pdf}}\hspace{0.1cm}
+    \subfloat{\includegraphics[width=0.175\textwidth]{figs/CIFAR/cifar_4.pdf}}\hspace{0.1cm}
+    \\
+    \subfloat{\includegraphics[width=0.175\textwidth]{figs/CIFAR/cifar_5.pdf}}\hspace{0.1cm}
+    \subfloat{\includegraphics[width=0.175\textwidth]{figs/CIFAR/cifar_6.pdf}}\hspace{0.1cm}
+    \subfloat{\includegraphics[width=0.175\textwidth]{figs/CIFAR/cifar_7.pdf}}\hspace{0.1cm}
+    \subfloat{\includegraphics[width=0.175\textwidth]{figs/CIFAR/cifar_8.pdf}}\hspace{0.1cm}
+    \subfloat{\includegraphics[width=0.175\textwidth]{figs/CIFAR/cifar_9.pdf}}\hspace{0.1cm}
+    \caption{Amostras do \textit{dataset} CIFAR-10.}
+    \label{fig:datasets_cifar}
+\end{figure}
 
 
 %   ----- AMBIENTE DE SIMULAÇÃO -----
@@ -44,6 +62,8 @@ Existem versões modificadas do MNIST que usam uma paleta de cores invertidas, t
 
 A fim de melhorar as condições de reprodutibilidade das simulações realizadas neste trabalho, é importante observar a Tabela \ref{tab:results_pc_specs}, que traz as configurações do ambiente em que todas as simulações foram realizadas.
 
+
+
 \begin{table}[H]
     \centering
     \caption{Ambiente de simulação.}
@@ -51,32 +71,33 @@ A fim de melhorar as condições de reprodutibilidade das simulações realizada
         \toprule
         \textbf{Componente} &   \textbf{Descrição}\\
         \midrule
+        \rowcolor{mColor1!30}
         Processador         &   Intel Core i5-8600K 3.6 GHz (4.3 GHz Turbo) 6-Core 9 MB Cache\\
-        \hline
+        \rowcolor{mColor1!0}
         CPU Cooler          &   Corsair H80i v2 Water Cooler\\
-        \hline
+        \rowcolor{mColor1!30}
         Placa Mãe           &   Gigabyte Z370XP SLI\\
-        \hline
+        \rowcolor{mColor1!0}
         Memória RAM         &   Corsair Vengeance DDR4 3000 MHz 16 GB (2 
         x 8 GB) C15\\
-        \hline
+        \rowcolor{mColor1!30}
         SSD                 &   Kingston UV400 240 GB SATA III\\
-        \hline
+        \rowcolor{mColor1!0}
         SSHD                &   Seagate Híbrido Firecuda 2 TB 64 MB Cache 
         SATA III\\
-        \hline
+        \rowcolor{mColor1!30}
         Placa de Vídeo      &   EVGA GTX 1080 Ti SC2 11 GB\\
-        \hline
+        \rowcolor{mColor1!0}
         Fonte               &   Corsair CS750M\\
-        \hline
+        \rowcolor{mColor1!30}
         Sistema Operacional &   Ubuntu Desktop 18.04 LTS 64-bit\\
-        \hline
+        \rowcolor{mColor1!0}
         NVidia Driver       &   v418.43\\
-        \hline
+        \rowcolor{mColor1!30}
         CUDA                &   v10.1\\
-        \hline
+        \rowcolor{mColor1!0}
         CUDNN               &   v7.5\\
-        \hline
+        \rowcolor{mColor1!30}
         PyTorch             &   v1.0.1\\
         \bottomrule
     \end{tabular}
@@ -85,33 +106,41 @@ A fim de melhorar as condições de reprodutibilidade das simulações realizada
 
 A respeito do processador, apesar de a frequência de operação de 4.3 GHz ser atingida apenas por meio da função Turbo, essa função pode ficar ativada sempre que o processador detectar uma demanda por alto poder de processamento, o que pode ocorrer durante todo o período de processamento da simulação. A refrigeração da CPU foi feita por meio de uma solução relativamente poderosa, assim como a fonte utilizada possui capacidades consideravelmente superiores às demandadas, além de ser altamente estável e suficientemente eficiente; isso garantiu que nenhum dos resultados tenha sofrido interferências negativas por conta de qualquer questão inesperada e atípica relacionada ao \textit{Hardware}. Apesar de o computador possuir um SSHD, que é uma solução híbrida, o sistema operacional, os programas utilizados e todos os arquivos dos \textit{datasets} localizavam-se no SSD; o SSHD foi apenas utilizado para fins de \textit{Backup}.
 
-Embora o PyTorch ofereça suporte a processamento por GPUs, várias etapas que envolvem processamento somente podem ser efetuadas por CPU, o que, inevitavelmente, faz com que haja um aumento no tempo demandado para concluir toda a simulação. Essa constatação pode ser efetuada por meio de monitores de recursos do sistema operacional e da placa de vídeo; no caso do Ubuntu, eles podem ser acessados por meio dos comandos \textbf{\$ htop} e \textbf{\$ nvidia-smi}, sendo que, caso se deseje visualizar o monitor de recursos da gpu com um intervalo de atualização de 1 segundo, pode-se utilizar o comando \textbf{\$ watch -n 1 nvidia-smi}. Exemplos de ambas as ferramentas de monitoramento de recursos podem ser vistas na Figura \ref{fig:results_resources_monitoring_tools}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.70\textwidth]{figs/htop.png}
+    \caption{HTOP}
+    \label{fig:results_htop}
+\end{figure}
+
+Embora o PyTorch ofereça suporte a processamento por GPUs, várias etapas que envolvem processamento somente podem ser efetuadas por CPU, o que, inevitavelmente, faz com que haja um aumento no tempo demandado para concluir toda a simulação. Essa constatação pode ser efetuada por meio de monitores de recursos do sistema operacional e da placa de vídeo; no caso do Ubuntu, eles podem ser acessados por meio dos comandos \textbf{\$ htop} e \textbf{\$ nvidia-smi}, sendo que, caso se deseje visualizar o monitor de recursos da gpu com um intervalo de atualização de 1 segundo, pode-se utilizar o comando \textbf{\$ watch -n 1 nvidia-smi}. Exemplos de ambas as ferramentas de monitoramento de recursos podem ser vistas nas Figuras \ref{fig:results_htop} e \ref{fig:results_nvidia-smi}.
+
 
 \begin{figure}[H]
     \centering
-    \subfloat[htop]
-    {
-        \includegraphics[width=0.75\textwidth]{figs/htop.png}
-        \label{fig:results_htop}
-    }
-    \\
-    \vspace{0.5cm}
-    \subfloat[nvidia-smi]
-    {
-        \includegraphics[width=0.75\textwidth]{figs/nvidia-smi.png}
-        \label{fig:results_nvidia-smi}
-    }
-    \caption{Ferramentas de monitoramento, (a) htop e (b) nvidia-smi.}
-    \label{fig:results_resources_monitoring_tools}
+    \includegraphics[width=0.70\textwidth]{figs/nvidia-smi.png}
+    \caption{NVIDIA-SMI}
+    \label{fig:results_nvidia-smi}
 \end{figure}
+
 
 A utilização de ferramentas de monitoramento de recursos se faz necessária para que seja possível averiguar a existência de qualquer eventual tarefa que, por qualquer razão que seja, esteja se utilizando dos recursos da máquina de modo a colocar em risco o desempenho da simulação. Diferentemente do que talvez se possa imaginar, atrapalhar a simulação não necessariamente significa apenas atrasar o término do processamento; em vez disso, pode significar eventuais alterações no comportamento do programa, o que poderia colocar em risco a veracidade dos resultados obtidos. Dito isso, é importante afirmar que nenhum comportamento maligno foi detectado ao longo das simulações.
 
 
 
-%   ----- SIMULAÇÕES -----
-\section{Simulações}
-\label{sec:results_simulations}
+%   ----- SIMULAÇÕES PRELIMINARES -----
+\section{Simulações Preliminares}
+\label{sec:results_preliminary_simulations}
+
+Compreendendo e seguindo as etapas da publicação de Ian Goodfellow sobre GANs \citep{NIPS2014_5423}, uma versão primária do código foi escrita em linguagem Python sobre o Jupyter Notebook a partir do algoritmo publicado no artigo em questão.
+
+Nenhum dos conjuntos de dados mencionados vem pronto para ser usado em um formato conveniente, por isso foi necessário prepará-los para serem utilizados. Com os conjuntos de dados já preparados, foi necessário definir as funções responsáveis pela escolha das amostras que deveriam ser utilizadas nos treinamentos e testes. Todas as implementações de aprendizado profundo que usaram tensores foram feitas usando \textbf{PyTorch} \citep{paszke2017pytorch} e \textbf{TensorFlow} \citep{abadi2016tensorflow}; ambas são bibliotecas, escritas em Python, preparadas para trabalhar com tensores e permitem que o processamento seja executado por Unidades de Processamento Central (CPUs) e Unidades de Processamento Gráfico (GPUs). É possível escolher se o processo deve priorizar que o processamento seja realizado por CPU ou GPU; este trabalho prioriza a execução por GPU.
+
+As redes foram implementadas separadamente; uma classe para o Discriminador, $D$ e outra para o Gerador, $G$. Neste caso, ambas as classes usaram uma rede neural artificial de três camadas ocultas para suas operações. O método de otimização adotado é \textbf{Adam} \citep{kingma2014adam}, que é baseado em estimativas adaptativas de momentos de menor ordem. A etapa de treinamento foi estabelecida com 200 épocas e o conjunto de dados de treinamento foi dividido em 600 lotes de 100 amostras cada.
+
+Dado que o próprio conceito de GAN \textit{per se}, ainda é bastante incipiente, pode ser conveniente trazer algumas simulações que auxiliem na demonstração de sua capacidade. Assim sendo, reproduzindo um dos experimentos realizados por Goodfellow em seu trabalho original sobre as GANs \citep{NIPS2014_5423}, foram treinadas duas redes MLPs, sendo uma rede geradora $\mathcalboondox{G}$ e uma rede discriminadora $\mathcalboondox{D}$, com o objetivo de capturar e reproduzir artificialmente as características intrínsecas do \textit{dataset} MNIST. Esta GAN foi chamada de \textit{Vanilla}, dado que se trata de uma implementação aos moldes seguidos pelo trabalho original de Goodfellow. Trata-se de uma GAN construída com apenas três camadas ocultas de caráter linear, que utilizam-se da \textit{LeakyReLU} como função de ativação; Adam é o método de otimização utilizado, e a rede utiliza-se do algoritmo de \textit{Dropout}; a função de ativação da camada de saída da rede discriminadora é uma simples sigmoidal, enquanto a da rede geradora é uma tangente hiperbólica.
+
+A partir da Figura \ref{fig:results_mnist}, pode-se observar o progresso que a GAN obteve ao longo das épocas da simulação. O ponto de partida, observado específicamente na Figura \ref{fig:results_mnist_epoch-0}, trata-se de um ruído Gaussiano branco em todas as figuras. Logo na terceira época, vista na Figura \ref{fig:results_mnist_epoch-3}, já é possível observar o início de algumas formações que se assemelham ao que seriam números 0, 1, 7, 8 e 9, possivelmente, pelo fato de serem estruturas menos complexas do que seriam os demais números, sobretudo os números 0 e 1, visto que podem ser aproximadamente representados como sendo apenas um conjunto de \textit{pixels} espalhados majoritariamente ao longo da vertical, ou em um formato de elíptico.
 
 
 \begin{figure}[H]

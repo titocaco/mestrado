@@ -568,6 +568,39 @@ overlay last={\draw[colexam,line width=1pt] ([xshift=-0.5pt]frame.north east)
 % Fancy epigraphs
 \usepackage{times}
 \usepackage{xcolor}
+\usepackage{colortbl}
+
+\definecolor{mColor1}{rgb}{0.9,0.9,0.9}
+\newcolumntype{O}{>{\columncolor{mColor1}}}
+\newcolumntype{D}[1]{>{\raggedright\arraybackslash}m{#1}}
+\newcolumntype{E}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{N}{@{}>{\columncolor{white}[0pt][0pt]}m{0pt}@{}}
+
+
+% \usepackage{microtype}
+
+% \newcommand*{\belowrulesepcolor}[1]{%
+%   \noalign{%
+%     \kern-\belowrulesep
+%     \begingroup
+%       \color{#1}%
+%       \hrule height\belowrulesep
+%     \endgroup
+%   }%
+% }
+% \newcommand*{\aboverulesepcolor}[1]{%
+%   \noalign{%
+%     \begingroup
+%       \color{#1}%
+%       \hrule height\aboverulesep
+%     \endgroup
+%     \kern-\aboverulesep
+%   }%
+% }
+
+
+
+
 \usepackage{epigraph}
 \usepackage{tabto}
 \usepackage{ifthen}
