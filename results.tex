@@ -31,7 +31,9 @@ A fim de melhorar as condições de reprodutibilidade das simulações realizada
         \hline
         Sistema Operacional &   Ubuntu Desktop 18.04 LTS 64-bit\\
         \hline
-        CUDA                &   v10.0\\
+        NVidia Driver       &   v418.43\\
+        \hline
+        CUDA                &   v10.1\\
         \hline
         CUDNN               &   v7.5\\
         \hline
@@ -43,7 +45,27 @@ A fim de melhorar as condições de reprodutibilidade das simulações realizada
 
 A respeito do processador, apesar de a frequência de operação de 4.3 GHz ser atingida apenas por meio da função Turbo, essa função pode ficar ativada sempre que o processador detectar uma demanda por alto poder de processamento, o que pode ocorrer durante todo o período de processamento da simulação. A refrigeração da CPU foi feita por meio de uma solução relativamente poderosa, assim como a fonte utilizada possui capacidades consideravelmente superiores às demandadas, além de ser altamente estável e suficientemente eficiente; isso garantiu que nenhum dos resultados tenha sofrido interferências negativas por conta de qualquer questão inesperada e atípica relacionada ao \textit{Hardware}. Apesar de o computador possuir um SSHD, que é uma solução híbrida, o sistema operacional, os programas utilizados e todos os arquivos dos \textit{datasets} localizavam-se no SSD; o SSHD foi apenas utilizado para fins de \textit{Backup}.
 
-Embora o PyTorch ofereça suporte a processamento por GPUs, várias etapas que envolvem processamento somente podem ser efetuadas por CPU, o que, inevitavelmente, faz com que haja um aumento no tempo demandado para concluir toda a simulação. Essa constatação pode ser efetuada por meio de monitores de recursos do sistema operacional e da placa de vídeo; no caso do Ubuntu, eles podem ser acessados por meio dos comandos \textbf{\$ htop} e \textbf{\$ nvidia-smi}, sendo que, caso se deseje visualizar o monitor de recursos da gpu com um intervalo de atualização de 1 segundo, pode-se utilizar o comando \textbf{\$ watch -n 1 nvidia-smi}.
+Embora o PyTorch ofereça suporte a processamento por GPUs, várias etapas que envolvem processamento somente podem ser efetuadas por CPU, o que, inevitavelmente, faz com que haja um aumento no tempo demandado para concluir toda a simulação. Essa constatação pode ser efetuada por meio de monitores de recursos do sistema operacional e da placa de vídeo; no caso do Ubuntu, eles podem ser acessados por meio dos comandos \textbf{\$ htop} e \textbf{\$ nvidia-smi}, sendo que, caso se deseje visualizar o monitor de recursos da gpu com um intervalo de atualização de 1 segundo, pode-se utilizar o comando \textbf{\$ watch -n 1 nvidia-smi}. Exemplos de ambas as ferramentas de monitoramento de recursos podem ser vistas na Figura \ref{fig:results_resources_monitoring_tools}.
+
+\begin{figure}[H]
+    \centering
+    \subfigure[htop]
+    {
+        \includegraphics[width=0.75\textwidth]{figs/htop.png}
+        \label{fig:results_htop}
+    }
+    \\
+    \vspace{0.5cm}
+    \subfigure[nvidia-smi]
+    {
+        \includegraphics[width=0.75\textwidth]{figs/nvidia-smi.png}
+        \label{fig:results_nvidia-smi}
+    }
+    \caption{Ferramentas de monitoramento, (a) htop e (b) nvidia-smi.}
+    \label{fig:results_resources_monitoring_tools}
+\end{figure}
+
+A utilização de ferramentas de monitoramento de recursos se faz necessária para que seja possível averiguar a existência de qualquer eventual tarefa que, por qualquer razão que seja, esteja se utilizando dos recursos da máquina de modo a colocar em risco o desempenho da simulação. Diferentemente do que talvez se possa imaginar, atrapalhar a simulação não necessariamente significa apenas atrasar o término do processamento; em vez disso, pode significar eventuais alterações no comportamento do programa, o que poderia colocar em risco a veracidade dos resultados obtidos. Dito isso, é importante afirmar que nenhum comportamento maligno foi detectado ao longo das simulações.
 
 
 
