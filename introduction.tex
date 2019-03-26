@@ -245,7 +245,7 @@ Apenas para fins de exemplificação, poderia-se imaginar uma performance musica
 \subsection{Convolutivo}
 \label{subsec:intro_convolutive}
 
-Apesar de existir todo um conjunto de cenários mais simples com misturas de características lineares, modelos projetados para cenários com tais características tendem a ser menos flexíveis, mostrando-se aceitáveis quase que exclusivamente quando há um rigor menos intenso na demanda por qualidade
+Apesar de existir todo um conjunto de cenários mais simples, independentes de memória, modelos convolutivos, dependentes de memória, tendem a ser alternativas bastante convenientes para diversas aplicações, mas, como a complexidade do problema e o custo computacional tendem a crescer, cresce também a demanda por uma cautela extra no desenvolvimento dos modelos. A realização de processos de separação de fontes para cenários de misturas convolutivas pode ser feita por meio de técnicas com abordagens no domínio do tempo ou no domínio da frequência.
 
 
 
@@ -254,6 +254,7 @@ Apesar de existir todo um conjunto de cenários mais simples com misturas de car
 \subsection{Não-Linear}
 \label{subsec:intro_non-linear}
 
+Além de todas as possibilidades relacionadas a processos de misturas lineares, há também os casos de misturas não lineares, que são bem mais numerosas e complexas, embora sejam mais flexíveis e, assim, sejam capazes de causar efeitos ainda mais difíceis de serem desfeitos com elevados níveis de eficácia, o que pode demandar a utilização de técnicas mais rebuscadas e que ataquem o problema apartir de outras abordagens, tais como a análise de componentes independentes para misturas não lineares \citep{hyvarinen1999nonlinear}, misturas de tipo PNL \citep{taleb1999source} e processos de Gaussianização \citep{sole2003improving, ziehe2003blind}.
 
 
 
@@ -263,7 +264,7 @@ Apesar de existir todo um conjunto de cenários mais simples com misturas de car
 \section{Nova Abordagem -- DNN e GAN}
 \label{sec:intro_new_approach}
 
-
+Após significativos avanços em redes neurais, tais como o desenvolvimento e o aprimoramento das redes de aprendizado profundas (\textit{Deep Learning}), assim como o surgimento da abordagem das GANs (\textit{Generative Adversarial Networks}) \citep{NIPS2014_5423}, que mostraram-se capazes de identificar e imitar padrões estatísticos em dados artificialmente gerados por elas próprias, começaram a surgir trabalhos que se utilizam de tais estruturas para realizar o processo de separação de fontes \citep{subakan2018generative, kaneko2018generative, fan2018svsgan}, o que chamou a atenção de parte da comunidade científica para o poder das GANs inclusive no que diz respeito à tarefa de separação de fontes, o que não havia sido especificamente trazido no trabalho original de Goodfellow em 2014, visto que os exemplos então apresentados eram todos ligados a aplicações voltadas para o processamento de imagens.
 
 
 %   ---------------------
