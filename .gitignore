@@ -35,3 +35,5 @@ main\.pdf
 
 *.synctex*
 notebooks/tests/data/*
+
+tito-masters-*
