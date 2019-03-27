@@ -1,6 +1,8 @@
 % !TEX root = main.tex
-\chapter{Redes Adversárias Geradoras}
+\chapter{\textit{Generative Adversarial Networks}}
 \label{cha:gan}
+
+Um dos pontos mais importantes deste trabalho trata-se de todo um conjunto de estudos e experimentos sobre GANs (\textit{Generative Adversarial Networks}) \citep{NIPS2014_5423}, que são estruturas que dependem da compreensão sobre o que são modelos geradores (Seção \ref{sec:gan_nn_as_generative_model}), o que vêm a ser redes adversárias (Seção \ref{sec:gan_adversarial_nets}) e um pouco sobre elementos de teoria dos jogos (Seção \ref{sec:gan_game_theory}).
 
 %   ------------------------------------------------
 %   ----- Redes Neurais como Modelos Geradores -----
@@ -8,13 +10,17 @@
 \section{Redes Neurais como Modelos Geradores}
 \label{sec:gan_nn_as_generative_model}
 
+Dentro da área grande área de inteligência artificial existem diversos modelos com capacidades intrínsecas específicas que fazem com que tais modelos se comportem de formas bastante características, permitindo que sejam agrupados por tais características comportamentais e capacidades; uma dessas capacidades é a de capturar tendências, padrões e características, bem como a de reproduzir --- com alguma fidelidade ou precisão --- tais tendências (de cunho estatístico). Dentre as tantas diferentes abordagens possíveis que possuem tais capacidades estão as redes neurais, que serão bastante exploradas ao longo deste trabalho.
+
 
 
 %   -----------------------------
-%   ----- Redes Adversárias -----
+%   ----- Redes Adversariais -----
 %   -----------------------------
-\section{Redes Adversárias}
+\section{Redes Adversariais}
 \label{sec:gan_adversarial_nets}
+
+Neste contexto, pode ser interessante definir que são considerados adversários quaisquer elementos que possam influenciar negativamente nas tentativas de se atingir objetivos almejados por qualquer outro elemento que compuser uma dada estrutura que seja, em algum grau, conectada a ponto de permitir que tais influências ocorram entre os elementos em questão; tal estrutura de comunicação pode ser interpretada como uma rede e, dado que os indivíduos podem atuar de modo a competirem entre si, tais indivíduos podem ser compreendidos como adversários entre si. Portanto, uma rede adversarial pode ser entendida como uma rede composta por indivíduos que estejam competindo entre si de alguma forma.
 
 
 
@@ -36,7 +42,7 @@ RAND Corporation\footnote{O nome ``RAND'' vem de uma contração do termo, em in
 \end{quote}
 \end{formal}
 
-Ou seja, efetuando-se uma tradução livre, pode-se compreender que, segundo os professores Neumann e Morgenstern, o jogo é simplesmente a totalidade das regras que o descrevem. Apesar do nome popularmente convidativo -- talvez por estar erroneamente associado a elementos meramente lúdicos -- não pode haver confusão quanto à importância dessa área, assim como o rigor dos modelos matemáticos envolvidos; tais confusões podem ocorrer devido à alta ambiguidade da linguagem coloquial \citep{10.2307/j.ctt1r2gkx}. Na Subseção \ref{subsec:gan_prisoners_dilemma} será discutido mais sobre o \textbf{Dilema do Prisioneiro}, um exemplo de cenário que pode envolver cooperação e competição.
+Ou seja, efetuando-se uma tradução livre, pode-se compreender que, segundo os professores Neumann e Morgenstern, o jogo é simplesmente a totalidade das regras que o descrevem. Apesar do nome popularmente convidativo --- talvez por estar erroneamente associado a elementos meramente lúdicos --- não pode haver confusão quanto à importância dessa área, assim como o rigor dos modelos matemáticos envolvidos; tais confusões podem ocorrer devido à alta ambiguidade da linguagem coloquial \citep{10.2307/j.ctt1r2gkx}. Na Subseção \ref{subsec:gan_prisoners_dilemma} será discutido mais sobre o \textbf{Dilema do Prisioneiro}, um exemplo de cenário que pode envolver cooperação e competição.
 
 
 
@@ -76,7 +82,7 @@ Para evitar as piores consequências possíveis para ambos os criminosos, eles t
 %   ---------------
 %   ----- GAN -----
 %   ---------------
-\section{Redes Adversárias Geradoras}
+\section{GAN}
 \label{sec:gan_gan}
 
 Explorando conceitos de Teoria dos Jogos e de Aprendizagem Profunda, foi possível formular um novo tipo de abordagem, utilizando duas redes neurais como jogadores adversários de um jogo competitivo; assim, foram propostas as Redes Adversárias Geradoras (\textbf{GAN}, do inglês \textit{Generative Adversarial Networks}) \citep{NIPS2014_5423}.
