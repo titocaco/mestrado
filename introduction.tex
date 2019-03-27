@@ -28,7 +28,7 @@ Onde quer que estejam, os seres humanos estão sujeitos à presença de vários 
 \end{quote}
 \end{formal}
 
-Em uma tradução livre, segundo a citação do professor Lathi, um sinal é um conjunto de dados ou de informação. Pode parecer uma frase simples -- e, de fato, é --, mas carrega em si um significado enorme, sobretudo se forem consideradas algumas de suas implicações; trata-se, afinal, de uma definição bastante abrangente, mas bastante importante para tudo o que viria a ser futuramente desenvolvido a partir de então.
+Em uma tradução livre, segundo a citação do professor Lathi, um sinal é um conjunto de dados ou de informação. Pode parecer uma frase simples --- e, de fato, é ---, mas carrega em si um significado enorme, sobretudo se forem consideradas algumas de suas implicações; trata-se, afinal, de uma definição bastante abrangente, mas bastante importante para tudo o que viria a ser futuramente desenvolvido a partir de então.
 
 Sinais carregam informação, mas, para que um sinal seja chamado de ``informação'' usando esta nomenclatura em particular, uma dependência específica deve ser satisfeita: sua utilidade; caso contrário, poderia ser simplesmente considerado um ruído. Assim, do ponto de vista da engenharia de informação, o que permite distinguir linguisticamente um sinal puramente ruidoso de um sinal puramente informativo é a sua utilidade.
 
@@ -122,15 +122,11 @@ A seguir serão trazidas algumas abordagens existentes sobre o uso de redes neur
 
 Existem diversas abordagens distintas para se realizar a tarefa de separação cega de fontes. Algumas delas exploram o uso de redes neurais, sobretudo quando há maior disponibilidade de poder computacional, mas a utilização de redes neurais em dois trabalhos não implica atacar o problema da mesma maneira em ambos os trabalhos. É importante que sejam consideradas as informações \textit{a priori}, a arquitetura da rede, as características exploradas, a presença ou ausência de rótulos para comparação, as técnicas de extração e seleção de características, as técnicas de validação cruzada, as métricas para aferição de desempenho etc.
 
-Devido às suas propriedades generalistas, possivelmente interpretadas como um caráter positivo de ampla flexibilidade, as Redes Neurais Artificiais (\textbf{ANN}, do inglês \textit{Artificial Neural Networks}), que serão explicadas mais detalhadamente no Capítulo \ref{cha:ann}, podem oferecer um alto nível de efetividade na tarefa de separação cega de fontes, explicada na Seção \ref{sec:intro_bss} e mais detalhada no Capítulo \ref{cha:bss}. Tais características conferem às ANNs uma imensa abrangência quanto à sua gama de aplicações e a tarefa de separação de fontes pode ser muito beneficiada de tais qualidades; alguns exemplos interessantes serão discutidos ainda nesta seção.
+Devido às suas propriedades generalistas, possivelmente interpretadas como um caráter positivo de ampla flexibilidade, as Redes Neurais Artificiais (\textbf{ANN}, do inglês \textit{Artificial Neural Networks}), que serão explicadas mais detalhadamente no Capítulo \ref{cha:ann}, podem oferecer um alto nível de efetividade na tarefa de separação cega de fontes, explicada na Seção \ref{sec:intro_bss} e mais detalhada no Capítulo \ref{cha:bss}. Tais características conferem às ANNs uma imensa abrangência quanto à sua gama de aplicações e a tarefa de separação de fontes pode ser muito beneficiada de tais qualidades; alguns exemplos interessantes serão discutidos ainda nesta seção. Um dos mais importantes trabalhos da área é \citep{herault1985detection}, que trouxe um conceito chamado \textit{computação de arquitetura neuromimética}\footnote{``Neuromimética'' pode ser interpretado como uma imitação do sistema (ou de partes do sistema) nervoso.}, que foi uma das essências do uso de redes neurais com a finalidade de separar sinais com base em uma abordagem de aprendizado não supervisionado.
 
 \nomenclature{ANN}{\textit{Artificial Neural Networks}}
 
-Um dos mais importantes trabalhos da área é \citep{herault1985detection}, que trouxe um conceito chamado \textit{computação de arquitetura neuromimética}\footnote{``Neuromimética'' pode ser interpretado como uma imitação do sistema (ou de partes do sistema) nervoso.}, que foi uma das essências do uso de redes neurais com a finalidade de separar sinais com base em uma abordagem de aprendizado não supervisionado.
-
-Mais tarde, outro importante trabalho sobre separação de fontes foi publicado \citep{266878}, mas com enfoque na utilização de momentos de altas ordens\footnote{Em estatística, é comum entender como ordens superiores as ordens de grau igual ou maior que 3.} para isso. O trabalho reforçou a ideia de que a independência estatística dos sinais tratava-se de uma propriedade muito mais forte do que a sua mera descorrelação e, também, desde que fosse constatada uma diferença de distribuição entre os sinais envolvidos, seria possível identificar as assinaturas das fontes sem a dependência de quaisquer modelos \textit{a priori}, sendo que as tais assinaturas são autovetores da matriz de covariância após ter sido realizado um processo de ortonormalização e ponderação não linear.
-
-O Algoritmo \ref{alg:intro_fobi} foi proposto para realizar a tarefa chamava-se FOBI (do inglês, \textit{\textbf{F}ourth-\textbf{O}rder \textbf{B}lind \textbf{I}dentification})
+Mais tarde, outro importante trabalho sobre separação de fontes foi publicado \citep{266878}, mas com enfoque na utilização de momentos de altas ordens\footnote{Em estatística, é comum entender como ordens superiores as ordens de grau igual ou maior que 3.} para isso. O trabalho reforçou a ideia de que a independência estatística dos sinais tratava-se de uma propriedade muito mais forte do que a sua mera descorrelação e, também, desde que fosse constatada uma diferença de distribuição entre os sinais envolvidos, seria possível identificar as assinaturas das fontes sem a dependência de quaisquer modelos \textit{a priori}, sendo que as tais assinaturas são autovetores da matriz de covariância após ter sido realizado um processo de ortonormalização e ponderação não linear. O Algoritmo \ref{alg:intro_fobi} foi proposto para realizar a tarefa chamava-se FOBI (do inglês, \textit{\textbf{F}ourth-\textbf{O}rder \textbf{B}lind \textbf{I}dentification})
 
 \nomenclature{FOBI}{\textit{Fourth Order Blind Identificiation}}
 
@@ -188,6 +184,8 @@ O Algoritmo \ref{alg:intro_fobi} foi proposto para realizar a tarefa chamava-se 
 
 \end{algorithm}
 \end{minipage}
+
+
 
 
 
@@ -257,9 +255,9 @@ Além de todas as possibilidades relacionadas a processos de misturas lineares, 
 
 
 %   ---------------------------------------
-%   ----- Nova Abordagem -- DNN e GAN -----
+%   ----- Nova Abordagem --- DNN e GAN -----
 %   ---------------------------------------
-\section{Nova Abordagem -- DNN e GAN}
+\section{Nova Abordagem --- DNN e GAN}
 \label{sec:intro_new_approach}
 
 Após significativos avanços em redes neurais, tais como o desenvolvimento e o aprimoramento das redes de aprendizado profundas (\textit{Deep Learning}), assim como o surgimento da abordagem das GANs (\textit{Generative Adversarial Networks}) \citep{NIPS2014_5423}, que mostraram-se capazes de identificar e imitar padrões estatísticos em dados artificialmente gerados por elas próprias, começaram a surgir trabalhos que se utilizam de tais estruturas para realizar o processo de separação de fontes \citep{subakan2018generative, kaneko2018generative, fan2018svsgan}, o que chamou a atenção de parte da comunidade científica para o poder das GANs inclusive no que diz respeito à tarefa de separação de fontes, o que não havia sido especificamente trazido no trabalho original de Goodfellow em 2014, visto que os exemplos então apresentados eram todos ligados a aplicações voltadas para o processamento de imagens.
