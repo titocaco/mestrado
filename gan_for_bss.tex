@@ -6,6 +6,8 @@ Apeas de a tarefa de separação de fontes não ser nova e contar com um grande 
 
 Na Seção \ref{sec:gan_for_bss_how_to_use} será explicado, com algum grau de detalhamento, quais foram os passos seguidos pelo autor deste trabalho para se utilizar as GANs com a finalidade de se efetuar a tarefa de geração de imagens para a etapa preliminar de resultados com o objetivo de reforçar a prova de conceito sobre a capacidade das GANs; mais à frente, serão trazidos os passos referentes à sua utilização com o objetivo principal específico de se realizar a separação de sinais para fontes de áudio.
 
+Continuando, na Seção \ref{sec:gan_for_bss_considerations} serão feitas considerações importantes especificamente sobre o uso de GANs para BSS. Mais à frente, na Seção \ref{sec:gan_for_bss_bib_review} será feita uma revisão bibliográfica de alguns importantes trabalhos da área que possam trazer alguma contribuição para a compreensão quanto à aborgagem deste trabalho, ou quanto à sua implementação. Então, serão discutidas as limitações desta abordagem na Seção \ref{sec:gan_for_bss_limitacoes} e, por fim, a Seção \ref{sec:gan_for_bss_propositions} trará a proposta a ser efetivamente implementada por este trabalho.
+
 
 
 %   -------------------------
@@ -14,13 +16,15 @@ Na Seção \ref{sec:gan_for_bss_how_to_use} será explicado, com algum grau de d
 \section{Como Utilizar}
 \label{sec:gan_for_bss_how_to_use}
 
+Para as implementações preliminares, os modelos dependem de tratamentos que satisfaçam necessidades por questão de conveniência para a utilização de imagens, tais como a de manter um mesmo padrão de formato para as figuras de entrada, assim como a preservação de uma mesma resolução e uma mesma quantização para todas as figuras; isto faz com que seja necessária uma etapa de pré-processamento que garanta tais configurações às entradas oriundas do \textit{dataset} adotado.
+
 
 
 %   -------------------------
 %   ----- Considerações -----
 %   -------------------------
 \section{Considerações}
-\label{sec:sec:gan_for_bss_considerations}
+\label{sec:gan_for_bss_considerations}
 
 
 
