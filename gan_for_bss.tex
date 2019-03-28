@@ -18,6 +18,14 @@ Continuando, na Seção \ref{sec:gan_for_bss_considerations} serão feitas consi
 
 Para as implementações preliminares, os modelos dependem de tratamentos que satisfaçam necessidades por questão de conveniência para a utilização de imagens, tais como a de manter um mesmo padrão de formato para as figuras de entrada, assim como a preservação de uma mesma resolução e uma mesma quantização para todas as figuras; isto faz com que seja necessária uma etapa de pré-processamento que garanta tais configurações às entradas oriundas do \textit{dataset} adotado.
 
+Dependendo de como estiverem as imagens do \textit{dataset} utilizado, pode ser preciso realizar uma etapa extra de pré-processamento, que se trata do ajuste de enquadramento do elemento principal, que deve sempre tomar como critério o objetivo almejado pelo experimento a ser realizado com tal \textit{dataset}. Por exemplo, caso deseje-se ensinar a rede a gerar rostos de pessoas, sendo um único rosto por figura gerada, deve-se preferir inserir, justamente, imagens de rostos de pessoas em que haja apenas um rosto por imagem, pois é o que se aproxima mais do padrão almejado após uma bem sucedida etapa de treinamento. Assim sendo, pode ser preciso ajustar a imagem de modo a manter enquadrado o objeto principal, que, para o exemplo dado aqui, seria o rosto da pessoa para cada imagem.
+
+Feitas todas as devidas etapas que compõem o pré-processamento, as imagens, que são os elementos de entrada da rede, estão prontas para serem utilizadas para efetuar o treinamento; falta, então, a escolha dos demais elementos, que são a arquitetura da rede, as funções de transferência, os métodos de otimização e seus respectivos parâmetros de entrada, dado que atuam como funções.
+
+
+
+
+
 
 
 %   -------------------------
@@ -25,6 +33,8 @@ Para as implementações preliminares, os modelos dependem de tratamentos que sa
 %   -------------------------
 \section{Considerações}
 \label{sec:gan_for_bss_considerations}
+
+Caso se saiba que um dado \textit{dataset} será muito utilizado para treinamentos da rede e seus dados não possuírem as especificações requeridas pela rede para ser utilizadas como entradas sem antes dependerem de um pré-processamento, é aconselhável realizar toda a etapa de pré-processamento uma única vez e salvar como um novo \textit{dataset} para futuras utilizações, pois, dependendo do caso, o tempo de pré-processamento pode ser consideravelmente alto e, se feito de forma insatisfatória, pode influenciar negativamente nos resultados a serem obtidos pela rede, o que não necessariamente serão por conta de uma má qualidade da rede em si; apesar de haver um pensamento que guia alguns pesquisadores e desenvolvedores a acreditar no poder do \textit{Deep Learning} suficientemente elevado a ponto de permitir à rede uma total independência de tratamentos prévios, uma boa etapa de pré-processamento continua sendo capaz de influenciar positivamente os resultados finais.
 
 
 
