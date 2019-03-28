@@ -44,7 +44,19 @@ Caso se saiba que um dado \textit{dataset} será muito utilizado para treinament
 \section{Revisão Bibliográfica}
 \label{sec:gan_for_bss_bib_review}
 
-Embora ainda seja uma área incipiente, as características potencialmente disruptivas das Redes Adversariais Generativas têm sido bastante atraentes e convidativas aos olhos de inúmeros pesquisadores, e com isso, várias pesquisas relacionadas a essa nova abordagem têm sido realizadas, inclusive para aplicações como separação cega de fontes de áudio.
+Embora ainda seja uma área incipiente, as características potencialmente disruptivas das Redes Adversariais Generativas têm sido bastante atraentes e convidativas aos olhos de inúmeros pesquisadores, e com isso, várias pesquisas relacionadas a essa nova abordagem têm sido realizadas, inclusive para aplicações como separação cega de fontes de áudio. Nesta Seção serão trazidos dois trabalhos que corroboram o uso de GANs para separação de fontes.
+
+%   ----- Bengio (ICA + GAN) -----
+\subsection{Bengio (ICA + GAN)}
+\label{subsec:gan_for_bss_ica_gan}
+
+Um trabalho mais contemporânio explorou GANs com ICA não-linear para encontrar o que foi chamado de \textit{características independentes}, que são obtidas implicitamente por meio dos processos de otimização das GANs, baseando-se no confronto entre amostras de distribuições de probabilidade conjuntas e de produtos das distribuições marginais, não sendo necessário calcular as densidades de probabilidade \citep{brakel2017learning}.
+
+
+
+%   ----- Gan + BSS -----
+\subsection{xxx (GAN + BSS)}
+\label{subsec:gan_for_bss_gan_bss}
 
 Em 2018, uma publicação intitulada \textit{Generative Adversarial Source Separation} \citep{8461671} conduziu um experimento de separação de fontes de fala usando um perceptron multicamada com uma variação das GANs originais chamadas \textit{Wasserstein-GAN} \citep{arjovsky2017wasserstein}. Os resultados obtidos em termos de taxa de fonte para distorção indicam melhor desempenho por MLP treinado com Wasserstein-GAN em vez do uso de Fatoração de Matrizes Não-Negativas (NMF) \citep{lee1999learning}, auto-encoders treinados com máxima verossimilhança e auto-encoders variáveis. Neste trabalho, os autores propuseram o uso de uma função discriminante, $D_{\xi}\left(\cdot\right)$, que visa distinguir entre as amostras geradas a partir do modelo e as amostras advindas das instâncias de treinamento. Após o treinamento, é possível gerar amostras usando o processo descrito em (\ref{eq:08461671_gen_process}),
 
@@ -116,15 +128,13 @@ A otimização para separar as fontes considerando uma coluna espectral $x^{1:\m
 
 
 
-%   ----- Bengio (ICA + GAN) -----
-\subsection{Bengio (ICA + GAN)}
-\label{subsec:gan_for_bss_ica_gan}
 
 
 
-%   ----- Gan + BSS -----
-\subsection{xxx (GAN + BSS)}
-\label{subsec:gan_for_bss_gan_bss}
+
+
+
+
 
 
 
