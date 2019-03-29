@@ -217,6 +217,7 @@
 \usetikzlibrary{calc}
 
 \definecolor{myblue}{RGB}{50, 130, 180}
+\definecolor{mygreen}{RGB}{50, 180, 130}
 \definecolor{mygray}{RGB}{80,80,80}
 \definecolor{mygray2}{RGB}{40,40,40}
 
@@ -225,8 +226,8 @@
   enhanced,
   outer arc=0pt,
   arc=0pt,
-  colframe=myblue!80,
-  colback=myblueiii!20,
+  colframe=mygreen!80,
+  colback=mygreen!20,
   valign=center,
   every float=\centering,
   add to natural height=1cm,
@@ -237,7 +238,7 @@
   after skip=1.0cm,
   attach boxed title to top left,
   boxed title style={
-    colback=myblue!80,
+    colback=mygreen!80,
     outer arc=0pt,
     arc=0pt,
     top=3pt,
@@ -256,7 +257,7 @@
         \p1=(title.north east),
         \p2=(frame.north east)
         in
-        node[anchor=west,font=\sffamily,color=myblue,text width=\x2-\x1]
+        node[anchor=west,font=\sffamily,color=mygreen,text width=\x2-\x1]
         at (title.east) {#1};
   }
 }
@@ -455,16 +456,18 @@ overlay last={\draw[colexam,line width=1pt] ([xshift=-0.5pt]frame.north east)
 
 % environment derived from framed.sty: see leftbar environment definition
 \definecolor{formalshade}{rgb}{0.90,0.98,1}
+\definecolor{formalshadei}{rgb}{0.88,1,0.90}
 % \definecolor{formalshade}{rgb}{0.95, 0.95, 0.95}
 \definecolor{citeblue}{rgb}{0.2,0.2,0.7}
+\definecolor{citegreen}{rgb}{0.2,0.7,0.2}
 % \definecolor{midnightgray}{rgb}{0.1, 0.1, 0.1}
 
 \newenvironment{formal}{%
   \def\FrameCommand{%
     \hspace{1pt}%
-    {\color{citeblue}\vrule width 2pt}%
-    {\color{formalshade}\vrule width 4pt}%
-    \colorbox{formalshade}%
+    {\color{citegreen}\vrule width 2pt}%
+    {\color{formalshadei}\vrule width 4pt}%
+    \colorbox{formalshadei}%
   }%
   \MakeFramed{\advance\hsize-\width\FrameRestore}%
   \noindent\hspace{-4.55pt}% disable indenting first paragraph
@@ -651,13 +654,18 @@ overlay last={\draw[colexam,line width=1pt] ([xshift=-0.5pt]frame.north east)
 \definecolor{myblueii}{RGB}{63,200,244}
 \definecolor{myblueiii}{RGB}{199,234,253}
 
+\definecolor{mygreeni}{RGB}{40, 115, 20}
+\definecolor{mygreenii}{RGB}{50, 150, 50}
+\definecolor{mygreeniii}{RGB}{55, 175, 55}
+
+
 % \usepackage{fourier}
 \usepackage[explicit,calcwidth]{titlesec}
 
 \renewcommand\thechapter{\arabic{chapter}}
 
 \newcommand\chapnumfont{%
-  \fontsize{240}{130}\color{myblueii}\selectfont%
+  \fontsize{200}{130}\color{mygreenii}\selectfont%
 }
 
 \newcommand\chapnamefont{%
@@ -670,10 +678,10 @@ overlay last={\draw[colexam,line width=1pt] ([xshift=-0.5pt]frame.north east)
   {0pt}
   {\stepcounter{chapshift}%
   \begin{tikzpicture}[remember picture,overlay]
-  \fill[myblueiii]
+  \fill[mygreenii]
     (current page.north west) rectangle ([yshift=-10cm]current page.north east);
   \node[
-      fill=mybluei,
+      fill=mygreeni,
       text width=2\paperwidth,
       rounded corners=6cm,
       text depth=12cm,
@@ -682,7 +690,7 @@ overlay last={\draw[colexam,line width=1pt] ([xshift=-0.5pt]frame.north east)
     {\thechapter};%
   \node[
       anchor=south east,
-      inner sep=7pt,
+      inner sep=10pt,
       outer sep=0pt] (chapnum) at ([xshift=-20pt]chaptop.south)
     {\chapnumfont\thechapter};
   \node[
@@ -692,7 +700,7 @@ overlay last={\draw[colexam,line width=1pt] ([xshift=-0.5pt]frame.north east)
   \node[
       anchor=north east,
       align=right,
-      inner xsep=0pt] at ([yshift=-1.5cm]chapname.east|-chapnum.south)
+      inner xsep=0pt] at ([yshift=-1.0cm]chapname.east|-chapnum.south)
   {\parbox{.7\textwidth}{\raggedleft#1}};
   \end{tikzpicture}%
   }
@@ -702,10 +710,10 @@ overlay last={\draw[colexam,line width=1pt] ([xshift=-0.5pt]frame.north east)
   {}
   {0pt}
   {\begin{tikzpicture}[remember picture,overlay]
-  \fill[myblueiii]
+  \fill[mygreenii]
     (current page.north west) rectangle ([yshift=-10cm]current page.north east);
   \node[
-      fill=mybluei,
+      fill=mygreeni,
       text width=2\paperwidth,
       rounded corners=6cm,
       text depth=12cm,
@@ -734,14 +742,14 @@ overlay last={\draw[colexam,line width=1pt] ([xshift=-0.5pt]frame.north east)
 
 \titleformat{\section}
   {\addtolength{\titlewidth}{4pc}\normalfont\Large\sffamily\bfseries}
-  {\llap{\colorbox{myblueii}{\parbox{2cm}{\strut\color{white}\hfill\thesection}}\hspace{20pt}}}
+  {\llap{\colorbox{mygreenii}{\parbox{2cm}{\strut\color{white}\hfill\thesection}}\hspace{20pt}}}
   {0em}{#1}
-  [{\titleline*[l]{\hspace*{\dimexpr-2cm-20pt-2\fboxsep\relax}\color{myblueii}\titlerule[1.5pt]}}]
+  [{\titleline*[l]{\hspace*{\dimexpr-2cm-20pt-2\fboxsep\relax}\color{mygreenii}\titlerule[1.5pt]}}]
 \titleformat{\subsection}
   {\addtolength{\titlewidth}{2pc}\normalfont\large\sffamily}
-  {\llap{\colorbox{myblueii}{\parbox{2cm}{\strut\color{white}\hfill\thesubsection}}\hspace{20pt}}}
+  {\llap{\colorbox{mygreenii}{\parbox{2cm}{\strut\color{white}\hfill\thesubsection}}\hspace{20pt}}}
   {0em}{#1}
-  [{\titleline*[l]{\hspace*{\dimexpr-2cm-20pt-2\fboxsep\relax}\color{myblueii}\titlerule[1.5pt]}}]
+  [{\titleline*[l]{\hspace*{\dimexpr-2cm-20pt-2\fboxsep\relax}\color{mygreenii}\titlerule[1.5pt]}}]
 
 \usetikzlibrary{calc}
 \pagestyle{plain}
@@ -749,7 +757,7 @@ overlay last={\draw[colexam,line width=1pt] ([xshift=-0.5pt]frame.north east)
 \newcounter{chapshift}
 \addtocounter{chapshift}{-1}
 
-\newcommand\BoxColor{myblueii}
+\newcommand\BoxColor{mygreenii}
 
 \def\subsectiontitle{}
 \renewcommand{\sectionmark}[1]{\markright{\sffamily\normalsize#1}{}}
