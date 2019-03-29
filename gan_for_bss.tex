@@ -55,7 +55,7 @@ Um trabalho mais contemporânio explorou GANs com ICA não-linear para encontrar
 
 
 %   ----- Gan + BSS -----
-\subsection{xxx (GAN + BSS)}
+\subsection{Smaragdis (GAN + BSS)}
 \label{subsec:gan_for_bss_gan_bss}
 
 Em 2018, uma publicação intitulada \textit{Generative Adversarial Source Separation} \citep{8461671} conduziu um experimento de separação de fontes de fala usando um perceptron multicamada com uma variação das GANs originais chamadas \textit{Wasserstein-GAN} \citep{arjovsky2017wasserstein}. Os resultados obtidos em termos de taxa de fonte para distorção indicam melhor desempenho por MLP treinado com Wasserstein-GAN em vez do uso de Fatoração de Matrizes Não-Negativas (NMF) \citep{lee1999learning}, auto-encoders treinados com máxima verossimilhança e auto-encoders variáveis. Neste trabalho, os autores propuseram o uso de uma função discriminante, $D_{\xi}\left(\cdot\right)$, que visa distinguir entre as amostras geradas a partir do modelo e as amostras advindas das instâncias de treinamento. Após o treinamento, é possível gerar amostras usando o processo descrito em (\ref{eq:08461671_gen_process}),
@@ -144,6 +144,10 @@ A otimização para separar as fontes considerando uma coluna espectral $x^{1:\m
 \section{Limitações}
 \label{sec:gan_for_bss_limitacoes}
 
+Ainda não foi feita qualquer prova matematicamente rigorosa que garantisse que as GANs realmente são capazes de atingir o objetivo de reproduzir com alguma fidelidade as características observáveis de um determinado conjunto de dados; inclusive, não se pode garantir nem mesmo que ocorrerá uma convergência por parte do discriminador quanto à probabilidade de a amostra apresentada ser, de fato, legítima, que seria um passo anterior ao primeiro mencionado neste parágrafo e, ainda assim, não seria, por si só, forte o bastante para afirmar categoricamente que essa mímica seria feita de forma satisfatória.
+
+Um outro ponto relevante é o fato de que o as redes estão sendo treinadas para imitar apenas as distribuições probabilísticas do \textit{dataset} de referência que lhes fora apresentado, tomando como objeto otimizável a probabilidade de a amostra apresentada ao discriminador ser considerada legítima. Contudo, é importante lembrar que distribuições idênticas podem ser oriundas de \textit{datasets} completamente distintos quanto às características observáveis, o que faz com que a mera capacidade de treinar o gerador para gerar amostras segundo uma distribuição, artificialmente construída, que imite a distribuição do conjunto de dados de referência possa, na verdade, não ser suficiente para produzir os resultados esperados --- ao menos não na qualidade desejada e com a frequência desejada ---, a não ser que algo a mais seja feito para isso.
+
 
 
 %   ---------------------
@@ -151,3 +155,4 @@ A otimização para separar as fontes considerando uma coluna espectral $x^{1:\m
 %   ---------------------
 \section{Propostas}
 \label{sec:gan_for_bss_propositions}
+
