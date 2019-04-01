@@ -14,7 +14,7 @@
 
 \usepackage[T1]{fontenc}
 
-
+\usepackage{mathptmx}
 
 \usepackage{bm}
 
@@ -665,7 +665,7 @@ overlay last={\draw[colexam,line width=1pt] ([xshift=-0.5pt]frame.north east)
 \renewcommand\thechapter{\arabic{chapter}}
 
 \newcommand\chapnumfont{%
-  \fontsize{200}{130}\color{mygreenii}\selectfont%
+  \fontsize{120}{130}\color{mygreenii}\selectfont%
 }
 
 \newcommand\chapnamefont{%
@@ -679,12 +679,12 @@ overlay last={\draw[colexam,line width=1pt] ([xshift=-0.5pt]frame.north east)
   {\stepcounter{chapshift}%
   \begin{tikzpicture}[remember picture,overlay]
   \fill[mygreenii]
-    (current page.north west) rectangle ([yshift=-10cm]current page.north east);
+    (current page.north west) rectangle ([yshift=-6.5cm]current page.north east);
   \node[
       fill=mygreeni,
       text width=2\paperwidth,
-      rounded corners=6cm,
-      text depth=12cm,
+      rounded corners=5cm,
+      text depth=8cm,
       anchor=center,
       inner sep=0pt] at (current page.north east) (chaptop)
     {\thechapter};%
@@ -700,8 +700,9 @@ overlay last={\draw[colexam,line width=1pt] ([xshift=-0.5pt]frame.north east)
   \node[
       anchor=north east,
       align=right,
-      inner xsep=0pt] at ([yshift=-1.0cm]chapname.east|-chapnum.south)
-  {\parbox{.7\textwidth}{\raggedleft#1}};
+      font=\sffamily\color{white}\fontsize{30}{50}\selectfont,
+      inner xsep=0pt] at ([yshift=-0.5cm]chapname.east|-chapnum.south)
+  {\parbox{1.0\textwidth}{\raggedleft#1}};
   \end{tikzpicture}%
   }
 
@@ -711,18 +712,18 @@ overlay last={\draw[colexam,line width=1pt] ([xshift=-0.5pt]frame.north east)
   {0pt}
   {\begin{tikzpicture}[remember picture,overlay]
   \fill[mygreenii]
-    (current page.north west) rectangle ([yshift=-10cm]current page.north east);
+    (current page.north west) rectangle ([yshift=-5.0cm]current page.north east);
   \node[
       fill=mygreeni,
       text width=2\paperwidth,
-      rounded corners=6cm,
-      text depth=12cm,
+      rounded corners=3cm,
+      text depth=5cm,
       anchor=center,
       inner sep=0pt] at (current page.north east) (chaptop)
     {};%
   \node[
       anchor=south east,minimum width=2in,
-      inner sep=0pt,
+      inner sep=10pt,
       outer sep=0pt] (chapnum) at ([xshift=-20pt]chaptop.south)
     {};
   \node[
@@ -732,13 +733,14 @@ overlay last={\draw[colexam,line width=1pt] ([xshift=-0.5pt]frame.north east)
   \node[
       anchor=north east,
       align=right,
-      inner xsep=0pt] at ([yshift=-1.5cm]chapname.east|-chapnum.south)
-  {\parbox{.7\textwidth}{\raggedleft#1}};
+      font=\sffamily\color{white}\fontsize{30}{50}\selectfont,
+      inner xsep=0pt] at ([yshift=-0.5cm]chapname.east|-chapnum.south)
+  {\parbox{1.0\textwidth}{\raggedleft#1}};
   \end{tikzpicture}%
   }
 
-\titlespacing*{\chapter}{0pt}{0pt}{7.0cm}
-\titlespacing*{name=\chapter,numberless}{0pt}{0pt}{3.5in}
+\titlespacing*{\chapter}{0pt}{0pt}{4.0cm}
+\titlespacing*{name=\chapter,numberless}{0pt}{0pt}{4.0cm}
 
 \titleformat{\section}
   {\addtolength{\titlewidth}{4pc}\normalfont\Large\sffamily\bfseries}
@@ -760,8 +762,8 @@ overlay last={\draw[colexam,line width=1pt] ([xshift=-0.5pt]frame.north east)
 \newcommand\BoxColor{mygreenii}
 
 \def\subsectiontitle{}
-\renewcommand{\sectionmark}[1]{\markright{\sffamily\normalsize#1}{}}
-\renewcommand{\subsectionmark}[1]{\def\subsectiontitle{#1}}
+% \renewcommand{\sectionmark}[1]{\markright{\sffamily\normalsize#1}{}}
+% \renewcommand{\subsectionmark}[1]{\def\subsectiontitle{#1}}
 
 
 
