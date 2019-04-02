@@ -107,18 +107,11 @@ Existem várias técnicas diferentes que podem ser exploradas para alcançar um 
 
 Se um dos microfones fosse removido, isso poderia ser interpretado erroneamente como uma variação simples do problema mostrado na Figura \ref{fig:bass_example}; a interpretação correta, na verdade, seria a de que trata-se de um problema totalmente diferente. Quando existem múltiplos microfones, um número maior de recursos está disponível, pois torna-se possível explorar características como distância relativa, o que contribui para facilitar o trabalho de separação de fontes.
 
-É importante, no entanto, apontar para o fato de que esta seria uma perspectiva probabilística, ou seja, esta modelagem de problemas em particular exigiria uma análise não-determinística, o que geralmente requer um maior número de considerações e implicações, bem como aumentar a complexidade do problema, apesar de permitir uma análise muito mais flexível; dois exemplos de trabalhos que usaram essa abordagem monoaural são \citep{7194774}, que explorou Redes Neurais Recorrentes Profundas (\textbf{DRNN}, do inglês \textit{Deep Recurrent Neural Networks}), e \citep{7331633}, que usou a Fatoração de Matriz Não Negativa (\textbf{NMF}, do inglês \textit{Non-Negative Matrix Factorization}) Bayesiana.
+% É importante, no entanto, apontar para o fato de que esta seria uma perspectiva probabilística, ou seja, esta modelagem de problemas em particular exigiria uma análise não-determinística, o que geralmente requer um maior número de considerações e implicações, bem como aumentar a complexidade do problema, apesar de permitir uma análise muito mais flexível; dois exemplos de trabalhos que usaram essa abordagem monoaural são \citep{7194774}, que explorou Redes Neurais Recorrentes Profundas (\textbf{DRNN}, do inglês \textit{Deep Recurrent Neural Networks}), e \citep{7331633}, que usou a Fatoração de Matriz Não Negativa (\textbf{NMF}, do inglês \textit{Non-Negative Matrix Factorization}) Bayesiana.
 
-\nomenclature{DRNN}{\textit{Deep Recurrent Neural Networks}}
+% \nomenclature{DRNN}{\textit{Deep Recurrent Neural Networks}}
 
-A seguir serão trazidas algumas abordagens existentes sobre o uso de redes neurais e afins em um contexto de separação de fontes, oferecendo uma perspectiva histórica e exemplos de trabalhos marcantes da área.
-
-
-%   ------------------------
-%   ----- ANN para BSS -----
-%   ------------------------
-\section{Redes Neurais no contexto de BSS}
-\label{sec:intro_ann_for_bss}
+% A seguir serão trazidas algumas abordagens existentes sobre o uso de redes neurais e afins em um contexto de separação de fontes, oferecendo uma perspectiva histórica e exemplos de trabalhos marcantes da área.
 
 Existem diversas abordagens distintas para se realizar a tarefa de separação cega de fontes. Algumas delas exploram o uso de redes neurais, sobretudo quando há maior disponibilidade de poder computacional, mas a utilização de redes neurais em dois trabalhos não implica atacar o problema da mesma maneira em ambos os trabalhos. É importante que sejam consideradas as informações \textit{a priori}, a arquitetura da rede, as características exploradas, a presença ou ausência de rótulos para comparação, as técnicas de extração e seleção de características, as técnicas de validação cruzada, as métricas para aferição de desempenho etc.
 
@@ -126,64 +119,64 @@ Devido às suas propriedades generalistas, possivelmente interpretadas como um c
 
 \nomenclature{ANN}{\textit{Artificial Neural Networks}}
 
-Mais tarde, outro importante trabalho sobre separação de fontes foi publicado \citep{266878}, mas com enfoque na utilização de momentos de altas ordens\footnote{Em estatística, é comum entender como ordens superiores as ordens de grau igual ou maior que 3.} para isso. O trabalho reforçou a ideia de que a independência estatística dos sinais tratava-se de uma propriedade muito mais forte do que a sua mera descorrelação e, também, desde que fosse constatada uma diferença de distribuição entre os sinais envolvidos, seria possível identificar as assinaturas das fontes sem a dependência de quaisquer modelos \textit{a priori}, sendo que as tais assinaturas são autovetores da matriz de covariância após ter sido realizado um processo de ortonormalização e ponderação não linear. O Algoritmo \ref{alg:intro_fobi} foi proposto para realizar a tarefa chamava-se FOBI (do inglês, \textit{\textbf{F}ourth-\textbf{O}rder \textbf{B}lind \textbf{I}dentification})
+% Mais tarde, outro importante trabalho sobre separação de fontes foi publicado \citep{266878}, mas com enfoque na utilização de momentos de altas ordens\footnote{Em estatística, é comum entender como ordens superiores as ordens de grau igual ou maior que 3.} para isso. O trabalho reforçou a ideia de que a independência estatística dos sinais tratava-se de uma propriedade muito mais forte do que a sua mera descorrelação e, também, desde que fosse constatada uma diferença de distribuição entre os sinais envolvidos, seria possível identificar as assinaturas das fontes sem a dependência de quaisquer modelos \textit{a priori}, sendo que as tais assinaturas são autovetores da matriz de covariância após ter sido realizado um processo de ortonormalização e ponderação não linear. O Algoritmo \ref{alg:intro_fobi} foi proposto para realizar a tarefa chamava-se FOBI (do inglês, \textit{\textbf{F}ourth-\textbf{O}rder \textbf{B}lind \textbf{I}dentification})
 
-\nomenclature{FOBI}{\textit{Fourth Order Blind Identificiation}}
+% \nomenclature{FOBI}{\textit{Fourth Order Blind Identificiation}}
 
-\noindent\begin{minipage}{\textwidth}
-\renewcommand\footnoterule{}
+% \noindent\begin{minipage}{\textwidth}
+% \renewcommand\footnoterule{}
 
-\begin{algorithm}[H]
-    \caption{FOBI (Fourth-Order Blind Identification) \citep{herault1985detection}.}
-    \label{alg:intro_fobi}
-    \begin{algorithmic}[1]
+% \begin{algorithm}[H]
+%     \caption{FOBI (Fourth-Order Blind Identification) \citep{herault1985detection}.}
+%     \label{alg:intro_fobi}
+%     \begin{algorithmic}[1]
 
-    \State Calcular a covariância:
-    \begin{equation}
-        R_{X} \leftarrow E\left(XX^{T}\right) \hspace{0.1cm},
-        \label{eq:fobi_form_cov}
-    \end{equation}
+%     \State Calcular a covariância:
+%     \begin{equation}
+%         R_{X} \leftarrow E\left(XX^{T}\right) \hspace{0.1cm},
+%         \label{eq:fobi_form_cov}
+%     \end{equation}
 
-    \State Fatorar a covariância:
-    \begin{equation}
-        R_{X} = CC^{T} \hspace{0.1cm},
-        \label{eq:fobi_fact_cov}
-    \end{equation}
+%     \State Fatorar a covariância:
+%     \begin{equation}
+%         R_{X} = CC^{T} \hspace{0.1cm},
+%         \label{eq:fobi_fact_cov}
+%     \end{equation}
 
-    \State Ortonormalizar os dados:
-    \begin{equation}
-        Y \leftarrow C^{-1}X \hspace{0.1cm},
-        \label{eq:fobi_orto}
-    \end{equation}
+%     \State Ortonormalizar os dados:
+%     \begin{equation}
+%         Y \leftarrow C^{-1}X \hspace{0.1cm},
+%         \label{eq:fobi_orto}
+%     \end{equation}
 
-    \State Formar a covariância ponderada:
-    \begin{equation}
-        \widetilde{R}_{Y} \leftarrow E\left(\abs{Y}^{2}YY^{T}\right) \hspace{0.1cm},
-        \label{eq:fobi_pond_cov}
-    \end{equation}
+%     \State Formar a covariância ponderada:
+%     \begin{equation}
+%         \widetilde{R}_{Y} \leftarrow E\left(\abs{Y}^{2}YY^{T}\right) \hspace{0.1cm},
+%         \label{eq:fobi_pond_cov}
+%     \end{equation}
 
-    \State Extrair os autovetores da matriz de covariância:
-    \begin{equation}
-        \widetilde{R}_{Y} = \sum_{i=1}^{N} \left(\mu_{i} + N - 1\right) Y_{i} Y_{i}^{T} \hspace{0.1cm},
-        \label{eq:fobi_eigen}
-    \end{equation}
+%     \State Extrair os autovetores da matriz de covariância:
+%     \begin{equation}
+%         \widetilde{R}_{Y} = \sum_{i=1}^{N} \left(\mu_{i} + N - 1\right) Y_{i} Y_{i}^{T} \hspace{0.1cm},
+%         \label{eq:fobi_eigen}
+%     \end{equation}
 
-    \State Extrair as mensagens\footnote{Uma sequência de valores (dados) que pode carregar em si alguma informação, em um contexto de comunicação, geralmente é chamada de ``mensagem''.}:
-    \begin{equation}
-        \alpha_{i} \leftarrow Y_{i}^{T} Y \hspace{0.1cm},
-        \label{eq:fobi_msg}
-    \end{equation}
+%     \State Extrair as mensagens\footnote{Uma sequência de valores (dados) que pode carregar em si alguma informação, em um contexto de comunicação, geralmente é chamada de ``mensagem''.}:
+%     \begin{equation}
+%         \alpha_{i} \leftarrow Y_{i}^{T} Y \hspace{0.1cm},
+%         \label{eq:fobi_msg}
+%     \end{equation}
 
-    \State Identificar as assinaturas\footnote{Assinatura pode ser entendida como o sinal original de informação advinda de uma dada fonte de comunicação.}:
-    \begin{equation}
-        X_{i} \leftarrow C Y_{i} \hspace{0.1cm}.
-        \label{eq:fobi_sign}
-    \end{equation}
+%     \State Identificar as assinaturas\footnote{Assinatura pode ser entendida como o sinal original de informação advinda de uma dada fonte de comunicação.}:
+%     \begin{equation}
+%         X_{i} \leftarrow C Y_{i} \hspace{0.1cm}.
+%         \label{eq:fobi_sign}
+%     \end{equation}
 
-    \end{algorithmic}
+%     \end{algorithmic}
 
-\end{algorithm}
-\end{minipage}
+% \end{algorithm}
+% \end{minipage}
 
 
 
@@ -224,9 +217,9 @@ Novas dificuldades, novas barreiras, novos problemas e novas dúvidas sempre exi
 
 
 
-%   ----- Subparametrizado -----
-\subsection{Subparametrizado}
-\label{subsec:intro_under-determined}
+% %   ----- Subparametrizado -----
+% \subsection{Subparametrizado}
+% \label{subsec:intro_under-determined}
 
 Um caso bastante corriqueiro desta área de pesquisa é conhecido como subparametrizado (ou, para fontes em inglês, \textit{Undetermined}), que consiste em um cenário cujo número de variáveis envolvidas é superior ao número de equações, impossibilitando que abordagens mais simples e diretas atinjam a eficácia desejada, pois, como se sabe, trata-se de um sistema com número infinito de soluções possíveis, o que está em desacordo com o que se almeja obter.
 
@@ -237,18 +230,18 @@ Apenas para fins de exemplificação, poderia-se imaginar uma performance musica
 
 
 
-%   ----- Convolutivo -----
-\subsection{Convolutivo}
-\label{subsec:intro_convolutive}
+% %   ----- Convolutivo -----
+% \subsection{Convolutivo}
+% \label{subsec:intro_convolutive}
 
 Apesar de existir todo um conjunto de cenários mais simples, independentes de memória, modelos convolutivos, dependentes de memória, tendem a ser alternativas bastante convenientes para diversas aplicações, mas, como a complexidade do problema e o custo computacional tendem a crescer, cresce também a demanda por uma cautela extra no desenvolvimento dos modelos. A realização de processos de separação de fontes para cenários de misturas convolutivas pode ser feita por meio de técnicas com abordagens no domínio do tempo ou no domínio da frequência.
 
 
 
 
-%   ----- Não-Linear -----
-\subsection{Não-Linear}
-\label{subsec:intro_non-linear}
+% %   ----- Não-Linear -----
+% \subsection{Não-Linear}
+% \label{subsec:intro_non-linear}
 
 Além de todas as possibilidades relacionadas a processos de misturas lineares, há também os casos de misturas não lineares, que são bem mais numerosas e complexas, embora sejam mais flexíveis e, assim, sejam capazes de causar efeitos ainda mais difíceis de serem desfeitos com elevados níveis de eficácia, o que pode demandar a utilização de técnicas mais rebuscadas e que ataquem o problema apartir de outras abordagens, tais como a análise de componentes independentes para misturas não lineares \citep{hyvarinen1999nonlinear}, misturas de tipo PNL \citep{taleb1999source} e processos de Gaussianização \citep{sole2003improving, ziehe2003blind}.
 
@@ -269,7 +262,7 @@ Após significativos avanços em redes neurais, tais como o desenvolvimento e o 
 \section{Objetivos}
 \label{sec:intro_objectives}
 
-Os principais objetivos perseguidos por este trabalho em particular são: a realização da tarefa de separação cega de fontes de áudio usando redes adversárias geradoras e o desenvolvimento de uma nova topologia baseada em seu modelo original.
+Os principais objetivos perseguidos por este trabalho em particular são: a realização do aprimoramento de sinais de áudio e, especificamente, de sinais de vozes humanas, utilizando GANs (\textit{Generative Adversarial Networks}). Para os objetivos secundários, pretende-se desenvolver um ambiente virtual convenientemente elaborado para comportar testes com diferentes arquiteturas de GANs; desenvolver uma nova topologia baseada em seu modelo original; e realizar a tarefa de separação cega de fontes de áudio.
 
 
 %   ------------------------------------
