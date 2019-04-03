@@ -2,9 +2,7 @@
 \chapter{Princípios de Separação Cega de Fontes}
 \label{cha:bss}
 
-Antes de iniciar as discussões acerca da tarefa de separação cega de fontes propriamente dita, pode ser interessante realizar uma explicação sobre um cenário básico e generalista.
-
-Assim sendo, imagine que haja três diferentes sinais de áudio originais, $s_{1}(t)$, $s_{2}(t)$ e $s_{3}(t)$, que tenham sido emitidos por diferentes fontes de origem, e que, após terem passado por processos de mistura, foram registrados como sinais misturados resultantes por três microfones. Desprezando-se quaisquer outros elementos que possam ser capazes de influenciar diretamente nas misturas, pode-se entender que os sinais resultantes dos processos de mistura são passíveis de serem representados por somas ponderadas dos sinais originais, como mostrado na Equação (\ref{eq:bss_weighted_sum}),
+Antes de iniciar as discussões acerca da tarefa de separação cega de fontes propriamente dita, pode ser interessante realizar uma explicação sobre um cenário básico e generalista. Assim sendo, imagine que haja três diferentes sinais de áudio originais, $s_{1}(t)$, $s_{2}(t)$ e $s_{3}(t)$, que tenham sido emitidos por diferentes fontes de origem, e que, após terem passado por processos de mistura, foram registrados como sinais misturados resultantes por três microfones. Desprezando-se quaisquer outros elementos que possam ser capazes de influenciar diretamente nas misturas, pode-se entender que os sinais resultantes dos processos de mistura são passíveis de serem representados por somas ponderadas dos sinais originais, como mostrado na Equação (\ref{eq:bss_weighted_sum}),
 
 \begin{equation}
 \begin{cases}
@@ -19,9 +17,31 @@ Assim sendo, imagine que haja três diferentes sinais de áudio originais, $s_{1
 \vspace{0.2cm}
 \end{equation}
 
-\noindent sendo que $x_{i}$ representa o sinal resultante do processo de mistura, também conhecido como \textit{observação}; $a_{ij}$ compreende o peso da ponderação atribuído a cada elemento da mistura, que é um dado inicialmente desconhecido; e $s_{i}$ trata-se do sinal original, que é desconhecido e que é justamente o que se deseja obter ao final de todo o processo e, como de costume, cada sinal é tipicamente compreendido como um processo estocástico estacionário de média zero com valores reais \citep{papoulis1984probability}.
+\noindent sendo que $x_{i}$ representa o sinal resultante do processo de mistura, também conhecido como \textit{observação}, e que compõe a matriz de misturas $\mathbf{X}$
 
-Uma versão matricial da Equação (\ref{eq:bss_weighted_sum}) pode ser vista na Equação (\ref{eq:bss_weighted_sum_mat}):
+\begin{equation}
+    \mathbf{\mathbf{X}} =
+        \left[
+            \begin{array}{c}
+                x_{1}(t)    \\
+                x_{2}(t)    \\
+                \vdots      \\
+                x_{m}(t)    
+            \end{array}
+        \right]
+        =
+        \left[
+            \begin{array}{cccc}
+                x_{1}(0) & x_{1}(1) & \cdots & x_{1}(n) \\
+                x_{2}(0) & x_{2}(1) & \cdots & x_{2}(n) \\
+                \vdots & \vdots & \ddots & \vdots \\
+                x_{m}(0) & x_{m}(1) & \cdots & x_{m}(n)
+            \end{array} 
+        \right];
+    \label{eq:bss_mixture_matrix}
+\end{equation}
+
+\noindent $a_{ij}$ compreende o peso da ponderação atribuído a cada elemento da mistura, que é um dado inicialmente desconhecido; e $s_{i}$ trata-se do sinal original, que é desconhecido e que é justamente o que se deseja obter ao final de todo o processo e, como de costume, cada sinal é tipicamente compreendido como um processo estocástico estacionário de média zero com valores reais \citep{papoulis1984probability}. Uma versão matricial da Equação (\ref{eq:bss_weighted_sum}) pode ser vista na Equação (\ref{eq:bss_weighted_sum_mat}):
 
 \begin{equation}
     \underbrace{
@@ -29,7 +49,7 @@ Uma versão matricial da Equação (\ref{eq:bss_weighted_sum}) pode ser vista na
         x_{1}(t) \\
         x_{2}(t) \\
         x_{3}(t)
-    \end{array}\right]}_{\mathbf{x}}
+    \end{array}\right]}_{\mathbf{X}}
     =
     \underbrace{
     \left[\begin{array}{ccc}
@@ -80,7 +100,7 @@ Há também a necessidade de a matriz $\mathbf{A}$ ser, de fato, inversível\foo
         x_{1}(t) \\
         x_{2}(t) \\
         x_{3}(t)
-    \end{array}\right]}_{\mathbf{x}},
+    \end{array}\right]}_{\mathbf{X}},
     \vspace{0.2cm}
     \label{eq:bss_inv_weighted_sum_mat}
 \end{equation}
@@ -109,7 +129,7 @@ Mas esta é apenas uma visão teórica de uma parte--digamos--mais controlada do
 \section{Pré-processamento}
 \label{sec:bss_preproc}
 
-Independentemente de qual seja o processo a ser utilizado sobre um certo conjunto de dados, deve-se sempre procurar garantir que tais dados estejam adequadamente preparados para que possam ser devidamente trabalhados. Para que isso seja possível, há uma série de tarefas anteriores às etapas associadas ao grupo de processamento; a esse grupo de tarefas anteriores dá-se o nome de pré-processamento. Uma possível interpretação para tal etapa é a de que trata-se, simplesmente, de toda a preparação dos dados para que, só então, eles venham a ser, de fato, processados (ou, se preferir, trabalhados).
+Para muitos algoritmos, deve-se procurar garantir que tais dados estejam adequadamente preparados para que possam ser devidamente trabalhados. Para que isso seja possível, há uma série de tarefas anteriores às etapas associadas ao grupo de processamento; a esse grupo de tarefas anteriores dá-se o nome de pré-processamento. Uma possível interpretação para tal etapa é a de que trata-se, simplesmente, de toda a preparação dos dados para que, só então, eles venham a ser, de fato, processados (ou, se preferir, trabalhados).
 
 Antes de processar as observações dos sinais misturados, então, deve-se realizar uma tarefa conhecida como Branqueamento\footnote{Além do termo \textit{Whitening} designado a este processo em literaturas de língua inglesa, pode-se encontrar também o termo \textit{Sphereing}, referindo-se precisamente ao mesmo processo. A Figura \ref{fig:bss_pca_whitening} ajuda a compreender o motivo dessa outra nomenclatura.} (do inglês \textit{Whitening}) \citep{BELL19973327, koivunen1999feasibility}, que garantirá que, para um dado vetor composto por valores aleatórios com média zero, a variância será igual a 1 e --- mais importante que isso --- seus componentes serão descorrelacionados. A Figura \ref{fig:bss_pca_whitening} ilustra esquematicamente o que é almejado pelo processo de branqueamento; e tal processo pode ser realizado utilizando-se os passos representados pelo Algoritmo \ref{alg:bss_whitening}.
 
@@ -165,8 +185,6 @@ Antes de processar as observações dos sinais misturados, então, deve-se reali
 Vale ressaltar o fato de que o procedimento adotado pelo Algoritmo \ref{alg:bss_whitening} carece de um único passo intermediário, que é o de manter os $n$ primeiros componentes de $\mathbf{U_{d}}$, com $n\leq d$, para ser interpretado no sentido mais amplo como, basicamente, o próprio algoritmo de Análise de Componentes Principais (\textbf{PCA}, do inglês \textit{Principal Component Analysis}) \citep{doi:10.1080/14786440109462720}.
 
 \nomenclature{PCA}{\textit{Principal Component Analysis}}
-
-\pagebreak
 
 Para fins meramente ilustrativos, uma simulação foi elaborada para mostrar os efeitos do processo de branqueamento por PCA. Para esta simulação foram utilizados dados artificialmente gerados por meio de duas variáveis aleatórias. Os dados, compostos por 2000 amostras para cada uma das variáveis envolvidas, representados no gráfico da Figura \ref{fig:bss_whitening_data_uniform} foram posicionados com base nos valores das variáveis aleatórias $X_{1}$ e $X_{2}$, que podiam variar entre -1.75 e 1.75, que foram arbitrariamente escolhidos.
 
