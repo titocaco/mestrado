@@ -550,7 +550,7 @@ overlay last={\draw[colexam,line width=1pt] ([xshift=-0.5pt]frame.north east)
 
 % \renewcommand{\baselinestretch}{1.075}
 % \renewcommand{\baselinestretch}{1.0}
-\setlength{\parindent}{2em}
+% \setlength{\parindent}{2em}
 % \setlength{\parskip}{0.5em}
 
 
@@ -665,7 +665,7 @@ overlay last={\draw[colexam,line width=1pt] ([xshift=-0.5pt]frame.north east)
 \renewcommand\thechapter{\arabic{chapter}}
 
 \newcommand\chapnumfont{%
-  \fontsize{120}{130}\color{mygreenii}\selectfont%
+  \fontsize{120}{130}\color{mygreeniii}\selectfont%
 }
 
 \newcommand\chapnamefont{%
@@ -690,7 +690,7 @@ overlay last={\draw[colexam,line width=1pt] ([xshift=-0.5pt]frame.north east)
     {\thechapter};%
   \node[
       anchor=south east,
-      inner sep=10pt,
+      inner sep=20pt,
       outer sep=0pt] (chapnum) at ([xshift=-20pt]chaptop.south)
     {\chapnumfont\thechapter};
   \node[
@@ -700,9 +700,9 @@ overlay last={\draw[colexam,line width=1pt] ([xshift=-0.5pt]frame.north east)
   \node[
       anchor=north east,
       align=right,
-      font=\sffamily\color{white}\fontsize{30}{50}\selectfont,
+      font=\sffamily\color{white}\fontsize{25}{50}\selectfont,
       inner xsep=0pt] at ([yshift=-0.5cm]chapname.east|-chapnum.south)
-  {\parbox{1.0\textwidth}{\raggedleft#1}};
+  {\parbox{1.3\textwidth}{\raggedleft#1}};
   \end{tikzpicture}%
   }
 
@@ -733,7 +733,7 @@ overlay last={\draw[colexam,line width=1pt] ([xshift=-0.5pt]frame.north east)
   \node[
       anchor=north east,
       align=right,
-      font=\sffamily\color{white}\fontsize{30}{50}\selectfont,
+      font=\sffamily\color{white}\fontsize{25}{50}\selectfont,
       inner xsep=0pt] at ([yshift=-0.5cm]chapname.east|-chapnum.south)
   {\parbox{1.0\textwidth}{\raggedleft#1}};
   \end{tikzpicture}%
