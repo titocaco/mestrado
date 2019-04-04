@@ -123,104 +123,6 @@ Há também a necessidade de a matriz $\mathbf{A}$ ser, de fato, inversível\foo
 Mas esta é apenas uma visão teórica de uma parte--digamos--mais controlada do problema. O que se tem na prática, efetivamente, é que a tarefa de se obter cada componente em questão pode ser algo impraticável ou, no mínimo, inviável. Assim, antes de partir para a tarefa de identificação dos componentes em si, deve-se realizar um pré-processamento, a ser melhor explicado na Seção \ref{sec:bss_preproc}.
 
 
-%   -----------------------------
-%   ----- Pré-processamento -----
-%   -----------------------------
-\section{Pré-processamento}
-\label{sec:bss_preproc}
-
-Para muitos algoritmos, deve-se procurar garantir que tais dados estejam adequadamente preparados para que possam ser devidamente trabalhados. Para que isso seja possível, há uma série de tarefas anteriores às etapas associadas ao grupo de processamento; a esse grupo de tarefas anteriores dá-se o nome de pré-processamento. Uma possível interpretação para tal etapa é a de que trata-se, simplesmente, de toda a preparação dos dados para que, só então, eles venham a ser, de fato, processados (ou, se preferir, trabalhados).
-
-Antes de processar as observações dos sinais misturados, então, deve-se realizar uma tarefa conhecida como Branqueamento\footnote{Além do termo \textit{Whitening} designado a este processo em literaturas de língua inglesa, pode-se encontrar também o termo \textit{Sphereing}, referindo-se precisamente ao mesmo processo. A Figura \ref{fig:bss_pca_whitening} ajuda a compreender o motivo dessa outra nomenclatura.} (do inglês \textit{Whitening}) \citep{BELL19973327, koivunen1999feasibility}, que garantirá que, para um dado vetor composto por valores aleatórios com média zero, a variância será igual a 1 e --- mais importante que isso --- seus componentes serão descorrelacionados. A Figura \ref{fig:bss_pca_whitening} ilustra esquematicamente o que é almejado pelo processo de branqueamento; e tal processo pode ser realizado utilizando-se os passos representados pelo Algoritmo \ref{alg:bss_whitening}.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{figs/pca_whitening.pdf}
-    \caption{Simplificação esquemática, a partir de uma perspectiva geométrica (inspirada em \citep{zafeiriou2015notes}), dos objetivos do branqueamento utilizando o PCA.}
-    \label{fig:bss_pca_whitening}
-\end{figure}
-
-
-
-
-\begin{algorithm}[H]
-    \caption{Branqueamento de dados por PCA \citep{zafeiriou2015notes}.}
-    \label{alg:bss_whitening}
-    \begin{algorithmic}[1]
-
-        \State Calcular o produto escalar matricial:
-        \begin{equation}
-            \mathbf{X}^{T}\mathbf{X} = \sum_{i=1}^{N} \left(\mathbf{x}_{i}-\boldsymbol\mu\right)^{T}\left(\mathbf{x}_{i}-\boldsymbol\mu\right)
-        \end{equation}
-
-        \State Efetuar a auto-análise:
-        \begin{equation}
-            \mathbf{X}^{T}\mathbf{X} = \mathbf{V} \boldsymbol\Lambda \mathbf{V}^{T}
-        \end{equation}
-
-        \State Calcular os autovetores:
-        \begin{equation}
-            \mathbf{U} \leftarrow \mathbf{X} \mathbf{V} \boldsymbol\Lambda^{-\frac{1}{2}}
-        \end{equation}
-
-        \State Calcular as $d$ características:
-        \begin{equation}
-            \mathbf{Y} \leftarrow \mathbf{U_{d}}^{T} \mathbf{X}
-        \end{equation}
-
-        \State Rearranjar a matriz de covariância de $\mathbf{Y}$:
-        \begin{equation}
-            \mathbf{Y} \mathbf{Y}^{T} = \mathbf{U}^{T} \mathbf{X} \mathbf{X}^{T} \mathbf{U} = \boldsymbol\Lambda\\
-        \end{equation}
-
-        \State Obter a matriz de projeção normalizadora:
-        \begin{equation}
-            \mathbf{W} \leftarrow \mathbf{U} \boldsymbol\Lambda^{-\frac{1}{2}}.
-        \end{equation}
-
-    \end{algorithmic}
-
-\end{algorithm}
-
-Vale ressaltar o fato de que o procedimento adotado pelo Algoritmo \ref{alg:bss_whitening} carece de um único passo intermediário, que é o de manter os $n$ primeiros componentes de $\mathbf{U_{d}}$, com $n\leq d$, para ser interpretado no sentido mais amplo como, basicamente, o próprio algoritmo de Análise de Componentes Principais (\textbf{PCA}, do inglês \textit{Principal Component Analysis}) \citep{doi:10.1080/14786440109462720}.
-
-\nomenclature{PCA}{\textit{Principal Component Analysis}}
-
-Para fins meramente ilustrativos, uma simulação foi elaborada para mostrar os efeitos do processo de branqueamento por PCA. Para esta simulação foram utilizados dados artificialmente gerados por meio de duas variáveis aleatórias. Os dados, compostos por 2000 amostras para cada uma das variáveis envolvidas, representados no gráfico da Figura \ref{fig:bss_whitening_data_uniform} foram posicionados com base nos valores das variáveis aleatórias $X_{1}$ e $X_{2}$, que podiam variar entre -1.75 e 1.75, que foram arbitrariamente escolhidos.
-
-
-
-
-
-
-\begin{figure}[H]
-    \centering
-    \subfloat[]{\label{fig:bss_whitening_data_uniform_a}\includegraphics[width=60mm]{figs/whitening/bss_whitening_uniform.pdf}}
-    \subfloat[]{\label{fig:bss_whitening_data_uniform_b}\includegraphics[width=60mm]{figs/whitening/bss_whitening_uniform_mixture.pdf}}\\
-    \subfloat[]{\label{fig:bss_whitening_data_uniform_c}\includegraphics[width=60mm]{figs/whitening/bss_whitening_uniform_mixture_whitened.pdf}}
-    \caption{(a) Distribuição uniforme de duas variáveis, (b) distribuição de misturas observadas e (c) distribuição branqueada.}
-    \label{fig:bss_whitening_data_uniform}
-\end{figure}
-
-
-
-Em outra simulação, que é exibida pela Figura \ref{fig:bss_whitening_data_gaussian}, foram geradas 2000 amostras respeitando uma distribuição gaussiana de média zero e desvio padrão unitário. Observando-se as imagens da Figura \ref{fig:bss_whitening_data_gaussian} é possível compreender intuitivamente o motivo de o processo de branqueamento para o caso da distribuição gaussiana ser também conhecido como esferização (do inglês, \textit{Sphereing}).
-
-
-\begin{figure}[H]
-    \centering
-    \subfloat[]{\label{fig:bss_whitening_data_gaussian_a}\includegraphics[width=60mm]{figs/whitening/bss_whitening_gaussian.pdf}}
-    \subfloat[]{\label{fig:bss_whitening_data_gaussian_b}\includegraphics[width=60mm]{figs/whitening/bss_whitening_gaussian_mixture.pdf}}\\
-    \subfloat[]{\label{fig:bss_whitening_data_gaussian_c}\includegraphics[width=60mm]{figs/whitening/bss_whitening_gaussian_mixture_whitened.pdf}}
-    \caption{(a) Distribuição uniforme de duas variáveis, (b) distribuição de misturas observadas e (c) distribuição branqueada.}
-    \label{fig:bss_whitening_data_gaussian}
-\end{figure}
-
-
-
-Uma forma de se obter os valores de $w_{ij}$ é a partir da independência estatística das misturas. A constatação de distinções que preservem uma elevada não-gaussianidade nas distribuições envolvidas pode ser explorada para efetuar eficazmente a separação dos sinais misturados com base nessa independência; a partir disso foi elaborado o método que ficou conhecido como Análise de Componentes Independentes, que será melhor explicado na Seção \ref{sec:bss_ica}.
-
-
 
 \section{Características dos Modelos}
 \label{sec:bss_characteristics}
@@ -469,6 +371,111 @@ Assim sendo, considerando-se que a descorrelação entre as variáveis aleatóri
 \end{aligned}
 \vspace{0.2cm}
 \end{equation}
+
+
+
+
+
+% %   -----------------------------
+% %   ----- Pré-processamento -----
+% %   -----------------------------
+% \section{Pré-processamento}
+% \label{sec:bss_preproc}
+
+Para muitos algoritmos, deve-se procurar garantir que tais dados estejam adequadamente preparados para que possam ser devidamente trabalhados. Para que isso seja possível, há uma série de tarefas anteriores às etapas associadas ao grupo de processamento; a esse grupo de tarefas anteriores dá-se o nome de pré-processamento. Uma possível interpretação para tal etapa é a de que trata-se, simplesmente, de toda a preparação dos dados para que, só então, eles venham a ser, de fato, processados (ou, se preferir, trabalhados).
+
+Antes de processar as observações dos sinais misturados, então, deve-se realizar uma tarefa conhecida como Branqueamento\footnote{Além do termo \textit{Whitening} designado a este processo em literaturas de língua inglesa, pode-se encontrar também o termo \textit{Sphereing}, referindo-se precisamente ao mesmo processo. A Figura \ref{fig:bss_pca_whitening} ajuda a compreender o motivo dessa outra nomenclatura.} (do inglês \textit{Whitening}) \citep{BELL19973327, koivunen1999feasibility}, que garantirá que, para um dado vetor composto por valores aleatórios com média zero, a variância será igual a 1 e --- mais importante que isso --- seus componentes serão descorrelacionados. A Figura \ref{fig:bss_pca_whitening} ilustra esquematicamente o que é almejado pelo processo de branqueamento; e tal processo pode ser realizado utilizando-se os passos representados pelo Algoritmo \ref{alg:bss_whitening}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figs/pca_whitening.pdf}
+    \caption{Simplificação esquemática, a partir de uma perspectiva geométrica (inspirada em \citep{zafeiriou2015notes}), dos objetivos do branqueamento utilizando o PCA.}
+    \label{fig:bss_pca_whitening}
+\end{figure}
+
+
+
+
+\begin{algorithm}[H]
+    \caption{Branqueamento de dados por PCA \citep{zafeiriou2015notes}.}
+    \label{alg:bss_whitening}
+    \begin{algorithmic}[1]
+
+        \State Calcular o produto escalar matricial:
+        \begin{equation}
+            \mathbf{X}^{T}\mathbf{X} = \sum_{i=1}^{N} \left(\mathbf{x}_{i}-\boldsymbol\mu\right)^{T}\left(\mathbf{x}_{i}-\boldsymbol\mu\right)
+        \end{equation}
+
+        \State Efetuar a auto-análise:
+        \begin{equation}
+            \mathbf{X}^{T}\mathbf{X} = \mathbf{V} \boldsymbol\Lambda \mathbf{V}^{T}
+        \end{equation}
+
+        \State Calcular os autovetores:
+        \begin{equation}
+            \mathbf{U} \leftarrow \mathbf{X} \mathbf{V} \boldsymbol\Lambda^{-\frac{1}{2}}
+        \end{equation}
+
+        \State Calcular as $d$ características:
+        \begin{equation}
+            \mathbf{Y} \leftarrow \mathbf{U_{d}}^{T} \mathbf{X}
+        \end{equation}
+
+        \State Rearranjar a matriz de covariância de $\mathbf{Y}$:
+        \begin{equation}
+            \mathbf{Y} \mathbf{Y}^{T} = \mathbf{U}^{T} \mathbf{X} \mathbf{X}^{T} \mathbf{U} = \boldsymbol\Lambda\\
+        \end{equation}
+
+        \State Obter a matriz de projeção normalizadora:
+        \begin{equation}
+            \mathbf{W} \leftarrow \mathbf{U} \boldsymbol\Lambda^{-\frac{1}{2}}.
+        \end{equation}
+
+    \end{algorithmic}
+
+\end{algorithm}
+
+Vale ressaltar o fato de que o procedimento adotado pelo Algoritmo \ref{alg:bss_whitening} carece de um único passo intermediário, que é o de manter os $n$ primeiros componentes de $\mathbf{U_{d}}$, com $n\leq d$, para ser interpretado no sentido mais amplo como, basicamente, o próprio algoritmo de Análise de Componentes Principais (\textbf{PCA}, do inglês \textit{Principal Component Analysis}) \citep{doi:10.1080/14786440109462720}.
+
+\nomenclature{PCA}{\textit{Principal Component Analysis}}
+
+Para fins meramente ilustrativos, uma simulação foi elaborada para mostrar os efeitos do processo de branqueamento por PCA. Para esta simulação foram utilizados dados artificialmente gerados por meio de duas variáveis aleatórias. Os dados, compostos por 2000 amostras para cada uma das variáveis envolvidas, representados no gráfico da Figura \ref{fig:bss_whitening_data_uniform} foram posicionados com base nos valores das variáveis aleatórias $X_{1}$ e $X_{2}$, que podiam variar entre -1.75 e 1.75, que foram arbitrariamente escolhidos.
+
+
+
+
+
+
+\begin{figure}[H]
+    \centering
+    \subfloat[]{\label{fig:bss_whitening_data_uniform_a}\includegraphics[width=60mm]{figs/whitening/bss_whitening_uniform.pdf}}
+    \subfloat[]{\label{fig:bss_whitening_data_uniform_b}\includegraphics[width=60mm]{figs/whitening/bss_whitening_uniform_mixture.pdf}}\\
+    \subfloat[]{\label{fig:bss_whitening_data_uniform_c}\includegraphics[width=60mm]{figs/whitening/bss_whitening_uniform_mixture_whitened.pdf}}
+    \caption{(a) Distribuição uniforme de duas variáveis, (b) distribuição de misturas observadas e (c) distribuição branqueada.}
+    \label{fig:bss_whitening_data_uniform}
+\end{figure}
+
+
+
+Em outra simulação, que é exibida pela Figura \ref{fig:bss_whitening_data_gaussian}, foram geradas 2000 amostras respeitando uma distribuição gaussiana de média zero e desvio padrão unitário. Observando-se as imagens da Figura \ref{fig:bss_whitening_data_gaussian} é possível compreender intuitivamente o motivo de o processo de branqueamento para o caso da distribuição gaussiana ser também conhecido como esferização (do inglês, \textit{Sphereing}).
+
+
+\begin{figure}[H]
+    \centering
+    \subfloat[]{\label{fig:bss_whitening_data_gaussian_a}\includegraphics[width=60mm]{figs/whitening/bss_whitening_gaussian.pdf}}
+    \subfloat[]{\label{fig:bss_whitening_data_gaussian_b}\includegraphics[width=60mm]{figs/whitening/bss_whitening_gaussian_mixture.pdf}}\\
+    \subfloat[]{\label{fig:bss_whitening_data_gaussian_c}\includegraphics[width=60mm]{figs/whitening/bss_whitening_gaussian_mixture_whitened.pdf}}
+    \caption{(a) Distribuição uniforme de duas variáveis, (b) distribuição de misturas observadas e (c) distribuição branqueada.}
+    \label{fig:bss_whitening_data_gaussian}
+\end{figure}
+
+
+
+Uma forma de se obter os valores de $w_{ij}$ é a partir da independência estatística das misturas. A constatação de distinções que preservem uma elevada não-gaussianidade nas distribuições envolvidas pode ser explorada para efetuar eficazmente a separação dos sinais misturados com base nessa independência; a partir disso foi elaborado o método que ficou conhecido como Análise de Componentes Independentes.
+
+
+
+
 
 Um dos princípios de estimação do ICA está associado à descorrelação não linear, obtendo-se uma matriz $\mathbf{W}$ capaz de reverter o processo de mistura, mas garantindo que todos os elementos que compõem a matriz de saída sejam, dois a dois, descorrelacionados entre si para todas as possíveis combinações, além de as transformações não lineares (cuidadosamente selecionadas), $g(y_{i})$ e $h(y_{j})$, também serem descorrelacionadas entre si.
 
