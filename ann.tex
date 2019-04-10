@@ -70,6 +70,8 @@ Um dos elementos mais importantes que compõem um \textit{Perceptron} é a \text
 
 Uma das funções mais simples é a função \textit{identidade}, que permite quaisquer valores de entrada e saída, mas não se trata de uma das funções mais exploradas contemporaneamente; em vez disso, a função que assume tal posição de prestígio é a função ReLU, que será trazida ainda neste mesmo capítulo. Como o foco deste projeto não são as funções de ativação \textit{per se}, não será feita uma discussão aprofundada quanto a qualquer uma das funções, contudo, a fim de fornecer um material que possa ser utilizado pelo leitor para visualizar mais facilmente os efeitos de algumas funções de ativação, foram selecionadas algumas das mais comumente exploradas para que sejam aqui matematicamente definidas e tenham seu comportamento exibido graficamente para diferentes valores de \textit{bias}.
 
+A seguir serão expostos vários exemplos de funções de ativação bastante comuns de serem exploradas em trabalhos desta área.
+
 
 \begin{figure}[H]
     \centering
@@ -129,7 +131,77 @@ Uma das funções mais simples é a função \textit{identidade}, que permite qu
 
 
 
+Duas funções de ativação que serão exploradas neste trabalho são: Logística (ou Sigmoidal) e Tangente Hiperbólica. Ambas serão trazidas a seguir.
 
+
+
+\linebreak
+\newpage
+
+
+\begin{definition}[Função Logística]
+    Dada uma entrada $x$, a função Logística pode ser definida como:
+
+    \begin{equation}
+        f(x) = \sigma (x) = \dfrac{1}{1 + e^{-x}}
+        \vspace{0.2cm}
+        \label{eq:ann_logistic_function}
+    \end{equation}
+
+    A derivada da função logística é:
+
+    \begin{equation}
+        f'(x) = f(x)\ (1 - f(x))
+        \label{eq:ann_logistic_function_dy}
+    \end{equation}
+    
+\end{definition}
+
+A Figura \ref{fig:ann_logistic_function} exibe o comportamento da função logística.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{figs/ann_logistic_function.pdf}
+
+    \caption{Comportamento da função logística.}
+    \label{fig:ann_logistic_function}
+\end{figure}
+
+
+
+
+
+\linebreak
+\newpage
+
+
+\begin{definition}[Função Tangente Hiperbólica]
+    Dada uma entrada $x$, a função Tangente Hiperbólica pode ser definida como:
+
+    \begin{equation}
+        f(x) = \text{tanh}(x) = \dfrac{e^{x} - e^{-x}}{e^{x} + e^{-x}}
+        \vspace{0.2cm}
+        \label{eq:ann_tanh_function}
+    \end{equation}
+
+    A derivada da função tangente hiperbólica é:
+
+    \begin{equation}
+        f'(x) = 1 - (f(x))^{2}
+        \label{eq:ann_tanh_function_dy}
+    \end{equation}
+
+\end{definition}
+
+A Figura \ref{fig:ann_tanh_function} exibe o comportamento da função tangente hiperbólica e de sua derivada.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{figs/ann_tanh_function.pdf}
+
+    \caption{Comportamento da função tangente hiperbólica.}
+    \label{fig:ann_tanh_function}
+\end{figure}
 
 
 
