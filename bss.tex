@@ -560,13 +560,27 @@ Tal como havia sido explicitado nesta mesma seção, a entropia pode ser utiliza
 \section{Algoritmos Notáveis}
 \label{sec:bss_algorithms}
 
-Conforme a área de separação de fontes avançava, foram desenvolvidos algoritmos notáveis, que são assim qualificados por conta de suas capacidades, tendo sido estudados e aprimorados em um significativo número de trabalhos publicados com contribuições de grande relevância. O princípio de otimização conhecido como \textit{Infomax} \citep{linsker1988self} serviu de 
+Conforme a área de separação de fontes avançava, foram desenvolvidos algoritmos notáveis, que são assim qualificados por conta de suas capacidades, tendo sido estudados e aprimorados em um significativo número de trabalhos publicados com contribuições de grande relevância. O princípio de otimização conhecido como \textit{maximização da informação} (\textbf{Infomax}, \textit{Information Maximization}) \citep{linsker1988self} consiste em atingir um cenário em que a entrada e a saída de uma dada função possuam a maior informação mútua possível, e trata-se da base de várias técnicas e métodos de separação de fontes.
+
+\begin{definition}[Informação Mútua]
+    Sejam X e Y duas variáveis aleatórias que componham o par (X, Y) cujos valores se encontram no espaço $\mathcal{X} \times \mathcal{Y}$, a \textit{informação mútua} entre elas será dada por 
+
+    \begin{equation}
+        I\left(X; Y\right) = \sum_{y\hspace{0.05cm} \in\hspace{0.05cm} \mathcal{Y}} \hspace{0.05cm} \sum_{x\hspace{0.05cm} \in\hspace{0.05cm} \mathcal{X}} p\left(x, y\right) \hspace{0.10cm} \log\left(\dfrac{p\left(x, y\right)}{p\left(x\right) p\left(y\right)}\right)
+        \hspace{0.1cm},
+        \vspace{0.2cm}
+        \label{eq:bss_mutual_information}
+    \end{equation}
+
+    \noindent onde $p\left(x, y\right)$ representa a função de densidade de probabilidade conjunta de $X$ e $Y$; $p\left(x\right)$ e $p\left(y\right)$, por sua vez, representam, respectivamente, as funções de massa de probabilidade marginal de $X$ e $Y$.
+
+\end{definition}
 
 Alguns, como o caso do \textit{algoritmo de ponto flutuante rápido} (\textbf{FastICA}, \textit{Fast Fixed-Point Algorithm}) \citep{761722} --- que, em busca da maximização de alguma métrica de não-gaussianidade\footnote{Lembrando que a não-gaussianidade pode ser interpretada como uma forma de independência estatística.}, rotaciona ortogonalmente dados pré-branqueados --- tornaram-se mais famosos, sobretudo por conta de seu considerável ganho de eficiência sobre uma técnica já bastante utilizada pela comunidade de separação de fontes. Outro método importante para o avanço desta técnica é o \textbf{RobustICA} \citep{5356190}, uma sutil variação do FastICA, otimizando o contraste da curtose, mas que exibe maiores robustez e velocidade de convergência.
 
-Outra abordagem é a do algoritmo conhecido como \textit{identificação cega de segunda ordem} (\textbf{SOBI}, \textit{Second Order Blind Identification}) \citep{554307}, que explora momentos (estatísticos) de segunda ordem e depende de as fontes serem individualmente correlacionadas no tempo, mas mutuamente descorrelacionadas. Para a realização do SOBI, é preciso realizar etapas de branqueamento dos dados, computação de matrizes de correlação atrasada, e diagonalização conjunta. O método \textit{diagonalização conjunta aproximada de auto-matrizes} (\textbf{JADE}, \textit{Joint Approximation Diagonalization of Eigen-matrices}) \citep{cardoso1999high} explora momentos de quarta ordem e também está entre os mais amplamente explorados em trabalhos da área de separação de fontes.
+Uma abordagem um pouco diferente, chamada de \textit{identificação cega de quarta ordem} (\textbf{FOBI}, \textit{Fourth Order Blind Identification}) \citep{cardoso1989source, miettinen2015fourth}, utiliza-se de momentos (estatísticos) de quarta ordem para realizar o processo de separação de sinais. Outra abordagem, computacionalmente mais parcimoniosa, é a do algoritmo conhecido como \textit{identificação cega de segunda ordem} (\textbf{SOBI}, \textit{Second Order Blind Identification}) \citep{554307}, que explora momentos de segunda ordem e depende de as fontes serem individualmente correlacionadas no tempo, mas mutuamente descorrelacionadas. Para a realização do SOBI, é preciso realizar etapas de branqueamento dos dados, computação de matrizes de correlação atrasada, e diagonalização conjunta. 
 
-É importante lembrar que não há um único método que seja o melhor para todo os possíveis cenários, portanto, é sempre válido averiguar qual método se encaixa melhor para o cenário a ser trabalhado; há, contudo, alguns bons trabalhos que fazem tais investigações, confrontando alguns dos mais conhecidos métodos para esta finalidade \citep{matic2009comparison, sahonerocomparison}.
+O método \textit{diagonalização conjunta aproximada de auto-matrizes} (\textbf{JADE}, \textit{Joint Approximation Diagonalization of Eigen-matrices}) \citep{cardoso1999high} explora momentos de quarta ordem e também está entre os mais amplamente explorados em trabalhos da área de separação de fontes. É importante lembrar que não há um único método que seja o melhor para todo os possíveis cenários, portanto, é sempre válido averiguar qual método se encaixa melhor para o cenário a ser trabalhado; há, contudo, alguns bons trabalhos que fazem tais investigações, confrontando alguns dos mais conhecidos métodos para esta finalidade \citep{matic2009comparison, sahonerocomparison}.
 
 
 
