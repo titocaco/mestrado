@@ -511,11 +511,11 @@ A Figura \ref{fig:ann_tanh_function} exibe o comportamento da função tangente 
 \newpage
 
 
-%   ---------------------------------------
-%   ----- Arquiteturas e Propriedades -----
-%   ---------------------------------------
-\section{Arquiteturas e Propriedades}
-\label{sec:ann_arch_and_prop}
+%   ------------------------
+%   ----- Propriedades -----
+%   ------------------------
+\section{Propriedades}
+\label{sec:ann_properties}
 
 Uma Rede Neural Artificial (\textbf{ANN}, do inglês \textit{Artificial Neural Network}) é uma estrutura composta por neurônios interconectados distribuídos entre múltiplas camadas. Sua origem vem da ideia de imitar a função cerebral. Uma das características mais importantes das ANNs é a capacidade de aprender com ou sem supervisão (referências para análises comparativas), ou seja, as ANNs podem adotar uma abordagem de aprendizado supervisionado ou uma abordagem de aprendizado não supervisionada \citep{haykin1999neural}, dependendo da implementação do algoritmo de acordo com os objetivos do projeto. Independentemente do tipo de rede neural artificial, os princípios básicos permanecem os mesmos; existem camadas de entrada, camadas ocultas e camadas de saída. Cada uma delas será explicada em mais detalhes posteriormente. Camadas ocultas são as principais responsáveis pelo aumento da demanda por poder de processamento, pois é onde residem os neurônios que realizam todo o processamento principal da rede.
 
@@ -523,9 +523,6 @@ Uma Rede Neural Artificial (\textbf{ANN}, do inglês \textit{Artificial Neural N
 
 Após uma primeira visão ingênua, talvez se imagine que, dado que os principais responsáveis pelo processamento são os neurônios localizados nas camadas intermediárias, o mais adequado seria aumentar sumariamente o número de neurônios para que isso produzisse um agressivo ganho de desempenho na atividade realizada pela rede; contudo, tal decisão seria, muito provavelmente, bastante equivocada e, sem dúvidas, nem um pouco parcimoniosa. Para se obter melhores resultados, portanto, é preciso estudar melhor sobre o funcionamento dos elementos que compõem toda a rede, além de explorar e analisar diferentes arquiteturas que podem ser mais propícias a responder melhor em certos ambientes específicos.
 
-O impacto causado pelas redes neurais artificiais se intensificou drasticamente a partir da criação do Perceptron Multicamadas (\textbf{MLP}, \textit{Multilayer Perceptron}), que consiste em uma classe de redes de em que a informação é propagada apenas em uma direção, sendo enviada para a frente da rede. A estrutura de um MLP é composta por ao menos duas camadas intermediárias de neurônios, tal como pode ser visto pela Figura \ref{fig:ann_mlp}, o que permite que, em vez de ser projetado um único hiperplano para separar o hiperespaço de amostras a serem classificadas, passe a ser possível obter modelos bem mais flexíveis quanto a essas regiões de fronteira de separação.
-
-\nomenclature{MLP}{\textit{Multilayer Perceptron}}
 
 \begin{figure}[H]
     \centering
@@ -534,9 +531,60 @@ O impacto causado pelas redes neurais artificiais se intensificou drasticamente 
     \label{fig:ann_mlp}
 \end{figure}
 
+O impacto causado pelas redes neurais artificiais se intensificou drasticamente a partir da criação do Perceptron Multicamadas (\textbf{MLP}, \textit{Multilayer Perceptron}), que consiste em uma classe de redes de em que a informação é propagada apenas em uma direção, sendo enviada para a frente da rede. A estrutura de um MLP é composta por ao menos duas camadas intermediárias de neurônios, tal como pode ser visto pela Figura \ref{fig:ann_mlp}, o que permite que, em vez de ser projetado um único hiperplano para separar o hiperespaço de amostras a serem classificadas, passe a ser possível obter modelos bem mais flexíveis quanto a essas regiões de fronteira de separação.
+
+\nomenclature{MLP}{\textit{Multilayer Perceptron}}
+
 Já de longa data, os resultados obtidos levavam pesquisadores e desenvolvedores a acreditar que sua estrutura possuía características intrínsecas de alta capacidade de aproximação de modelos e, embora ainda não tivessem sido matematicamente provadas tais características, sua exploração por parte de diversos pesquisadores resultou em muitos importantes avanços na área. Ao fim da década de 1980 foram publicados trabalhos que efetuavam tal prova matemática em relação à sua capacidade de aproximação \citep{cybenko1989approximation, hornik1989multilayer}, embora tenha sido feita com base em funções sigmoidais. Pouco tempo depois foi publicado um trabalho que provava que, na verdade, essa capacidade de aproximação não era oriunda da função de ativação, mas, em vez disso, era advinda da própria estrutura do MLP, cujo fluxo de informação é direcionado para frente \citep{HORNIK1991251}.
 
 Em 2017 foi provado que o Teorema da Aproximação Universal se aplica a redes profundas que utilizem funções de ativação do tipo ReLU quando respeitada a condição de que haja uma largura\footnote{Neste contexto, a largura da rede se refere apenas ao número de camadas intermediárias que a rede em questão possui, independentemente da quantidade de neurônios que cada uma possua ou da forma como os neurônios efetuem a comunicação entre camadas distintas.} mínima de $n+4$ camadas com o objetivo de se aproximar quaisquer funções que sejam Lebesgue integráveis \citep{royden1988real}. Finalmente, ainda no mesmo ano, foi provada essa capacidade de aproximação universal para qualquer função convexa contínua e, desta vez, necessitando apenas de $n+1$ camadas \citep{hanin2017universal}.
+
+
+%   ----- ARQUITETURAS -----
+\section{Arquiteturas}
+\label{sec:ann_architectures}
+
+
+Nesta seção, serão trazidas algumas arquiteturas de redes clássicas já bastante exploradas na literatura, mas que ainda hoje são utilizadas, dado o fato de terem elevados níveis de eficiência e eficácia na solução de diversos problemas, além do fato de que, justamente por já serem bastante conhecidas, seu comportamento pode ser considerado menos imprevisível, o que pode resultar em menor grau de incerteza nas tentativas de se solucionar eventuais problemas que possam surgir durante o projeto das redes; dependendo da complexidade do problema, ajustes, por vezes necessários, podem ser encontrados já implementados sem grandes dificuldades.
+
+
+
+
+%   ----- REDES DE FUNÇÃO DE BASE RADIAL -----
+\subsection{Redes de Função de Base Radial}
+\label{subsec:ann_rbf_nets}
+
+As redes 
+
+
+
+
+%   ----- REDES HOPFIELD -----
+\subsection{Redes Hopfield}
+\label{subsec:ann_hopfield_nets}
+
+
+
+
+%   ----- MÁQUINA DE BOLTZMANN RESTRITA -----
+\subsection{Máquina de Boltzmann Restrita}
+\label{subsec:ann_boltzmann_machine}
+
+
+
+
+%   ----- REDES RECORRENTES -----
+\subsection{Redes Recorrentes}
+\label{subsec:ann_recurrent_nets}
+
+
+
+
+%   ----- REDES CONVOLUTIONAIS -----
+\subsection{Redes Convolucionais}
+\label{subsec:ann_convolutional_nets}
+
+
 
 
 
