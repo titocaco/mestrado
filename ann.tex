@@ -554,14 +554,16 @@ Nesta seção, serão trazidas algumas arquiteturas de redes clássicas já bast
 \subsection{Redes de Função de Base Radial}
 \label{subsec:ann_rbf_nets}
 
-As redes 
+As redes de \textit{função de base radial}\footnote{Esta linha, embora ainda muito relevante, perdeu, ainda que momentaneamente, o seu brilho por conta dos avanços feitos em relação às redes profundas.} (\textbf{RBF}, \textit{Radial Basis Function}) \citep{broomhead1988radial}, uma das arquiteturas mais clássicas desta área do conhecimento, também plenamente dotada da capacidade da aproximação universal \citep{park1991universal}, segue um padrão diferenciado do que seu nome pode sugerir a partir de uma primeira interpretação ingênua, pois pode-se concluir, erroneamente, que bastaria que as funções de ativação da rede fossem de tipo radial para que a rede pudesse ser classificada como uma rede RBF --- e, para todos os efeitos, dois exemplos meramente ilustrativos de funções de base radial podem ser vistos na Figura \ref{fig:ann_rbf_1} ---, o que não é o caso; tal tipo de rede possui uma topologia própria, cujas características vão muito além de apenas garantir um certo padrão das funções de ativação envolvidas.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.50\textwidth]{figs/ann_rbf_1.pdf}
-    \caption{RBF}
+    \includegraphics[width=0.60\textwidth]{figs/ann_rbf_1.pdf}
+    \caption{Exemplos de funções de base radial, assumindo-se $\epsilon=1$.}
     \label{fig:ann_rbf_1}
 \end{figure}
+
+Este tipo de rede não é profunda, ou seja, possui uma quantidade de camadas intermediárias bastante limitada, sendo apenas duas; e, além disso, trata-se de um tipo de rede que não segue uma mesma abordagem uniformizada quanto ao paradigma do processo de aprendizagem para todas as camadas, visto que a primeira camada intermediária segue um padrão não-supervisionado, enquanto que a segunda camada intermediária utiliza-se de uma abordagem supervisionada. Possivelmente, o que mais influencia positivamente no desempenho deste tipo de rede para a solução de problemas para os quais estas redes são consideradas altamente convenientes é a quantidade de neurônios da camada não-supervisionada.
 
 
 
