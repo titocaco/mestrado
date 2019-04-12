@@ -559,12 +559,29 @@ As redes de \textit{função de base radial}\footnote{Esta linha, embora ainda m
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.60\textwidth]{figs/ann_rbf_1.pdf}
-    \caption{Exemplos de funções de base radial, assumindo-se $\epsilon=1$.}
+    \caption{Exemplos de funções de base radial, assumindo-se $\varepsilon=1$.}
     \label{fig:ann_rbf_1}
 \end{figure}
 
-Este tipo de rede não é profunda, ou seja, possui uma quantidade de camadas intermediárias bastante limitada, sendo apenas duas; e, além disso, trata-se de um tipo de rede que não segue uma mesma abordagem uniformizada quanto ao paradigma do processo de aprendizagem para todas as camadas, visto que a primeira camada intermediária segue um padrão não-supervisionado, enquanto que a segunda camada intermediária utiliza-se de uma abordagem supervisionada. Possivelmente, o que mais influencia positivamente no desempenho deste tipo de rede para a solução de problemas para os quais estas redes são consideradas altamente convenientes é a quantidade de neurônios da camada não-supervisionada.
+Esta rede não é profunda, ou seja, possui uma quantidade de camadas intermediárias bastante limitada, sendo, em geral, apenas uma ou duas; e, além disso, trata-se de um tipo de rede que não segue uma mesma abordagem uniformizada quanto ao paradigma do processo de aprendizagem para todas as camadas, visto que a primeira camada intermediária segue um padrão não-supervisionado, enquanto que a segunda camada intermediária utiliza-se de uma abordagem supervisionada. Possivelmente, o que mais influencia positivamente no desempenho deste tipo de rede para a solução de problemas para os quais estas redes são consideradas altamente convenientes é a quantidade de neurônios da camada não-supervisionada; assim, ganha-se mais em desempenho conforme amplia-se o espaço das características.
 
+Devido à forma como a segunda camada (supervisionada) funciona, com suas funções de ativação tendendo a seguir similaridades em relação ao que se observa a partir das entradas da rede, seu \textit{Modus operandi} aproxima-se bastante dos observados pelo algoritmo de classificação por \textit{vizinhos próximos}; por isso, pode-se compreender a rede neural de tipo RBF como um método de \textit{vizinhos próximos supervisionado} \citep{aggarwal2018neural}. A Equação (\ref{eq:ann_rbf_output}) modela o funcionamento da saída da rede RBF:
+
+\begin{equation}
+    \varphi \left(\bm{x}\right) = \sum_{i=1}^{N} \alpha_{i}\ \rho\left(\ \norm{\bm{x} - \bm{c}_{i}}\ \right)
+    \label{eq:ann_rbf_output}
+    \hspace{0.1cm},
+    \vspace{0.2cm}
+\end{equation}
+
+\noindent com $N$ sendo o número de neurônios da camada intermediária (oculta); $\bm{c}_{i}$ e $\alpha_{i}$ são, respectivamente, o vetor centro e o peso sináptico para o neurônio $i$. Tipicamente, a função de base radial mais comumente utilizada é Gaussiana
+
+\begin{equation}
+    xxxxxxxxxxxxxxxxxxxxxx
+    \label{eq:ann_rbf_gaussian}
+    \hspace{0.1cm},
+    \vspace{0.2cm}
+\end{equation}
 
 
 
