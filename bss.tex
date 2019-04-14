@@ -185,7 +185,7 @@ Uma forma bastante usual de se analisar a questão da memória é separando-a em
     \begin{equation}
     \begin{aligned}
         y[n]    & = s_{1}[n] \ast s_{2}[n] \\
-                & = \sum_{i=-\infty}^{+\infty} s_{1}[i]\cdot s_{2}[n - i]
+                & = \nsum_{i=-\infty}^{+\infty} s_{1}[i]\cdot s_{2}[n - i]
     \end{aligned}
     \vspace{0.2cm}.
     \end{equation}
@@ -403,7 +403,7 @@ Antes de processar as observações dos sinais misturados, então, deve-se reali
 
         \State Calcular o produto escalar matricial:
         \begin{equation}
-            \mathbf{X}^{T}\mathbf{X} = \sum_{i=1}^{N} \left(\mathbf{x}_{i}-\boldsymbol\mu\right)^{T}\left(\mathbf{x}_{i}-\boldsymbol\mu\right)
+            \mathbf{X}^{T}\mathbf{X} = \nsum_{i=1}^{N} \left(\mathbf{x}_{i}-\boldsymbol\mu\right)^{T}\left(\mathbf{x}_{i}-\boldsymbol\mu\right)
         \end{equation}
 
         \State Efetuar a auto-análise:
@@ -521,7 +521,7 @@ Um dos conceitos mais importantes advindos da área de Teoria da Informação ch
     Seja $X$ uma variável aleatória. Então, a entropia de $X$, também entendida como a informação média de $X$, é dada por
 
     \begin{equation}
-        H\left(X\right) = - \sum_{i=1}^{n}P\left(X=x_{i}\right) \log_{b} \left(P\left(X=x_{i}\right)\right)
+        H\left(X\right) = - \nsum_{i=1}^{n}P\left(X=x_{i}\right) \log_{b} \left(P\left(X=x_{i}\right)\right)
         \hspace{0.1cm},
         \vspace{0.2cm}
         \label{eq:bss_entropy}
@@ -566,7 +566,7 @@ Conforme a área de separação de fontes avançava, foram desenvolvidos algorit
     Sejam X e Y duas variáveis aleatórias que componham o par (X, Y) cujos valores se encontram no espaço $\mathcal{X} \times \mathcal{Y}$, a \textit{informação mútua} entre elas será dada por 
 
     \begin{equation}
-        I\left(X; Y\right) = \sum_{y\hspace{0.05cm} \in\hspace{0.05cm} \mathcal{Y}} \hspace{0.05cm} \sum_{x\hspace{0.05cm} \in\hspace{0.05cm} \mathcal{X}} p\left(x, y\right) \hspace{0.10cm} \log\left(\dfrac{p\left(x, y\right)}{p\left(x\right) p\left(y\right)}\right)
+        I\left(X; Y\right) = \nsum_{y\hspace{0.05cm} \in\hspace{0.05cm} \mathcal{Y}} \hspace{0.05cm} \nsum_{x\hspace{0.05cm} \in\hspace{0.05cm} \mathcal{X}} p\left(x, y\right) \hspace{0.10cm} \log\left(\dfrac{p\left(x, y\right)}{p\left(x\right) p\left(y\right)}\right)
         \hspace{0.1cm},
         \vspace{0.2cm}
         \label{eq:bss_mutual_information}

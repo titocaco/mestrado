@@ -51,7 +51,7 @@ A partir de uma perspectiva mais contemporânea, o Perceptron passou a ser retra
 A partir da Figura \ref{fig:ann_perceptron_new_organization}, pode-se compreender que há um conjunto de entradas, $\bm{x}$, respectivamente ponderadas por um conjunto de pesos, $\bm{w}$, que, junto a um \textit{bias}, são somadas, então o resultado dessa soma é utilizado como entrada de uma \textit{função de ativação}, responsável por emitir o valor da saída, $\bm{y}$. O somatório (também chamado de \textit{campo local induzido} neste contexto) utiliza-se de uma combinação linear causada pela soma ponderada das entradas, além do \textit{bias}, o que resulta na separação de duas regiões por um \textit{hiperplano} \citep{haykin1999neural}, cuja definição matemática é dada por
 
 \begin{equation}
-    \sum_{i=1}^{N} w_{i} x_{i} + b = 0
+    \nsum_{i=1}^{N} w_{i} x_{i} + b = 0
     \label{eq:ann_perceptron_hyperplane}
     \hspace{0.1cm},
     \vspace{0.2cm}
@@ -568,16 +568,16 @@ Esta rede não é profunda, ou seja, possui uma quantidade de camadas intermedi�
 Devido à forma como a segunda camada (supervisionada) funciona, com suas funções de ativação tendendo a seguir similaridades em relação ao que se observa a partir das entradas da rede, seu \textit{Modus operandi} aproxima-se bastante dos observados pelo algoritmo de classificação por \textit{vizinhos próximos}; por isso, pode-se compreender a rede neural de tipo RBF como um método de \textit{vizinhos próximos supervisionado} \citep{aggarwal2018neural}. A Equação (\ref{eq:ann_rbf_output}) modela o funcionamento da saída da rede RBF:
 
 \begin{equation}
-    \varphi \left(\bm{x}\right) = \sum_{i=1}^{N} \alpha_{i}\ \rho\left(\ \norm{\bm{x} - \bm{c}_{i}}\ \right)
+    \varphi \left(\bm{x}\right) = \nsum_{i=1}^{N} \alpha_{i}\ \rho\left(\ \norm{\ \bm{x} - \bm{c}_{i}\ }\ \right)
     \label{eq:ann_rbf_output}
     \hspace{0.1cm},
     \vspace{0.2cm}
 \end{equation}
 
-\noindent com $N$ sendo o número de neurônios da camada intermediária (oculta); $\bm{c}_{i}$ e $\alpha_{i}$ são, respectivamente, o vetor centro e o peso sináptico para o neurônio $i$. Tipicamente, a função de base radial mais comumente utilizada é Gaussiana
+\noindent com $N$ sendo o número de neurônios da camada intermediária (oculta); $\bm{c}_{i}$ e $\alpha_{i}$ são, respectivamente, o vetor centro e o peso sináptico para o neurônio $i$. E, tipicamente, a função de base radial utilizada é Gaussiana
 
 \begin{equation}
-    xxxxxxxxxxxxxxxxxxxxxx
+    \rho\left(\ \norm{\ \bm{x} - \bm{c}_{i}\ }\ \right) = \exp{\left(-\beta\ \norm{\ \bm{x} - \bm{c}_{i}\ }^{\ 2}\right)}
     \label{eq:ann_rbf_gaussian}
     \hspace{0.1cm},
     \vspace{0.2cm}
@@ -642,7 +642,7 @@ Para o Caso 1, isoladamente, o cálculo do erro trata-se de um algoritmo supervi
 Note que a Equação (\ref{eq:ann_instant_neuron_error}) independe de qualquer tratamento matemático rebuscado, dado que utiliza-se apenas do valor desejado (de referência) e do valor efetivamente obtido na saída para que o erro seja calculado. Contudo, para o Caso 2, o algoritmo calcula o \textit{gradiente descendente} \citep{cauchy1847methode} e propaga o erro no sentido oposto ao da transmissão da informação processada pela rede, passando por todas as camadas. O algoritmo considera inicialmente que a energia do erro de cada neurônio é igual a $\frac{1}{2}e_{j}^{2}(n)$ e interpreta que a soma de todos esses erros instantâneos resulta na energia total de erro $\mathcalboondox{E}(n)$, calculada como
 
 \begin{equation}
-    \mathcalboondox{E}(n) = \dfrac{1}{2}\sum_{j\ \in\ C}e_{j}^{2}(n)
+    \mathcalboondox{E}(n) = \dfrac{1}{2}\nsum_{j \in C}e_{j}^{2}(n)
     \label{eq:ann_total_error_energy}
     \vspace{0.2cm}
 \end{equation}
@@ -652,7 +652,7 @@ Note que a Equação (\ref{eq:ann_instant_neuron_error}) independe de qualquer t
 \nomenclature{LMS}{\textit{Least Mean Square}}
 
 \begin{equation}
-    \mathcalboondox{E}_{\text{avg}}(n) = \dfrac{1}{N} \sum_{n=1}^{N} \mathcalboondox{E}(n)
+    \mathcalboondox{E}_{\text{avg}}(n) = \dfrac{1}{N} \nsum_{n=1}^{N} \mathcalboondox{E}(n)
     \label{eq:ann_avg_squared_error_energy}
     \vspace{0.2cm}
 \end{equation}
@@ -660,7 +660,7 @@ Note que a Equação (\ref{eq:ann_instant_neuron_error}) independe de qualquer t
 A função $\mathcalboondox{E}_{\text{avg}}(n)$ é comumente utilizada como \textit{função custo} para se mensurar o desempenho do processo de aprendizagem correspondente a um determinado conjunto de treinamento; é essa a função a ser minimizada ao longo do processo de treinamento, e a cada iteração do treinamento são feitos ajustes sobre os parâmetros livres, como os pesos sinápticos e \textit{bias} da rede como consequência da otimização. O campo local induzido $\upsilon_{j}(n)$, que se trata do somatório observado na Figura \ref{fig:ann_perceptron_new_organization}, é definido como
 
 \begin{equation}
-    \upsilon_{j}(n) = \sum_{i=0}^{m} w_{ji}(n) y_{i}(n)
+    \upsilon_{j}(n) = \nsum_{i=0}^{m} w_{ji}(n) y_{i}(n)
     \label{eq:ann_induced_local_field}
     \vspace{0.2cm}
 \end{equation}

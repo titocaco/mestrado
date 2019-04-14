@@ -113,7 +113,7 @@ Como foi dito neste capítulo, ambos os jogadores deste jogo são redes neurais 
 
             \parState {$\sbullet[1.5]$ Atualiza o discriminante aumentando seu gradiente estocástico:
             \begin{equation*}
-                \nabla_{\theta_{d}} \dfrac{1}{m} \sum_{\mathclap{i=1}}^{m} \left[\log D\left(\pmb{x}^{\left(i\right)}\right) + \log \left(1-D\left(G\left(\pmb{z}^{\left(i\right)}\right)\right)\right)\right].
+                \nabla_{\theta_{d}} \dfrac{1}{m} \nsum_{\mathclap{i=1}}^{m} \left[\log D\left(\pmb{x}^{\left(i\right)}\right) + \log \left(1-D\left(G\left(\pmb{z}^{\left(i\right)}\right)\right)\right)\right].
             \end{equation*}}
         \EndFor
 
@@ -121,7 +121,7 @@ Como foi dito neste capítulo, ambos os jogadores deste jogo são redes neurais 
 
         \parState {$\sbullet[1.5]$ Atualiza o gerador diminuindo seu gradiente estocástico:
         \begin{equation*}
-            \nabla_{\theta_{d}} \dfrac{1}{m} \sum_{\mathclap{i=1}}^{m} \log \left(1-D\left(G\left(\pmb{z}^{\left(i\right)}\right)\right)\right).
+            \nabla_{\theta_{d}} \dfrac{1}{m} \nsum_{\mathclap{i=1}}^{m} \log \left(1-D\left(G\left(\pmb{z}^{\left(i\right)}\right)\right)\right).
         \end{equation*}}
     \EndFor
 
