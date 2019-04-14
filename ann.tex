@@ -568,7 +568,7 @@ Esta rede não é profunda, ou seja, possui uma quantidade de camadas intermedi�
 Devido à forma como camadas supervisionadas funcionam, com suas funções de ativação tendendo a seguir similaridades em relação ao que se observa a partir das entradas da rede, seu \textit{Modus operandi} aproxima-se bastante dos observados pelo algoritmo de classificação por \textit{vizinhos próximos}; por isso, pode-se compreender a rede neural de tipo RBF como um método de \textit{vizinhos próximos supervisionado} \citep{aggarwal2018neural}. A Equação (\ref{eq:ann_rbf_output}) modela o funcionamento da saída da rede RBF:
 
 \begin{equation}
-    \varphi \left(\bm{x}\right) = \nsum_{i=1}^{N} \omega_{i}\ h\left(\bm{x}\ \right)
+    \varphi \left(\bm{x}\right) = \nsum_{i=1}^{N} \omega_{i}\ h\left(\ \norm{\ \bm{x} - \bm{c}_{i}\ } \right)
     \label{eq:ann_rbf_output}
     \hspace{0.1cm},
     \vspace{0.2cm}
@@ -577,17 +577,17 @@ Devido à forma como camadas supervisionadas funcionam, com suas funções de at
 \noindent com $N$ sendo o número de neurônios da camada intermediária (oculta); $\bm{c}_{i}$ e $\omega_{i}$ são, respectivamente, o vetor centro e o peso sináptico para o neurônio $i$. E, tipicamente, a função de base radial utilizada é Gaussiana
 
 \begin{equation}
-    h\left(\bm{x}\ \right) = \exp{\left(-\ \norm{\ \bm{x} - \bm{c}_{i}\ }^{\ 2}\right)}
+    h\left(\ \norm{\ \bm{x} - \bm{c}_{i}\ }\ \right) = \exp{\left(-\ \norm{\ \bm{x} - \bm{c}_{i}\ }^{\ 2}\right)}
     \label{eq:ann_rbf_gaussian}
     \hspace{0.1cm},
     \vspace{0.2cm}
 \end{equation}
 
-A Figura \ref{fig:ann_arch_rbf} ilustra um modelo esquemático de redes neurais com arquitetura RBF. Perceba que não há qualquer necessidade de o número de neurônios da camada intermediária (oculta), $\bm{h(x)}$, da rede ser igual ao número de entradas da rede, $\bm{x}$; a saída, $\bm{f(x)}$, é única neste caso, embora haja casos com múltiplas saídas.
+A Figura \ref{fig:ann_arch_rbf} ilustra um modelo esquemático de redes neurais com arquitetura RBF. Perceba que não há qualquer necessidade de o número de neurônios da camada intermediária (oculta), $\bm{h(x)}$, da rede ser igual ao número de entradas da rede, $\bm{x}$; a saída, $\bm{f(x)}$, é única neste caso, embora haja casos com múltiplas saídas. Vale ressaltar o fato de, independentemente do número de neurônios envolvidos na rede, trata-se de uma rede (totalmente) conectada, ou seja, entre para cada neurônio de uma dada camada há uma conexão com cada um dos neurônios de suas camadas adjcentes; além disso, diferentemente de como ocorre com as MLPs, as RBF não sofrem com mínimos locais.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth]{figs/ann_arch_rbf.pdf}
+    \includegraphics[width=0.75\textwidth]{figs/ann_arch_rbf.pdf}
     \caption{Modelo esquemático de redes neurais com arquitetura RBF.}
     \label{fig:ann_arch_rbf}
 \end{figure}
