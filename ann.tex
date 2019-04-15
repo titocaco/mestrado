@@ -526,7 +526,7 @@ Após uma primeira visão ingênua, talvez se imagine que, dado que os principai
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{figs/ann_mlp.pdf}
+    \includegraphics[width=0.9\textwidth]{figs/ann_mlp.pdf}
     \caption{Representação esquemática e genérica de um MLP.}
     \label{fig:ann_mlp}
 \end{figure}
@@ -650,7 +650,7 @@ A arquitetura da \textit{máquina de Boltzmann restrita}\footnote{O trabalho que
 Assim, a distribuição de probabilidade conjunta pode ser definida com base na energia da seguinte maneira:
 
 \begin{definition}[Distribuição de Probabilidade Conjunta baseada em Energia]
-    Dada a função de partição $Z$, que pode ser definita por:
+    A função de partição $Z$ é tipicamente definita como:
 
     \begin{equation}
         Z = \nsum_{j} g_{j} \exp{\left(-\dfrac{E_{j}}{k_{B} T}\right)}
@@ -659,7 +659,7 @@ Assim, a distribuição de probabilidade conjunta pode ser definida com base na 
         \label{eq:ann_arch_rbm_partition}
     \end{equation}
 
-    \noindent em que $g_{j}$ representa o grau de degenerescência do auto-estado de energia $E_{j}$; $k_{B}$ é a constante de Boltzmann; e $T$ é a temperatura; pode-se, então, definir a distribuição de probabilidade conjunta com base na energia da seguinte forma:
+    \noindent em que $g_{j}$ representa o grau de degenerescência\footnote{Nível da tendência que um dado objeto pertencente a uma determinada classe apresenta para passar a pertencer a outra classe, que geralmente é de um tipo menos complexo.} do auto-estado de energia $E_{j}$; $k_{B}$ é a constante de Boltzmann; e $T$ é a temperatura. Então, pode-se definir a distribuição de probabilidade conjunta com base na energia da seguinte forma:
 
     \begin{equation}
         P\left(\bm{x}\right) = \dfrac{\exp{\left(-\mathcalboondox{E\left(\bm{x}\right)}\right)}}{Z}
@@ -669,6 +669,17 @@ Assim, a distribuição de probabilidade conjunta pode ser definida com base na 
     \end{equation}
 \end{definition}
 
+Diferentemente de como ocorre com as \textit{máquinas de Boltzmann}, com uma estrutura mais clássica que segue um modelo de rede completamente conectada, no caso das RBM inexistem conexões que interligam nós de um mesmo nível da rede --- é isto que caracteriza a denominação ``restrita'' ---, ou seja, as entradas não estão conectadas entre si; além disso, a estrutura básica típica de RBM faz uso de uma única camada oculta, mas há suporte para a adição de múltiplas camadas, o que pode culminar em uma abordagem profunda. Para seguir essa abordagem, basta seguir um empilhamento de modo a inserir apenas camadas ocultas uma seguida da outra.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figs/ann_arch_rbm.pdf}
+    \caption{Modelo esquemático de redes neurais com arquitetura RBM.}
+    \label{fig:ann_arch_rbm}
+\end{figure}
+
+A Figura \ref{fig:ann_arch_rbm} ilustra um modelo esquemático de redes neurais com arquitetura RBM para uma única camada oculta. Vale observar que a forma clássica de se representar tal tipo de rede não explicita o uso das funções de ativação, tampouco explicita a saída como pertencente a uma nova camada da rede; em vez disso, a rede é representada exclusivamente por camadas visíveis e camadas ocultas, que podem ter números distintos de nós (ou neurônios). Caso essa abordagem fosse utilizada, essa mesma rede poderia ser representada meramente pelos nós indicados por $\bm{x}$ e $\bm{h}$.
 
 
 
@@ -676,11 +687,23 @@ Assim, a distribuição de probabilidade conjunta pode ser definida com base na 
 \subsection{Redes Recorrentes}
 \label{subsec:ann_recurrent_nets}
 
+As \textit{redes neurais recorrentes} (\textbf{RNN}, \textit{Recurrent Neural Networks}) \citep{Rumelhart1986} são modelos cuja estrutura pode ser compreendida como um grafo direcionado que representa uma série temporal. Uma das mais importantes e marcantes características intrínsecas das RNNs é sua persistência, com nós que realizam, sobre si mesmos, procedimentos de ajustes com base em erros de suas próprias saídas. 
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.25\textwidth]{figs/ann_arch_rnn_chunk.pdf}
+    \caption{Representação de um pequeno trecho da composição de uma RNN.}
+    \label{fig:ann_arch_rnn_chunk}
+\end{figure}
 
+A Figura \ref{fig:ann_arch_rnn_chunk} ilustra um pequeno trecho de uma RNN. A representação indicada por $x_{t}$ e por $y_{t}$ com o $t$ subscrito reflete a ideia de sequência temporal que as próprias RNNs carregam, contudo, vale ressaltar que a transformação que o nó de processamento, indicado por $h$, não sofre variações ao longo do tempo. Uma forma diferenciada de ilustrar funcionalmente a mesma estrutura é indicada pela Figura \ref{fig:ann_arch_rnn_multiple}.
 
-
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figs/ann_arch_rnn_multiple.pdf}
+    \caption{Representação de um pequeno trecho da composição de uma RNN.}
+    \label{fig:ann_arch_rnn_multiple}
+\end{figure}
 
 
 
