@@ -139,7 +139,7 @@ Duas funções de ativação que serão exploradas neste trabalho são: Logísti
 \newpage
 
 
-\begin{definition}[Função Logística]
+\begin{definition}[Função Logística (Sigmoidal)]
     Dada uma entrada $x$, a função Logística pode ser definida como:
 
     \begin{equation}
@@ -157,7 +157,7 @@ Duas funções de ativação que serão exploradas neste trabalho são: Logísti
     
 \end{definition}
 
-A Figura \ref{fig:ann_logistic_function} exibe o comportamento da função logística.
+A Figura \ref{fig:ann_logistic_function} exibe o comportamento da função logística, também conhecida como Sigmoidal.
 
 \begin{figure}[H]
     \centering
@@ -587,7 +587,7 @@ A Figura \ref{fig:ann_arch_rbf} ilustra um modelo esquemático de redes neurais 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\textwidth]{figs/ann_arch_rbf.pdf}
+    \includegraphics[width=0.90\textwidth]{figs/ann_arch_rbf.pdf}
     \caption{Modelo esquemático de redes neurais com arquitetura RBF.}
     \label{fig:ann_arch_rbf}
 \end{figure}
@@ -603,19 +603,39 @@ A Figura \ref{fig:ann_arch_rbf} ilustra um modelo esquemático de redes neurais 
 \subsection{Redes Hopfield}
 \label{subsec:ann_hopfield_nets}
 
+Outra arquitetura de rede neural bastante marcante é a rede \textit{Hopfield} \citep{hopfield1982neural}, uma rede de tipo recorrente e com a importante característica de oferecer garantia de convergência na busca por um ponto de mínimo ao realizar um processo de otimização, contudo, não há qualquer garantia quanto a qual será o ponto de mínimo, o que significa que pode se tratar de um mínimo local; ou seja, pode ser que o resultado obtido pelo processo de otimização não seja, de fato, o melhor possível, embora o resultado obtido sugira que tenha sido este o caso.
+
+A Figura \ref{fig:ann_arch_hopfield} ilustra um exemplo esquemático de rede com arquitetura Hopfield para um exemplo com três neurônios. Vale notar o fato de que, de certa forma, diferente do que se espera de um modelo clássico de rede neural, neste modelo pode-se dizer que inexistem camadas intermediárias, exceto por casos de variações desta arquitetura, mas não dela própria. A rede pode ser pensada como um grafo direcionado completamente conectado, com pesos fixos e realimentação (\textit{Feedback}), sendo que cada neurônio recebe a sua própria entrada e o \textit{Feedback} (da saída) de cada um dos outros neurônios; contudo, o neurônio não é realimentado com sua própria saída e os pesos associados a cada realimentação são simétricos.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figs/ann_arch_hopfield.pdf}
+    \caption{Modelo esquemático de redes neurais com arquitetura Hopfield, seguindo um exemplo com três neurônios.}
+    \label{fig:ann_arch_hopfield}
+\end{figure}
+
+Os neurônios da rede \textit{Hopfield} podem assumir apenas valores regidos por uma parametrização binária para seus estados, que geralmente são 1 ou -1. Assim como foi dito, todos os neurônios estão ponderadamente conectados entre si, ou seja, para cada par de neurônios $i$ e $j$ há um peso associado $\omega_{ij}$, sendo que, por conta da simetria das ponderações, uma das características desta arquitetura, $\omega_{ij} = \omega_{ji}$. O que define o estado do neurônio, ou seja, se o valor a ser assumido será igual a 1 ou a -1, é o seguinte critério:
 
 
+    \begin{equation}
+        s_{i} = 
+        \begin{cases}
+            +1, & \text{se $\sum\nolimits_{j}\omega_{ij} s_{j} \geq \theta_{i}$}\\
+            -1, & \text{caso contrário}
+        \end{cases}
+        \hspace{0.1cm},
+        \vspace{0.2cm}
+        \label{eq:ann_arch_hopfield_state}
+    \end{equation}
 
-
-
-
+\noindent sendo que $s_{i}$ e $s_{j}$ representam, respectivamente, o estado do neurônio $i$ e o estado do neurônio $j$; $w_{ij}$ indica o peso do neurônio $j$ na conexão com o neurônio $i$; e $\theta_{i}$ é o limiar de estado do neurônio $i$.
 
 
 %   ----- MÁQUINA DE BOLTZMANN RESTRITA -----
 \subsection{Máquina de Boltzmann Restrita}
 \label{subsec:ann_boltzmann_machine}
 
-
+A arquitetura da \textit{máquina de Boltzmann restrita} (\textbf{RBM}, \textit{Restricted Boltzmann Machine}) é única e segue um processo não-supervisionado de aprendizagem; trata-se de um modelo probabilístico que utiliza a energia como métrica.
 
 
 
