@@ -635,10 +635,39 @@ Os neurônios da rede \textit{Hopfield} podem assumir apenas valores regidos por
 \subsection{Máquina de Boltzmann Restrita}
 \label{subsec:ann_boltzmann_machine}
 
-A arquitetura da \textit{máquina de Boltzmann restrita} (\textbf{RBM}, \textit{Restricted Boltzmann Machine}) é única e segue um processo não-supervisionado de aprendizagem; trata-se de um modelo probabilístico que utiliza a energia como métrica.
+A arquitetura da \textit{máquina de Boltzmann restrita}\footnote{O trabalho que deu origem à RBM atribuiu o nome \textit{Harmonium} a esta arquitetura.} (\textbf{RBM}, \textit{Restricted Boltzmann Machine}) \citep{smolensky1986information} é única e segue um processo não-supervisionado de aprendizagem; trata-se de um modelo probabilístico que utiliza a energia como métrica.
+
+\begin{definition}[Função de Energia da Máquina de Boltzmann]
+    Dado o vetor binário aleatório n-dimensional, $\bm{x} \in \{0,1\}^{n}$; a matriz de pesos dos parâmetros do modelo, $U$; e o vetor de parâmetros de  \textit{bias}, a função de energia da máquina de Boltzmann pode ser definida por
+
+    \begin{equation}
+        \mathcalboondox{E}\left(\bm{x}\right) = - \bm{x}^{T}\bm{U}\bm{x} - \bm{b}^{T}\bm{x}
+        \label{eq:ann_arch_rbm_energy}
+    \end{equation}
+\end{definition}
 
 
+Assim, a distribuição de probabilidade conjunta pode ser definida com base na energia da seguinte maneira:
 
+\begin{definition}[Distribuição de Probabilidade Conjunta baseada em Energia]
+    Dada a função de partição $Z$, que pode ser definita por:
+
+    \begin{equation}
+        Z = \nsum_{j} g_{j} \exp{\left(-\dfrac{E_{j}}{k_{B} T}\right)}
+        \hspace{0.1cm},
+        \vspace{0.2cm}
+        \label{eq:ann_arch_rbm_partition}
+    \end{equation}
+
+    \noindent em que $g_{j}$ representa o grau de degenerescência do auto-estado de energia $E_{j}$; $k_{B}$ é a constante de Boltzmann; e $T$ é a temperatura; pode-se, então, definir a distribuição de probabilidade conjunta com base na energia da seguinte forma:
+
+    \begin{equation}
+        P\left(\bm{x}\right) = \dfrac{\exp{\left(-\mathcalboondox{E\left(\bm{x}\right)}\right)}}{Z}
+        \hspace{0.1cm}
+        \vspace{0.2cm}
+        \label{eq:ann_arch_rbm_prob}
+    \end{equation}
+\end{definition}
 
 
 
