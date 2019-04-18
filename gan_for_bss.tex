@@ -2,61 +2,33 @@
 \chapter{GAN para BSS}
 \label{cha:gan_for_bss}
 
-Apeas de a tarefa de separação de fontes não ser nova e contar com um grande número de técnicas diversificadas que tentam atacar o problema a partir de diferentes perspectivas, a abordagem feita pelo uso de GANs com duas redes neurais de múltiplas camadas --- podendo explorar um grau de profundidade de rede que tornaria o processo ainda mais próximo do que se concebe por \textit{Deep Learning} --- ainda é muito incipiente; inclusive, a incipiência de tal abordagem neste contexto faz com que haja uma distribuição bastante espalhada quanto ao que diz respeito à diversidade de métodos, técnicas, hipóteses etc. Isto faz com que seja ainda mais aconselhável explicar detalhes que poderiam ser interpretados como supérfulos para um trabalho em área já bastante explorada e consolidada.
+Apesar de a tarefa de separação de fontes não ser nova e contar com um grande número de técnicas diversificadas que tentam atacar o problema a partir de diferentes perspectivas, a abordagem feita pelo uso de GANs com duas redes neurais de múltiplas camadas --- podendo explorar um grau de profundidade de rede que tornaria o processo ainda mais próximo do que se concebe por \textit{Deep Learning} --- ainda é muito incipiente; inclusive, a incipiência de tal abordagem neste contexto faz com que haja uma distribuição bastante espalhada quanto ao que diz respeito à diversidade de métodos, técnicas, hipóteses etc. Isto faz com que seja ainda mais aconselhável explicar detalhes que poderiam ser interpretados como supérfulos para um trabalho em área já bastante explorada e consolidada.
 
-Na Seção \ref{sec:gan_for_bss_how_to_use} será explicado, com algum grau de detalhamento, quais foram os passos seguidos pelo autor deste trabalho para se utilizar as GANs com a finalidade de se efetuar a tarefa de geração de imagens para a etapa preliminar de resultados com o objetivo de reforçar a prova de conceito sobre a capacidade das GANs; mais à frente, serão trazidos os passos referentes à sua utilização com o objetivo principal específico de se realizar a separação de sinais para fontes de áudio.
+% Na Seção \ref{sec:gan_for_bss_how_to_use} será explicado, com algum grau de detalhamento, quais foram os passos seguidos pelo autor deste trabalho para se utilizar as GANs com a finalidade de se efetuar a tarefa de geração de imagens para a etapa preliminar de resultados com o objetivo de reforçar a prova de conceito sobre a capacidade das GANs; mais à frente, serão trazidos os passos referentes à sua utilização com o objetivo principal específico de se realizar a separação de sinais para fontes de áudio.
 
-Continuando, na Seção \ref{sec:gan_for_bss_considerations} serão feitas considerações importantes especificamente sobre o uso de GANs para BSS. Mais à frente, na Seção \ref{sec:gan_for_bss_bib_review} será feita uma revisão bibliográfica de alguns importantes trabalhos da área que possam trazer alguma contribuição para a compreensão quanto à aborgagem deste trabalho, ou quanto à sua implementação. Então, serão discutidas as limitações desta abordagem na Seção \ref{sec:gan_for_bss_limitacoes} e, por fim, a Seção \ref{sec:gan_for_bss_propositions} trará a proposta a ser efetivamente implementada por este trabalho.
-
-
-
-%   -------------------------
-%   ----- Como Utilizar -----
-%   -------------------------
-\section{Como Utilizar}
-\label{sec:gan_for_bss_how_to_use}
-
-Para as implementações preliminares, os modelos dependem de tratamentos que satisfaçam necessidades por questão de conveniência para a utilização de imagens, tais como a de manter um mesmo padrão de formato para as figuras de entrada, assim como a preservação de uma mesma resolução e uma mesma quantização para todas as figuras; isto faz com que seja necessária uma etapa de pré-processamento que garanta tais configurações às entradas oriundas do \textit{dataset} adotado.
-
-Dependendo de como estiverem as imagens do \textit{dataset} utilizado, pode ser preciso realizar uma etapa extra de pré-processamento, que se trata do ajuste de enquadramento do elemento principal, que deve sempre tomar como critério o objetivo almejado pelo experimento a ser realizado com tal \textit{dataset}. Por exemplo, caso deseje-se ensinar a rede a gerar rostos de pessoas, sendo um único rosto por figura gerada, deve-se preferir inserir, justamente, imagens de rostos de pessoas em que haja apenas um rosto por imagem, pois é o que se aproxima mais do padrão almejado após uma bem sucedida etapa de treinamento. Assim sendo, pode ser preciso ajustar a imagem de modo a manter enquadrado o objeto principal, que, para o exemplo dado aqui, seria o rosto da pessoa para cada imagem.
-
-Feitas todas as devidas etapas que compõem o pré-processamento, as imagens, que são os elementos de entrada da rede, estão prontas para serem utilizadas para efetuar o treinamento; falta, então, a escolha dos demais elementos, que são a arquitetura da rede, as funções de transferência, os métodos de otimização e seus respectivos parâmetros de entrada, dado que atuam como funções.
+% Continuando, na Seção \ref{sec:gan_for_bss_considerations} serão feitas considerações importantes especificamente sobre o uso de GANs para BSS. Mais à frente, na Seção \ref{sec:gan_for_bss_bib_review} será feita uma revisão bibliográfica de alguns importantes trabalhos da área que possam trazer alguma contribuição para a compreensão quanto à aborgagem deste trabalho, ou quanto à sua implementação. Então, serão discutidas as limitações desta abordagem na Seção \ref{sec:gan_for_bss_limitacoes} e, por fim, a Seção \ref{sec:gan_for_bss_propositions} trará a proposta a ser efetivamente implementada por este trabalho.
 
 
 
-
-
-
-
-%   -------------------------
-%   ----- Considerações -----
-%   -------------------------
-\section{Considerações}
-\label{sec:gan_for_bss_considerations}
-
-Caso se saiba que um dado \textit{dataset} será muito utilizado para treinamentos da rede e seus dados não possuírem as especificações requeridas pela rede para ser utilizadas como entradas sem antes dependerem de um pré-processamento, é aconselhável realizar toda a etapa de pré-processamento uma única vez e salvar como um novo \textit{dataset} para futuras utilizações, pois, dependendo do caso, o tempo de pré-processamento pode ser consideravelmente alto e, se feito de forma insatisfatória, pode influenciar negativamente nos resultados a serem obtidos pela rede, o que não necessariamente serão por conta de uma má qualidade da rede em si; apesar de haver um pensamento que guia alguns pesquisadores e desenvolvedores a acreditar no poder do \textit{Deep Learning} suficientemente elevado a ponto de permitir à rede uma total independência de tratamentos prévios, uma boa etapa de pré-processamento continua sendo capaz de influenciar positivamente os resultados finais.
-
-
-
-%   ---------------------------------
-%   ----- Revisão Bibliográfica -----
-%   ---------------------------------
-\section{Revisão Bibliográfica}
-\label{sec:gan_for_bss_bib_review}
+% %   ---------------------------------
+% %   ----- Revisão Bibliográfica -----
+% %   ---------------------------------
+% \section{Revisão Bibliográfica}
+% \label{sec:gan_for_bss_bib_review}
 
 Embora ainda seja uma área incipiente, as características potencialmente disruptivas das Redes Adversariais Generativas têm sido bastante atraentes e convidativas aos olhos de inúmeros pesquisadores, e com isso, várias pesquisas relacionadas a essa nova abordagem têm sido realizadas, inclusive para aplicações como separação cega de fontes de áudio. Nesta Seção serão trazidos dois trabalhos que corroboram o uso de GANs para separação de fontes.
 
-%   ----- Bengio (ICA + GAN) -----
-\subsection{Bengio (ICA + GAN)}
-\label{subsec:gan_for_bss_ica_gan}
+% %   ----- Bengio (ICA + GAN) -----
+% \subsection{Bengio (ICA + GAN)}
+% \label{subsec:gan_for_bss_ica_gan}
 
 Um trabalho mais contemporânio explorou GANs com ICA não-linear para encontrar o que foi chamado de \textit{características independentes}, que são obtidas implicitamente por meio dos processos de otimização das GANs, baseando-se no confronto entre amostras de distribuições de probabilidade conjuntas e de produtos das distribuições marginais, não sendo necessário calcular as densidades de probabilidade \citep{brakel2017learning}.
 
 
 
-%   ----- Gan + BSS -----
-\subsection{Smaragdis (GAN + BSS)}
-\label{subsec:gan_for_bss_gan_bss}
+% %   ----- Gan + BSS -----
+% \subsection{Smaragdis (GAN + BSS)}
+% \label{subsec:gan_for_bss_gan_bss}
 
 Em 2018, uma publicação intitulada \textit{Generative Adversarial Source Separation} \citep{8461671} conduziu um experimento de separação de fontes de fala usando um perceptron multicamada com uma variação das GANs originais chamadas \textit{Wasserstein-GAN} \citep{arjovsky2017wasserstein}. Os resultados obtidos em termos de taxa de fonte para distorção indicam melhor desempenho por MLP treinado com Wasserstein-GAN em vez do uso de Fatoração de Matrizes Não-Negativas (NMF) \citep{lee1999learning}, auto-encoders treinados com máxima verossimilhança e auto-encoders variáveis. Neste trabalho, os autores propuseram o uso de uma função discriminante, $D_{\xi}\left(\cdot\right)$, que visa distinguir entre as amostras geradas a partir do modelo e as amostras advindas das instâncias de treinamento. Após o treinamento, é possível gerar amostras usando o processo descrito em (\ref{eq:08461671_gen_process}),
 
@@ -132,6 +104,38 @@ A otimização para separar as fontes considerando uma coluna espectral $x^{1:\m
 
 
 
+%   -------------------------
+%   ----- Como Utilizar -----
+%   -------------------------
+\section{Como Utilizar}
+\label{sec:gan_for_bss_how_to_use}
+
+Para as implementações preliminares, os modelos dependem de tratamentos que satisfaçam necessidades por questão de conveniência para a utilização de imagens, tais como a de manter um mesmo padrão de formato para as figuras de entrada, assim como a preservação de uma mesma resolução e uma mesma quantização para todas as figuras; isto faz com que seja necessária uma etapa de pré-processamento que garanta tais configurações às entradas oriundas do \textit{dataset} adotado.
+
+Dependendo de como estiverem as imagens do \textit{dataset} utilizado, pode ser preciso realizar uma etapa extra de pré-processamento, que se trata do ajuste de enquadramento do elemento principal, que deve sempre tomar como critério o objetivo almejado pelo experimento a ser realizado com tal \textit{dataset}. Por exemplo, caso deseje-se ensinar a rede a gerar rostos de pessoas, sendo um único rosto por figura gerada, deve-se preferir inserir, justamente, imagens de rostos de pessoas em que haja apenas um rosto por imagem, pois é o que se aproxima mais do padrão almejado após uma bem sucedida etapa de treinamento. Assim sendo, pode ser preciso ajustar a imagem de modo a manter enquadrado o objeto principal, que, para o exemplo dado aqui, seria o rosto da pessoa para cada imagem.
+
+Feitas todas as devidas etapas que compõem o pré-processamento, as imagens, que são os elementos de entrada da rede, estão prontas para serem utilizadas para efetuar o treinamento; falta, então, a escolha dos demais elementos, que são a arquitetura da rede, as funções de transferência, os métodos de otimização e seus respectivos parâmetros de entrada, dado que atuam como funções.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -159,3 +163,15 @@ Um outro ponto relevante é o fato de que o as redes estão sendo treinadas para
 A proposta deste trabalho é a de investigar técnicas de separação de sinais de áudio por meio de arcabouços de GANs, explorando possíveis mudanças estruturais em sua arquitetura básica, que podem envolver etapas intermediárias de processamento, modelos compostos por múltiplas GANs em série que trabalhem em conjunto, ou transformações dos dados. Incialmente, serão investigadas algumas estruturas típicas, a fim reproduzir algumas gerações de imagens que corroborem a ideia de as GANs serem capazes de gerar amostras respeitando uma dada distribuição probabilística. 
 
 Será seguida uma abordagem de \textit{aprimoramento de voz}  (\textit{Voice Enhancement}) e \textit{atenuação de ruído} (\textit{Denoising}) explorando GANs, o que significa que, após aplicar arcabouços especificamente desenvolvidos para esse fim, serão obtidas versões cujos sinais de voz envolvidos serão, de alguma forma, aprimorados.
+
+
+
+
+
+%   -------------------------
+%   ----- Considerações -----
+%   -------------------------
+\section{Considerações}
+\label{sec:gan_for_bss_considerations}
+
+Caso se saiba que um dado \textit{dataset} será muito utilizado para treinamentos da rede e seus dados não possuírem as especificações requeridas pela rede para ser utilizadas como entradas sem antes dependerem de um pré-processamento, é aconselhável realizar toda a etapa de pré-processamento uma única vez e salvar como um novo \textit{dataset} para futuras utilizações, pois, dependendo do caso, o tempo de pré-processamento pode ser consideravelmente alto e, se feito de forma insatisfatória, pode influenciar negativamente nos resultados a serem obtidos pela rede, o que não necessariamente serão por conta de uma má qualidade da rede em si; apesar de haver um pensamento que guia alguns pesquisadores e desenvolvedores a acreditar no poder do \textit{Deep Learning} suficientemente elevado a ponto de permitir à rede uma total independência de tratamentos prévios, uma boa etapa de pré-processamento continua sendo capaz de influenciar positivamente os resultados finais.

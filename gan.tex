@@ -87,6 +87,13 @@ Para evitar as piores consequências possíveis para ambos os criminosos, eles t
 
 Explorando conceitos de Teoria dos Jogos e de Aprendizagem Profunda, foi possível formular um novo tipo de abordagem, utilizando duas redes neurais como jogadores adversários de um jogo competitivo; assim, foram propostas as Redes Adversárias Geradoras (\textbf{GAN}, do inglês \textit{Generative Adversarial Networks}) \citep{NIPS2014_5423}.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figs/gan_framework.pdf}
+    \caption{Arcabouço clássico da GAN.}
+    \label{fig:gan_framework}
+\end{figure}
+
 Neste jogo competitivo para dois jogadores, existe um conjunto de dados já bem preparado, composto por amostras do mesmo tipo, escolhidas de forma adequada, mas com valores de atributos diferentes. O primeiro jogador, $D$, tem o objetivo de discriminar se uma amostra veio do conjunto de dados original ou não; o segundo, $G$, deve capturar a distribuição do conjunto de dados original e usá-la para gerar amostras completamente novas. Assim, enquanto um dos jogadores pretende gerar a imitação perfeita dos dados originais, o outro jogador tenta ser o melhor identificador de falsificações possível.
 
 Como foi dito neste capítulo, ambos os jogadores deste jogo são redes neurais artificiais e, como há uma dependência de treinamento, este passo deve ocorrer gradualmente e concomitantemente para ambos os jogadores, caso contrário, dado que os jogadores estão jogando um contra o outro, caso contrário, pode ocorrer um desequilíbrio de evolução em favor de um dos atores, que tenderá a tornar o processo evolutivo cada vez mais desfavorável para um lado e, assim, em vez de conseguir uma boa evolução para ambos, apenas um deles evoluirá minimamente se comparado ao outro, o que sequer garante que o processo terá sido bom para ao menos um dos jogadores. O modelo matemático baseado na regra de decisão Minimax, da Subseção (\ref{subsec:gan_minmax}), que é utilizado pelo algoritmo da GAN, pode ser visto na Equação (\ref{eq:minimax}).
