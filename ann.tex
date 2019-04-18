@@ -683,8 +683,8 @@ A Figura \ref{fig:ann_arch_rbm} ilustra um modelo esquemático de redes neurais 
 
 
 
-%   ----- REDES RECORRENTES -----
-\subsection{Redes Recorrentes}
+%   ----- REDES NEURAIS RECORRENTES -----
+\subsection{Redes Neurais Recorrentes}
 \label{subsec:ann_recurrent_nets}
 
 As \textit{redes neurais recorrentes} (\textbf{RNN}, \textit{Recurrent Neural Networks}) \citep{Rumelhart1986} são modelos cuja estrutura pode ser compreendida como um grafo direcionado que representa uma série temporal. Uma das mais importantes e marcantes características intrínsecas das RNNs é sua persistência, com nós que realizam, sobre si mesmos, procedimentos de ajustes com base em erros de suas próprias saídas. São exemplos de RNNs a arquitetura \textit{Hopfield} e a arquitetura de \textit{memória de longo prazo} (\textbf{LSTM}, \textit{Long Short-Time Memory}).
@@ -707,6 +707,23 @@ A Figura \ref{fig:ann_arch_rnn_chunk} ilustra um pequeno trecho de uma RNN. A re
 
 
 
+
+
+%   ----- REDES NEURAIS CONVOLUCIONAIS -----
+\subsection{Redes Neurais Convolucionais}
+\label{subsec:ann_convolutional_nets}
+
+Embora sejam mais tipicamente associada a casos de redes profundas, as \textit{redes neurais convolucionais} (\textbf{CNN}, \textit{Convolutional Neural Networks}) \citep{fukushima1980neocognitron} também podem ser implementadas em redes com poucas camadas\footnote{Ao dizer ``redes com poucas camadas'', é importante ressaltar que inexiste uma definição formal e amplamente aceita de um limiar que distingue o que é uma rede profunda do que é uma rede rasa. Para alguns, qualquer rede com mais de uma única camada oculta é profunda; para outros, com mais de duas; e há os que exijam quantias bem maiores de camadas para só então classificarem como profundas.}. Trata-se de um tipo de rede bastante explorado, sobretudo em trabalhos de processamento de imagens, embora não se limite a tais aplicações. Uma possível interpretação razoável a respeito desta abordagem é a de que ela permite analisar a informação a partir de diferentes perspectivas, fazendo desdobramentos por meio das convoluções discretas, geralmente, em duas dimensões; esses desdobramentos por vezes conferem uma peculiar independência quanto às típicas necessidades de informações \textit{a priori}, inerentes a tantos outros métodos. Apesar de ser amplamente utilizado, este tipo de rede demanda elevado poder computacional\footnote{Este, aliás, é um dos principais motivos pelos quais a sua ampla adesão foi tão tardia em relação a quando tal modelo foi trazido ao conhecimento do meio; o processamento por GPU foi um dos principais catalisadores da viabilidade do modelo quanto à sua eficiência \citep{OH20041311, doi:10.1162/neco.2006.18.7.1527}.}; ainda assim, não se trata da abordagem mais custosa.
+
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.00\textwidth]{figs/gan_dcgan.pdf}
+    \caption{DCGAN}
+    \label{fig:gan_dcgan}
+\end{figure}
 
 
 
