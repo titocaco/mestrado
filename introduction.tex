@@ -211,9 +211,7 @@ Este outro trabalho \citep{6245800} utilizou-se de uma combinação entre Análi
 \section{Desafios}
 \label{sec:intro_challenges}
 
-Assim como ocorre em qualquer outra área do conhecimento, a área de separação de fontes possui os seus desafios. Conforme pesquisas na matemática, na ciência e na engenharia avançam, cada vez mais formas eficazes e eficientes são desenvolvidas para que esse objetivo possa ser atingido. Contudo, uma característica intrínseca da ciência é a sua incessante busca por respostas; e sabe-se que ao longo da busca pela resposta de uma pergunta, inevitavelmente, novas dúvidas serão encontradas, sendo que estas requererão novas buscas por respostas, preservando-se, então, tal apaixonante comportamento \textit{Ad infinitum}.
-
-Novas dificuldades, novas barreiras, novos problemas e novas dúvidas sempre existirão. Por mais que se consiga vencer, transcender, resolver e responder, sempre haverá muito espaço novo a ser explorado por quem estiver interessado e for apto a desbravar-se nesse meio. As subseções a seguir trarão explanações acerca de alguns dos desafios mais comuns desta área.
+Assim como ocorre em qualquer outra área do conhecimento, a área de separação de fontes possui os seus desafios. Conforme pesquisas na matemática, na ciência e na engenharia avançam, cada vez mais formas eficazes e eficientes são desenvolvidas para que esse objetivo possa ser atingido. Contudo, uma característica intrínseca da ciência é a sua incessante busca por respostas; e sabe-se que ao longo da busca pela resposta de uma pergunta, inevitavelmente, novas dúvidas serão encontradas, sendo que estas requererão novas buscas por respostas, preservando-se, então, tal apaixonante comportamento \textit{Ad infinitum}. Novas dificuldades, novas barreiras, novos problemas e novas dúvidas sempre existirão. Por mais que se consiga vencer, transcender, resolver e responder, sempre haverá muito espaço novo a ser explorado por quem estiver interessado e for apto a desbravar-se nesse meio.
 
 
 
@@ -223,9 +221,7 @@ Novas dificuldades, novas barreiras, novos problemas e novas dúvidas sempre exi
 
 Um caso bastante corriqueiro desta área de pesquisa é conhecido como subparametrizado (ou, para fontes em inglês, \textit{Undetermined}), que consiste em um cenário cujo número de variáveis envolvidas é superior ao número de equações, impossibilitando que abordagens mais simples e diretas atinjam a eficácia desejada, pois, como se sabe, trata-se de um sistema com número infinito de soluções possíveis, o que está em desacordo com o que se almeja obter.
 
-Para os fins deste trabalho, dado que as aplicações finais serão todas focadas em sinais de áudio, pode-se adaptar o uso de tais termos para uma linguagem mais próxima a tal área, de modo que a interpretação do problema se faça mais clara a partir de então. Assim sendo, o caso subparametrizado pode ser interpretado como sendo aquele em que o número de fontes de áudio é maior que o número de microfones.
-
-Apenas para fins de exemplificação, poderia-se imaginar uma performance musical realizada por uma orquestra sendo gravada com um único microfone; a tarefa de separação neste caso seria subparametrizada, dado que seriam muitos instrumentos musicais a serem separados com base em um único sinal de uma mistura resultante do único microfone utilizado.
+Para os fins deste trabalho, dado que as aplicações finais serão todas focadas em sinais de áudio, pode-se adaptar o uso de tais termos para uma linguagem mais próxima a tal área, de modo que a interpretação do problema se faça mais clara a partir de então. Assim sendo, o caso subparametrizado pode ser interpretado como sendo aquele em que o número de fontes de áudio é maior que o número de microfones. Apenas para fins de exemplificação, poderia-se imaginar uma performance musical realizada por uma orquestra sendo gravada com um único microfone; a tarefa de separação neste caso seria subparametrizada, dado que seriam muitos instrumentos musicais a serem separados com base em um único sinal de uma mistura resultante do único microfone utilizado.
 
 
 
@@ -234,7 +230,7 @@ Apenas para fins de exemplificação, poderia-se imaginar uma performance musica
 % \subsection{Convolutivo}
 % \label{subsec:intro_convolutive}
 
-Apesar de existir todo um conjunto de cenários mais simples, independentes de memória, modelos convolutivos, dependentes de memória, tendem a ser alternativas bastante convenientes para diversas aplicações, mas, como a complexidade do problema e o custo computacional tendem a crescer, cresce também a demanda por uma cautela extra no desenvolvimento dos modelos. A realização de processos de separação de fontes para cenários de misturas convolutivas pode ser feita por meio de técnicas com abordagens no domínio do tempo ou no domínio da frequência.
+Apesar de existir todo um conjunto de cenários mais simples e independentes de memória, modelos convolutivos, que são dependentes de memória, tendem a ser alternativas bastante convenientes para diversas aplicações, mas, como a complexidade do problema e o custo computacional tendem a crescer, cresce também a demanda por uma cautela extra no desenvolvimento dos modelos. A realização de processos de separação de fontes para cenários de misturas convolutivas pode ser feita por meio de técnicas com abordagens no domínio do tempo ou no domínio da frequência.
 
 
 
@@ -243,7 +239,7 @@ Apesar de existir todo um conjunto de cenários mais simples, independentes de m
 % \subsection{Não-Linear}
 % \label{subsec:intro_non-linear}
 
-Além de todas as possibilidades relacionadas a processos de misturas lineares, há também os casos de misturas não lineares, que são bem mais numerosas e complexas, embora sejam mais flexíveis e, assim, sejam capazes de causar efeitos ainda mais difíceis de serem desfeitos com elevados níveis de eficácia, o que pode demandar a utilização de técnicas mais rebuscadas e que ataquem o problema apartir de outras abordagens, tais como a análise de componentes independentes para misturas não lineares \citep{hyvarinen1999nonlinear}, misturas de tipo PNL \citep{taleb1999source} e processos de Gaussianização \citep{sole2003improving, ziehe2003blind}.
+Além de todas as possibilidades relacionadas a processos de misturas lineares, há também os casos de misturas não lineares, que são bem mais numerosos e complexos, embora sejam mais flexíveis e, assim, sejam capazes de causar efeitos ainda mais difíceis de serem desfeitos com elevados níveis de eficácia, o que pode demandar a utilização de técnicas mais rebuscadas e que ataquem o problema a partir de outras abordagens, tais como a análise de componentes independentes para misturas não lineares \citep{hyvarinen1999nonlinear}, misturas de tipo PNL \citep{taleb1999source} e processos de Gaussianização \citep{sole2003improving, ziehe2003blind}.
 
 
 
@@ -264,7 +260,7 @@ Os principais pontos sobre o uso das ANNs para este trabalho são: o fato de que
 \section{Objetivos}
 \label{sec:intro_objectives}
 
-Os principais objetivos perseguidos por este trabalho em particular são: a realização do aprimoramento de sinais de áudio e, especificamente, de sinais de vozes humanas, utilizando GANs (\textit{Generative Adversarial Networks}). Para os objetivos secundários, pretende-se desenvolver um ambiente virtual convenientemente elaborado para comportar testes com diferentes arquiteturas de GANs; desenvolver uma nova topologia baseada em seu modelo original; e realizar a tarefa de separação cega de fontes de áudio.
+Os principais objetivos perseguidos por este trabalho em particular são: a realização do aprimoramento de sinais de áudio e, especificamente, de sinais de vozes humanas, utilizando GANs. Para os objetivos secundários, pretende-se desenvolver um ambiente virtual convenientemente elaborado para comportar testes com diferentes arquiteturas de GANs; desenvolver uma nova topologia baseada em seu modelo original; e realizar a tarefa de separação cega de fontes de áudio.
 
 
 %   ------------------------------------
@@ -275,12 +271,14 @@ Os principais objetivos perseguidos por este trabalho em particular são: a real
 
 O Capítulo \ref{cha:bss}, intitulado ``Separação Cega de Fontes'', explicará alguns diferentes cenários, bem como aspectos e influências de linearidade e memória; também  serão expostos problemas relacionados e técnicas clássicas, que já são amplamente conhecidas e tipicamente utilizadas para realizar tarefas relacionadas ao problema de separação cega de fontes.
 
-O Capítulo \ref{cha:ann} é reservado ao fornecimento de informações importantes sobre toda a base do que será explorado sobre Redes Neurais Artificiais ao longo deste trabalho, partindo de elementos históricos, passando pelas explicações sobre \textit{Perceptrons}, arquiteturas e propriedades, explanando a essência do \textit{Backpropagation} --um dos algoritmos mais importantes desta área-- e, finalmente, chegando às redes profundas, que são as que serão, de fato, utilizadas nos algoritmos deste trabalho.
+O Capítulo \ref{cha:ann} é reservado ao fornecimento de informações importantes sobre toda a base do que será explorado sobre Redes Neurais Artificiais ao longo deste trabalho, partindo de elementos históricos, passando pelas explicações sobre \textit{Perceptrons}, arquiteturas e propriedades, explanando a essência do \textit{Backpropagation} --- um dos algoritmos mais importantes desta área --- e, finalmente, chegando às redes profundas, que são as que serão, de fato, utilizadas nos algoritmos deste trabalho.
 
-O Capítulo \ref{cha:gan} explicará diversos aspectos sobre as Redes Adversárias Geradoras, desde sua origem, as bases de inspiração apoiadas em conceitos de teoria dos jogos, elementos estruturais, características intrínsecas desse modelo, alternativas para contornar problemas constatados e, por fim, aplicações em imagens, que, até então, é o tipo de mídia mais amplamente explorado quando tal ferramenta é utilizada.
+O Capítulo \ref{cha:gan} explicará diversos aspectos sobre as GANs, desde sua origem, as bases de inspiração apoiadas em conceitos de teoria dos jogos, elementos estruturais, características intrínsecas desse modelo, alternativas para contornar problemas constatados e, por fim, aplicações em imagens, que, até então, é o tipo de mídia mais amplamente explorado quando tal ferramenta é utilizada.
 
-O Capítulo \ref{cha:gan_for_bss} entrará no que, efetivamente, é o objetivo principal deste trabalho, i.e., a utilização de redes adversárias geradoras para a realização da tarefa de separação cega de fontes, que neste caso são sinais de áudio. Haverá uma seção destinada à explicação sobre como utilizar tal recurso. Também serão feitas diversas considerações relevantes, bem como uma ampla revisão bibliográfica contemporânea. Ao fim, serão discutidas as limitações identificadas e serão trazidas algumas propostas.
+O Capítulo \ref{cha:gan_for_bss} entrará no que permeia o objetivo principal deste trabalho, i.e., a utilização de GANs para a realização da tarefa de separação cega de fontes, que neste caso são sinais de áudio. Haverá uma seção destinada à explicação sobre como utilizar tal recurso. Também serão feitas diversas considerações relevantes, bem como uma revisão bibliográfica contemporânea. Ao fim, serão discutidas as limitações identificadas e serão trazidas algumas propostas.
 
-O Capítulo \ref{cha:results} trará uma série de simulações para diferentes cenários com suas respectivas metodologias explicadas, bem como resultados devidamente acompanhados de suas discussões.
+O Capítulo \ref{cha:results} trará o ambiente se simulação utilizado para a realização de todas as implementações deste trabalho, assim como as simulações (\textit{Per se}) para diferentes cenários com suas respectivas metodologias explicadas, bem como resultados devidamente acompanhados de suas discussões.
 
-O Capítulo \ref{cha:conclusion} encerrará o trabalho com as conclusões obtidas ao longo de todo este trabalho, bem como perspectivas futuras para possíveis caminhos a serem doravante trilhados.
+% O Capítulo \ref{cha:conclusion} encerrará o trabalho com as conclusões obtidas ao longo de todo este trabalho, bem como perspectivas futuras para possíveis caminhos a serem doravante trilhados.
+
+Por fim, o Capítulo \ref{cha:schedule} tratá o cronograma planejado para a realização deste trabalho, oferecendo uma conveniente noção a respeito das principais atividades envolvidas nesta obra ainda em desenvolvimento.

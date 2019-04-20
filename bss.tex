@@ -120,7 +120,7 @@ Há também a necessidade de a matriz $\mathbf{A}$ ser, de fato, inversível\foo
 \vspace{0.2cm}
 \end{equation}
 
-Mas esta é apenas uma visão teórica de uma parte--digamos--mais controlada do problema. O que se tem na prática, efetivamente, é que a tarefa de se obter cada componente em questão pode ser algo impraticável ou, no mínimo, inviável. Assim, antes de partir para a tarefa de identificação dos componentes em si, deve-se realizar um pré-processamento, a ser melhor explicado na Seção \ref{sec:bss_preproc}.
+% Mas esta é apenas uma visão teórica de uma parte um tanto mais controlada do problema. O que se tem na prática, efetivamente, é que a tarefa de se obter cada componente em questão pode ser algo impraticável ou, no mínimo, inviável. Assim, antes de partir para a tarefa de identificação dos componentes em si, deve-se realizar um pré-processamento, a ser melhor explicado na Seção \ref{sec:bss_preproc}.
 
 
 
@@ -221,7 +221,7 @@ Além dos pontos até então mencionados ao longo desta seção, existem problem
 \subsection{Extração Cega de Fontes}
 \label{subsec:bss_bse}
 
-Um dos vários problemas relacionados ao de BSS é conhecido como Extração Cega de Fontes (\textbf{BSE}, do inglês \textit{Blind Source Extraction}) \citep{5967775}, sendo justamente um dos mais próximos ao que efetivamente é o próprio problema de BSS, afinal, enquanto o BSS deseja obter a versão separada de todos os sinais de interesse, o BSE almeja fazer algo similar, mas apenas para um sinal, tal como representa o modelo a seguir: \\
+Um dos vários problemas relacionados ao de BSS é conhecido como \textit{extração cega de fontes} (\textbf{BSE}, \textit{Blind Source Extraction}) \citep{5967775}, sendo justamente um dos mais próximos ao que efetivamente é o próprio problema de BSS, afinal, enquanto o BSS deseja obter a versão separada de todos os sinais de interesse, o BSE almeja fazer algo similar, mas apenas para um sinal, tal como representa o modelo a seguir: \\
 
 \nomenclature{BSE}{\textit{Blind Source Extraction}}
 
@@ -262,7 +262,7 @@ Existem duas interpretações comumente adotadas para o termo Desconvolução Ce
 O que se almeja aqui é efetuar essa decomposição, ou seja, obter os sinais $s_{1}[n]$ e $s_{2}[n]$ que, ao serem convoluídos, resultam no sinal $y[n]$. Através das técnicas clássicas de deconvolução não é possível atingir tal objetivo sem que sejam feitas suposições iniciais, mas não basta assumir qualquer realidade para que o algoritmo obtenha êxito em sua aplicação. Os trabalhos \citep{661479, 7077344} ilustram bem dois exemplos de aplicações em áreas de multimídia; mais especificamente, em áudio.
 
 
-Apesar de ter notoriamente focado em aplicações de processamento de imagens, o trabalho \citep{levin2009understanding} é bastante importante e útil a todos aqueles que desejarem compreender algoritmos de BSE de forma mais aprofundada; ao longo do artigo podem ser vistas análises teóricas e experimentais, incluindo um estudo a respeito do motivo da falha por parte da abordagem que tenta utilizar a estimação de Máximo a Posteriori (\textbf{MAP}, do inglês \textit{Maximum a Posteriori}).
+Apesar de ter notoriamente focado em aplicações de processamento de imagens, o trabalho \citep{levin2009understanding} é bastante importante e útil a todos aqueles que desejarem compreender algoritmos de BSE de forma mais aprofundada; ao longo do artigo podem ser vistas análises teóricas e experimentais, incluindo um estudo a respeito do motivo da falha por parte da abordagem que tenta utilizar a estimação de \textit{máximo a posteriori} (\textbf{MAP}, \textit{Maximum a Posteriori}).
 
 
 
@@ -275,15 +275,15 @@ Apesar de ter notoriamente focado em aplicações de processamento de imagens, o
 
 O termo \textit{Denoising} remete a tratamento de ruídos, independentemente de quais sejam, de como afetam o objeto de interesse do projeto e de quais devem ser, especificamente, as técnicas a serem utilizadas para realizar tal tarefa, embora saiba-se que uma tratativa estatística será necessária devido à natureza dos ruídos \citep{watkinson2001art}. Supressão de ruídos, tratamento de ruídos, redução de ruídos, atenuação de ruídos, cancelamento de ruídos e remoção de ruídos são apenas alguns dos nomes atribuídos a todo um grande conjunto de técnicas cujos objetivos finais acabam sendo, de alguma maneira, o de diminuir os efeitos nocivos provocados por essas perturbações chamadas neste contexto de \textit{ruídos}.
 
-O trabalho \citep{1163209} traz um algoritmo que efetua um tratamento de ruídos em sinais de voz; mais especificamente, o método suprime os efeitos de ruídos estacionários da fala humana tomando como base os trechos do sinal em que não há fala para se obter o \textit{bias} do ruído espectral envolvido. Mas nem sempre o cenário será o mesmo; diversas características sobre o ambiente e sobre o sistema podem sofrer alterações ao longo do tempo. Assim, pode não ser vantajoso apoiar-se exclusivamente em um modelo pré-definido, fixo e inalterável de solução. Uma proposta mais flexível, que permita adaptações conforme a necessidade, pode ser bem mais convidativa e conveniente; modelo amplamente compreendidos como adaptativos \citep{1451965, 382009}.
+O trabalho \citep{1163209} traz um algoritmo que efetua um tratamento de ruídos em sinais de voz; mais especificamente, o método suprime os efeitos de ruídos estacionários da fala humana tomando como base os trechos do sinal em que não há fala para se obter o \textit{bias} do ruído espectral envolvido. Mas nem sempre o cenário será o mesmo; diversas características sobre o ambiente e sobre o sistema podem sofrer alterações ao longo do tempo. Assim, pode não ser vantajoso apoiar-se exclusivamente em um modelo pré-definido, fixo e inalterável de solução. Uma proposta mais flexível, que permita adaptações conforme a necessidade, pode ser bem mais convidativa e conveniente; modelos assim são amplamente compreendidos como adaptativos \citep{1451965, 382009}.
 
-Tal como observado em \citep{7805139, 6334422, 1643650, SPRIET20042367}, uma das técnicas clássicas mais exploradas para se tratar ruídos em sinais de áudio é o Filtro de Wiener\footnote{O trabalho havia sido desenvolvido no \textit{Radiation Laboratory}, MIT, alguns anos antes, aproximadamente entre 1940 e 1942, mas foi classificado como secreto na época e, portanto, mantido sob o mais absoluto sigilo, dadas as circunstâncias da época, dado que os propósitos era de estimar a posição dos bombardeiros alemães a partir de reflexos de radares.} \citep{6284754}, que tipicamente explora o Erro Quadrático Médio (\textbf{MSE}, do inglês \textit{Mean Square Error}) como a função custo do problema, almejando-se, portanto, minizá-la para que se possa atingir o mais baixo nível de ruído possível.
+Tal como observado em \citep{7805139, 6334422, 1643650, SPRIET20042367}, uma das técnicas clássicas mais exploradas para se tratar ruídos em sinais de áudio é o Filtro de Wiener\footnote{O trabalho havia sido desenvolvido no \textit{Radiation Laboratory}, MIT, alguns anos antes, aproximadamente entre 1940 e 1942, mas foi classificado como secreto na época e, portanto, mantido sob o mais absoluto sigilo, dadas as circunstâncias da época, dado que os propósitos era de estimar a posição dos bombardeiros alemães a partir de reflexos de radares.} \citep{6284754}, que tipicamente explora o \textit{erro quadrático médio} (\textbf{MSE}, \textit{Mean Square Error}) como a função custo do problema, almejando-se, portanto, minizá-la para que se possa atingir o mais baixo nível de ruído possível.
 
 \nomenclature{MSE}{\textit{Mean Square Error}}
 
 Mas, apesar de sua enorme contribuição para a área, o filtro de Wiener não podia ser utilizado em qualquer cenário; possuía algumas limitações, como a de depender de processos que fossem estacionários em sentido amplo. Então, vários anos depois, partindo de uma generalização do filtro de Wiener, foi desenvolvido o Filtro de Kalman \citep{kalman1960new}, que pode ser aplicado a processos não estacionários. Tal forma de filtragem obteve ampla adesão nesta área e vários trabalhos foram feitos explorando suas características bastante convenientes, como \citep{701367, 1169756, 91144}.
 
-Além das técnicas mencionadas, há todo um enorme conjunto de outras abordagens, tais como o uso da Transformada Wavelet Discreta (\textbf{DWT}, do inglês \textit{Discrete Wavelet Transform}), geralmente mais explorada em aplicações de imagem e vídeo \citep{119727, doi:10.1175/1520-0477, 336245}; e o da Transformada de Fourier de Tempo Curto (\textbf{STFT}, do inglês \textit{Short-Time Fourier Transform}), bastante utilizadas para áudio \citep{622558, 1164910, 4156182, 1164162, 466662}.
+Além das técnicas mencionadas, há todo um enorme conjunto de outras abordagens, tais como o uso da \textit{transformada Wavelet discreta} (\textbf{DWT}, \textit{Discrete Wavelet Transform}), geralmente mais explorada em aplicações de imagem e vídeo \citep{119727, doi:10.1175/1520-0477, 336245}; e o da \textit{transformada de Fourier de tempo curto} (\textbf{STFT}, \textit{Short-Time Fourier Transform}), bastante utilizadas para áudio \citep{622558, 1164910, 4156182, 1164162, 466662}.
 
 \nomenclature{DWT}{\textit{Discrete Wavelet Transform}}
 \nomenclature{STFT}{\textit{Short-Time Fourier Transform}}
@@ -297,20 +297,17 @@ Além das técnicas mencionadas, há todo um enorme conjunto de outras abordagen
 \section{Análise de Componentes Independentes}
 \label{sec:bss_ica}
 
-O método de Análise de Componentes Independentes (\textbf{ICA}, do inglês \textit{Independent Component Analysis}) é um dos mais importantes e consagrados métodos de separação de sinais já desenvolvidos até então. É, provavelmente, o método mais amplamente utilizado para as mais diversas aplicações dependentes de um processo de separação de fontes, sobretudo para BSS. O método de ICA pode ser interpretado como uma extensão agregadora do PCA \citep{COMON1994287}, explorando independência estatística em vez de apenas considerar correlação e covariância.
+O método de \textit{análise de componentes independentes} (\textbf{ICA}, \textit{Independent Component Analysis}) é um dos mais importantes e consagrados métodos de separação de sinais já desenvolvidos até então. É, provavelmente, o método mais amplamente utilizado para as mais diversas aplicações dependentes de um processo de separação de fontes, sobretudo para BSS. O método de ICA pode ser interpretado como uma extensão agregadora do PCA \citep{COMON1994287}, explorando independência estatística em vez de apenas considerar correlação e covariância.
 
 \nomenclature{ICA}{\textit{Independent Component Analysis}}
 
-Apenas como uma questão de curiosidade, é interessante lembrar que uma das conferências internacionais de maior importância na área de separação de sinais trazia os termos ``Independent Component Analysis'' em seu título, certamente que por motivos mais do que justos na época, o que se manteve até o ano de 2009; a partir de então, em vez de disso, por uma questão de generalidade e abrangência, dadas as evoluções na área, compreendeu-se que seria mais conveniente classificar o ICA como um dos possíveis métodos de algo ainda maior, chamado de Análise de Variáveis Latentes\footnote{De modo praticamente oposto às variáveis observáveis, as variáveis latentes são as que não podem ser diretamente aferidas, lidas ou constatadas; em vez disso, são variáveis que dependem de algum tipo de transformação, adaptação ou inferência para que, só então, possam ser obtidas e, enfim, exploradas.} (\textbf{LVA}, do inglês \textit{Latent Variable Analysis}), então o termo que assumiu tal lugar no nome desta importante conferência internacional foi justamente ``Latent Variable Analysis''.
+Apenas como uma questão de curiosidade, é interessante lembrar que uma das conferências internacionais de maior importância na área de separação de sinais trazia os termos ``Independent Component Analysis'' em seu título, certamente que por motivos mais do que justos na época, o que se manteve até o ano de 2009; a partir de então, em vez de disso, por uma questão de generalidade e abrangência, dadas as evoluções na área, compreendeu-se que seria mais conveniente classificar o ICA como um dos possíveis métodos de algo ainda maior, chamado de \textit{análise de variáveis latentes}\footnote{De modo praticamente oposto às variáveis observáveis, as variáveis latentes são as que não podem ser diretamente aferidas, lidas ou constatadas; em vez disso, são variáveis que dependem de algum tipo de transformação, adaptação ou inferência para que, só então, possam ser obtidas e, enfim, exploradas.} (\textbf{LVA}, \textit{Latent Variable Analysis}), então o termo que assumiu tal lugar no nome desta importante conferência internacional foi justamente ``Latent Variable Analysis''. Além do ICA, outros métodos que também se encaixam na categoria de LVA são: o \textit{modelo oculto de Markov} (\textbf{HMM}, \textit{Hidden Markov Model}) \citep{18626}, a PCA e a \textit{análise fatorial}\footnote{Análise Fatorial, na verdade, trata-se de um conjunto de técnicas, não de uma única técnica \textit{Stricto sensu}. Isso faz com que não haja um único trabalho específico que possa ser utilizado como a referência; o que há, porém, é uma vasta gama de trabalhos sobre as técnicas propriamente ditas, podendo ser sobre as técnicas em si ou aplicações --comumente, em pesquisas de Psicologia-- que as explorem.} (\textbf{FA}, \textit{Factorial Analysis}) \citep{vincent1953orgin, c63851e778034799a99dcc4d187768d0, doi:10.1177/001316446002000116}.
 
 \nomenclature{LVA}{\textit{Latent Variable Analysis}}
-
-Além do ICA, outros métodos que também se encaixam na categoria de LVA são: o Modelo Oculto de Markov (\textbf{HMM}, \textit{Hidden Markov Model}) \citep{18626}, a PCA, a Análise Fatorial (\textbf{FA} e a \textit{Factorial Analysis})\footnote{Análise Fatorial, na verdade, trata-se de um conjunto de técnicas, não de uma única técnica \textit{Stricto sensu}. Isso faz com que não haja um único trabalho específico que possa ser utilizado como a referência; o que há, porém, é uma vasta gama de trabalhos sobre as técnicas propriamente ditas, podendo ser sobre as técnicas em si ou aplicações --comumente, em pesquisas de Psicologia-- que as explorem.} \citep{vincent1953orgin, c63851e778034799a99dcc4d187768d0, doi:10.1177/001316446002000116}.
-
 \nomenclature{HMM}{\textit{Hidden Markov Model}}
 \nomenclature{FA}{\textit{Factorial Analysis}}
 
-Partindo agora para a definição do que vem a ser efetivamente o método de ICA, pode-se dizer que, segundo \citep{hyvarinen2004independent}, possuindo-se diretamente apenas os sinais resultantes (misturados), $x_{i}(t)$, o ICA se trata da estimação de dois específicos elementos, que são: a matriz ponderadora $\mathbf{A}$, que é responsável pelos pesos das combinações lineares que neste contexto são convenientemente compreendidas como misturas; e os sinais originais independentes, $s_{i}(t)$, assim como havia sido mostrado no início deste capítulo, também poderiam ser compreendidas na forma de um sistema de equações lineares, tal como
+Partindo agora para a definição do que vem a ser efetivamente o método de ICA, pode-se dizer que, segundo \citep{hyvarinen2004independent}, possuindo-se diretamente apenas os sinais resultantes (misturados), $x_{i}(t)$, o ICA se trata da estimação de dois específicos elementos, que são: a matriz ponderadora $\mathbf{A}$, que é responsável pelos pesos das combinações lineares que neste contexto são convenientemente compreendidas como misturas; e os sinais originais independentes, $s_{i}(t)$. Assim como havia sido mostrado no início deste capítulo, tal problema também poderia ser descrito na forma de um sistema de equações lineares, tal como
 
 \begin{equation}
 \begin{cases}
@@ -325,7 +322,7 @@ Partindo agora para a definição do que vem a ser efetivamente o método de ICA
 \vspace{0.2cm}
 \end{equation}
 
-\noindent porém, apesar de em alguns cenários a visualização do problema na forma de um sistema de equações, tal como pode ser observado em (\ref{eq:bss_ica}), ser mais humanamente conveniente --- talvez por uma questão de hábito ---, as implementações computacionais são dependentes de uma linguagem que esteja de acordo com representações matriciais
+\noindent porém, apesar de em alguns cenários a visualização do problema na forma de um sistema de equações, tal como pode ser observado em (\ref{eq:bss_ica}), ser mais humanamente conveniente --- talvez por uma questão de hábito ---, as implementações computacionais são dependentes de uma linguagem que esteja de acordo com representações matriciais.
 
 Ainda em \citep{hyvarinen2004independent} é sugerido um método alternativo para implementar o ICA, que é encontrando-se uma transformação linear dada por uma matriz $\mathbf{W}$, a mesma da Equação (\ref{eq:bss_inv_weighted_sum_mat}), de modo que as variáveis $y_{i}$, com $i=1,\dotsc,n$, sejam o mais independentes possível, porém o próprio autor faz a observação de que não chega a se tratar de um método realmente diferente do anterior, dado que a matriz $\mathbf{W}$ nada mais é do que a inversa da matriz $\mathbf{A}$.
 
@@ -384,7 +381,7 @@ Assim sendo, considerando-se que a descorrelação entre as variáveis aleatóri
 
 Para muitos algoritmos, deve-se procurar garantir que tais dados estejam adequadamente preparados para que possam ser devidamente trabalhados. Para que isso seja possível, há uma série de tarefas anteriores às etapas associadas ao grupo de processamento; a esse grupo de tarefas anteriores dá-se o nome de pré-processamento. Uma possível interpretação para tal etapa é a de que trata-se, simplesmente, de toda a preparação dos dados para que, só então, eles venham a ser, de fato, processados (ou, se preferir, trabalhados).
 
-Antes de processar as observações dos sinais misturados, então, deve-se realizar uma tarefa conhecida como Branqueamento\footnote{Além do termo \textit{Whitening} designado a este processo em literaturas de língua inglesa, pode-se encontrar também o termo \textit{Sphereing}, referindo-se precisamente ao mesmo processo. A Figura \ref{fig:bss_pca_whitening} ajuda a compreender o motivo dessa outra nomenclatura.} (do inglês \textit{Whitening}) \citep{BELL19973327, koivunen1999feasibility}, que garantirá que, para um dado vetor composto por valores aleatórios com média zero, a variância será igual a 1 e --- mais importante que isso --- seus componentes serão descorrelacionados. A Figura \ref{fig:bss_pca_whitening} ilustra esquematicamente o que é almejado pelo processo de branqueamento; e tal processo pode ser realizado utilizando-se os passos representados pelo Algoritmo \ref{alg:bss_whitening}.
+Antes de processar as observações dos sinais misturados, então, deve-se realizar uma tarefa conhecida como Branqueamento\footnote{Além do termo \textit{Whitening} designado a este processo em literaturas de língua inglesa, pode-se encontrar também o termo \textit{Sphereing}, referindo-se precisamente ao mesmo processo. A Figura \ref{fig:bss_pca_whitening} ajuda a compreender o motivo dessa outra nomenclatura.} (\textit{Whitening}) \citep{BELL19973327, koivunen1999feasibility}, que garantirá que, para um dado vetor composto por valores aleatórios com média zero, a variância será igual a 1 e --- mais importante que isso --- seus componentes serão descorrelacionados. A Figura \ref{fig:bss_pca_whitening} ilustra esquematicamente o que é almejado pelo processo de branqueamento; e tal processo pode ser realizado utilizando-se os passos representados pelo Algoritmo \ref{alg:bss_whitening}.
 
 \begin{figure}[H]
     \centering
@@ -392,6 +389,12 @@ Antes de processar as observações dos sinais misturados, então, deve-se reali
     \caption{Simplificação esquemática, a partir de uma perspectiva geométrica (inspirada em \citep{zafeiriou2015notes}), dos objetivos do branqueamento utilizando o PCA.}
     \label{fig:bss_pca_whitening}
 \end{figure}
+
+Vale ressaltar o fato de que o procedimento adotado pelo Algoritmo \ref{alg:bss_whitening} carece de um único passo intermediário, que é o de manter os $n$ primeiros componentes de $\mathbf{U_{d}}$, com $n\leq d$, para ser interpretado no sentido mais amplo como, basicamente, o próprio algoritmo de \textit{análise de componentes principais} (\textbf{PCA}, \textit{Principal Component Analysis}) \citep{doi:10.1080/14786440109462720}.
+
+\nomenclature{PCA}{\textit{Principal Component Analysis}}
+
+Para fins meramente ilustrativos, uma simulação foi elaborada para mostrar os efeitos do processo de branqueamento por PCA. Para esta simulação foram utilizados dados artificialmente gerados por meio de duas variáveis aleatórias. Os dados, compostos por 2000 amostras para cada uma das variáveis envolvidas, representados no gráfico da Figura \ref{fig:bss_whitening_data_uniform} foram posicionados com base nos valores das variáveis aleatórias $X_{1}$ e $X_{2}$, que podiam variar entre -1.75 e 1.75, que foram arbitrariamente escolhidos.
 
 
 
@@ -423,7 +426,7 @@ Antes de processar as observações dos sinais misturados, então, deve-se reali
 
         \State Rearranjar a matriz de covariância de $\mathbf{Y}$:
         \begin{equation}
-            \mathbf{Y} \mathbf{Y}^{T} = \mathbf{U}^{T} \mathbf{X} \mathbf{X}^{T} \mathbf{U} = \boldsymbol\Lambda\\
+            \mathbf{Y} \mathbf{Y}^{T} = \mathbf{U}^{T} \mathbf{X} \mathbf{X}^{T} \mathbf{U} = \boldsymbol\Lambda
         \end{equation}
 
         \State Obter a matriz de projeção normalizadora:
@@ -435,11 +438,9 @@ Antes de processar as observações dos sinais misturados, então, deve-se reali
 
 \end{algorithm}
 
-Vale ressaltar o fato de que o procedimento adotado pelo Algoritmo \ref{alg:bss_whitening} carece de um único passo intermediário, que é o de manter os $n$ primeiros componentes de $\mathbf{U_{d}}$, com $n\leq d$, para ser interpretado no sentido mais amplo como, basicamente, o próprio algoritmo de Análise de Componentes Principais (\textbf{PCA}, do inglês \textit{Principal Component Analysis}) \citep{doi:10.1080/14786440109462720}.
 
-\nomenclature{PCA}{\textit{Principal Component Analysis}}
 
-Para fins meramente ilustrativos, uma simulação foi elaborada para mostrar os efeitos do processo de branqueamento por PCA. Para esta simulação foram utilizados dados artificialmente gerados por meio de duas variáveis aleatórias. Os dados, compostos por 2000 amostras para cada uma das variáveis envolvidas, representados no gráfico da Figura \ref{fig:bss_whitening_data_uniform} foram posicionados com base nos valores das variáveis aleatórias $X_{1}$ e $X_{2}$, que podiam variar entre -1.75 e 1.75, que foram arbitrariamente escolhidos.
+
 
 
 
@@ -448,9 +449,9 @@ Para fins meramente ilustrativos, uma simulação foi elaborada para mostrar os 
 
 \begin{figure}[H]
     \centering
-    \subfloat[]{\label{fig:bss_whitening_data_uniform_a}\includegraphics[width=60mm]{figs/whitening/bss_whitening_uniform.pdf}}
-    \subfloat[]{\label{fig:bss_whitening_data_uniform_b}\includegraphics[width=60mm]{figs/whitening/bss_whitening_uniform_mixture.pdf}}\\
-    \subfloat[]{\label{fig:bss_whitening_data_uniform_c}\includegraphics[width=60mm]{figs/whitening/bss_whitening_uniform_mixture_whitened.pdf}}
+    \subfloat[]{\label{fig:bss_whitening_data_uniform_a}\includegraphics[width=50mm]{figs/whitening/bss_whitening_uniform.pdf}}
+    \subfloat[]{\label{fig:bss_whitening_data_uniform_b}\includegraphics[width=50mm]{figs/whitening/bss_whitening_uniform_mixture.pdf}}\\
+    \subfloat[]{\label{fig:bss_whitening_data_uniform_c}\includegraphics[width=50mm]{figs/whitening/bss_whitening_uniform_mixture_whitened.pdf}}
     \caption{(a) Distribuição uniforme de duas variáveis, (b) distribuição de misturas observadas e (c) distribuição branqueada.}
     \label{fig:bss_whitening_data_uniform}
 \end{figure}
@@ -462,16 +463,16 @@ Em outra simulação, que é exibida pela Figura \ref{fig:bss_whitening_data_gau
 
 \begin{figure}[H]
     \centering
-    \subfloat[]{\label{fig:bss_whitening_data_gaussian_a}\includegraphics[width=60mm]{figs/whitening/bss_whitening_gaussian.pdf}}
-    \subfloat[]{\label{fig:bss_whitening_data_gaussian_b}\includegraphics[width=60mm]{figs/whitening/bss_whitening_gaussian_mixture.pdf}}\\
-    \subfloat[]{\label{fig:bss_whitening_data_gaussian_c}\includegraphics[width=60mm]{figs/whitening/bss_whitening_gaussian_mixture_whitened.pdf}}
-    \caption{(a) Distribuição uniforme de duas variáveis, (b) distribuição de misturas observadas e (c) distribuição branqueada.}
+    \subfloat[]{\label{fig:bss_whitening_data_gaussian_a}\includegraphics[width=50mm]{figs/whitening/bss_whitening_gaussian.pdf}}
+    \subfloat[]{\label{fig:bss_whitening_data_gaussian_b}\includegraphics[width=50mm]{figs/whitening/bss_whitening_gaussian_mixture.pdf}}\\
+    \subfloat[]{\label{fig:bss_whitening_data_gaussian_c}\includegraphics[width=50mm]{figs/whitening/bss_whitening_gaussian_mixture_whitened.pdf}}
+    \caption{(a) Distribuição Gaussiana de duas variáveis, (b) distribuição de misturas observadas e (c) distribuição branqueada.}
     \label{fig:bss_whitening_data_gaussian}
 \end{figure}
 
 
 
-Uma forma de se obter os valores de $w_{ij}$ é a partir da independência estatística das misturas. A constatação de distinções que preservem uma elevada não-gaussianidade nas distribuições envolvidas pode ser explorada para efetuar eficazmente a separação dos sinais misturados com base nessa independência; a partir disso foi elaborado o método que ficou conhecido como Análise de Componentes Independentes.
+Uma forma de se obter os valores de $w_{ij}$ é a partir da independência estatística das misturas. A constatação de distinções que preservem uma elevada não-gaussianidade nas distribuições envolvidas pode ser explorada para efetuar eficazmente a separação dos sinais misturados com base nessa independência; a partir disso foi elaborado o método que ficou conhecido como \textit{análise de componentes independentes}.
 
 
 
@@ -479,30 +480,30 @@ Uma forma de se obter os valores de $w_{ij}$ é a partir da independência estat
 
 Um dos princípios de estimação do ICA está associado à descorrelação não linear, obtendo-se uma matriz $\mathbf{W}$ capaz de reverter o processo de mistura, mas garantindo que todos os elementos que compõem a matriz de saída sejam, dois a dois, descorrelacionados entre si para todas as possíveis combinações, além de as transformações não lineares (cuidadosamente selecionadas), $g(y_{i})$ e $h(y_{j})$, também serem descorrelacionadas entre si.
 
-Uma escolha apropriada das funções $g$ e $h$ é crucial para que se atinja tal objetivo, caso contrário, pode ser impraticável encontrar os componentes independentes. Assim sendo, a escolha não pode ser meramente arbitrária, aleatória ou mesmo influenciada por métodos nocivos. Existem, porém, dois métodos clássicos muito bem consolidados que ajudam a encontrar tais funções: a Estimação de Máxima Verossimilhança (\textbf{MLE}, do inglês \textit{Maximum Likelihood Estimation}) \citep{ra1922mathematical, aldrich1997ra}, oriunda da teoria de estimação; e a Informação Mútua (\textbf{MI}, do inglês \textit{Mutual Information}) \citep{cover2012elements}, advinda da teoria da informação.
+Uma escolha apropriada das funções $g$ e $h$ é crucial para que se atinja tal objetivo, caso contrário, pode ser impraticável encontrar os componentes independentes. Assim sendo, a escolha não pode ser meramente arbitrária, aleatória ou mesmo influenciada por métodos nocivos. Existem, porém, dois métodos clássicos muito bem consolidados que ajudam a encontrar tais funções: a \textit{estimação de máxima verossimilhança} (\textbf{MLE}, \textit{Maximum Likelihood Estimation}) \citep{ra1922mathematical, aldrich1997ra}, oriunda da teoria de estimação; e a \textit{informação mútua} (\textbf{MI}, \textit{Mutual Information}) \citep{cover2012elements}, advinda da teoria da informação.
 
 \nomenclature{MLE}{\textit{Maximum Likelihood}}
 \nomenclature{MI}{\textit{Mutual Information}}
 
-Outro princípio da estimação do ICA trata-se da obtenção da máxima não-gaussianidade\footnote{Pode-se compreender não-gaussianidade como independência estatística.} possível, que pode ser estimada a partir da forma normalizada do quarto momento central da distribuição, a Curtose (do inglês \textit{Kurtosis}). A curtose mede a forma de uma dada distribuição quanto à sua ``cauda'', sendo que seu valor será igual a zero exclusivamente quando se tratar de uma legítima distribuição Gaussiana. Os casos com decaimentos laterais monotônicos suaves e com pouca (ou nenhuma) região central de planalto aproximam-se mais da distribuição Laplaciana, decaindo-se suavemente ao longo do eixo das ordenadas enquanto se caminha longamente pelo eixo das abscissas; tal caso é conhecido como Platicúrtico (ou Super-Gaussiana). Por outro lado, casos que exibam abrupto decaimento de cauda nas laterais, geralmente acompanhados de uma região central similar a um planalto, tendem a se aproximar mais da distribuição uniforme; esse caso é conhecido como Leptocúrtico (ou Sub-Gaussiana).\\
+Outro princípio da estimação do ICA trata-se da obtenção da máxima não-gaussianidade\footnote{Pode-se compreender não-gaussianidade como independência estatística.} possível, que pode ser estimada a partir da forma normalizada do quarto momento central da distribuição, a \textit{curtose} (\textit{Kurtosis}). A curtose mede a forma de uma dada distribuição quanto à sua ``cauda'', sendo que seu valor será igual a zero exclusivamente quando se tratar de uma legítima distribuição Gaussiana. Os casos com decaimentos laterais monotônicos suaves e com pouca (ou nenhuma) região central de planalto aproximam-se mais da distribuição Laplaciana, decaindo-se suavemente ao longo do eixo das ordenadas enquanto se caminha longamente pelo eixo das abscissas; tal caso é conhecido como Platicúrtico (ou Super-Gaussiana). Por outro lado, casos que exibam abrupto decaimento de cauda nas laterais, geralmente acompanhados de uma região central similar a um planalto, tendem a se aproximar mais da distribuição uniforme; esse caso é conhecido como Leptocúrtico (ou Sub-Gaussiana).\\
 
 \begin{definition}[Curtose]
-    Sejam o n-ésimo momento central de um sinal pode ser calculado por
+    Dado que o n-ésimo momento central de um sinal pode ser calculado por
 
     \begin{equation}
         \mu_{n} = E\left[\left(X - E\left[X\right]\right)^{n}\right]
         \vspace{0.2cm}
     \end{equation}
 
-    \noindent e a normalização padrão dada pela divisão do momento calculado pelo desvio padrão da mesma ordem $n$ do momento em questão, ou seja,
+    \noindent e a normalização padrão é dada pela divisão do momento calculado pelo desvio padrão da mesma ordem $n$ do momento em questão, ou seja,
 
     \begin{equation}
         \sigma^{n} = \left(\sqrt{E\left[\left(X - E\left[X\right]\right)^{2}\right]}\right)^{n}
-        \hspace{0.1cm}.
+        \hspace{0.1cm},
         \vspace{0.2cm}
     \end{equation}
 
-    O quarto momento central normalizado, também conhecido como Curtose, é definido por
+    o quarto momento central normalizado, também conhecido como curtose, é definido por
 
     \begin{equation}
         k\left(X\right) = \dfrac{\mu_{4}}{\sigma^{4}} = \dfrac{E\left[\left(X - E\left[X\right]\right)^{4}\right]}{\left(E\left[\left(X - E\left[X\right]\right)^{2}\right]\right)^{2}}
@@ -515,7 +516,7 @@ Outro princípio da estimação do ICA trata-se da obtenção da máxima não-ga
 
 Mas a curtose não é a única maneira de se mensurar a não-gaussianidade; na verdade, nem mesmo é a melhor, dado que trata-se de uma métrica com elevada susceptibilidade a sofrer interferências indesejadas provocadas por \textit{Outliers}\footnote{Dados que sejam considerados aberrantes ou atípicos, sendo, portanto, passíveis de serem considerados ``fora da curva'' para eventuais considerações em modelos. Modelos mais robustos tendem a identificar tais dados e efetuar um tratamento devido para evitar que danifiquem seu desempenho.}, sobretudo por conta de seu termo de quarto grau, que faz com que até mesmo valores tipicamente considerados de magnitude não tão elevada sejam responsáveis por resultados indesejados. Isso não invalida a curtose como um recurso possível, mas o insere em um conjunto de recursos preferencialmente a serem evitados, pois suas características caminham em direção a uma instabilidade contornável.
 
-Um dos conceitos mais importantes advindos da área de Teoria da Informação chama-se Entropia (do inglês \textit{Entropy}) de Shannon, também conhecida como \textit{informação média}, uma forma de se calcular a desordem em um contexto de teoria da informação.\\
+Um dos conceitos mais importantes advindos da área de Teoria da Informação chama-se \textit{entropia} (\textit{Entropy}) de Shannon, também conhecida como \textit{informação média}, uma forma de se calcular a desordem em um contexto de teoria da informação.\\
 
 \begin{definition}[Entropia]
     Seja $X$ uma variável aleatória. Então, a entropia de $X$, também entendida como a informação média de $X$, é dada por
@@ -531,7 +532,7 @@ Um dos conceitos mais importantes advindos da área de Teoria da Informação ch
 
 \end{definition}
 
-A partir da entropia, pode-se chegar ao conceito de Negentropia\footnote{Também conhecida como \textit{sintropia} ou \textit{entropia negativa}.} (do inglês \textit{Negentropy}) \citep{schrodinger1944life, brillouin1953negentropy, mahulikar2009exact}, que trata-se de uma alternativa à curtose, contudo, consideravelmente mais robusta.\\
+A partir da entropia, pode-se chegar ao conceito de Negentropia\footnote{Também conhecida como \textit{sintropia} ou \textit{entropia negativa}.} (\textit{Negentropy}) \citep{schrodinger1944life, brillouin1953negentropy, mahulikar2009exact}, que trata-se de uma alternativa à curtose, contudo, consideravelmente mais robusta.\\
 
 \begin{definition}[Negentropia]
 
@@ -548,7 +549,7 @@ A partir da entropia, pode-se chegar ao conceito de Negentropia\footnote{Também
 
 \end{definition}
 
-Tal como havia sido explicitado nesta mesma seção, a entropia pode ser utilizada como uma métrica da desordem de uma certa informação, o que permite dizer que o valor máximo de entropia caracteriza desordem máxima, ou seja, maior incerteza e, portanto, maior dificuldade de se obter uma dada informação; isso ocorre apenas no único e exclusivo caso em que a distribuição em questão se trata de uma Gaussiana. Por outro lado, entropia mínima implica maior certeza e maior facilidade para se obter a informação em questão. Efetuando-se uma análise, ainda que superficial, a respeito da Equação (\ref{eq:bss_entropy}), é possível concluir que a entropia de Shannon jamais pode ser negativa. Assim, pode-se perceber que a negentropia também sempre será não negativa. Tais características mencionadas permitem compreender a negentropia como uma espécie de distância dada pela diferença entre as distribuições envolvidas, sendo ao menos uma delas sempre uma distribuição Gaussiana \citep{suyama2007proposta}.
+Tal como havia sido explicitado nesta mesma seção, a entropia pode ser utilizada como uma métrica da desordem de uma certa informação, o que permite dizer que o valor máximo de entropia caracteriza desordem máxima; ou seja, maior incerteza e, portanto, maior dificuldade de se obter uma dada informação; isso ocorre apenas no único e exclusivo caso em que a distribuição em questão se trata de uma Gaussiana. Por outro lado, entropia mínima implica maior certeza e maior facilidade para se obter a informação em questão. Efetuando-se uma análise, ainda que superficial, a respeito da Equação (\ref{eq:bss_entropy}), é possível concluir que a entropia de Shannon jamais pode ser negativa. Assim, pode-se perceber que a negentropia também sempre será não negativa. Tais características mencionadas permitem compreender a negentropia como uma espécie de distância dada pela diferença entre as distribuições envolvidas, sendo ao menos uma delas sempre uma distribuição Gaussiana \citep{suyama2007proposta}.
 
 
 
@@ -578,7 +579,7 @@ Conforme a área de separação de fontes avançava, foram desenvolvidos algorit
 
 Alguns, como o caso do \textit{algoritmo de ponto flutuante rápido} (\textbf{FastICA}, \textit{Fast Fixed-Point Algorithm}) \citep{761722} --- que, em busca da maximização de alguma métrica de não-gaussianidade\footnote{Lembrando que a não-gaussianidade pode ser interpretada como uma forma de independência estatística.}, rotaciona ortogonalmente dados pré-branqueados --- tornaram-se mais famosos, sobretudo por conta de seu considerável ganho de eficiência sobre uma técnica já bastante utilizada pela comunidade de separação de fontes. Outro método importante para o avanço desta técnica é o \textbf{RobustICA} \citep{5356190}, uma sutil variação do FastICA, otimizando o contraste da curtose, mas que exibe maiores robustez e velocidade de convergência.
 
-Uma abordagem um pouco diferente, chamada de \textit{identificação cega de quarta ordem} (\textbf{FOBI}, \textit{Fourth Order Blind Identification}) \citep{cardoso1989source, miettinen2015fourth}, utiliza-se de momentos (estatísticos) de quarta ordem para realizar o processo de separação de sinais. Outra abordagem, computacionalmente mais parcimoniosa, é a do algoritmo conhecido como \textit{identificação cega de segunda ordem} (\textbf{SOBI}, \textit{Second Order Blind Identification}) \citep{554307}, que explora momentos de segunda ordem e depende de as fontes serem individualmente correlacionadas no tempo, mas mutuamente descorrelacionadas. Para a realização do SOBI, é preciso realizar etapas de branqueamento dos dados, computação de matrizes de correlação atrasada, e diagonalização conjunta. 
+Uma abordagem um pouco diferente, chamada de \textit{identificação cega de quarta ordem} (\textbf{FOBI}, \textit{Fourth Order Blind Identification}) \citep{cardoso1989source, miettinen2015fourth}, utiliza-se de momentos (estatísticos) de quarta ordem para realizar o processo de separação de sinais. Outra abordagem, computacionalmente mais parcimoniosa, é a do algoritmo conhecido como \textit{identificação cega de segunda ordem} (\textbf{SOBI}, \textit{Second Order Blind Identification}) \citep{554307}, que explora momentos de segunda ordem e depende de as fontes serem individualmente correlacionadas no tempo, mas mutuamente descorrelacionadas. Para a realização do SOBI, é preciso realizar etapas de branqueamento dos dados, cálculo de matrizes de correlação atrasada, e diagonalização conjunta. 
 
 O método \textit{diagonalização conjunta aproximada de auto-matrizes} (\textbf{JADE}, \textit{Joint Approximation Diagonalization of Eigen-matrices}) \citep{cardoso1999high} explora momentos de quarta ordem e também está entre os mais amplamente explorados em trabalhos da área de separação de fontes. É importante lembrar que não há um único método que seja o melhor para todo os possíveis cenários, portanto, é sempre válido averiguar qual método se encaixa melhor para o cenário a ser trabalhado; há, contudo, alguns bons trabalhos que fazem tais investigações, confrontando alguns dos mais conhecidos métodos para esta finalidade \citep{matic2009comparison, sahonerocomparison}.
 
@@ -597,7 +598,7 @@ O método \textit{diagonalização conjunta aproximada de auto-matrizes} (\textb
 \section{Análise de Componentes Esparsos}
 \label{sec:bss_sca}
 
-Além da técnica ICA, existem outras técnicas que também efetuam uma análise de componentes e que podem ser exploradas com o intuito de se realizar a tarefa de separação de sinais; esta seção abordará mais especificamente a Análise de Componentes Esparsos (\textbf{SCA}, do inglês \textit{Sparse Component Analysis}). Contudo, antes mesmo de prosseguir para questões mais aprofundadas sobre tal técnica, pode ser importante começar explicando-se o significado de esparso. A ideia de esparsidade está intimamente relacionada à ideia de dispersão e distanciamento, podendo ser interpretada, portanto, como o oposto de densidade. A esparsidade pode, inclusive, ser quantificada, segundo o que se entende por grau de esparsidade de uma matriz.\\
+Além da técnica ICA, existem outras técnicas que também efetuam uma análise de componentes e que podem ser exploradas com o intuito de se realizar a tarefa de separação de sinais; esta seção abordará mais especificamente a \textit{análise de componentes esparsos} (\textbf{SCA}, \textit{Sparse Component Analysis}). Contudo, antes mesmo de prosseguir para questões mais aprofundadas sobre tal técnica, pode ser importante começar explicando-se o significado de esparso. A ideia de esparsidade está intimamente relacionada à ideia de dispersão e distanciamento, podendo ser interpretada, portanto, como o oposto de densidade. A esparsidade pode, inclusive, ser quantificada, segundo o que se entende por grau de esparsidade de uma matriz.\\
 
 \nomenclature{SCA}{\textit{Sparse Component Analysis}}
 
@@ -605,13 +606,14 @@ Além da técnica ICA, existem outras técnicas que também efetuam uma análise
     Seja uma matriz $\bm{M}$ definida por
 
     \begin{equation}
-        M =
+        \bm{M} =
         \left[\begin{array}{cccc}
         m_{11} & m_{12} & \cdots & m_{1n} \\
         m_{21} & m_{22} & \cdots & m_{2n} \\
         \vdots & \vdots & \ddots & \vdots \\
         m_{n1} & m_{n2} & \cdots & m_{nn}
         \end{array}\right].
+        \vspace{0.2cm}
     \end{equation}
 
     Considerando-se $N$ como o número de elementos nulos da matriz e $T$ como o número total de elementos da matriz, o Grau de Esparsidade, $E$, pode ser obtido a partir de
@@ -627,7 +629,7 @@ Além da técnica ICA, existem outras técnicas que também efetuam uma análise
 
 Pela definição, em um cenário ideal, a matriz $M$ seria composta por valores não nulos exclusivamente em sua diagonal principal, ou seja, em $m_{11}, m_{22}, \dots , m_{nn}$; e, dado que uma das vantagens de se trabalhar com matrizes esparsas advém do fato de ser possível armazenar apenas os valores não nulos das matrizes, isso significa que, para este caso em particular, apenas os valores da diagonal principal seriam armazenados. Para que seja possível trabalhar com matrizes em tal situação, são necessárias técnicas especiais de armazenamento e processamento, por exemplo, pelo uso de listas de coordenadas; tais técnicas computacionais, no entanto, não serão minuciosamente exploradas ou explanadas neste trabalho.
 
-Em situações um pouco mais próximas ao que se encontra na realidade, as matrizes não são tão esparsas assim. Além de haver diversos elementos não nulos em posições que não sejam a diagonal principal, é possível que os próprios valores que devam ser considerados como nulos não sejam originalmente iguais a zero, o que dependeria de alguma técnica de pré-processamento que ajustasse tais valores com base em algum Limiar (do inglês \textit{Threshold}), podendo resultar em um aumento considerável da esparsidade da matriz. As técnicas de análise de componentes esparsos possuem características geométricas intrínsecas que as favorecem em casos de cenários subparametrizados \citep{theis2003linear}, ou seja, cenários em que o número de misturas observadas é inferior ao número de fontes.
+Em situações um pouco mais próximas ao que se encontra na realidade, as matrizes não são tão esparsas assim. Além de haver diversos elementos não nulos em posições que não sejam a diagonal principal, é possível que os próprios valores que devam ser considerados como nulos não sejam originalmente iguais a zero, o que dependeria de alguma técnica de pré-processamento que ajustasse tais valores com base em algum \textit{limiar} (\textit{Threshold}), podendo resultar em um aumento considerável da esparsidade da matriz. As técnicas de análise de componentes esparsos possuem características geométricas intrínsecas que as favorecem em casos de cenários subparametrizados \citep{theis2003linear}, ou seja, cenários em que o número de misturas observadas é inferior ao número de fontes.
 
 O Algoritmo \ref{alg:bss_sca} é uma versão bastante simplificada que explica sucintamente os quatro passos básicos essenciais de uma técnica de SCA. A versão simplificada pode ser útil para oferecer uma visão superficial do caminho a ser trilhado. Contudo, a explicação acerca de tal algoritmo ainda será um pouco mais aprofundada ainda nesta mesma seção; não haverá um detalhamento matemático muito rigoroso, mas serão fornecidas fontes de referência que poderão ser consultadas para o caso de os objetivos do leitor dependerem de tal abordagem. \\
 
@@ -648,7 +650,9 @@ O Algoritmo \ref{alg:bss_sca} é uma versão bastante simplificada que explica s
 
 \end{algorithm}
 
-Dando continuidade às explicações um pouco mais minuciosas sobre o SCA, tomando como base ainda o Algoritmo \ref{alg:bss_sca}, pode ser interessante começar pelo fato de que a análise será feita individualmente, uma a uma, para cada mistura observada; ou seja, caso haja três sinais observados resultantes de misturas, serão necessárias três execuções completas do algoritmo para que seja possível realizar a tarefa almejada de separação de sinais. Observe que a primeira etapa do algoritmo se refere à aplicação de uma transformação linear esparsificante à mistura observada, que é a entrada do algoritmo. É muito comum que a escolha dessa transformação esparsificante seja feita entre Transformada Discreta Wavelet (\textbf{DWT}, do inglês \textit{Discrete Wavelet Transform}) e a Transformada de Fourier de Tempo Curto (\textbf{STFT}, do inglês \textit{Short-Time Fourier Transform}).
+Dando continuidade às explicações um pouco mais minuciosas sobre o SCA, tomando como base ainda o Algoritmo \ref{alg:bss_sca}, pode ser interessante começar pelo fato de que a análise será feita individualmente, uma a uma, para cada mistura observada; ou seja, caso haja três sinais observados resultantes de misturas, serão necessárias três execuções completas do algoritmo para que seja possível realizar a tarefa almejada de separação de sinais. Observe que a primeira etapa do algoritmo se refere à aplicação de uma transformação linear esparsificante à mistura observada, que é a entrada do algoritmo.
+
+É muito comum que a escolha dessa transformação esparsificante seja feita entre \textit{transformada discreta Wavelet} (\textbf{DWT}, \textit{Discrete Wavelet Transform}) \citep{meyer1995wavelets, chui2016introduction}; e a \textit{transformada de Fourier de tempo curto} (\textbf{STFT}, \textit{Short-Time Fourier Transform}) \citep{1162950}. Mas, independentemente da escolha feita quanto a uma das ferramentas que realizarão o trabalho, os objetivos permanecem os mesmos e, assim como é discutido em \citep{bruns2004fourier}, as diferenças nem sempre chegam a ser relevantes.
 
 \nomenclature{DWT}{\textit{Discrete Wavelet Transform}}
 \nomenclature{STFT}{\textit{Short-Time Foutier Transform}}
@@ -664,7 +668,7 @@ Dando continuidade às explicações um pouco mais minuciosas sobre o SCA, toman
 \section{Fatoração de Matrizes Não-Negativas}
 \label{sec:bss_nmf}
 
-Assim como ocorre com outros casos mencionados neste trabalho, a Fatoração de Matrizes Não Negativas (\textbf{NMF}, do inglês \textit{Non-Negative Matrix Factorization}), introduzida em \citep{1781640}, não se trata de um algoritmo em si; em vez disso, trata-se de uma técnica que pode ser compreendida de maneira quase autoexplicativa a partir de seu nome, ou seja, independentemente de qual seja o algoritmo para se atingir tal objetivo, a ideia é a de se obter duas matrizes de valores não negativos que, multiplicando-se uma pela outra, obtém-se a matriz resultante que se deseja representar ao fim.
+Assim como ocorre com outros casos mencionados neste trabalho, a Fatoração de Matrizes Não Negativas (\textbf{NMF}, \textit{Non-Negative Matrix Factorization}), introduzida em \citep{1781640}, não se trata de um algoritmo em si; em vez disso, trata-se de uma técnica que pode ser compreendida de maneira quase autoexplicativa a partir de seu nome, ou seja, independentemente de qual seja o algoritmo para se atingir tal objetivo, a ideia é a de se obter duas matrizes de valores não negativos que, multiplicando-se uma pela outra, obtém-se a matriz resultante que se deseja representar ao fim.
 
 \nomenclature{NMF}{\textit{Non-Negative Matrix Factorization}}
 
