@@ -142,7 +142,7 @@ A seguir serão expostos vários exemplos de funções de ativação bastante co
 
 
 
-Duas funções de ativação que serão exploradas neste trabalho são: Logística (ou Sigmoidal) e Tangente Hiperbólica. Ambas serão trazidas a seguir.
+Duas funções de ativação serão exploradas neste trabalho: Logística (ou Sigmoidal) e Tangente Hiperbólica; ambas serão trazidas a seguir.
 
 
 
@@ -528,7 +528,7 @@ A Figura \ref{fig:ann_tanh_function} exibe o comportamento da função tangente 
 \section{Propriedades}
 \label{sec:ann_properties}
 
-Uma Rede Neural Artificial (\textbf{ANN}, do inglês \textit{Artificial Neural Network}) é uma estrutura composta por neurônios interconectados distribuídos entre múltiplas camadas. Sua origem vem da ideia de imitar a função cerebral. Uma das características mais importantes das ANNs é a capacidade de aprender com ou sem supervisão (referências para análises comparativas), ou seja, as ANNs podem adotar uma abordagem de aprendizado supervisionado ou uma abordagem de aprendizado não supervisionada \citep{haykin1999neural}, dependendo da implementação do algoritmo de acordo com os objetivos do projeto. Independentemente do tipo de rede neural artificial, os princípios básicos permanecem os mesmos; existem camadas de entrada, camadas ocultas e camadas de saída. Cada uma delas será explicada em mais detalhes posteriormente. Camadas ocultas são as principais responsáveis pelo aumento da demanda por poder de processamento, pois é onde residem os neurônios que realizam todo o processamento principal da rede.
+Uma \textit{rede neural artificial} (\textbf{ANN}, do inglês \textit{Artificial Neural Network}) é uma estrutura composta por neurônios interconectados distribuídos entre múltiplas camadas. Sua origem vem da ideia de imitar a função cerebral. Uma das características mais importantes das ANNs é a capacidade de aprender com ou sem supervisão (referências para análises comparativas), ou seja, as ANNs podem adotar uma abordagem de aprendizado supervisionado ou uma abordagem de aprendizado não supervisionado \citep{haykin1999neural}, dependendo da implementação do algoritmo de acordo com os objetivos do projeto. Independentemente do tipo de rede neural artificial, os princípios básicos permanecem os mesmos; existem camadas de entrada, camadas ocultas e camadas de saída; cada uma delas será explicada em mais detalhes posteriormente. Camadas ocultas são as principais responsáveis pelo aumento da demanda por poder de processamento, pois é onde residem os neurônios que realizam todo o processamento principal da rede.
 
 \nomenclature{ANN}{\textit{Artificial Neural Network}}
 
@@ -542,7 +542,7 @@ Após uma primeira visão ingênua, talvez se imagine que, dado que os principai
     \label{fig:ann_mlp}
 \end{figure}
 
-O impacto causado pelas redes neurais artificiais se intensificou drasticamente a partir da criação do Perceptron Multicamadas (\textbf{MLP}, \textit{Multilayer Perceptron}), que consiste em uma classe de redes de em que a informação é propagada apenas em uma direção, sendo enviada para a frente da rede. A estrutura de um MLP é composta por ao menos duas camadas intermediárias de neurônios, tal como pode ser visto pela Figura \ref{fig:ann_mlp}, o que permite que, em vez de ser projetado um único hiperplano para separar o hiperespaço de amostras a serem classificadas, passe a ser possível obter modelos bem mais flexíveis quanto a essas regiões de fronteira de separação.
+O impacto causado pelas redes neurais artificiais se intensificou drasticamente a partir da criação do \textit{Perceptron multicamadas} (\textbf{MLP}, \textit{Multilayer Perceptron}), que consiste em uma classe de redes em que a informação é propagada apenas em uma direção, sendo enviada para a frente da rede, o que é comumente chamado em materiais de literatura em língua inglesa como \textit{Forward Propagation}. A estrutura de um MLP é composta por ao menos duas camadas intermediárias de neurônios, tal como pode ser visto pela Figura \ref{fig:ann_mlp}, o que permite que, em vez de ser projetado um único hiperplano para separar o hiperespaço de amostras a serem classificadas, passe a ser possível obter modelos bem mais flexíveis quanto a essas regiões de fronteira de separação.
 
 \nomenclature{MLP}{\textit{Multilayer Perceptron}}
 
@@ -574,7 +574,7 @@ As redes de \textit{função de base radial}\footnote{Esta linha, embora ainda m
     \label{fig:ann_rbf_1}
 \end{figure}
 
-Esta rede não é profunda, ou seja, possui uma quantidade de camadas intermediárias bastante limitada, sendo, em geral, apenas uma ou duas; e, além disso, trata-se de um tipo de rede que pode não seguir uma mesma abordagem uniformizada quanto ao paradigma do processo de aprendizagem para todas as camadas, visto que, caso haja duas ou mais camadas, a primeira camada intermediária seguirá um padrão não-supervisionado, enquanto que as demais camadas intermediárias se utilizarão de uma abordagem supervisionada. Possivelmente, o que mais influencia positivamente no desempenho deste tipo de rede para a solução de problemas para os quais estas redes são consideradas altamente convenientes é a quantidade de neurônios da camada não-supervisionada; assim, ganha-se mais em desempenho conforme amplia-se o espaço das características.
+Esta rede não é profunda, ou seja, possui uma quantidade de camadas intermediárias bastante limitada, sendo, em geral, apenas uma ou duas; e, além disso, trata-se de um tipo de rede que pode não seguir uma mesma abordagem uniformizada quanto ao paradigma do processo de aprendizagem para todas as camadas, visto que, caso haja duas ou mais camadas, a primeira camada intermediária seguirá um padrão não-supervisionado, enquanto que as demais camadas intermediárias se utilizarão de uma abordagem supervisionada. Possivelmente, o que mais influencia positivamente no desempenho deste tipo de rede para a solução de problemas para os quais estas redes são consideradas altamente convenientes é a quantidade de neurônios da camada não-supervisionada; assim, ganha-se mais em desempenho conforme amplia-se o espaço das características (\textit{Features}).
 
 Devido à forma como camadas supervisionadas funcionam, com suas funções de ativação tendendo a seguir similaridades em relação ao que se observa a partir das entradas da rede, seu \textit{Modus operandi} aproxima-se bastante dos observados pelo algoritmo de classificação por \textit{vizinhos próximos}; por isso, pode-se compreender a rede neural de tipo RBF como um método de \textit{vizinhos próximos supervisionado} \citep{aggarwal2018neural}. A Equação (\ref{eq:ann_rbf_output}) modela o funcionamento da saída da rede RBF:
 
@@ -594,7 +594,7 @@ Devido à forma como camadas supervisionadas funcionam, com suas funções de at
     \vspace{0.2cm}
 \end{equation}
 
-A Figura \ref{fig:ann_arch_rbf} ilustra um modelo esquemático de redes neurais com arquitetura RBF. Perceba que não há qualquer necessidade de o número de neurônios da camada intermediária (oculta), $\bm{h(x)}$, da rede ser igual ao número de entradas da rede, $\bm{x}$; a saída, $\bm{f(x)}$, é única neste caso, embora haja casos com múltiplas saídas. Vale ressaltar o fato de, independentemente do número de neurônios envolvidos na rede, trata-se de uma rede (totalmente) conectada, ou seja, entre para cada neurônio de uma dada camada há uma conexão com cada um dos neurônios de suas camadas adjcentes; além disso, diferentemente de como ocorre com as MLPs, as RBF não sofrem com mínimos locais.
+A Figura \ref{fig:ann_arch_rbf} ilustra um modelo esquemático de redes neurais com arquitetura RBF. Perceba que não há qualquer necessidade de o número de neurônios da camada intermediária (oculta), $\bm{h(x)}$, da rede ser igual ao número de entradas da rede, $\bm{x}$; a saída, $\bm{y}$, é única neste caso, embora haja casos com múltiplas saídas. Vale ressaltar o fato de que, independentemente do número de neurônios envolvidos na rede, trata-se de uma rede (totalmente) conectada, ou seja, para cada neurônio de uma dada camada há uma conexão com cada um dos neurônios de suas camadas adjcentes; além disso, diferentemente de como ocorre com as MLPs, as RBFs não sofrem com mínimos locais.
 
 \begin{figure}[H]
     \centering
@@ -614,7 +614,7 @@ A Figura \ref{fig:ann_arch_rbf} ilustra um modelo esquemático de redes neurais 
 \subsection{Redes Hopfield}
 \label{subsec:ann_hopfield_nets}
 
-Outra arquitetura de rede neural bastante marcante é a rede \textit{Hopfield} \citep{hopfield1982neural}, uma rede de tipo recorrente e com a importante característica de oferecer garantia de convergência na busca por um ponto de mínimo ao realizar um processo de otimização, contudo, não há qualquer garantia quanto a qual será o ponto de mínimo, o que significa que pode se tratar de um mínimo local; ou seja, pode ser que o resultado obtido pelo processo de otimização não seja, de fato, o melhor possível, embora o resultado obtido sugira que tenha sido este o caso.
+Outra arquitetura de rede neural bastante marcante é a rede \textit{Hopfield} \citep{hopfield1982neural}, uma rede de tipo recorrente --- este tipo será melhor explicada à frente --- e com a importante característica de oferecer garantia de convergência na busca por um ponto de mínimo ao realizar um processo de otimização, contudo, não há qualquer garantia quanto a qual será o ponto de mínimo, o que significa que pode se tratar de um mínimo local; ou seja, pode ser que o resultado obtido pelo processo de otimização não seja, de fato, o melhor possível, embora o resultado obtido sugira que tenha sido este o caso.
 
 A Figura \ref{fig:ann_arch_hopfield} ilustra um exemplo esquemático de rede com arquitetura Hopfield para um exemplo com três neurônios. Vale notar o fato de que, de certa forma, diferente do que se espera de um modelo clássico de rede neural, neste modelo pode-se dizer que inexistem camadas intermediárias, exceto por casos de variações desta arquitetura, mas não dela própria. A rede pode ser pensada como um grafo direcionado completamente conectado, com pesos fixos e realimentação (\textit{Feedback}), sendo que cada neurônio recebe a sua própria entrada e o \textit{Feedback} (da saída) de cada um dos outros neurônios; contudo, o neurônio não é realimentado com sua própria saída e os pesos associados a cada realimentação são simétricos.
 
@@ -702,7 +702,7 @@ As \textit{redes neurais recorrentes} (\textbf{RNN}, \textit{Recurrent Neural Ne
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.25\textwidth]{figs/ann_arch_rnn_chunk.pdf}
+    \includegraphics[width=0.20\textwidth]{figs/ann_arch_rnn_chunk.pdf}
     \caption{Representação de um pequeno trecho da composição de uma RNN.}
     \label{fig:ann_arch_rnn_chunk}
 \end{figure}
@@ -724,17 +724,21 @@ A Figura \ref{fig:ann_arch_rnn_chunk} ilustra um pequeno trecho de uma RNN. A re
 \subsection{Redes Neurais Convolucionais}
 \label{subsec:ann_convolutional_nets}
 
-Embora sejam mais tipicamente associada a casos de redes profundas, as \textit{redes neurais convolucionais} (\textbf{CNN}, \textit{Convolutional Neural Networks}) \citep{fukushima1980neocognitron} também podem ser implementadas em redes com poucas camadas\footnote{Ao dizer ``redes com poucas camadas'', é importante ressaltar que inexiste uma definição formal e amplamente aceita de um limiar que distingue o que é uma rede profunda do que é uma rede rasa. Para alguns, qualquer rede com mais de uma única camada oculta é profunda; para outros, com mais de duas; e há os que exijam quantias bem maiores de camadas para só então classificarem como profundas.}. Trata-se de um tipo de rede bastante explorado, sobretudo em trabalhos de processamento de imagens, embora não se limite a tais aplicações. Uma possível interpretação razoável a respeito desta abordagem é a de que ela permite analisar a informação a partir de diferentes perspectivas, fazendo desdobramentos por meio das convoluções discretas, geralmente, em duas dimensões; esses desdobramentos por vezes conferem uma peculiar independência quanto às típicas necessidades de informações \textit{a priori}, inerentes a tantos outros métodos. Apesar de ser amplamente utilizado, este tipo de rede demanda elevado poder computacional\footnote{Este, aliás, é um dos principais motivos pelos quais a sua ampla adesão foi tão tardia em relação a quando tal modelo foi trazido ao conhecimento do meio; o processamento por GPU foi um dos principais catalisadores da viabilidade do modelo quanto à sua eficiência \citep{OH20041311, doi:10.1162/neco.2006.18.7.1527}.}; ainda assim, não se trata da abordagem mais custosa.
+Embora sejam mais tipicamente associadas a casos de redes profundas, as \textit{redes neurais convolucionais} (\textbf{CNN}, \textit{Convolutional Neural Networks}) \citep{fukushima1980neocognitron} também podem ser implementadas em redes com poucas camadas\footnote{Ao dizer ``redes com poucas camadas'', é importante ressaltar que inexiste uma definição formal e amplamente aceita de um limiar que distingue o que é uma rede profunda do que é uma rede rasa. Para alguns, qualquer rede com mais de uma única camada oculta é profunda; para outros, com mais de duas; e há os que exijam quantias bem maiores de camadas para só então classificarem como profundas.}. Trata-se de um tipo de rede bastante explorado, sobretudo em trabalhos de processamento de imagens, embora não se limite a tais aplicações. Uma possível interpretação razoável a respeito desta abordagem é a de que ela permite analisar a informação a partir de diferentes perspectivas, fazendo desdobramentos por meio das convoluções discretas, geralmente, em duas dimensões; esses desdobramentos por vezes conferem uma peculiar independência quanto às típicas necessidades de informações \textit{a priori}, inerentes a tantos outros métodos. Apesar de ser amplamente utilizado, este tipo de rede demanda elevado poder computacional\footnote{Este, aliás, é um dos principais motivos pelos quais a sua ampla adesão foi tão tardia em relação a quando tal modelo foi trazido ao conhecimento do meio; o processamento por GPU foi um dos principais catalisadores da viabilidade do modelo quanto à sua eficiência \citep{OH20041311, doi:10.1162/neco.2006.18.7.1527}.}; ainda assim, não se trata da abordagem mais custosa.
+
+Esse enorme ganho de autonomia que as CNNs possuem, traz consigo maiores flexibilidade e adaptabilidade para o projetista, o que pode ser interpretado como um grande avanço, dado que, pela primeira vez, dependendo do tipo de projeto com o qual se estiver lidando, pode ser possível reduzir as preocupações quanto ao que diz respeito às tratativas \textit{a priori}; ou seja, tudo o que se entende por pré-processamento passa a ter sua importância questionada. Isso não quer dizer que foi encontrada uma solução perfeita para todos casos --- sempre que alguma ideia assim surgir, deve-se procurar lembrar do \textit{No Free Lunch} (\textbf{NFL}) ---, mas quer, sim, dizer que uma abordagem menos cautelosa pode ser feita para algum conjunto de casos.
+
+Contudo, certos questionamentos também foram levantados por conta de todo esse poder aparente. Ainda hoje há dúvidas quanto aos limites de tais estruturas, assim como critica-se o fato de que o grau de abstração que essas redes implementam é suficientemente elevado para que passe a ser impossível de se saber minuciosamente o que a estrutura elaborada realiza fisicamente, o que contribui para que um \textit{Modus operandi} filosoficamente nocivo passe a ser disseminado, que é o de tratar a rede como uma \textit{caixa preta}, que pode ser totalmente abstraída, sugerindo que o que importa é somente a saída obtida dessa caixa. E o problema dessa abordagem é o fato de que o desconhecimento acerca das minúcias do processamento desse sistema pode contribuir para o desenvolvimento de sistemas errôneos que podem, lamentavelmente, ser aderidos por outros pesquisadores, por empresas ou por usuários finais. Atualmente, até mesmo questões éticas tem sido levantadas a respeito da forma de funcionamento dos algoritmos; para que esses questionamentos possam ser honestamente respondidos, é importante que se saiba plenamente o que o algoritmo faz.
 
 
 
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1.00\textwidth]{figs/gan_dcgan.pdf}
-    \caption{DCGAN}
-    \label{fig:gan_dcgan}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=1.00\textwidth]{figs/gan_dcgan.pdf}
+%     \caption{DCGAN}
+%     \label{fig:gan_dcgan}
+% \end{figure}
 
 
 
@@ -746,7 +750,7 @@ Embora sejam mais tipicamente associada a casos de redes profundas, as \textit{r
 \section{Backpropagation}
 \label{sec:ann_backpropagation}
 
-O funcionamento iterativo do MLP depende da ocorrência de um treinamento que se dá majoritariamente por conta de um processo de otimização de custo, que se trata da redução do erro resultante da rede, composto pelos erros de cada um dos neurônios que compõem a rede. Para que os ajustes possam ser feitos de forma adequada em todos os neurônios, inclusive os que se localizam nas camadas mais distantes do fim da rede, é essencial que haja alguma maneira de levar a eles essa informação sobre o erro, assim cada neurônio poderá ter seu peso ajustado de forma independente dos demais, sempre com a missão de reduzir o erro final da rede, não especificamente seu próprio erro. Um dos algoritmos mais utilizados para realizar tal tarefa é conhecido como \textit{Backpropagation} \citep{Rumelhart1986, rumelhart1988parallel}.
+O funcionamento iterativo do MLP depende da ocorrência de um treinamento que se dá majoritariamente por conta de um processo de otimização de custo, que se trata da redução do erro resultante da rede, composto pelos erros de cada um dos neurônios que compõem a rede. Para que os ajustes possam ser feitos de forma adequada em todos os neurônios, inclusive os que se localizam nas camadas mais distantes do fim da rede, é essencial que haja alguma maneira de levar a eles essa informação sobre o erro; assim, cada neurônio poderá ter seu peso ajustado de forma independente dos demais, sempre com a missão de reduzir o erro final da rede, não especificamente seu próprio erro. Um dos algoritmos mais utilizados para realizar tal tarefa é conhecido como \textit{Backpropagation} \citep{Rumelhart1986, rumelhart1988parallel}.
 
 Em seu livro \textit{Neural Networks: A Comprehensive Foundation} \citep{haykin1999neural}, Simon Haykin demonstra todo o funcionamento, passo a passo, da etapa de treinamento com o uso do algoritmo de \textit{Backpropagation}, com ilustrações e deduções matemáticas detalhadas, explicadas e comentadas. Haykin separa os casos em dois:
 
@@ -782,7 +786,7 @@ Note que a Equação (\ref{eq:ann_instant_neuron_error}) independe de qualquer t
     \vspace{0.2cm}
 \end{equation}
 
-A função $\mathcalboondox{E}_{\text{avg}}(n)$ é comumente utilizada como \textit{função custo} para se mensurar o desempenho do processo de aprendizagem correspondente a um determinado conjunto de treinamento; é essa a função a ser minimizada ao longo do processo de treinamento, e a cada iteração do treinamento são feitos ajustes sobre os parâmetros livres, como os pesos sinápticos e \textit{bias} da rede como consequência da otimização. O campo local induzido $\upsilon_{j}(n)$, que se trata do somatório observado na Figura \ref{fig:ann_perceptron_new_organization}, é definido como
+A função $\mathcalboondox{E}_{\text{avg}}(n)$ é comumente utilizada como \textit{função custo} para se mensurar o desempenho do processo de aprendizagem correspondente a um determinado conjunto de treinamento; é essa a função a ser minimizada ao longo do processo de treinamento, e a cada iteração do treinamento são feitos ajustes sobre os parâmetros livres, como pesos sinápticos e \textit{bias} da rede, como consequência da otimização. O campo local induzido $\upsilon_{j}(n)$, que se trata do somatório observado na Figura \ref{fig:ann_perceptron_new_organization}, é definido como
 
 \begin{equation}
     \upsilon_{j}(n) = \nsum_{i=0}^{m} w_{ji}(n) y_{i}(n)
@@ -870,9 +874,7 @@ Assim, utilizando-se a \textit{regra delta}, os ajustes de treinamento da rede p
 \section{Redes Profundas}
 \label{sec:ann_deep_networks}
 
-Apesar de praticamente todos os tópicos abordados até aqui serem relevantes tanto para \textit{redes neurais rasas}\footnote{Tradução livre do termo \textit{Shallow Neural Networks}, encontrado em alguns dos materiais de consulta para designar as redes não profundas, ou seja, as que possuem apenas uma única camada oculta.} quanto para \textit{redes neurais profundas}, este capítulo abordará mais especificamente as redes profundas, dado que serão elas a serem exploradas neste trabalho.
-
-Os termos \textit{rasas} e \textit{profundas}, utilizados para caracterizar a ``profundidade'' da rede, ou seja, a quantidade de camadas ocultas (ou intermediárias) que as ANNs podem possuir em sua arquitetura, são apenas o que se conhece por \textit{Buzz-words}, termos não técnicos amplamente utilizados, neste caso, para designar redes neurais com, respectivamente, uma única camada oculta (\textit{rasas}) e duas ou mais camadas ocultas (\textit{profundas}). Não há um número exato que defina a quantidade de camadas ocultas necessárias para se chamar uma rede neural de \textit{profunda}, por outro lado, uma rede com apenas uma camada oculta é sempre interpretada como \textit{rasa}.
+Apesar de praticamente todos os tópicos abordados até aqui serem relevantes tanto para \textit{redes neurais rasas}\footnote{Tradução livre do termo \textit{Shallow Neural Networks}, encontrado em alguns dos materiais de consulta para designar as redes não profundas, ou seja, as que possuem apenas uma única camada oculta.} quanto para \textit{redes neurais profundas}, este capítulo abordará mais especificamente as redes profundas, dado que serão elas a serem exploradas neste trabalho. Os termos \textit{rasas} e \textit{profundas}, utilizados para caracterizar a ``profundidade'' da rede, ou seja, a quantidade de camadas ocultas (ou intermediárias) que as ANNs podem possuir em sua arquitetura, são apenas o que se conhece por \textit{Buzz-words}, termos não técnicos amplamente utilizados, neste caso, para designar redes neurais com, respectivamente, poucas camadas ocultas (\textit{rasas}) e várias camadas ocultas (\textit{profundas}). Não há um número exato que defina a quantidade de camadas ocultas necessárias para se chamar uma rede neural de \textit{profunda}.
 
 
 
@@ -911,7 +913,7 @@ Apesar de ser possível iniciar a partir de diferentes configurações e, ainda 
 
 A inicialização deste processo se dá pela escolha dos valores inicialmente assumidos para os \textit{pesos sinápticos} da rede, $w_{ji}(n)$, e para o \textit{limiar} $\theta_{j}$, que é utilizado para delimitar qual o mínimo valor necessário para que cada neurônio seja ativado, ou seja, para que o valor produzido por si seja levado em consideração pelo neurônio seguinte. Se forem utilizados valores iniciais demasiado elevados, há o risco de saturação, o que, devido a baixos valores de gradientes locais, pode resultar em uma considerável desaceleração do processo de treinamento. Por outro lado, a utilização de valores iniciais muito baixos, dependendo da função de ativação escolhida, pode fazer com que o algoritmo acabe trabalhando em uma região muito plana ao redor da superfície de erro.
 
-Uma das possibilidades seria a de inicializar todos os pesos como sendo iguais a zero, porém essa pode não ser uma boa escolha, dado que isso faria com que a derivada em relação à \textit{função custo} fosse igual para todos os pesos, além do fato de que todas as camadas ocultas passariam a se comportar com base nos mesmos pesos, simetricamente, sendo esta uma realidade que seria preservada ao longo de todas as demais iterações, o que não tornaria o desempenho darede melhor do que seria se fosse simplesmente linear; ou seja, todo o sentido de se aceitar um enorme aumento do custo computacional para que fosse possível explorar aproximações mais complexas seria perdido.
+Uma das possibilidades seria a de inicializar todos os pesos como sendo iguais a zero, porém essa pode não ser uma boa escolha, dado que isso faria com que a derivada em relação à \textit{função custo} fosse igual para todos os pesos, além do fato de que todas as camadas ocultas passariam a se comportar com base nos mesmos pesos, simetricamente, sendo esta uma realidade que seria preservada ao longo de todas as demais iterações, o que não tornaria o desempenho da rede melhor do que seria se fosse simplesmente linear; ou seja, todo o sentido de se aceitar um enorme aumento do custo computacional para que fosse possível explorar aproximações mais complexas seria perdido.
 
 Outra abordagem seria a de inicializar os valores por meio de sorteios aleatórios; possivelmente, respeitando uma dada \textit{função densidade de probabilidade} (\textbf{PDF}, \textit{Probability Density Function}), como uma distribuição Gaussiana ou uma distribuição uniforme. Aliás, uma das sugestões de inicialização feitas em \citep{haykin1999neural} é justamente a de se utilizar valores aleatórios de média zero e com uma variância apropriadamente selecionada para que os valores sorteados permitam que os resultados caiam em ambas as regiões da \textit{função de ativação} $\varphi_{j}(n)$, mas, preferencialmente, não em seus extremos.
 

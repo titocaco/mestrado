@@ -4,23 +4,23 @@
 
 Um dos pontos mais importantes deste trabalho trata-se de todo um conjunto de estudos e experimentos sobre GANs (\textit{Generative Adversarial Networks}) \citep{NIPS2014_5423}, que são estruturas que dependem da compreensão sobre o que são modelos geradores (Seção \ref{sec:gan_nn_as_generative_model}), o que vêm a ser redes adversárias (Seção \ref{sec:gan_adversarial_nets}) e um pouco sobre elementos de teoria dos jogos (Seção \ref{sec:gan_game_theory}).
 
-%   ------------------------------------------------
-%   ----- Redes Neurais como Modelos Geradores -----
-%   ------------------------------------------------
-\section{Redes Neurais como Modelos Geradores}
-\label{sec:gan_nn_as_generative_model}
+% %   ------------------------------------------------
+% %   ----- Redes Neurais como Modelos Geradores -----
+% %   ------------------------------------------------
+% \section{Redes Neurais como Modelos Geradores}
+% \label{sec:gan_nn_as_generative_model}
 
-Dentro da grande área de inteligência artificial existem diversos modelos com capacidades intrínsecas específicas que fazem com que tais modelos se comportem de formas bastante características, permitindo que sejam agrupados por tais características comportamentais e capacidades; uma dessas capacidades é a de capturar tendências, padrões e características, bem como a de reproduzir --- com alguma fidelidade ou precisão --- tais tendências (de cunho estatístico). Dentre as tantas diferentes abordagens possíveis que possuem tais capacidades estão as redes neurais, que serão bastante exploradas ao longo deste trabalho.
+Dentro da grande área de inteligência artificial existem diversos modelos com capacidades intrínsecas específicas que fazem com que tais modelos se comportem de formas bastante características, permitindo que sejam agrupados por tais características comportamentais e capacidades; uma dessas capacidades é a de capturar tendências, padrões e características, bem como a de reproduzir --- com alguma fidelidade ou precisão --- tais tendências (de cunho estatístico). Dentre as tantas diferentes abordagens possíveis que possuem tais capacidades estão as redes neurais, já bastante exploradas ao longo deste trabalho, sobretudo no Capítulo \ref{cha:ann}.
 
 
 
-%   -----------------------------
-%   ----- Redes Adversariais -----
-%   -----------------------------
-\section{Redes Adversariais}
-\label{sec:gan_adversarial_nets}
+% %   -----------------------------
+% %   ----- Redes Adversariais -----
+% %   -----------------------------
+% \section{Redes Adversariais}
+% \label{sec:gan_adversarial_nets}
 
-Neste contexto, pode ser interessante definir que são considerados adversários quaisquer elementos que possam influenciar negativamente nas tentativas de se atingir objetivos almejados por qualquer outro elemento que compuser uma dada estrutura que seja, em algum grau, conectada a ponto de permitir que tais influências ocorram entre os elementos em questão; tal estrutura de comunicação pode ser interpretada como uma rede e, dado que os indivíduos podem atuar de modo a competirem entre si, tais indivíduos podem ser compreendidos como adversários entre si. Portanto, uma rede adversarial pode ser entendida como uma rede composta por indivíduos que estejam competindo entre si de alguma forma.
+Neste contexto, pode ser interessante definir que são considerados adversários quaisquer elementos que possam influenciar negativamente nas tentativas de se atingir objetivos almejados por qualquer outro elemento que venha a compor uma dada estrutura que seja, em algum grau, conectada a ponto de permitir que tais influências ocorram entre os elementos em questão; tal estrutura de comunicação pode ser interpretada como uma rede e, dado que os indivíduos podem atuar de modo a competirem entre si, tais indivíduos podem ser compreendidos como adversários entre si. Portanto, uma rede adversarial pode ser entendida como uma rede composta por indivíduos que estejam competindo entre si de alguma forma.
 
 
 
@@ -62,9 +62,7 @@ Originalmente, esse modelo havia sido proposto ao longo de 1950, na RAND, por Me
     \label{fig:prisoners_dilemma}
 \end{figure}
 
-O clássico Dilema do Prisioneiro, apresentado até agora, considera apenas uma ocorrência para ambos os prisioneiros envolvidos, mas não é suficiente para modelar adequadamente todas as situações possíveis; um algoritmo ainda mais flexível consideraria iterações \citep{press2012iterated}.
-
-A Subseção \ref{subsec:gan_minmax} tratá uma regra de decisão muito interessante que pode ajudar a escolher a estratégia que melhor se adapte a ambos os prisioneiros.
+O clássico Dilema do Prisioneiro, apresentado até agora, considera apenas uma ocorrência para ambos os prisioneiros envolvidos, mas não é suficiente para modelar adequadamente todas as situações possíveis; um algoritmo ainda mais flexível consideraria iterações \citep{press2012iterated}. A Subseção \ref{subsec:gan_minmax} tratá uma regra de decisão muito interessante que pode ajudar a escolher a estratégia que melhor se adapte a ambos os prisioneiros.
 
 
 
@@ -73,7 +71,7 @@ A Subseção \ref{subsec:gan_minmax} tratá uma regra de decisão muito interess
 \subsection{MiniMax}
 \label{subsec:gan_minmax}
 
-Esta subseção começa explicando alguns passos para se chegar à melhor decisão para o Dilema do Prisioneiro, seguindo o exemplo dado pela Figura \ref{fig:prisoners_dilemma}. Numa primeira tentativa ingênua, um prisioneiro pode pensar em ficar quieto, cooperando com seu cúmplice, mas como não é possível saber qual será a estratégia de seu cúmplice, este prisioneiro corre o risco de ser condenado a 4 anos de prisão. Isto é, uma simples mudança de estratégia egoísta por parte do outro preso, sobre o qual não há controle, pode causar uma grande alteração no resultado da penalidade do primeiro preso, indo do mínimo (1 ano) para o máximo (4 anos). Esta é, então, uma estratégia muito arriscada. Por outro lado, o prisioneiro pode escolher denunciar seu companheiro; isso certamente garantiria ao outro preso uma sentença mínima de 3 anos e um máximo de 4 anos, além de colocar o prisioneiro que tomou tal decisão em posição de poder sair em liberdade, desde que seu parceiro também não o entregue.
+Esta subseção começa explicando alguns passos para se chegar à melhor decisão para o Dilema do Prisioneiro, seguindo o exemplo dado pela Figura \ref{fig:prisoners_dilemma}. Numa primeira tentativa ingênua, um prisioneiro pode pensar em ficar quieto, cooperando com seu cúmplice; mas, como não é possível saber qual será a estratégia de seu cúmplice, este prisioneiro corre o risco de ser condenado a 4 anos de prisão. Isto é, uma simples mudança de estratégia egoísta por parte do outro preso, sobre o qual não há controle, pode causar uma grande alteração no resultado da penalidade do primeiro preso, indo do mínimo (1 ano) para o máximo (4 anos). Esta é, então, uma estratégia muito arriscada. Por outro lado, o prisioneiro pode escolher denunciar seu companheiro; isso certamente garantiria ao outro preso uma sentença mínima de 3 anos e um máximo de 4 anos, além de colocar o prisioneiro que tomou tal decisão em posição de poder sair em liberdade, desde que seu parceiro também não o entregue.
 
 Para evitar as piores consequências possíveis para ambos os criminosos, eles têm que alcançar um forte \textit{equilíbrio de Nash} \citep{Nash48}, ou seja, chegar a uma posição cujo resultado para um deles não receberia uma melhoria significativa se mudasse sua estratégia unilateralmente. A ideia aqui, portanto, seria minimizar a sentença máxima; esta é uma regra de decisão chamada \textit{MiniMax}\footnote{É possível encontrar variações deste termo, tais como \textit{MinMax}, ou \textit{Max Min}, ou MM, dependendo da referência utilizada.} \citep{v.Neumann1928, blackwell1956analog, willem1997minimax}. Assim, continuando com o exemplo exposto na Figura \ref{fig:prisoners_dilemma}, o movimento mais seguro para ambos seria optar por delatar seu cúmplice, pois quem delatar terá sua pena superiormente limitada a 3 anos; Além disso, se o seu companheiro não fizer o mesmo, em vez de ser condenado à prisão, será libertado.
 
@@ -85,7 +83,7 @@ Para evitar as piores consequências possíveis para ambos os criminosos, eles t
 \section{GAN}
 \label{sec:gan_gan}
 
-Explorando conceitos de Teoria dos Jogos e de Aprendizagem Profunda, foi possível formular um novo tipo de abordagem, utilizando duas redes neurais como jogadores adversários de um jogo competitivo; assim, foram propostas as Redes Adversárias Geradoras (\textbf{GAN}, do inglês \textit{Generative Adversarial Networks}) \citep{NIPS2014_5423}.
+Explorando conceitos de \textit{teoria dos jogos} e de \textit{aprendizagem profunda}, foi possível formular um novo tipo de abordagem, utilizando duas redes neurais como jogadores adversários de um jogo competitivo; assim, foram propostas as \textit{Generative Adversarial Networks}\footnote{Infelizmente, dada a incipiência da técnica, a comunidade científica brasileira ainda não chegou a um termo amplamente aceito na língua portuguêsa para traduzir o termo adequadamente; encontra-se versões diferentes a cada material consultando. Assim, ao menos por agora, é preferível manter o termo original em inglês.} (\textbf{GAN}) \citep{NIPS2014_5423}. 
 
 \begin{figure}[H]
     \centering
@@ -104,7 +102,7 @@ Como foi dito neste capítulo, ambos os jogadores deste jogo são redes neurais 
     \vspace{0.2cm}
 \end{equation}
 
-\noindent onde $V$ é a função de valor; $D$ é o Discriminador, um perceptron multi-camada que gera a probabilidade de $\pmb{x}$ ter sido originado dos dados legítimos em vez da distribuição $p_{G}$; $G$ é o Gerador (jogador); $p_{\text{data}}$ é a distribuição de dados; e $p_{\text{\pmb{z}}}$ é uma \textit{a priori} nas variáveis de ruído de entrada. O treinamento de Redes Adversariais Generativas usa um método baseado em Gradiente Descendente Estocástico, que pode ser visto no Algoritmo \ref{alg:gan_train} \citep{NIPS2014_5423}.
+\noindent onde $V$ é a função de valor; $D$ é o Discriminador, um perceptron multi-camada que gera a probabilidade de $\pmb{x}$ ter sido originado dos dados legítimos em vez da distribuição $p_{G}$; $G$ é o Gerador; $p_{\text{data}}$ é a distribuição de dados; e $p_{\text{\pmb{z}}}$ é uma \textit{a priori} nas variáveis de ruído de entrada. O treinamento de Redes Adversariais Generativas usa um método baseado em Gradiente Descendente Estocástico, que pode ser visto no Algoritmo \ref{alg:gan_train} \citep{NIPS2014_5423}.
 
 
 \begin{algorithm}
