@@ -2,7 +2,7 @@
 \chapter{GAN para BSS}
 \label{cha:gan_for_bss}
 
-Apesar de a tarefa de separação de fontes não ser nova e contar com um grande número de técnicas diversificadas que tentam atacar o problema a partir de diferentes perspectivas, a abordagem feita pelo uso de GANs com duas redes neurais de múltiplas camadas --- podendo explorar um grau de profundidade de rede que tornaria o processo ainda mais próximo do que se concebe por \textit{Deep Learning} --- ainda é muito incipiente; inclusive, a incipiência de tal abordagem neste contexto faz com que haja uma distribuição bastante espalhada quanto ao que diz respeito à diversidade de métodos, técnicas, hipóteses etc. Isto faz com que seja ainda mais aconselhável explicar detalhes que poderiam ser interpretados como supérfulos para um trabalho em área já bastante explorada e consolidada.
+Apesar de a tarefa de separação de fontes não ser nova e contar com um grande número de técnicas diversificadas que tentam atacar o problema a partir de diferentes perspectivas, a abordagem feita pelo uso de GANs com duas redes neurais de múltiplas camadas --- podendo explorar um grau de profundidade de rede que tornaria o processo ainda mais próximo do que se concebe por \textit{Deep Learning} --- ainda é muito incipiente; inclusive, a incipiência de tal abordagem neste contexto faz com que haja uma distribuição bastante espalhada quanto ao que diz respeito à diversidade de métodos, técnicas, hipóteses etc. Isto faz com que seja ainda mais aconselhável explicar detalhes que poderiam ser interpretados como supérfluos para um trabalho em área já bastante explorada e consolidada.
 
 % Na Seção \ref{sec:gan_for_bss_how_to_use} será explicado, com algum grau de detalhamento, quais foram os passos seguidos pelo autor deste trabalho para se utilizar as GANs com a finalidade de se efetuar a tarefa de geração de imagens para a etapa preliminar de resultados com o objetivo de reforçar a prova de conceito sobre a capacidade das GANs; mais à frente, serão trazidos os passos referentes à sua utilização com o objetivo principal específico de se realizar a separação de sinais para fontes de áudio.
 
@@ -10,25 +10,7 @@ Apesar de a tarefa de separação de fontes não ser nova e contar com um grande
 
 
 
-% %   ---------------------------------
-% %   ----- Revisão Bibliográfica -----
-% %   ---------------------------------
-% \section{Revisão Bibliográfica}
-% \label{sec:gan_for_bss_bib_review}
-
-Embora ainda seja uma área incipiente, as características potencialmente disruptivas das Redes Adversariais Generativas têm sido bastante atraentes e convidativas aos olhos de inúmeros pesquisadores, e com isso, várias pesquisas relacionadas a essa nova abordagem têm sido realizadas, inclusive para aplicações como separação cega de fontes de áudio. Nesta Seção serão trazidos dois trabalhos que corroboram o uso de GANs para separação de fontes.
-
-% %   ----- Bengio (ICA + GAN) -----
-% \subsection{Bengio (ICA + GAN)}
-% \label{subsec:gan_for_bss_ica_gan}
-
-Um trabalho mais contemporânio explorou GANs com ICA não-linear para encontrar o que foi chamado de \textit{características independentes}, que são obtidas implicitamente por meio dos processos de otimização das GANs, baseando-se no confronto entre amostras de distribuições de probabilidade conjuntas e de produtos das distribuições marginais, não sendo necessário calcular as densidades de probabilidade \citep{brakel2017learning}.
-
-
-
-% %   ----- Gan + BSS -----
-% \subsection{Smaragdis (GAN + BSS)}
-% \label{subsec:gan_for_bss_gan_bss}
+Embora ainda seja uma abordagem incipiente, as características potencialmente disruptivas das GANs têm sido bastante atraentes e convidativas aos olhos de inúmeros pesquisadores; com isso, várias pesquisas relacionadas a essa nova abordagem têm sido realizadas, inclusive para aplicações como separação cega de fontes de áudio. Nesta Seção serão trazidos dois trabalhos que corroboram o uso de GANs para separação de fontes. Um trabalho mais contemporânio explorou GANs com ICA não-linear para encontrar o que foi chamado de \textit{características independentes}, que são obtidas implicitamente por meio dos processos de otimização das GANs, baseando-se no confronto entre amostras de distribuições de probabilidade conjuntas e de produtos das distribuições marginais, não sendo necessário calcular as densidades de probabilidade \citep{brakel2017learning}.
 
 Em 2018, uma publicação intitulada \textit{Generative Adversarial Source Separation} \citep{8461671} conduziu um experimento de separação de fontes de fala usando um perceptron multicamada com uma variação das GANs originais chamadas \textit{Wasserstein-GAN} \citep{arjovsky2017wasserstein}. Os resultados obtidos em termos de taxa de fonte para distorção indicam melhor desempenho por MLP treinado com Wasserstein-GAN em vez do uso de Fatoração de Matrizes Não-Negativas (NMF) \citep{lee1999learning}, auto-encoders treinados com máxima verossimilhança e auto-encoders variáveis. Neste trabalho, os autores propuseram o uso de uma função discriminante, $D_{\xi}\left(\cdot\right)$, que visa distinguir entre as amostras geradas a partir do modelo e as amostras advindas das instâncias de treinamento. Após o treinamento, é possível gerar amostras usando o processo descrito em (\ref{eq:08461671_gen_process}),
 
@@ -88,7 +70,7 @@ A otimização para separar as fontes considerando uma coluna espectral $x^{1:\m
 \end{equation}
 
 
-\noindent com $f_{\widehat{\theta}_{k}}\left(\cdot\right)$ sendo as redes geradoras; $D_{\widehat{\xi}_{k}}\left(\cdot\right)$, os discriminantes; $\alpha$, um escalar de trade-off entre qualidade de reconstrução e pontuação de discriminante, fixado como $\alpha = 0.1$ neste experimento; e $\beta$, o termo de suavização, com $\beta = 0.1$. O uso da distribuição \textit{Poisson} para $ p_{\text{mixture}}\left(\cdot\right)$ é muito comum para espectrogramas de magnitude. Os testes empíricos foram iniciados pela formação de misturas de falantes masculinos e femininos e dados de treinamento do \textit{TIMIT Speech Corpus} \citep{timit}. E, para todos os modelos GAN obtidos desses testes, a arquitetura é definida pela Equação (\ref{eq:08461671_gan_arch},
+\noindent com $f_{\widehat{\theta}_{k}}\left(\cdot\right)$ sendo as redes geradoras; $D_{\widehat{\xi}_{k}}\left(\cdot\right)$, os discriminantes; $\alpha$, um escalar de trade-off entre qualidade de reconstrução e pontuação de discriminante, fixado como $\alpha = 0.1$ neste experimento; e $\beta$, o termo de suavização, com $\beta = 0.1$. O uso da distribuição \textit{Poisson} para $ p_{\text{mixture}}\left(\cdot\right)$ é muito comum para espectrogramas de magnitude. Os testes empíricos foram iniciados pela formação de misturas de falantes masculinos e femininos e dados de treinamento do \textit{TIMIT Speech Corpus} \citep{timit}. E, para todos os modelos de GAN obtidos desses testes, a arquitetura é definida pela Equação (\ref{eq:08461671_gan_arch}),
 
 \begin{equation}
     f_{\theta}\left(h\right) = \text{SP}\left(W_{2}\text{SP}\left(W_{1}h\right)\right),
@@ -150,7 +132,7 @@ Feitas todas as devidas etapas que compõem o pré-processamento, as imagens, qu
 
 Ainda não foi feita qualquer prova matematicamente rigorosa que garantisse que as GANs realmente são capazes de atingir o objetivo de reproduzir com alguma fidelidade as características observáveis de um determinado conjunto de dados; inclusive, não se pode garantir nem mesmo que ocorrerá uma convergência por parte do discriminador quanto à probabilidade de a amostra apresentada ser, de fato, legítima, que seria um passo anterior ao primeiro mencionado neste parágrafo e, ainda assim, não seria, por si só, forte o bastante para afirmar categoricamente que essa mímica seria feita de forma satisfatória.
 
-Um outro ponto relevante é o fato de que o as redes estão sendo treinadas para imitar apenas as distribuições probabilísticas do \textit{dataset} de referência que lhes fora apresentado, tomando como objeto otimizável a probabilidade de a amostra apresentada ao discriminador ser considerada legítima. Contudo, é importante lembrar que distribuições idênticas podem ser oriundas de \textit{datasets} completamente distintos quanto às características observáveis, o que faz com que a mera capacidade de treinar o gerador para gerar amostras segundo uma distribuição, artificialmente construída, que imite a distribuição do conjunto de dados de referência possa, na verdade, não ser suficiente para produzir os resultados esperados --- ao menos não na qualidade desejada e com a frequência desejada ---, a não ser que algo a mais seja feito para isso.
+Um outro ponto relevante é o fato de que as redes estão sendo treinadas para imitar apenas as distribuições probabilísticas do \textit{dataset} de referência que lhes fora apresentado, tomando como objeto otimizável a probabilidade de a amostra apresentada ao discriminador ser considerada legítima. Contudo, é importante lembrar que distribuições idênticas podem ser oriundas de \textit{datasets} completamente distintos quanto às características observáveis, o que faz com que a mera capacidade de treinar o gerador para gerar amostras segundo uma distribuição, artificialmente construída, que imite a distribuição do conjunto de dados de referência possa, na verdade, não ser suficiente para produzir os resultados esperados --- ao menos não na qualidade desejada e com a frequência desejada ---, a não ser que algo a mais seja feito para isso.
 
 
 
@@ -160,7 +142,7 @@ Um outro ponto relevante é o fato de que o as redes estão sendo treinadas para
 \section{Propostas}
 \label{sec:gan_for_bss_propositions}
 
-A proposta deste trabalho é a de investigar técnicas de separação de sinais de áudio por meio de arcabouços de GANs, explorando possíveis mudanças estruturais em sua arquitetura básica, que podem envolver etapas intermediárias de processamento, modelos compostos por múltiplas GANs em série que trabalhem em conjunto, ou transformações dos dados. Incialmente, serão investigadas algumas estruturas típicas, a fim reproduzir algumas gerações de imagens que corroborem a ideia de as GANs serem capazes de gerar amostras respeitando uma dada distribuição probabilística. 
+A proposta deste trabalho é a de investigar técnicas de separação de sinais de áudio por meio de arcabouços de GANs, explorando possíveis mudanças estruturais em sua arquitetura básica, que pode envolver etapas intermediárias de processamento, modelos compostos por múltiplas GANs em série que trabalhem em conjunto, ou transformações dos dados. Incialmente, serão investigadas algumas estruturas típicas, a fim reproduzir algumas gerações de imagens que corroborem a ideia de as GANs serem capazes de gerar amostras respeitando uma dada distribuição probabilística. 
 
 Será seguida uma abordagem de \textit{aprimoramento de voz}  (\textit{Voice Enhancement}) e \textit{atenuação de ruído} (\textit{Denoising}) explorando GANs, o que significa que, após aplicar arcabouços especificamente desenvolvidos para esse fim, serão obtidas versões cujos sinais de voz envolvidos serão, de alguma forma, aprimorados.
 
@@ -174,4 +156,6 @@ Será seguida uma abordagem de \textit{aprimoramento de voz}  (\textit{Voice Enh
 \section{Considerações}
 \label{sec:gan_for_bss_considerations}
 
-Caso se saiba que um dado \textit{dataset} será muito utilizado para treinamentos da rede e seus dados não possuírem as especificações requeridas pela rede para ser utilizadas como entradas sem antes dependerem de um pré-processamento, é aconselhável realizar toda a etapa de pré-processamento uma única vez e salvar como um novo \textit{dataset} para futuras utilizações, pois, dependendo do caso, o tempo de pré-processamento pode ser consideravelmente alto e, se feito de forma insatisfatória, pode influenciar negativamente nos resultados a serem obtidos pela rede, o que não necessariamente serão por conta de uma má qualidade da rede em si; apesar de haver um pensamento que guia alguns pesquisadores e desenvolvedores a acreditar no poder do \textit{Deep Learning} suficientemente elevado a ponto de permitir à rede uma total independência de tratamentos prévios, uma boa etapa de pré-processamento continua sendo capaz de influenciar positivamente os resultados finais.
+Caso se saiba que um dado \textit{dataset} será muito utilizado para treinamentos da rede e seus dados não possuírem as especificações requeridas pela rede para ser utilizadas como entradas sem antes dependerem de um pré-processamento, é aconselhável realizar toda a etapa de pré-processamento uma única vez e salvar como um novo \textit{dataset} para futuras utilizações, pois, dependendo do caso, o tempo de pré-processamento pode ser consideravelmente alto e, se feito de forma insatisfatória, pode influenciar negativamente nos resultados a serem obtidos pela rede, o que não necessariamente será por conta de uma má qualidade da rede em si. Apesar de haver um pensamento que guia alguns pesquisadores e desenvolvedores a acreditar que o poder do \textit{Deep Learning} é suficientemente elevado a ponto de permitir à rede uma total independência de tratamentos prévios, uma boa etapa de pré-processamento continua sendo capaz de influenciar positivamente os resultados finais.
+
+Recomenda-se a utilização de GPUs para realizar o processamento deste tipo de arcabouço. Embora não haja evidências que sustentem a ideia de que os resultados seriam prejudicados apenas pelo fato de não serem utilizadas GPUs no processamento, porém, alguns problemas da rede só são constatáveis após um número significativo de épocas de processamento, o que pode levar dias de espera.
