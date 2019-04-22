@@ -1,6 +1,8 @@
 % !TEX root = main.tex
+
+\documentclass[logo, 12pt, a4paper, usenames, dvipsnames, onepage, oneside]{book}
 % \documentclass[logo, 12pt, a4paper, usenames, dvipsnames, twopage, oneside]{book}
-\documentclass[logo, 12pt, a4paper, usenames, dvipsnames, twopage, twoside]{book}
+% \documentclass[logo, 12pt, a4paper, usenames, dvipsnames, twopage, twoside]{book}
 
 \usepackage{silence}
 \WarningsOff*
@@ -856,15 +858,15 @@ overlay last={\draw[colexam,line width=1pt] ([xshift=-0.5pt]frame.north east)
 
 
 
-\makeatletter
-\renewcommand{\cleardoublepage}{
-\clearpage\ifodd\c@page\else
-\hbox{}
-\vspace*{\fill}
-\thispagestyle{empty}
-\newpage
-\fi}
-\makeatother
+% \makeatletter
+% \renewcommand{\cleardoublepage}{
+% \clearpage\ifodd\c@page\else
+% \hbox{}
+% \vspace*{\fill}
+% \thispagestyle{empty}
+% \newpage
+% \fi}
+% \makeatother
 
 
 
@@ -873,14 +875,14 @@ overlay last={\draw[colexam,line width=1pt] ([xshift=-0.5pt]frame.north east)
 
 
 
-\usepackage{afterpage}
+% \usepackage{afterpage}
 
-\newcommand\blankpage{
-    \null
-    \thispagestyle{empty}
-    \addtocounter{page}{-1}
-    \newpage
-    }
+% \newcommand\blankpage{
+%     \null
+%     \thispagestyle{empty}
+%     \addtocounter{page}{-1}
+%     \newpage
+%     }
 
 
 

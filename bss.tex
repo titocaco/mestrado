@@ -398,44 +398,44 @@ Para fins meramente ilustrativos, uma simulação foi elaborada para mostrar os 
 
 
 
-\begin{algorithm}[H]
-    \caption{Branqueamento de dados por PCA \citep{zafeiriou2015notes}.}
-    \label{alg:bss_whitening}
-    \begin{algorithmic}[1]
+% \begin{algorithm}[H]
+%     \caption{Branqueamento de dados por PCA \citep{zafeiriou2015notes}.}
+%     \label{alg:bss_whitening}
+%     \begin{algorithmic}[1]
 
-        \State Calcular o produto escalar matricial:
-        \begin{equation}
-            \mathbf{X}^{T}\mathbf{X} = \nsum_{i=1}^{N} \left(\mathbf{x}_{i}-\boldsymbol\mu\right)^{T}\left(\mathbf{x}_{i}-\boldsymbol\mu\right)
-        \end{equation}
+%         \State Calcular o produto escalar matricial:
+%         \begin{equation}
+%             \mathbf{X}^{T}\mathbf{X} = \nsum_{i=1}^{N} \left(\mathbf{x}_{i}-\boldsymbol\mu\right)^{T}\left(\mathbf{x}_{i}-\boldsymbol\mu\right)
+%         \end{equation}
 
-        \State Efetuar a auto-análise:
-        \begin{equation}
-            \mathbf{X}^{T}\mathbf{X} = \mathbf{V} \boldsymbol\Lambda \mathbf{V}^{T}
-        \end{equation}
+%         \State Efetuar a auto-análise:
+%         \begin{equation}
+%             \mathbf{X}^{T}\mathbf{X} = \mathbf{V} \boldsymbol\Lambda \mathbf{V}^{T}
+%         \end{equation}
 
-        \State Calcular os autovetores:
-        \begin{equation}
-            \mathbf{U} \leftarrow \mathbf{X} \mathbf{V} \boldsymbol\Lambda^{-\frac{1}{2}}
-        \end{equation}
+%         \State Calcular os autovetores:
+%         \begin{equation}
+%             \mathbf{U} \leftarrow \mathbf{X} \mathbf{V} \boldsymbol\Lambda^{-\frac{1}{2}}
+%         \end{equation}
 
-        \State Calcular as $d$ características:
-        \begin{equation}
-            \mathbf{Y} \leftarrow \mathbf{U_{d}}^{T} \mathbf{X}
-        \end{equation}
+%         \State Calcular as $d$ características:
+%         \begin{equation}
+%             \mathbf{Y} \leftarrow \mathbf{U_{d}}^{T} \mathbf{X}
+%         \end{equation}
 
-        \State Rearranjar a matriz de covariância de $\mathbf{Y}$:
-        \begin{equation}
-            \mathbf{Y} \mathbf{Y}^{T} = \mathbf{U}^{T} \mathbf{X} \mathbf{X}^{T} \mathbf{U} = \boldsymbol\Lambda
-        \end{equation}
+%         \State Rearranjar a matriz de covariância de $\mathbf{Y}$:
+%         \begin{equation}
+%             \mathbf{Y} \mathbf{Y}^{T} = \mathbf{U}^{T} \mathbf{X} \mathbf{X}^{T} \mathbf{U} = \boldsymbol\Lambda
+%         \end{equation}
 
-        \State Obter a matriz de projeção normalizadora:
-        \begin{equation}
-            \mathbf{W} \leftarrow \mathbf{U} \boldsymbol\Lambda^{-\frac{1}{2}}.
-        \end{equation}
+%         \State Obter a matriz de projeção normalizadora:
+%         \begin{equation}
+%             \mathbf{W} \leftarrow \mathbf{U} \boldsymbol\Lambda^{-\frac{1}{2}}.
+%         \end{equation}
 
-    \end{algorithmic}
+%     \end{algorithmic}
 
-\end{algorithm}
+% \end{algorithm}
 
 
 
