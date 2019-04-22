@@ -586,16 +586,20 @@ O método \textit{diagonalização conjunta aproximada de auto-matrizes} (\textb
 
 
 
+%   ----- OUTRAS ABORDAGENS -----
+\section{Outras Abordagens}
+\label{sec:bss_other_approaches}
+
+Contudo, apesar de técnicas de ICA serem algumas das mais utilizadas, a tarefa de separação de sinais não se limita a elas; diversas outras técnicas podem ser utilizadas com eficácia e eficiência em níveis bastante satisfatórios; alguns, inclusive, podem exibir comportamentos até bastante superiores, dependendo do cenário que tiver de ser tratado no problema.
+
+Embora tais abordagens estejam sendo trazidas em uma categoria à parte, isso não significa que se tratem de técnicas menos importantes, menos acuradas, menos eficazes, ou mesmo menos conhecidas; o único ponto é o fato de que, para os fins aos quais este trabalho em particular se referem, essas técnicas são consideradas secundárias e apenas estão sendo trazidas aqui como forma de reconhecer sua existência como alternativa às abordagens aqui escolhidas, independentemente dos motivos.
+
+Ao longo das próximas subseções, serão apresentadas as técnicas de \textit{análise de componentes esparsos} (Seção \ref{subsec:bss_sca}) e de \textit{fatoração de matrizes não-negativas} (Seção \ref{subsec:bss_nmf}); ambas bastante exploradas para a realização da tarefa de separação de fontes. Vale notar que, apesar de ambas as técnicas poderem ser exploradas para a mesma finalidade de se separar sinais que tenham passado por algum tipo de processo de mistura, as minúcias de cada uma das técnicas acabam sendo significativamente distintas, o que corrobora ainda mais a ideia de que um mesmo problema pode, sim, ser atacado por múltiplas abordagens.
 
 
-
-
-
-%   ---------------
 %   ----- SCA -----
-%   ---------------
-\section{Análise de Componentes Esparsos}
-\label{sec:bss_sca}
+\subsection{Análise de Componentes Esparsos}
+\label{subsec:bss_sca}
 
 Além da técnica ICA, existem outras técnicas que também efetuam uma análise de componentes e que podem ser exploradas com o intuito de se realizar a tarefa de separação de sinais; esta seção abordará mais especificamente a \textit{análise de componentes esparsos} (\textbf{SCA}, \textit{Sparse Component Analysis}). Contudo, antes mesmo de prosseguir para questões mais aprofundadas sobre tal técnica, pode ser importante começar explicando-se o significado de esparso. A ideia de esparsidade está intimamente relacionada à ideia de dispersão e distanciamento, podendo ser interpretada, portanto, como o oposto de densidade. A esparsidade pode, inclusive, ser quantificada, segundo o que se entende por grau de esparsidade de uma matriz.\\
 
@@ -630,28 +634,28 @@ Pela definição, em um cenário ideal, a matriz $M$ seria composta por valores 
 
 Em situações um pouco mais próximas ao que se encontra na realidade, as matrizes não são tão esparsas assim. Além de haver diversos elementos não nulos em posições que não sejam a diagonal principal, é possível que os próprios valores que devam ser considerados como nulos não sejam originalmente iguais a zero, o que dependeria de alguma técnica de pré-processamento que ajustasse tais valores com base em algum \textit{limiar} (\textit{Threshold}), podendo resultar em um aumento considerável da esparsidade da matriz. As técnicas de análise de componentes esparsos possuem características geométricas intrínsecas que as favorecem em casos de cenários subparametrizados \citep{theis2003linear}, ou seja, cenários em que o número de misturas observadas é inferior ao número de fontes.
 
-O Algoritmo \ref{alg:bss_sca} é uma versão bastante simplificada que explica sucintamente os quatro passos básicos essenciais de uma técnica de SCA. A versão simplificada pode ser útil para oferecer uma visão superficial do caminho a ser trilhado. Contudo, a explicação acerca de tal algoritmo ainda será um pouco mais aprofundada ainda nesta mesma seção; não haverá um detalhamento matemático muito rigoroso, mas serão fornecidas fontes de referência que poderão ser consultadas para o caso de os objetivos do leitor dependerem de tal abordagem. \\
+% O Algoritmo \ref{alg:bss_sca} é uma versão bastante simplificada que explica sucintamente os quatro passos básicos essenciais de uma técnica de SCA. A versão simplificada pode ser útil para oferecer uma visão superficial do caminho a ser trilhado. Contudo, a explicação acerca de tal algoritmo ainda será um pouco mais aprofundada ainda nesta mesma seção; não haverá um detalhamento matemático muito rigoroso, mas serão fornecidas fontes de referência que poderão ser consultadas para o caso de os objetivos do leitor dependerem de tal abordagem. \\
 
-\begin{algorithm}[H]
-    \caption{Versão simplificada da Análise de Componentes Esparsos (SCA) \citep{gribonval2006survey}.}
-    \label{alg:bss_sca}
-    \begin{algorithmic}[1]
+% \begin{algorithm}[H]
+%     \caption{Versão simplificada da Análise de Componentes Esparsos (SCA) \citep{gribonval2006survey}.}
+%     \label{alg:bss_sca}
+%     \begin{algorithmic}[1]
 
-        \State Aplicar transformação linear esparsificante à mistura.
+%         \State Aplicar transformação linear esparsificante à mistura.
 
-        \State Estimar $\bm{A}$ a partir da dispersão de $C_{\bm{x}}$.
+%         \State Estimar $\bm{A}$ a partir da dispersão de $C_{\bm{x}}$.
 
-        \State Estimar as representações da fonte.
+%         \State Estimar as representações da fonte.
 
-        \State Reconstruir as fontes a partir da inversa de uma transformação esparsificante.
+%         \State Reconstruir as fontes a partir da inversa de uma transformação esparsificante.
 
-    \end{algorithmic}
+%     \end{algorithmic}
 
-\end{algorithm}
+% \end{algorithm}
 
-Dando continuidade às explicações um pouco mais minuciosas sobre o SCA, tomando como base ainda o Algoritmo \ref{alg:bss_sca}, pode ser interessante começar pelo fato de que a análise será feita individualmente, uma a uma, para cada mistura observada; ou seja, caso haja três sinais observados resultantes de misturas, serão necessárias três execuções completas do algoritmo para que seja possível realizar a tarefa almejada de separação de sinais. Observe que a primeira etapa do algoritmo se refere à aplicação de uma transformação linear esparsificante à mistura observada, que é a entrada do algoritmo.
+% Dando continuidade às explicações um pouco mais minuciosas sobre o SCA, tomando como base ainda o Algoritmo \ref{alg:bss_sca}, pode ser interessante começar pelo fato de que a análise será feita individualmente, uma a uma, para cada mistura observada; ou seja, caso haja três sinais observados resultantes de misturas, serão necessárias três execuções completas do algoritmo para que seja possível realizar a tarefa almejada de separação de sinais. Observe que a primeira etapa do algoritmo se refere à aplicação de uma transformação linear esparsificante à mistura observada, que é a entrada do algoritmo.
 
-É muito comum que a escolha dessa transformação esparsificante seja feita entre \textit{transformada discreta Wavelet} (\textbf{DWT}, \textit{Discrete Wavelet Transform}) \citep{meyer1995wavelets, chui2016introduction}; e a \textit{transformada de Fourier de tempo curto} (\textbf{STFT}, \textit{Short-Time Fourier Transform}) \citep{1162950}. Mas, independentemente da escolha feita quanto a uma das ferramentas que realizarão o trabalho, os objetivos permanecem os mesmos e, assim como é discutido em \citep{bruns2004fourier}, as diferenças nem sempre chegam a ser relevantes.
+Parte importante desse processo depende do que se conhece por ser uma transformação espacificante; e é muito comum que a escolha dessa transformação esparsificante seja feita entre \textit{transformada discreta Wavelet} (\textbf{DWT}, \textit{Discrete Wavelet Transform}) \citep{meyer1995wavelets, chui2016introduction}; e a \textit{transformada de Fourier de tempo curto} (\textbf{STFT}, \textit{Short-Time Fourier Transform}) \citep{1162950}. Mas, independentemente da escolha feita quanto a uma das ferramentas que realizarão o trabalho, os objetivos permanecem os mesmos e, assim como é discutido em \citep{bruns2004fourier}, as diferenças nem sempre chegam a ser relevantes.
 
 \nomenclature{DWT}{\textit{Discrete Wavelet Transform}}
 \nomenclature{STFT}{\textit{Short-Time Foutier Transform}}
@@ -661,11 +665,10 @@ Dando continuidade às explicações um pouco mais minuciosas sobre o SCA, toman
 
 
 
-%   ---------------
+
 %   ----- NMF -----
-%   ---------------
-\section{Fatoração de Matrizes Não-Negativas}
-\label{sec:bss_nmf}
+\subsection{Fatoração de Matrizes Não-Negativas}
+\label{subsec:bss_nmf}
 
 Assim como ocorre com outros casos mencionados neste trabalho, a Fatoração de Matrizes Não Negativas (\textbf{NMF}, \textit{Non-Negative Matrix Factorization}), introduzida em \citep{1781640}, não se trata de um algoritmo em si; em vez disso, trata-se de uma técnica que pode ser compreendida de maneira quase autoexplicativa a partir de seu nome, ou seja, independentemente de qual seja o algoritmo para se atingir tal objetivo, a ideia é a de se obter duas matrizes de valores não negativos que, multiplicando-se uma pela outra, obtém-se a matriz resultante que se deseja representar ao fim. O objetivo de se efetuar tal processo de decomposição matricial é, principalmente, o de facilitar a análise dos resultados obtidos, mas cabe aqui ressaltar o fato de que nem todos os casos são plenamente solucionáveis. Pode ser preciso trabalhar com aproximações, mas isto não significa que os resultados sejam necessariamente imprecisos e inacurados.
 
